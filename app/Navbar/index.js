@@ -39,7 +39,7 @@ export default function Navbar() {
     <div className="relative">
       <div className='w-full bg-[#292732] z-30'>
         <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
-          <div className='flex flex-row justify-between h-45 px-6 py-[13px] pt-[30px]'>
+          <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px]'>
             <Image
               src="/SiteLogo-mobile.svg"
               alt="Logo"
@@ -51,7 +51,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <div className={`absolute top-[90px] w-full h-[275px] flex flex-col justify-between px-6 py-6 bg-[#292732] border-[1px] border-t-0 border-gray-500 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-300 z-10 ${menuOpen ? 'translate-y-0' : '-translate-y-[260px]'}`}>
+        <div className={`absolute top-[70px] w-full h-[250px] flex flex-col justify-between px-6 py-6 bg-[#292732] border-[1px] border-t-0 border-gray-500 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-300 z-10 ${menuOpen ? '-translate-y-6' : '-translate-y-[240px]'}`}>
           <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Our Why</Link>
           <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Services</Link>
           <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Pricing</Link>
