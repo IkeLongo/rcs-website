@@ -159,7 +159,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full justify-end inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-100px),transparent_100%)]">
-              <div className="flex pl-[19px] gap-[19px] animate-reverse-infinite-scroll" ref={optionsContainerRef2}>
+              <div className="flex pl-[19px] pt-1 gap-[19px] animate-reverse-infinite-scroll" ref={optionsContainerRef2}>
                 <Option 
                   icon="/Transformation Tool.svg"
                   title="Typography"
