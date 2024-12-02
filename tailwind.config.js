@@ -70,6 +70,20 @@ module.exports = {
         extrabold: 800,
         black: 900,
       },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+        'reverse-infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(100%)' },
+        }
+      },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 15s linear infinite',
+        'reverse-infinite-scroll': 'reverse-infinite-scroll 13s linear infinite',
+      },
     },
   },
   plugins: [],

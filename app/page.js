@@ -1,9 +1,29 @@
+"use client";
+
+import { useEffect, useRef } from 'react';
 import Navbar from './Navbar';
 import Do from './Components/Do';
+import Option from './Components/Options';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
 export default function Home() {
+  const optionsContainerRef1 = useRef(null);
+  const optionsContainerRef2 = useRef(null);
+
+  useEffect(() => {
+    const assignRef = (ref) => {
+      if (ref) {
+        const clone = ref.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        ref.parentNode.appendChild(clone);
+      }
+    };
+
+    assignRef(optionsContainerRef1.current);
+    assignRef(optionsContainerRef2.current);
+  }, []);
+
   return (
     <div className="relative h-[4199px] w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
       {/* Navbar */}
@@ -70,9 +90,9 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 p-6 flex flex-col items-center justify-center h-full">
-          <h2 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+          <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Why Choose Us
-          </h2>
+          </h3>
           <div className="w-[295px] h-[248px] mt-10 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px]">
             {/* Video Content */}
           </div>
@@ -81,13 +101,10 @@ export default function Home() {
 
       {/* Do Section */}
       <div className="relative w-full min-h-[596px] bg-transparent">
-        <div className="absolute w-full h-full">
-          
-        </div>
         <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
-          <h2 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+          <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             What We Do
-          </h2>
+          </h3>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-[19px] min-h-[470px]">
               <Do 
@@ -105,6 +122,65 @@ export default function Home() {
                 title="Hosting, Maintenance & Security "
                 description="Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business."
               />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Options Section */}
+      <div className="relative w-full min-h-[450px] bg-transparent">
+        <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
+          <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+            Options to Suit<br />Every Vision
+          </h3>
+          <div className="flex flex-col gap-10 w-full">
+            <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-100px),transparent_100%)]">
+              <div className="flex pr-[19px] gap-[19px] animate-infinite-scroll" ref={optionsContainerRef1}>
+                <Option 
+                  icon="/Api.svg"
+                  title="Integrations"
+                />
+                <Option 
+                  icon="/Bezier Tool.svg"
+                  title="Web Design"
+                />
+                <Option 
+                  icon="/Paint Swatches.svg"
+                  title="Branding"
+                />
+                <Option 
+                  icon="/Art Brush.svg"
+                  title="Logos"
+                />
+                <Option 
+                  icon="/Online Equalizer.svg"
+                  title="Maintenance"
+                />
+              </div>
+            </div>
+            <div className="w-full justify-end inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-100px),transparent_100%)]">
+              <div className="flex pr-[19px] gap-[19px] animate-reverse-infinite-scroll" ref={optionsContainerRef2}>
+                <Option 
+                  icon="/Transformation Tool.svg"
+                  title="Typography"
+                />
+                <Option 
+                  icon="/Mobile Profile.svg"
+                  title="Social Media"
+                />
+                <Option 
+                  icon="/Cloud Energy.svg"
+                  title="Web Hosting"
+                />
+                <Option 
+                  icon="/Criminal Record.svg"
+                  title="Web Security"
+                />
+                <Option 
+                  icon="/Source Page.svg"
+                  title="Development"
+                />
+              </div>
             </div>
           </div>
         </div>
