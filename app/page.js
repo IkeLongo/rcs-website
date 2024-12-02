@@ -25,7 +25,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="absolute left-[10%] top-[100%]">
+        <div className="absolute left-[10%] top-[80%]">
           <Image
             src="/home-hero-gif-blob.svg"
             alt="Hero gif background blob"
