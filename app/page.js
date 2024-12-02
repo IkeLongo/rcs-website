@@ -5,7 +5,7 @@ import {Button, ButtonGroup} from "@nextui-org/button";
 
 export default function Home() {
   return (
-    <div className="relative h-[4199px] w-full bg-cover bg-top bg-home-pattern">
+    <div className="relative h-[4199px] w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
       {/* Navbar */}
       <Navbar className="sticky top-0 z-50" />
 
@@ -88,7 +88,7 @@ export default function Home() {
           <h2 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             What We Do
           </h2>
-          <div className="overflow-x-auto w-full px-4">
+          <div className="overflow-x-auto w-full">
             <div className="flex gap-[19px] min-h-[470px]">
               <Do 
                 icon="/home-do-web.gif"
