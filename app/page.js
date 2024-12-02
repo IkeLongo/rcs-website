@@ -80,7 +80,7 @@ export default function Home() {
       </div>
 
       {/* Do Section */}
-      <div className="relative w-full h-[596px] bg-transparent">
+      <div className="relative w-full min-h-[596px] bg-transparent">
         <div className="absolute w-full h-full">
           
         </div>
@@ -88,22 +88,24 @@ export default function Home() {
           <h2 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             What We Do
           </h2>
-          <div className='flex justify-center items-center gap-[19px] overflow-x-auto p-4'>
-            <Do 
-              icon="/home-do-web.gif"
-              title="Website Design & Development"
-              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
-            />
-            <Do 
-              icon="/home-do-web.gif"
-              title="Website Design & Development"
-              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
-            />
-            <Do 
-              icon="/home-do-web.gif"
-              title="Website Design & Development"
-              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
-            />
+          <div className="overflow-x-auto w-full px-4">
+            <div className="flex gap-[19px] min-h-[510px]">
+              <Do 
+                icon="/home-do-web.gif"
+                title="Website Design & Development"
+                description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+              />
+              <Do 
+                icon="/home-do-web.gif"
+                title="Website Design & Development"
+                description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+              />
+              <Do 
+                icon="/home-do-web.gif"
+                title="Website Design & Development"
+                description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+              />
+            </div>
           </div>
         </div>
       </div>

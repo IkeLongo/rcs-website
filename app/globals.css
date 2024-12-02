@@ -22,5 +22,4 @@ html, body {
   padding: 0; /* Ensure no default padding */
   height: 100vh; /* Ensure body covers full viewport height */
   width: 100vw; /* Ensure body covers full viewport width */
-  overflow-x: hidden; /* Prevent horizontal overflow */
 }
