@@ -82,7 +82,7 @@ module.exports = {
       },
       animation: {
         'infinite-scroll': 'infinite-scroll 15s linear infinite',
-        'reverse-infinite-scroll': 'reverse-infinite-scroll 13s linear infinite',
+        'reverse-infinite-scroll': 'reverse-infinite-scroll 15s linear infinite',
       },
     },
   },
