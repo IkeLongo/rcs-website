@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <div className="relative">
-      <div className='w-full bg-[#292732] z-30'>
+      <div className='w-full align-center bg-[#292732] z-30 sticky top-0'>
         <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
           <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px]'>
             <Image
