@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Do from './Components/Do';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
@@ -73,7 +74,36 @@ export default function Home() {
             Why Choose Us
           </h2>
           <div className="w-[295px] h-[248px] mt-10 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px]">
-            {/* Content for the Why section */}
+            {/* Video Content */}
+          </div>
+        </div>
+      </div>
+
+      {/* Do Section */}
+      <div className="relative w-full h-[596px] bg-transparent">
+        <div className="absolute w-full h-full">
+          
+        </div>
+        <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
+          <h2 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+            What We Do
+          </h2>
+          <div className='flex justify-center items-center gap-[19px] overflow-x-auto p-4'>
+            <Do 
+              icon="/home-do-web.gif"
+              title="Website Design & Development"
+              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+            />
+            <Do 
+              icon="/home-do-web.gif"
+              title="Website Design & Development"
+              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+            />
+            <Do 
+              icon="/home-do-web.gif"
+              title="Website Design & Development"
+              description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+            />
           </div>
         </div>
       </div>

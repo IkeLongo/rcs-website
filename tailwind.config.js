@@ -10,6 +10,7 @@ module.exports = {
       backgroundImage: {
         'home-pattern': "url('/Backgrounds.svg')",
         'footer-texture': "url('/img/footer-texture.png')",
+        'do-custom-gradient': 'linear-gradient(170deg, #292732 50.24%, #3C2F58 153.54%)',
       },
       colors: {
         background: "var(--background)",
@@ -56,6 +57,7 @@ module.exports = {
       fontFamily: {
         'maven-pro': ['"Maven Pro"', 'sans-serif'],
         'gentium-book-plus': ['"Gentium Book Plus"', 'serif'],
+        'harmattan': ['"Harmattan"', 'sans-serif'],
       },
       fontWeight: {
         thin: 100,
