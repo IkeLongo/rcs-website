@@ -31,7 +31,7 @@ module.exports = {
           700: '#4054AD',
           800: '#304089',
         },
-        baby_blue: {
+        babyblue: {
           300: '#C3EDFF',
           500: '#80D8FE',
           700: '#40BCF2',
@@ -55,6 +55,7 @@ module.exports = {
       },
       fontFamily: {
         'maven-pro': ['"Maven Pro"', 'sans-serif'],
+        'gentium-book-plus': ['"Gentium Book Plus"', 'serif'],
       },
       fontWeight: {
         thin: 100,
