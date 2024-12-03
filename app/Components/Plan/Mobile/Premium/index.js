@@ -7,7 +7,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
     <div className="flex h-auto items-center gap-[40px] justify-center">
       <div className="flex flex-col w-[250px] h-[506px] justify-start bg-mobile-premium-bg bg-center bg-cover">
         <div className="relative z-10 flex items-center justify-center self-end uppercase w-[99px] h-[22px] bg-white rounded-[20px] mx-10 my-7">
-          <p className="uppercase font-maven-pro font-semibold text-center text-[8px] text-blue-500">Most Popular</p>
+          <p className="uppercase font-maven-pro font-semibold text-center text-[8px] text-blue-500 py-2">Most Popular</p>
         </div>
 
         <div className='flex flex-col items-stretch h-[447px] pb-16'>
