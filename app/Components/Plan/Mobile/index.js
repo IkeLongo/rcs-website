@@ -4,12 +4,15 @@ import NormalCard from './Normal';
 
 export default function Mobile({ selectedIndex }) {
   const scrollContainerRef = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(null);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.scrollLeft = scrollPosition || (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
+    if (scrollContainer && scrollPosition === null) {
+      // Set initial scroll position to center
+      const initialScrollPosition = (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
+      scrollContainer.scrollLeft = initialScrollPosition;
+      setScrollPosition(initialScrollPosition);
     }
   }, [scrollPosition]);
 
@@ -123,7 +126,6 @@ export default function Mobile({ selectedIndex }) {
         <div className="flex min-w-full">
           <NormalCard
             monthlyPrice={99}
-            totalPrice="2,400"
             planName="Base"
             planDescription="Affordable website maintenance to keep your website running smoothly without the stress."
             features={[
@@ -138,7 +140,6 @@ export default function Mobile({ selectedIndex }) {
           />
           <PremiumCard
             monthlyPrice="219"
-            totalPrice="12,000"
             planName="Pro"
             planDescription="Enhanced maintenance and hosting with more support for growing sites."
             features={[
@@ -153,7 +154,6 @@ export default function Mobile({ selectedIndex }) {
           />
           <NormalCard
             monthlyPrice="599"
-            totalPrice="18,000"
             planName="Enterprise"
             planDescription="Comprehensive hosting and care for websites that demand top-tier performance."
             features={[

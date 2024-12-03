@@ -20,11 +20,13 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
                 /month
               </p>
             </div>
-            <div className='-mt-1'>
-              <p className='font-maven-pro text-gray-300 text-[11px]'>
-                ${totalPrice} Total
-              </p>
-            </div>
+            {totalPrice && (
+              <div className='-mt-1'>
+                <p className='font-maven-pro text-gray-300 text-[11px]'>
+                  ${totalPrice} Total
+                </p>
+              </div>
+            )}
             <div className='flex flex-col pt-2 grow'>
               <h4 className='self-stretch font-maven-pro text-[20px] text-[#231D4F] font-semibold'>
                 {planName}

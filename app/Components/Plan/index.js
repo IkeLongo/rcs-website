@@ -9,6 +9,21 @@ export default function Plan( { commitmentTerm, commitmentDescription }) {
     setSelectedIndex(index);
   };
 
+  const serviceDetails = [
+    {
+      commitmentTerm: "12-Month Commitment",
+      commitmentDescription: "Distribute the cost of full-scale web design and development solutions into 12 monthly payments for financial flexibility",
+    },
+    {
+      commitmentTerm: "12-Month Commitment",
+      commitmentDescription: "Distribute the cost of full-scale branding solutions into 12 monthly payments for financial flexibility.",
+    },
+    {
+      commitmentTerm: "Month-to-Month",
+      commitmentDescription: "Enjoy the freedom of a month-to-month commitment tailored to your immediate needs.",
+    },
+  ];
+
 	return (
     <div>
       <div className="flex flex-col justify-center items-center">
@@ -48,10 +63,10 @@ export default function Plan( { commitmentTerm, commitmentDescription }) {
         </div>
         <div className="flex flex-col px-4 justify-center items-center gap-[10px] selft-stretch">
           <h4 className='font-maven-pro text-[16px] font-bold text-gray-200 text-center pt-[29px]'>
-            {commitmentTerm}
+            {serviceDetails[selectedIndex].commitmentTerm}
           </h4>
           <p className='font-avenir text-center text-[14px] pb-[30px]'>
-            {commitmentDescription}
+            {serviceDetails[selectedIndex].commitmentDescription}
           </p>
         </div>
       </div>
