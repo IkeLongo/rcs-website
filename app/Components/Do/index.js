@@ -11,13 +11,13 @@ export default function Do({ icon, title, description }) {
 					height={60.25}
 					className=""
 				/>
-				<h3 className="font-gentium-book-plus text-white text-[16px] font-bold text-center">{title}</h3>
+				<h3 className="font-gentium-book-plus text-white text-[18px] font-bold text-center">{title}</h3>
 			</div>
-			<p className="font-harmattan text-center text-[16px] flex-grow">
+			<p className="font-avenir text-center text-[14px] flex-grow">
 				{description}
 			</p>
 			<div className='flex justify-center gap-1'>
-				<p className='font-harmattan uppercase text-[14px]'>
+				<p className='font-avenir uppercase text-[14px]'>
 					Learn More
 				</p>
 				<Image 

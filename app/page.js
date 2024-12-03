@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Navbar from './Navbar';
 import Do from './Components/Do';
 import Option from './Components/Options';
+import Plan from './Components/Plan';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <div className="relative h-[4199px] w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
       {/* Navbar */}
-      <Navbar className="sticky top-0 z-50" />
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative w-full h-[800px]">
@@ -184,6 +185,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Plan Section */}
+      <div className="relative w-full min-h-[450px] bg-transparent">
+        <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
+          <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+            Choose Your Right Plan
+          </h3>
+          <p className='font-avenir text-center text-[14px]'>
+            Select from our best plans according to the service you<br />need. Need more or less? Book a call to discuss a custom<br />subscription for a seamless fit. 
+          </p>
+        </div>
+        <Plan 
+          commitmentTerm="12-Month Commitment"
+          commitmentDescription="Distribute the cost of full-scale we design and development solutions into 12 monthly payments for financial flexibility."
+        />
       </div>
     </div>
   );

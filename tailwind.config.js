@@ -11,10 +11,13 @@ module.exports = {
         'home-pattern': "url('/Backgrounds.svg')",
         'footer-texture': "url('/img/footer-texture.png')",
         'do-custom-gradient': 'linear-gradient(170deg, #292732 50.24%, #3C2F58 153.54%)',
+        'mobile-premium-bg': "url('/mobile-premium-bg.svg')",
+        'mobile-normal-bg': "url('/mobile-normal-bg.svg')",
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        bluegradient: 'var(--Blue-Gradient, linear-gradient(169deg, #90A6E2 -26.67%, #0096C0 127.92%))',
         green: {
           200: '#D5FEEE',
           300: '#65EDB7',
@@ -31,6 +34,7 @@ module.exports = {
           500: '#7985CC',
           700: '#4054AD',
           800: '#304089',
+          900: '#231D4F',
         },
         babyblue: {
           300: '#C3EDFF',
@@ -57,7 +61,8 @@ module.exports = {
       fontFamily: {
         'maven-pro': ['"Maven Pro"', 'sans-serif'],
         'gentium-book-plus': ['"Gentium Book Plus"', 'serif'],
-        'harmattan': ['"Harmattan"', 'sans-serif'],
+        'avenir': ['"Avenir LT Std"', 'sans-serif'],
+        'source-sans-pro': ['"Source Sans Pro"', 'sans-serif'],
       },
       fontWeight: {
         thin: 100,
@@ -81,8 +86,8 @@ module.exports = {
         }
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 15s linear infinite',
-        'reverse-infinite-scroll': 'reverse-infinite-scroll 15s linear infinite',
+        'infinite-scroll': 'infinite-scroll 20s linear infinite',
+        'reverse-infinite-scroll': 'reverse-infinite-scroll 20s linear infinite',
       },
     },
   },
