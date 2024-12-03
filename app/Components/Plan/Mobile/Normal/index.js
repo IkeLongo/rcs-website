@@ -34,7 +34,7 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
               </p>
               <div className='flex flex-col py-4 justify-between grow'>
                 {features.map((feature, index) => (
-                <div key={index} className='flex gap-2 items-center pr-10'>
+                <div key={index} className='flex gap-2 items-center pr-10 leading-4'>
                   <Image 
                     src="/normal-checkmark.svg"
                     alt="Checkmark"

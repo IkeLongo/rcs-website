@@ -55,7 +55,7 @@ export default function Plan( { commitmentTerm, commitmentDescription }) {
           </p>
         </div>
       </div>
-      <Mobile />
+      <Mobile selectedIndex={selectedIndex} />
     </div>
   );
 }

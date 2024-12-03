@@ -34,7 +34,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
               </p>
               <div className='flex flex-col py-4 justify-between grow'>
                 {features.map((feature, index) => (
-                  <div key={index} className='flex gap-2 items-center'>
+                  <div key={index} className='flex gap-2 items-center pr-10'>
                     <Image 
                       src="/premium-checkmark.svg"
                       alt="Checkmark"
@@ -42,7 +42,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                       height={15}
                       className=""
                     />
-                    <p className='font-maven-pro text-gray-200 text-[12px] capitalize'>
+                    <p className='font-maven-pro text-gray-200 text-[12px] capitalize leading-4'>
                       {feature}
                     </p>
                   </div>
