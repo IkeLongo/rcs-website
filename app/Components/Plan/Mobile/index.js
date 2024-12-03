@@ -13,7 +13,7 @@ export default function Mobile() {
   }, []);
 
 	return (
-    <div className="flex overflow-x-auto mx-[24px]" ref={scrollContainerRef}>
+    <div className="flex overflow-x-auto overflow-y-auto mx-[24px]" ref={scrollContainerRef}>
       <div className="flex min-w-full">
         <NormalCard
           monthlyPrice={300}
