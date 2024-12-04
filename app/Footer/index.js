@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
 
   return (
-    <div className="relative w-full h-auto shrink-0 px-5 bg-footer-bg-gradient">
+    <div className="relative w-full h-auto shrink-0 px-5 bg-footer-bg-gradient pb-1">
       <div className="w-full inline-flex justify-between">
         <Image
           src="/SiteLogo-mobile.svg"
