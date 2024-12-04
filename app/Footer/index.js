@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
 
   return (
-    <div className="relative w-full h-auto shrink-0 px-5 bg-footer-bg-gradient pb-1">
+    <div className="relative w-full h-auto shrink-0 px-8 bg-footer-bg-gradient pb-1">
       <div className="w-full inline-flex justify-between">
         <Image
           src="/SiteLogo-mobile.svg"
@@ -16,6 +16,7 @@ export default function Footer() {
           alt="Mobile Application Developer"
           width={152}
           height={142}
+          className="-mr-4"
         />
       </div>
       <div className="flex flex-col gap-[46px]">
