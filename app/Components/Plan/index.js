@@ -25,7 +25,7 @@ export default function Plan( { commitmentTerm, commitmentDescription }) {
   ];
 
 	return (
-    <div>
+    <div className='pb-16'>
       <div className="flex flex-col justify-center items-center">
         <div className="flex w-[385px] p-[3px] items-center gap-4 bg-[#F1F1F1] rounded-[12px]">
           <div className='flex justify-between items-center flex-auto'>
