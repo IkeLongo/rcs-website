@@ -6,7 +6,7 @@ export default function Hero() {
 
   return (
     <div className="relative flex flex-col w-full h-[775px] overflow-x-hidden">
-      <div className="absolute right-0 -top-16 w-full h-full flex justify-end bg-service-hero-blob bg-center bg-cover overflow-x-hidden">
+      <div className="absolute right-0 -top-16 w-full h-full flex justify-end bg-service-hero-blob bg-center bg-cover overflow-x-hidden pb-16">
       </div>
       <div className="relative flex flex-col w-full h-full overflow-x-hidden">
         <div className="absolute -right-4 top-6 w-full h-auto flex justify-end transform rotate--4.961 overflow-x-hidden">
