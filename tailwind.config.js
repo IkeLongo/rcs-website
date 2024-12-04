@@ -14,6 +14,8 @@ module.exports = {
         'mobile-premium-bg': "url('/mobile-premium-bg.svg')",
         'mobile-normal-bg': "url('/mobile-normal-bg.svg')",
         'footer-bg-gradient': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 0.50) 0%, rgba(41, 39, 50, 0.50) 100%)',
+        'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
+        'service-hero-blob': "url('/service-hero-background-blob.svg')",
       },
       colors: {
         background: "var(--background)",
@@ -90,6 +92,9 @@ module.exports = {
       animation: {
         'infinite-scroll': 'infinite-scroll 20s linear infinite',
         'reverse-infinite-scroll': 'reverse-infinite-scroll 20s linear infinite',
+      },
+      rotate: {
+        '-4.961': '-4.961deg',
       },
     },
   },
