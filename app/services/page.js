@@ -5,7 +5,7 @@ import Footer from '../Footer';
 export default function Services() {
 
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       {/* Navbar */}
       <Navbar />
 
