@@ -13,6 +13,7 @@ module.exports = {
         'do-custom-gradient': 'linear-gradient(170deg, #292732 50.24%, #3C2F58 153.54%)',
         'mobile-premium-bg': "url('/mobile-premium-bg.svg')",
         'mobile-normal-bg': "url('/mobile-normal-bg.svg')",
+        'footer-bg-gradient': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 0.50) 0%, rgba(41, 39, 50, 0.50) 100%)',
       },
       colors: {
         background: "var(--background)",
@@ -63,6 +64,7 @@ module.exports = {
         'gentium-book-plus': ['"Gentium Book Plus"', 'serif'],
         'avenir': ['"Avenir LT Std"', 'sans-serif'],
         'source-sans-pro': ['"Source Sans Pro"', 'sans-serif'],
+        'roboto': ['"Roboto"', 'sans-serif'],
       },
       fontWeight: {
         thin: 100,

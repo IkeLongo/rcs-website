@@ -13,7 +13,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
         <div className='flex flex-col items-stretch h-[447px] pb-20'>
           <div className='pl-12 flex flex-col self-stretch grow'>
             <div className='flex gap-1 items-end -mt-6'>
-              <p className='font-maven-pro text-white text-[20px] font-semibold'>
+              <p className='font-maven-pro text-white text-[20px] font-semibold fade-text'>
                 ${monthlyPrice}
               </p>
               <p className='font-maven-pro text-gray-200 text-[11px] pb-1'>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PremiumCard from './Premium';
 import NormalCard from './Normal';
 
@@ -79,7 +80,7 @@ export default function Mobile({ selectedIndex }) {
           <NormalCard
             monthlyPrice={200}
             totalPrice="2,400"
-            planName="Branding"
+            planName="Base"
             planDescription="Perfect for individuals or businesses with no branding who want to establish a professional image."
             features={[
               "Primary Logo Design",

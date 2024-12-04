@@ -12,7 +12,7 @@ export default function Plan( { commitmentTerm, commitmentDescription }) {
   const serviceDetails = [
     {
       commitmentTerm: "12-Month Commitment",
-      commitmentDescription: "Distribute the cost of full-scale web design and development solutions into 12 monthly payments for financial flexibility",
+      commitmentDescription: "Distribute the cost of full-scale web design and development solutions into 12 monthly payments for financial flexibility.",
     },
     {
       commitmentTerm: "12-Month Commitment",

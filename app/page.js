@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Do from './Components/Do';
 import Option from './Components/Options';
 import Plan from './Components/Plan';
+import Footer from './Footer';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
@@ -26,7 +27,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative h-[4199px] w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
+    <div className="relative h-auto w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
       {/* Navbar */}
       <Navbar />
 
@@ -202,6 +203,9 @@ export default function Home() {
           commitmentDescription="Distribute the cost of full-scale we design and development solutions into 12 monthly payments for financial flexibility."
         />
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
