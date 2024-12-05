@@ -44,7 +44,9 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
           className="object-contain"
         />
         <h1
-          className='font-maven-pro text-center font-bold text-[24px] text-gray-900'
+          className={`font-maven-pro text-center font-bold ease-in-out duration-700 ${
+            isHalfway ? 'text-[28px]' : 'text-[24px]'
+          } text-gray-900`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
