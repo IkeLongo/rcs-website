@@ -2,11 +2,11 @@
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
-export default function Hero() {
+export default function Process() {
 
   return (
     <div className="relative flex flex-col w-full h-[775px] overflow-x-hidden">
-      <div className="absolute -top-16 w-full h-full flex self-end bg-service-hero-blob bg-right bg-auto bg-no-repeat overflow-x-hidden">
+      <div className="absolute -top-16 w-full h-full flex self-end bg-service-hero-blob bg-right bg-auto bg-no-repeat overflow-x-hidden -mr-1">
       </div>
       <div className="relative flex flex-col w-full h-full overflow-x-hidden">
         <div className="absolute -right-4 top-6 w-full h-auto flex justify-end transform rotate--4.961 overflow-x-hidden">
@@ -16,7 +16,9 @@ export default function Hero() {
             layout="intrinsic"
             width={311} // Adjust the width as needed
             height={491.44} // Adjust the height as needed
-            className="object-contain top-0"
+            className="object-contain"
+            priority // Preload this image
+            loading="eager" // Load this image eagerly
           />
         </div>
         <div className="absolute right-20 top-20 w-full h-auto flex justify-end">
@@ -27,6 +29,8 @@ export default function Hero() {
             width={100} // Adjust the width as needed
             height={89} // Adjust the height as needed
             className="object-contain"
+            priority // Preload this image
+            loading="eager" // Load this image eagerly
           />
         </div>
         <div className="absolute right-40 top-96 w-full h-auto flex justify-end">
@@ -37,6 +41,8 @@ export default function Hero() {
             width={60} // Adjust the width as needed
             height={60} // Adjust the height as needed
             className="object-contain"
+            priority // Preload this image
+            loading="eager" // Load this image eagerly
           />
         </div>
         <div className="absolute right-4 bottom-60 w-full h-auto flex justify-end">
@@ -47,6 +53,8 @@ export default function Hero() {
             width={141} // Adjust the width as needed
             height={141} // Adjust the height as needed
             className="object-contain"
+            priority // Preload this image
+            loading="eager" // Load this image eagerly
           />
         </div>
         <div className="absolute right-36 bottom-52 w-full h-auto flex justify-end">
@@ -57,6 +65,8 @@ export default function Hero() {
             width={225} // Adjust the width as needed
             height={130} // Adjust the height as needed
             className="object-contain"
+            priority // Preload this image
+            loading="eager" // Load this image eagerly
           />
         </div>
         <div className="absolute w-[336px] top-48 right-6 w-full h-auto flex flex-col self-end gap-4">
