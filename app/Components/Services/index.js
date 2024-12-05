@@ -1,5 +1,6 @@
 import LightBlueBlock from "./light-blue-block";
 import DarkBlueBlock from "./dark-blue-block";
+import InfoBlock from "./info-block";
 
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
@@ -31,6 +32,7 @@ export default function ServiceBlocks({  }) {
         bgImageClass="bg-service-mobile-hosting-bg"
         blockId="block-3"
       />
+      <InfoBlock />
     </div>
   );
 }

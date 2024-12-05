@@ -40,7 +40,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
           alt={iconDescription}
           layout="intrinsic"
           width={iconWidth} // Adjust the width as needed
-          height={iconWidth} // Adjust the height as needed to maintain aspect ratio
+          height={51} // Adjust the height as needed to maintain aspect ratio
           className="object-contain"
         />
         <h1

@@ -1,0 +1,8 @@
+/* styles.css */
+.hover-bounce:hover .icon-bounce {
+  @apply animate-bounce;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
