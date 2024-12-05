@@ -31,7 +31,7 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
     <div className={`flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center`}>
       <div
         id={blockId}
-        className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ${
+        className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
           isHalfway ? 'bg-darkblueoverlay' : 'bg-babyblue-700'
         }`}
       >

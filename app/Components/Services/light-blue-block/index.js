@@ -31,7 +31,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
     <div className={`flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center`}>
       <div
         id={blockId}
-        className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ${
+        className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
           isHalfway ? 'bg-babyblueoverlay' : 'bg-babyblue-500'
         }`}
       >
