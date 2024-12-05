@@ -16,11 +16,16 @@ module.exports = {
         'footer-bg-gradient': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 0.50) 0%, rgba(41, 39, 50, 0.50) 100%)',
         'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
         'service-hero-blob': "url('/service-hero-background-blob.svg')",
+        'service-mobile-webdev-bg': "url('/service-webdev-mobile-bg.png')",
+        'service-mobile-branding-bg': "url('/service-mobile-branding-bg.png')",
+        'service-mobile-hosting-bg': "url('/service-mobile-hosting-bg.png')",
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         bluegradient: 'var(--Blue-Gradient, linear-gradient(169deg, #90A6E2 -26.67%, #0096C0 127.92%))',
+        babyblueoverlay: 'rgba(128, 216, 254, 0.85)',
+        darkblueoverlay: 'rgba(64, 188, 242, 0.85)',
         green: {
           200: '#D5FEEE',
           300: '#65EDB7',

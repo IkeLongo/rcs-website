@@ -1,6 +1,7 @@
 import Navbar from '../Navbar';
 import Hero from './hero';
 import Process from './process';
+import ServiceBlocks from '../Components/Services';
 import Footer from '../Footer';
 
 export default function Services() {
@@ -15,6 +16,9 @@ export default function Services() {
 
       {/* Process */}
       <Process />
+
+      {/* Service Block */}
+      <ServiceBlocks />
 
       {/* Footer */}
       <Footer />
