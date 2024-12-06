@@ -108,22 +108,28 @@ export default function Home() {
             What We Do
           </h3>
           <div className="overflow-x-scroll scroll-smooth w-full">
-            <div className="flex gap-[19px] min-h-[470px]">
-              <Do 
-                icon="/home-do-web.gif"
-                title="Website Design & Development"
-                description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
-              />
-              <Do 
-                icon="/home-do-brand.gif"
-                title="Branding & Visual Identity Systems"
-                description="Our Branding & Visual Identity Systems package creates a cohesive identity that resonates with your audience. From custom logos to color palettes and iconography, we build a distinctive visual story to elevate your brand and leave a lasting impression across all platforms."
-              />
-              <Do 
-                icon="/home-do-host.gif"
-                title="Hosting, Maintenance & Security "
-                description="Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business."
-              />
+            <div className="flex gap-[19px] min-h-[470px] snap-x">
+              <div className="snap-start">
+                <Do 
+                  icon="/home-do-web.gif"
+                  title="Website Design & Development"
+                  description="Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices."
+                />
+              </div>
+              <div className="snap-center">
+                <Do 
+                  icon="/home-do-brand.gif"
+                  title="Branding & Visual Identity Systems"
+                  description="Our Branding & Visual Identity Systems package creates a cohesive identity that resonates with your audience. From custom logos to color palettes and iconography, we build a distinctive visual story to elevate your brand and leave a lasting impression across all platforms."
+                />
+              </div>
+              <div className="snap-end">
+                <Do 
+                  icon="/home-do-host.gif"
+                  title="Hosting, Maintenance & Security"
+                  description="Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business."
+                />
+              </div>
             </div>
           </div>
         </div>
