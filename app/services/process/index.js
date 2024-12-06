@@ -1,7 +1,38 @@
+"use client";
+
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 
-export default function Hero() {
+export default function Process() {
+  const scrollToId = (id) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+  
+    const duration = 1000; // Duration in milliseconds
+    const start = window.scrollY;
+    const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+    const distance = targetPosition - start;
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+  
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+  
+    const scroll = () => {
+      const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, start, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(scroll);
+      }
+    };
+  
+    requestAnimationFrame(scroll);
+  };
 
   return (
     <div className=''>
@@ -12,9 +43,9 @@ export default function Hero() {
           </p>
         </div>
         <div className="flex flex-col gap-4">
-          <a href="#section1" className="text-gray-800 font-bold text-[15px] font-maven-pro">Website Design & Development</a>
-          <a href="#section2" className="text-gray-800 font-bold text-[15px] font-maven-pro">Branding & Visual Identity Systems</a>
-          <a href="#section3" className="text-gray-800 font-bold text-[15px] font-maven-pro">Hosting, Maintenance & Security</a>
+          <a href="#block-1" className="text-gray-800 font-bold text-[15px] font-maven-pro" onClick={(e) => { e.preventDefault(); scrollToId('block-1'); }}>Website Design & Development</a>
+          <a href="#block-2" className="text-gray-800 font-bold text-[15px] font-maven-pro" onClick={(e) => { e.preventDefault(); scrollToId('block-2'); }}>Branding & Visual Identity Systems</a>
+          <a href="#block-3" className="text-gray-800 font-bold text-[15px] font-maven-pro" onClick={(e) => { e.preventDefault(); scrollToId('block-3'); }}>Hosting, Maintenance & Security</a>
         </div>
       </div>
       <div className="relative flex flex-col w-full h-auto px-4 pt-[150px] pb-[50px] gap-14 bg-gray-800 overflow-x-hidden z-5">

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button, ButtonGroup } from "@nextui-org/button";
 
-export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId }) {
+export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId, onClick }) {
   const [isHalfway, setIsHalfway] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
   }, [blockId]);
 
   return (
-    <div className={`flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center`}>
+    <div className={`flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center cursor-pointer`} onClick={onClick}>
       <div
         id={blockId}
         className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${

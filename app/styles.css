@@ -29,3 +29,129 @@
   border: none !important;
   transition: border 0s; /* Immediate switch */
 }
+
+@keyframes slideOutToBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(120%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-130%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.initial-offscreen {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.initial-offscreen-y {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slide-out-bottom {
+  animation: slideOutToBottom 0.9s forwards;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 700ms forwards;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+.delay-7 {
+  animation-delay: 0.7s;
+}
+
+.delay-8 {
+  animation-delay: 0.8s;
+}
+
+.delay-9 {
+  animation-delay: 900ms;
+}
+
+.delay-10 {
+  animation-delay: 1000ms;
+}
+
+.slide-out-left-0 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 0ms;
+}
+
+.slide-out-left-1 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 100ms;
+}
+
+.slide-out-left-2 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 200ms;
+}
+
+.slide-out-left-3 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 300ms;
+}
+
+.slide-out-left-4 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 400ms;
+}
+
+.slide-out-left-5 {
+  animation: slideOutToLeft 700ms forwards;
+  animation-delay: 500ms;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.9s forwards;
+}
+
+.info-block-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hover-section:hover .hover-text-babyblue-500 {
+  color: #80D8FE; /* Replace with the actual babyblue-500 color */
+  transition: color 0s; /* Immediate transition */
+}

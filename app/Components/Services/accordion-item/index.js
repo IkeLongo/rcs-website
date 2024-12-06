@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from "@nextui-org/button";
 import '../../../styles.css'
 
-export default function AccordionItem({ iconRoute, iconDescription, title, description }) {
+export default function AccordionItem({ iconRoute, iconDescription, title, description, className }) {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
 
@@ -22,8 +22,8 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
   }, [isOpen]);
 
   return (
-    <div className='flex flex-col w-full'>
-      <div className={`flex w-full py-[15px] justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} cursor-pointer hover:text-babyblue-500 hover-bounce`} onClick={toggleAccordion}>
+    <div className={`flex flex-col w-full cursor-pointer hover-section ${className}`} onClick={toggleAccordion}>
+      <div className={`flex w-full py-[15px] justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} hover:text-babyblue-500 hover-bounce`}>
         <div className='flex gap-[10px]'>
           <Image
             src={iconRoute}
@@ -33,7 +33,7 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
             height={25} // Adjust the height as needed to maintain aspect ratio
             className="object-contain"
           />
-          <p className={`text-center font-gentium-book-plus text-[16px] italic ${isOpen ? 'text-babyblue-500' : ''}`}>
+          <p className={`text-center font-gentium-book-plus text-[16px] italic ${isOpen ? 'text-babyblue-500' : 'hover-text-babyblue-500'}`}>
             {title}
           </p>
         </div>

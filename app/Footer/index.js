@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="relative w-full h-auto shrink-0 px-8 bg-footer-bg-gradient pb-1">
+    <div className="relative w-full h-auto shrink-0 px-8 bg-footer-bg-gradient pb-1 z-50">
       <div className="flex w-full inline-flex justify-between items-center">
         <Image
           src="/SiteLogo-mobile.svg"
