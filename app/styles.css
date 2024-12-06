@@ -6,3 +6,26 @@
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* Adjust this value based on your content's maximum height */
+}
+
+.accordion-header {
+  transition: border 0.5s ease-out;
+}
+
+.accordion-header.closing {
+  transition: border 0.5s ease-out 0.5s; /* Adjust the delay to match the animation duration */
+}
+
+.accordion-header.no-border {
+  border: none !important;
+  transition: border 0s; /* Immediate switch */
+}

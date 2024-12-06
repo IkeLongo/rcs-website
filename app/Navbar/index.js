@@ -39,13 +39,15 @@ export default function Navbar() {
     <div className="relative z-30 sticky top-0">
       <div className='w-full align-center bg-[#292732] z-30 sticky top-0'>
         <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
-          <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px]'>
-            <Image
-              src="/SiteLogo-mobile.svg"
-              alt="Logo"
-              width={100}
-              height={100}
-            />
+          <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
+            <Link href="/">
+              <Image
+                src="/SiteLogo-mobile.svg"
+                alt="Logo"
+                width={100}
+                height={100}
+              />
+            </Link>
             <div onClick={toggleMenu} className="cursor-pointer" id="menu-icon" style={{ height: '50px', width: '50px' }}>
               {/* The Lottie animation will be rendered here */}
             </div>

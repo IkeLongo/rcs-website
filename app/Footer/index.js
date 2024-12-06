@@ -1,15 +1,46 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    const duration = 1000; // Duration in milliseconds
+    const start = window.scrollY;
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    const scroll = () => {
+      const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, start, -start, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(scroll);
+      }
+    };
+
+    requestAnimationFrame(scroll);
+  };
 
   return (
     <div className="relative w-full h-auto shrink-0 px-8 bg-footer-bg-gradient pb-1">
-      <div className="w-full inline-flex justify-between">
+      <div className="flex w-full inline-flex justify-between items-center">
         <Image
           src="/SiteLogo-mobile.svg"
-          alt="Mobile Site Logo"
+          alt="Logo"
           width={116}
           height={26}
+          className='cursor-pointer'
+          onClick={scrollToTop}
         />
         <Image
           src="/footer-app-dev.gif"
@@ -122,7 +153,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <button className="absolute bottom-8 right-5">
+      <button className="absolute bottom-8 right-5" onClick={scrollToTop}>
         <Image
           src="/footer-arrow-up.svg"
           alt="Arrow Up Icon"
