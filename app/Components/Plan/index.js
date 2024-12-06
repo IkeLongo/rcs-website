@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Mobile from './Mobile';
 
-export default function Plan( { commitmentTerm, commitmentDescription }) {
+export default function Plan() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleClick = (index) => {

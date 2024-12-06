@@ -7,25 +7,25 @@ export default function Mobile({ selectedIndex }) {
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(null);
 
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer && scrollPosition === null) {
-      // Set initial scroll position to center
-      const initialScrollPosition = (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
-      scrollContainer.scrollLeft = initialScrollPosition;
-      setScrollPosition(initialScrollPosition);
-    }
-  }, [scrollPosition]);
+  // useEffect(() => {
+  //   const scrollContainer = scrollContainerRef.current;
+  //   if (scrollContainer && scrollPosition === null) {
+  //     // Set initial scroll position to center
+  //     const initialScrollPosition = (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
+  //     scrollContainer.scrollLeft = initialScrollPosition;
+  //     setScrollPosition(initialScrollPosition);
+  //   }
+  // }, [scrollPosition]);
 
-  const handleScroll = () => {
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      setScrollPosition(scrollContainer.scrollLeft);
-    }
-  };
+  // const handleScroll = () => {
+  //   const scrollContainer = scrollContainerRef.current;
+  //   if (scrollContainer) {
+  //     setScrollPosition(scrollContainer.scrollLeft);
+  //   }
+  // };
 
 	return (
-    <div className="flex overflow-x-auto overflow-y-hidden mx-[24px]" ref={scrollContainerRef} onScroll={handleScroll}>
+    <div className="flex overflow-x-auto overflow-y-hidden mx-[24px]">
       {selectedIndex === 0 && (
         <div className="flex min-w-full">
           <NormalCard

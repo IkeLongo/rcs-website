@@ -201,10 +201,7 @@ export default function Home() {
             Select from our best plans according to the service you<br />need. Need more or less? Book a call to discuss a custom<br />subscription for a seamless fit. 
           </p>
         </div>
-        <Plan 
-          commitmentTerm="12-Month Commitment"
-          commitmentDescription="Distribute the cost of full-scale we design and development solutions into 12 monthly payments for financial flexibility."
-        />
+        <Plan />
       </div>
 
       {/* Footer */}
