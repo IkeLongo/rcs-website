@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button, ButtonGroup } from "@nextui-org/button";
 
-export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId, onClick }) {
+export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId, onClick, top }) {
   const [isHalfway, setIsHalfway] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
     <div className={`flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center cursor-pointer`} onClick={onClick}>
       <div
         id={blockId}
-        className={`flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
+        className={`relative flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
           isHalfway ? 'bg-babyblueoverlay' : 'bg-babyblue-500'
         }`}
       >
@@ -41,7 +41,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
           layout="intrinsic"
           width={iconWidth} // Adjust the width as needed
           height={51} // Adjust the height as needed to maintain aspect ratio
-          className="object-contain"
+          className={`object-contain absolute left-1/2 transform -translate-x-1/2 ${top}`}
         />
         <h1
           className={`font-maven-pro text-center font-bold ease-in-out duration-500 ${
