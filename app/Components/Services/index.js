@@ -44,7 +44,7 @@ export default function ServiceBlocks() {
             bgImageClass="bg-service-mobile-webdev-bg"
             blockId="block-1"
             onClick={() => handleBlockClick('block-1')}
-            top="top-[140px]"
+            top="top-[25%]"
           />
           <DarkBlueBlock 
             iconRoute="/services-lightbulb.svg"
@@ -54,7 +54,7 @@ export default function ServiceBlocks() {
             bgImageClass="bg-service-mobile-branding-bg"
             blockId="block-2"
             onClick={() => handleBlockClick('block-2')}
-            top="top-[125px]"
+            top="top-[22%]"
           />
           <LightBlueBlock 
             iconRoute="/services-hosting.svg"
@@ -64,7 +64,7 @@ export default function ServiceBlocks() {
             bgImageClass="bg-service-mobile-hosting-bg"
             blockId="block-3"
             onClick={() => handleBlockClick('block-3')}
-            top="top-[130px]"
+            top="top-[25%]"
           />
         </div>
       ) : (
