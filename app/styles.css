@@ -155,8 +155,3 @@
   color: #80D8FE; /* Replace with the actual babyblue-500 color */
   transition: color 0s; /* Immediate transition */
 }
-
-.overflow-x-auto {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-}
