@@ -155,3 +155,8 @@
   color: #80D8FE; /* Replace with the actual babyblue-500 color */
   transition: color 0s; /* Immediate transition */
 }
+
+.scroll-element {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}

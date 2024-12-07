@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Do from '../Do';
+import '../../styles.css'
 
 export default function DoContainer() {
   const scrollToId = (id) => {
@@ -20,7 +21,7 @@ export default function DoContainer() {
   };
 
   return (
-    <div className="overflow-x-auto scroll-smooth w-full no-scrollbar">
+    <div className="scroll-element w-full no-scrollbar">
       <div className="flex gap-[19px] min-h-[470px]">
         <div onClick={() => scrollToId('block-1')}>
           <Do 
