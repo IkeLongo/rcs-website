@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'home-pattern': "url('/Backgrounds.svg')",
+        'team-pattern': "url('/team-pattern.svg')",
         'footer-texture': "url('/img/footer-texture.png')",
         'do-custom-gradient': 'linear-gradient(170deg, #292732 50.24%, #3C2F58 153.54%)',
         'mobile-premium-bg': "url('/mobile-premium-bg.svg')",
@@ -19,6 +20,12 @@ module.exports = {
         'service-mobile-webdev-bg': "url('/service-webdev-mobile-bg.png')",
         'service-mobile-branding-bg': "url('/service-mobile-branding-bg.png')",
         'service-mobile-hosting-bg': "url('/service-mobile-hosting-bg.png')",
+        'photo-1': "url('/Image 1.jpg')",
+        'photo-2': "url('/Image 2.jpg')",
+        'photo-3': "url('/Image 3.jpg')",
+        'photo-4': "url('/Image 4.jpg')",
+        'photo-5': "url('/Image 5.jpg')",
+        'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
       },
       colors: {
         background: "var(--background)",
@@ -72,6 +79,7 @@ module.exports = {
         'avenir': ['"Avenir LT Std"', 'sans-serif'],
         'source-sans-pro': ['"Source Sans Pro"', 'sans-serif'],
         'roboto': ['"Roboto"', 'sans-serif'],
+        'abhaya-libre': ['"Abhaya Libre"', 'serif'],
       },
       fontWeight: {
         thin: 100,

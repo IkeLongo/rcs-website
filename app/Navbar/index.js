@@ -36,7 +36,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="relative z-30 sticky top-0">
+    <div className="absolute z-30 sticky top-0">
       <div className='w-full align-center bg-[#292732] z-30 sticky top-0'>
         <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
           <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
@@ -57,7 +57,7 @@ export default function Navbar() {
           <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Our Why</Link>
           <Link href="/services" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Services</Link>
           <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Pricing</Link>
-          <Link href="#" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Team</Link>
+          <Link href="/team" className="font-maven-pro text-white text-[14px] font-bold block mb-2">Team</Link>
           <Button
             href="#"
             className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4">
