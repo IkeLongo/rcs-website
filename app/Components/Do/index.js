@@ -13,11 +13,11 @@ export default function Do({ icon, title, description }) {
 				/>
 				<h3 className="font-gentium-book-plus text-white text-[18px] font-bold text-center">{title}</h3>
 			</div>
-			<p className="font-avenir text-center text-[14px] flex-grow">
+			<p className="font-avenir text-center text-[14px] flex-grow text-white">
 				{description}
 			</p>
 			<div className='flex justify-center gap-1'>
-				<p className='font-avenir uppercase text-[14px]'>
+				<p className='font-avenir uppercase text-[14px] text-white'>
 					Learn More
 				</p>
 				<Image 

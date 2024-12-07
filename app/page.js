@@ -176,7 +176,7 @@ export default function Home() {
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Choose Your Right Plan
           </h3>
-          <p className='font-avenir text-center text-[14px]'>
+          <p className='font-avenir text-center text-[14px] text-white'>
             Select from our best plans according to the service you<br />need. Need more or less? Book a call to discuss a custom<br />subscription for a seamless fit. 
           </p>
         </div>
