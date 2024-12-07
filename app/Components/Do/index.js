@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Do({ icon, title, description }) {
+export default function Do({ icon, title, description, link }) {
 	return (
 		<div className="min-w-[233px] p-6 flex flex-col justify-between gap-4 items-stretch rounded-[14px] border border-gray-500 bg-do-custom-gradient">
 			<div className='flex flex-col items-center'>
@@ -16,7 +17,7 @@ export default function Do({ icon, title, description }) {
 			<p className="font-avenir text-center text-[14px] flex-grow text-white">
 				{description}
 			</p>
-			<div className='flex justify-center gap-1'>
+			<Link href={link} passHref className='flex justify-center gap-1'>
 				<p className='font-avenir uppercase text-[14px] text-white'>
 					Learn More
 				</p>
@@ -27,7 +28,7 @@ export default function Do({ icon, title, description }) {
 					height={16.87}
 					className=""
 				/>
-			</div>
+			</Link>
 		</div>
 	);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LightBlueBlock from "./light-blue-block";
 import DarkBlueBlock from "./dark-blue-block";
 import InfoBlock from "./info-block";
@@ -13,6 +13,11 @@ export default function ServiceBlocks() {
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showInfoBlock, setShowInfoBlock] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    setHasLoaded(true);
+  }, []);
 
   const handleBlockClick = (blockId) => {
     setIsTransitioning(true);
@@ -35,7 +40,7 @@ export default function ServiceBlocks() {
   return (
     <div className="flex flex-col w-full h-auto items-center justify-center z-40">
       {selectedBlock === null ? (
-        <div className={`flex flex-col h-auto w-full items-center justify-center ${isTransitioning ? 'slide-out-bottom' : 'slide-in-top initial-offscreen-y'}`}>
+        <div className={`flex flex-col h-auto w-full items-center justify-center ${hasLoaded ? (isTransitioning ? 'slide-out-bottom' : 'slide-in-top initial-offscreen-y') : ''}`}>
           <LightBlueBlock 
             iconRoute="/services-computer.svg"
             iconDescription="Computer icon"
