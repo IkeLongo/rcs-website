@@ -6,7 +6,7 @@ import Profiles from '../profiles';
 export default function Hero() {
 
   return (
-    <div className="relative flex flex-col w-full h-[1300px] px-4 bg-team-pattern bg-top -top-24 bg-cover overflow-x-hidden gap-10 shrink-0">
+    <div className="relative flex flex-col w-full h-[1250px] px-4 bg-team-pattern bg-top -top-24 bg-cover overflow-hidden gap-10 shrink-0">
       <div>
         <Image
           src='/blue-elipse.svg'
@@ -27,15 +27,13 @@ export default function Hero() {
         </div>
         <Profiles />
       </div>
-      <div>
-      <Image
+        <Image
           src='/green-elipse.svg'
           alt='Green elipse'
           width={300}
           height={300}
           className='absolute -bottom-60 left-0 rotate-180 -z-10'
         />
-      </div>
     </div>
   );
 }
