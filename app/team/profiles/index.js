@@ -66,7 +66,7 @@ export default function Profiles() {
   };
 
   return (
-    <div className="flex flex-col w-full gap-4">
+    <div className="flex flex-col w-full gap-4 h-full">
       <Main 
         memberName={mainProps.memberName}
         position={mainProps.position}

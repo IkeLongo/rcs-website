@@ -18,7 +18,9 @@ export default function Home() {
       <Hero />
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+        bgGradientClass='bg-footer-bg-gradient-solid'
+      />
     </div>
   );
 }

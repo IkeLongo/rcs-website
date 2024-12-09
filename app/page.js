@@ -184,7 +184,9 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+        bgGradientClass='bg-footer-bg-gradient'
+      />
     </div>
   );
 }

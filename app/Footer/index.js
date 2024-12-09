@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Footer() {
+export default function Footer( {bgGradientClass} ) {
   const scrollToTop = (e) => {
     e.preventDefault();
     const duration = 1000; // Duration in milliseconds
@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <div className="relative w-full h-auto shrink-0 px-8 bg-footer-bg-gradient pb-1 z-50">
+    <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 ${bgGradientClass}`}>
       <div className="flex w-full inline-flex justify-between items-center">
         <Link href="/" passHref>
             <Image
