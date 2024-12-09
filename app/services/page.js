@@ -21,7 +21,9 @@ export default function Services() {
       <ServiceBlocks />
 
       {/* Footer */}
-      <Footer />
+      <Footer 
+        bgGradientClass='bg-footer-bg-gradient-solid'
+      />
     </div>
   );
 }
