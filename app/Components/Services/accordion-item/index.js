@@ -53,7 +53,7 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
             {description}
           </p>
           <Button
-            href="#"
+            href="/#pricing"
             className="w-[118px] h-[37px] font-maven-pro text-white text-[12px] rounded-[20px] bg-blue-300">
             View Pricing
           </Button>

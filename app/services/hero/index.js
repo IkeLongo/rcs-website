@@ -79,7 +79,7 @@ export default function Process() {
         </div>
       </div>
       <Button
-        href="#"
+        href="/booking"
         className="absolute bottom-0 w-[260px] h-[45px] self-center font-maven-pro text-white text-[14px] rounded-[20px] bg-blue-300">
         Book a Call
       </Button>

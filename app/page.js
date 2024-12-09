@@ -52,7 +52,7 @@ export default function Home() {
           </p>
           <div className="flex justify-end mt-4">
             <Button
-              href="#"
+              href="/booking"
               className="w-[140px] h-[36px] font-maven-pro text-blue-700 text-[12px] font-bold rounded-[24px] bg-babyblue-300">
               Book a Call
             </Button>

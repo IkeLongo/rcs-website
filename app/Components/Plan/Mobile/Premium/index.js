@@ -53,7 +53,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
             </div>
           </div>
           <Button
-            href="#"
+            href="/booking"
             className="w-[172px] h-[35px] font-maven-pro font-semibold text-purple-500 text-[12px] rounded-[20px] bg-white self-center">
             Book a Call
           </Button>

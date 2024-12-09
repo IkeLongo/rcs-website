@@ -56,7 +56,7 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
             </div>
           </div>
           <Button
-            href="#"
+            href="/booking"
             className="w-[172px] h-[35px] font-maven-pro font-semibold text-babyblue-500 text-[12px] rounded-[20px] bg-[#F0FBFF] self-center">
             Book a Call
           </Button>
