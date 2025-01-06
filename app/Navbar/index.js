@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <div className='relative'>
       <div className="sticky top-0 z-50">
-        <div className='w-full align-center'>
+        <div className='w-full align-center md:hidden'>
           <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
             <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
               <Link href="/">
@@ -67,6 +67,31 @@ export default function Navbar() {
                 Book a Call
               </Link>
             </Button>
+          </div>
+        </div>
+        <div className="flex items-center justify-center">
+          <div className='hidden md:w-[700px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>
+            <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] border-gray-500 bg-[#292732]/75 backdrop-blur-[3.5px]'>
+              <Link href="/">
+                <Image
+                  src="/SiteLogo-mobile.svg"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                />
+              </Link>
+              <Link href="/#why" className="font-maven-pro text-white text-[14px] font-bold block">Why Choose Us?</Link>
+              <Link href="/#plan" className="font-maven-pro text-white text-[14px] font-bold block">Pricing</Link>
+              <Link href="/services" className="font-maven-pro text-white text-[14px] font-bold block">Services</Link>
+              <Link href="/team" className="font-maven-pro text-white text-[14px] font-bold block">Team</Link>
+              <Button
+                onClick={() => setMenuOpen(false)} // Close the menu when the button is clicked
+                className="font-maven-pro text-white text-[14px] font-bold rounded-[13px] bg-green-500 py-2">
+                <Link href="/booking" className="h-full flex items-center justify-center">
+                  Book a Call
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

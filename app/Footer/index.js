@@ -33,30 +33,37 @@ export default function Footer( {bgGradientClass} ) {
 
   return (
     <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 ${bgGradientClass}`}>
-      <div className="flex w-full inline-flex justify-between items-center">
+      <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
-            <Image
-              src="/SiteLogo-mobile.svg"
-              alt="Logo"
-              width={116}
-              height={26}
-              className='cursor-pointer'
-            />
+          <Image
+            src="/SiteLogo-mobile.svg"
+            alt="Logo"
+            width={116}
+            height={26}
+            className='cursor-pointer'
+          />
         </Link>
         <Image
           src="/footer-app-dev.gif"
           alt="Mobile Application Developer"
           width={152}
           height={142}
-          className="-mr-4"
+          className="-mr-4 md:hidden"
         />
       </div>
-      <div className="flex flex-col gap-[46px]">
-        <div className="flex flex-col justify-center gap-[15px]">
+      <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:py-10">
+        <Image
+          src="/footer-app-dev.gif"
+          alt="Mobile Application Developer"
+          width={152}
+          height={142}
+          className="hidden md:block"
+        />
+        <div className="flex flex-col justify-center gap-[15px] md:justify-start">
           <h4 className="font-roboto text-[12px] font-bold">
             Contact Us
           </h4>
-          <div className="flex flex-col justify-center gap-[10px]">
+          <div className="flex flex-col justify-center gap-[10px] md:gap-6 md:justify-start">
             <div className="flex items-center gap-3">
               <Image
                 src="/email.svg"
@@ -92,11 +99,11 @@ export default function Footer( {bgGradientClass} ) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center gap-[15px]">
+        <div className="flex flex-col justify-center gap-[15px] md:justify-start">
           <h4 className="font-roboto text-[12px] font-bold">
             Follow Us
           </h4>
-          <div className="flex items-center self-stretch gap-[32px]">
+          <div className="flex items-center self-stretch gap-[32px] md:hidden">
             <Image
               src="/facebook.svg"
               alt="Facebook Icon"
@@ -128,8 +135,44 @@ export default function Footer( {bgGradientClass} ) {
               height={30}
             />
           </div>
+          <div className="hidden md:flex md:items-center md:self-stretch md:gap-[32px] md:flex-col md:justify-start">
+            <div className='flex gap-8 justify-start'>
+              <Image
+                src="/facebook.svg"
+                alt="Facebook Icon"
+                width={30}
+                height={30}
+              />
+              <Image
+                src="/twitter.svg"
+                alt="Twitter Icon"
+                width={30}
+                height={30}
+              />
+              <Image
+                src="/instagram.svg"
+                alt="Instagram Icon"
+                width={30}
+                height={30}
+              />
+            </div>
+            <div className='flex gap-8 justify-start'>
+              <Image
+                src="/messenger.svg"
+                alt="Messenger Icon"
+                width={30}
+                height={30}
+              />
+              <Image
+                src="/figma.svg"
+                alt="Figma Icon"
+                width={30}
+                height={30}
+              />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:hidden">
           <div className="flex flex-col gap-[10px] self-stretch">
             <p className="font-roboto text-[12px]">
               Privacy Policy
@@ -152,6 +195,30 @@ export default function Footer( {bgGradientClass} ) {
               © 2024 All Rights Reserved
             </p>
           </div>
+        </div>
+      </div>
+      <div className="hidden md:block md:flex md:flex-col md:gap-4">
+        <div className="flex gap-[10px] self-center justify-between w-[535px]">
+          <p className="font-roboto text-[12px]">
+            Privacy Policy
+          </p>
+          <p className="font-roboto text-[12px]">
+            Terms of Use
+          </p>
+          <p className="font-roboto text-[12px]">
+            Sales and Refunds
+          </p>
+          <p className="font-roboto text-[12px]">
+            Legal
+          </p>
+          <p className="font-roboto text-[12px]">
+            Site Map
+          </p>
+        </div>
+        <div className="flex items-center justify-center">
+          <p className="font-roboto text-[11px] font-light">
+            © 2024 All Rights Reserved
+          </p>
         </div>
       </div>
       <button className="absolute bottom-8 right-5" onClick={scrollToTop}>

@@ -26,7 +26,7 @@ export default function Mobile({ selectedIndex }) {
 	return (
     <div className="flex overflow-x-auto overflow-y-hidden mx-[24px]" ref={scrollContainerRef} onScroll={handleScroll}>
       {selectedIndex === 0 && (
-        <div className="flex min-w-full">
+        <div className="flex min-w-full md:justify-center">
           <NormalCard
             monthlyPrice={300}
             totalPrice="3,600"
@@ -75,7 +75,7 @@ export default function Mobile({ selectedIndex }) {
         </div>
       )}
       {selectedIndex === 1 && (
-        <div className="flex min-w-full">
+        <div className="flex min-w-full md:justify-center">
           <NormalCard
             monthlyPrice={200}
             totalPrice="2,400"
@@ -123,7 +123,7 @@ export default function Mobile({ selectedIndex }) {
         </div>
       )}
       {selectedIndex === 2 && (
-        <div className="flex min-w-full">
+        <div className="flex min-w-full md:justify-center">
           <NormalCard
             monthlyPrice={99}
             planName="Base"

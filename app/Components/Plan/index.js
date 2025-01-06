@@ -65,7 +65,7 @@ export default function Plan() {
           <h4 className='font-maven-pro text-[16px] font-bold text-gray-200 text-center pt-[29px]'>
             {serviceDetails[selectedIndex].commitmentTerm}
           </h4>
-          <p className='font-avenir text-center text-[14px] pb-[30px] text-white'>
+          <p className='font-avenir text-center text-[14px] pb-[30px] text-white max-w-[400px]'>
             {serviceDetails[selectedIndex].commitmentDescription}
           </p>
         </div>
