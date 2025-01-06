@@ -127,6 +127,7 @@ export default function Home() {
           <Plan />
         </div>
         <Plan />
+        <DoContainer />
       </div>
 
       {/* Options Section */}
