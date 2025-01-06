@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
+import Link from 'next/link';
 
 export default function NormalCard({ monthlyPrice, totalPrice, planName, planDescription, features }) {
   return (
@@ -55,11 +56,12 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
               </div>
             </div>
           </div>
-          <Button
-            href="/booking"
-            className="w-[172px] h-[35px] font-maven-pro font-semibold text-babyblue-500 text-[12px] rounded-[20px] bg-[#F0FBFF] self-center">
-            Book a Call
-          </Button>
+          <Link href="/booking" passHref className='self-center'>
+            <Button
+              className="w-[172px] h-[35px] font-maven-pro font-semibold text-babyblue-500 text-[12px] rounded-[20px] bg-[#F0FBFF] self-center">
+              Book a Call
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

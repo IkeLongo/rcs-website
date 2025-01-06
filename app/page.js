@@ -8,6 +8,7 @@ import Plan from './Components/Plan';
 import Footer from './Footer';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
+import Link from 'next/link';
 
 export default function Home() {
   const optionsContainerRef1 = useRef(null);
@@ -24,6 +25,15 @@ export default function Home() {
 
     assignRef(optionsContainerRef1.current);
     assignRef(optionsContainerRef2.current);
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash === '#plan') {
+      const element = document.getElementById('plan');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }, []);
 
   return (
@@ -51,11 +61,11 @@ export default function Home() {
             hosting, and impactful branding.
           </p>
           <div className="flex justify-end mt-4">
-            <Button
-              href="/booking"
-              className="w-[140px] h-[36px] font-maven-pro text-blue-700 text-[12px] font-bold rounded-[24px] bg-babyblue-300">
+          <Link href="/booking" passHref>
+            <Button className="w-[140px] h-[36px] font-maven-pro text-blue-700 text-[12px] font-bold rounded-[24px] bg-babyblue-300">
               Book a Call
             </Button>
+          </Link>
           </div>
         </div>
         <div className="absolute left-[10%] top-[500px]">
@@ -171,7 +181,7 @@ export default function Home() {
       </div>
 
       {/* Plan Section */}
-      <div id='pricing' className="relative w-full min-h-[450px] bg-transparent">
+      <div id='plan' className="relative w-full min-h-[450px] bg-transparent">
         <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Choose Your Right Plan

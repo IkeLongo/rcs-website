@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
+import Link from 'next/link';
 
 export default function Process() {
 
@@ -78,11 +79,13 @@ export default function Process() {
           </h2>
         </div>
       </div>
-      <Button
-        href="/booking"
-        className="absolute bottom-0 w-[260px] h-[45px] self-center font-maven-pro text-white text-[14px] rounded-[20px] bg-blue-300">
-        Book a Call
-      </Button>
+      <div className="flex justify-center">
+        <Link href="/booking" passHref>
+          <Button className="w-[260px] h-[45px] font-maven-pro text-white text-[14px] rounded-[20px] bg-blue-300">
+            Book a Call
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

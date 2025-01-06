@@ -21,7 +21,7 @@ export default function DoContainer() {
   };
 
   return (
-    <div className="scroll-element w-full no-scrollbar">
+    <div className="scroll-auto w-full">
       <div className="flex gap-[19px] min-h-[470px]">
         <div onClick={() => scrollToId('block-1')}>
           <Do 

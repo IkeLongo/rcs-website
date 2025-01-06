@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from "@nextui-org/button";
+import Link from 'next/link';
 import '../../../styles.css'
 
 export default function AccordionItem({ iconRoute, iconDescription, title, description, className }) {
@@ -52,11 +53,11 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
           <p className='font-avenir text-[12px]'>
             {description}
           </p>
-          <Button
-            href="/#pricing"
-            className="w-[118px] h-[37px] font-maven-pro text-white text-[12px] rounded-[20px] bg-blue-300">
-            View Pricing
-          </Button>
+          <Link href="/#plan" passHref scroll={false}>
+            <Button className="w-[118px] h-[37px] font-maven-pro text-white text-[12px] rounded-[20px] bg-blue-300">
+              View Pricing
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
