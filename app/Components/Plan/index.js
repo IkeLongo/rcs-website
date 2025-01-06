@@ -61,7 +61,7 @@ export default function Plan() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col px-4 justify-center items-center gap-[10px] selft-stretch">
+        <div className="flex flex-col px-4 justify-center items-center gap-[10px] self-stretch">
           <h4 className='font-maven-pro text-[16px] font-bold text-gray-200 text-center pt-[29px]'>
             {serviceDetails[selectedIndex].commitmentTerm}
           </h4>
