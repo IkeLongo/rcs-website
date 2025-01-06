@@ -117,16 +117,7 @@ export default function Home() {
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             What We Do
           </h3>
-          <div className="flex w-full overflow-x-scroll overflow-y-hidden">
-            <div className='flex gap-6 min-w-[1000px] h-20 bg-white'>
-              <h1 className='text-black'>Do 1 Do 1 Do 1 Do 1 Do 1 Do 1 Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1Do 1</h1>
-
-            </div>
-          </div>
-          {/* <DoContainer /> */}
-          <Plan />
         </div>
-        <Plan />
         <DoContainer />
       </div>
 
