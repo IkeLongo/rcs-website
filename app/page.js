@@ -126,6 +126,7 @@ export default function Home() {
           {/* <DoContainer /> */}
           <Plan />
         </div>
+        <Plan />
       </div>
 
       {/* Options Section */}
