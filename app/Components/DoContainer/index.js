@@ -23,8 +23,8 @@ export default function DoContainer() {
   return (
     <div className="w-full overflow-x-auto overflow-y-hidden">
       <div className="flex">
-        <div className="flex gap-[19px] min-h-[470px] overflow-x-auto scroll-smooth snap-x snap-mandatory -webkit-overflow-touch">
-          <div onClick={() => scrollToId('block-1')} className="snap-center">
+        <div className="flex gap-[19px] min-h-[470px]">
+          <div onClick={() => scrollToId('block-1')} className="flex min-w-full">
             <Do 
               icon="/home-do-web.gif"
               title="Website Design & Development"
@@ -33,7 +33,7 @@ export default function DoContainer() {
               link="/services#block-1"
             />
           </div>
-          <div onClick={() => scrollToId('block-2')} className="snap-center">
+          <div onClick={() => scrollToId('block-2')} className="flex min-w-full">
             <Do 
               icon="/home-do-brand.gif"
               title="Branding & Visual Identity Systems"
@@ -42,7 +42,7 @@ export default function DoContainer() {
               link="/services#block-2"
             />
           </div>
-          <div onClick={() => scrollToId('block-3')} className="snap-center">
+          <div onClick={() => scrollToId('block-3')} className="flex min-w-full">
             <Do 
               icon="/home-do-host.gif"
               title="Hosting, Maintenance & Security"
