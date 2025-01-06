@@ -15,7 +15,7 @@ export default function Hero() {
       />
 
       {/* Main Content */}
-      <div className="relative flex flex-col h-auto gap-10 mt-40">
+      <div className="relative flex flex-col h-auto gap-10 mt-28">
         {/* Heading and Description */}
         <div className="flex flex-col gap-1">
           <h1 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-left drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
