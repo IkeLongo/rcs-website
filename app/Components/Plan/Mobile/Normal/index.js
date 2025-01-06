@@ -12,8 +12,8 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
 
         <div className='flex flex-col items-stretch h-[447px] pb-16'>
           <div className='pl-12 flex flex-col self-stretch grow'>
-            <div className='flex gap-1 items-end -mt-6'>
-              <div className="transition-opacity duration-500 opacity-100">
+            <div className='-mt-6'>
+              <div className="flex flex gap-1 items-end transition-opacity duration-500 opacity-100">
                 <p className='font-maven-pro text-[#231D4F] text-[20px] font-semibold'>
                   ${monthlyPrice}
                 </p>
