@@ -21,8 +21,8 @@ export default function DoContainer() {
   };
 
   return (
-    <div className="scroll-auto w-full">
-      <div className="flex gap-[19px] min-h-[470px]">
+    <div className="w-full">
+      <div className="flex gap-[19px] min-h-[470px] scroll-auto overflow-x-auto">
         <div onClick={() => scrollToId('block-1')}>
           <Do 
             icon="/home-do-web.gif"
