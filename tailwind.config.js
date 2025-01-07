@@ -18,6 +18,7 @@ module.exports = {
         'footer-bg-gradient-solid': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 1) 0%, rgba(41, 39, 50, 1) 100%)',
         'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
         'service-hero-blob': "url('/service-hero-background-blob.svg')",
+        'service-hero-blob-desktop': "url('/service-hero-blob-desktop.svg')",
         'service-mobile-webdev-bg': "url('/service-webdev-mobile-bg.png')",
         'service-mobile-branding-bg': "url('/service-mobile-branding-bg.png')",
         'service-mobile-hosting-bg': "url('/service-mobile-hosting-bg.png')",
