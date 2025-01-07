@@ -27,6 +27,7 @@ module.exports = {
         'photo-4': "url('/Image 4.jpg')",
         'photo-5': "url('/Image 5.jpg')",
         'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
+        'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
       },
       colors: {
         background: "var(--background)",

@@ -9,8 +9,8 @@ const people = [
     imageRoute: '/Image 1.jpg',
     imageDescription: 'Team member 1',
     bgImageClass: 'bg-photo-1',
-    top: '0',
-    right: '160px',
+    top: '0%',
+    right: '60%',
   },
   {
     memberName: 'Jane Smith',
@@ -18,8 +18,8 @@ const people = [
     imageRoute: '/Image 2.jpg',
     imageDescription: 'Team member 2',
     bgImageClass: 'bg-photo-2',
-    top: '0',
-    right: '130px',
+    top: '50%',
+    right: '50%',
   },
   {
     memberName: 'Alice Johnson',
@@ -27,8 +27,8 @@ const people = [
     imageRoute: '/Image 3.jpg',
     imageDescription: 'Team member 3',
     bgImageClass: 'bg-photo-3',
-    top: '0',
-    right: '130px',
+    top: '50%',
+    right: '50%',
   },
   {
     memberName: 'Bob Brown',
@@ -36,8 +36,8 @@ const people = [
     imageRoute: '/Image 4.jpg',
     imageDescription: 'Team member 4',
     bgImageClass : 'bg-photo-4',
-    top: '0',
-    right: '120px',
+    top: '50%',
+    right: '47%',
   },
   {
     memberName: 'Charlie Davis',
@@ -45,8 +45,8 @@ const people = [
     imageRoute: '/Image 5.jpg',
     imageDescription: 'Team member 5',
     bgImageClass: 'bg-photo-5',
-    top: '0',
-    right: '130px',
+    top: '50%',
+    right: '50%',
   },
 ];
 
@@ -66,13 +66,13 @@ export default function Profiles() {
   };
 
   return (
-    <div className="flex flex-col w-full gap-4 h-full">
+    <div className="flex flex-col w-full gap-4 h-full max-w-96 self-center md:flex-row md:max-w-[800px] md:gap-2 md:mx-6">
       <Main 
         memberName={mainProps.memberName}
         position={mainProps.position}
         bgImageClass={mainProps.bgImageClass}
       />
-      <div className="flex w-full aspect-square gap-1">
+      <div className="flex w-full aspect-square max-h-80 gap-1 md:gap-2 md:max-h-96"> 
         {subProps.map((props, index) => (
           <Sub
             key={index}

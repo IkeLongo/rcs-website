@@ -10,7 +10,7 @@ import {Button, ButtonGroup} from "@nextui-org/button";
 export default function Home() {
 
   return (
-    <div className="relative h-auto w-full bg-cover bg-top overflow-x-hidden">
+    <div className="relative h-auto w-full bg-cover bg-top overflow-x-hidden md:h-fit">
       {/* Navbar */}
       <Navbar />
 

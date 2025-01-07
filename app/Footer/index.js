@@ -32,7 +32,7 @@ export default function Footer( {bgGradientClass} ) {
   };
 
   return (
-    <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 ${bgGradientClass}`}>
+    <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 ${bgGradientClass}`}>
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
