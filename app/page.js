@@ -57,14 +57,22 @@ export default function Home() {
           alt="Background-blob"
           width={417}
           height={653}
-          className="hidden md:block absolute left-10 top-0 md:left-auto md:-right-2 md:-top-32 md:w-[450px] md:h-[647px]"
+          className="hidden md:block absolute top-0 md:left-auto md:-right-2 md:-top-32 md:w-[450px] md:h-[647px] lg:w-[750px] lg:h-[732px] lg:-right-20 xl:hidden"
         />
-        <div className="absolute top-32 right-4 z-10 p-6 md:top-4 md:right-0 md:left-auto md:flex md:flex-col md:items-end md:justify-end">
+        {/* XL screen size */}
+        <Image 
+          src="/home-hero-blob-xl.svg"
+          alt="Background-blob"
+          width={417}
+          height={653}
+          className="hidden xl:block absolute -top-28 xl:w-[950px] xl:h-auto xl:-right-48"
+        />
+        <div className="absolute top-32 right-4 z-10 p-6 md:top-4 md:right-0 md:left-auto md:flex md:flex-col md:items-end md:justify-end lg:right-10 xl:right-20">
           <h1 className="w-[292px] text-[32px] text-gray-900 font-gentium-book-plus font-bold text-right md:hidden">
             Crafting <span className='italic text-blue-300'>Powerful</span><br />
             Websites and<br />Branding for<br />Your Business
           </h1>
-          <h1 className="hidden md:block md:w-[340px] md:text-[32px] md:text-gray-900 md:font-gentium-book-plus md:font-bold md:text-right">
+          <h1 className="hidden md:block md:w-[340px] md:text-[32px] md:text-gray-900 md:font-gentium-book-plus md:font-bold md:text-right lg:text-[36px] lg:w-[400px]">
             Crafting <span className='italic text-blue-300'>Powerful</span><br />
             Websites and Branding<br />for Your Business<br />
           </h1>
@@ -73,13 +81,13 @@ export default function Home() {
             innovative web solutions, reliable<br />
             hosting, and impactful branding.
           </p>
-          <p className="hidden md:block md:text-gray-800 md:text-[14px] md:text-right md:mt-4">
+          <p className="hidden md:block md:text-gray-800 md:text-[14px] md:text-right md:mt-4 lg:text-[16px]">
             Propel your business forward with innovative web<br />
             solutions, reliable hosting, and impactful branding.<br />
           </p>
           <div className="flex justify-end mt-4 md:mt-10">
             <Link href="/booking" passHref>
-              <Button className="w-[140px] h-[36px] font-maven-pro text-blue-700 text-[12px] font-bold rounded-[24px] bg-babyblue-300">
+              <Button className="w-[140px] h-[36px] font-maven-pro text-blue-700 text-[12px] font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px]">
                 Book a Call
               </Button>
             </Link>
@@ -91,6 +99,7 @@ export default function Home() {
             alt="Hero gif background blob"
             width={224}
             height={212}
+            className="w-[224px] h-[212px] lg:w-[300px] lg:h-[300px] 2xl:w-[400px] 2xl:h-[400px]"
           />
           <img
             src="/home-page-gif.gif"
@@ -101,7 +110,7 @@ export default function Home() {
       </div>
 
       {/* Why Section */}
-      <div id='why' className="relative w-full h-[445px] bg-transparent">
+      <div id='why' className="relative w-full h-[445px] bg-transparent lg:pt-20 lg:h-fit">
         <div className="absolute w-full h-full">
           <Image
             src="home-why-green-blob.svg"
@@ -122,7 +131,7 @@ export default function Home() {
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Why Choose Us
           </h3>
-          <div className="w-[295px] h-[248px] mt-10 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px] md:w-[400px] md:h-[337px]">
+          <div className="w-[295px] h-[248px] mt-10 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
             {/* Video Content */}
           </div>
         </div>
@@ -144,7 +153,7 @@ export default function Home() {
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Options to Suit<br className='md:hidden'/> Every Vision
           </h3>
-          <div className="flex flex-col gap-10 w-full">
+          <div className="flex flex-col gap-10 w-full max-w-[950px]">
             <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-100px),transparent_100%)]">
               <div className="flex gap-[19px] pr-[19px] animate-infinite-scroll md:gap-[58px] md:pr-[58px]" ref={optionsContainerRef1}>
                 <Option 

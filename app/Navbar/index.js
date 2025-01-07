@@ -80,13 +80,13 @@ export default function Navbar() {
                   height={100}
                 />
               </Link>
-              <Link href="/#why" className="font-maven-pro text-white text-[14px] font-bold block">Why Choose Us?</Link>
-              <Link href="/#plan" className="font-maven-pro text-white text-[14px] font-bold block">Pricing</Link>
-              <Link href="/services" className="font-maven-pro text-white text-[14px] font-bold block">Services</Link>
-              <Link href="/team" className="font-maven-pro text-white text-[14px] font-bold block">Team</Link>
+              <Link href="/#why" className="font-maven-pro text-white text-[14px] font-bold block lg:text-[16px]">Why Choose Us?</Link>
+              <Link href="/#plan" className="font-maven-pro text-white text-[14px] font-bold block lg:text-[16px]">Pricing</Link>
+              <Link href="/services" className="font-maven-pro text-white text-[14px] font-bold block lg:text-[16px]">Services</Link>
+              <Link href="/team" className="font-maven-pro text-white text-[14px] font-bold block lg:text-[16px]">Team</Link>
               <Button
                 onClick={() => setMenuOpen(false)} // Close the menu when the button is clicked
-                className="font-maven-pro text-white text-[14px] font-bold rounded-[13px] bg-green-500 py-2">
+                className="font-maven-pro text-white text-[14px] font-bold rounded-[13px] bg-green-500 py-2 lg:text-[16px]">
                 <Link href="/booking" className="h-full flex items-center justify-center">
                   Book a Call
                 </Link>
