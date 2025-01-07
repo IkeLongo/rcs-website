@@ -49,7 +49,7 @@ export default function Home() {
           alt="Background-blob"
           width={417}
           height={653}
-          className="absolute left-auto right-2 top-0 md:hidden"
+          className="absolute left-auto -right-6 top-0 md:hidden"
         />
         {/* Tablet and desktop-only image */}
         <Image 
