@@ -6,9 +6,6 @@ import DarkBlueBlock from "./dark-blue-block";
 import InfoBlock from "./info-block";
 import '../../styles.css'
 
-import Image from 'next/image';
-import {Button, ButtonGroup} from "@nextui-org/button";
-
 export default function ServiceBlocks() {
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -46,7 +43,7 @@ export default function ServiceBlocks() {
             iconDescription="Computer icon"
             iconWidth="70"
             title="Website Design & <br />Development"
-            bgImageClass="bg-service-mobile-webdev-bg"
+            bgImageClass="bg-service-mobile-webdev-bg bg-no-repeat bg-cover"
             blockId="block-1"
             onClick={() => handleBlockClick('block-1')}
             top="top-[25%]"
@@ -56,7 +53,7 @@ export default function ServiceBlocks() {
             iconDescription="Lightbulb icon"
             iconWidth="60"
             title="Visual & Identity<br />Systems"
-            bgImageClass="bg-service-mobile-branding-bg"
+            bgImageClass="bg-service-mobile-branding-bg bg-no-repeat bg-cover"
             blockId="block-2"
             onClick={() => handleBlockClick('block-2')}
             top="top-[22%]"
@@ -66,7 +63,7 @@ export default function ServiceBlocks() {
             iconDescription="Servers icon"
             iconWidth="52"
             title="Hosting, Maintenance & <br />Security"
-            bgImageClass="bg-service-mobile-hosting-bg"
+            bgImageClass="bg-service-mobile-hosting-bg bg-no-repeat bg-cover"
             blockId="block-3"
             onClick={() => handleBlockClick('block-3')}
             top="top-[25%]"

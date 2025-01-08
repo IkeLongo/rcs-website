@@ -27,7 +27,7 @@ export default function Plan() {
 	return (
     <div className='pb-16'>
       <div className="flex flex-col justify-center items-center">
-        <div className="flex w-[385px] p-[3px] items-center gap-4 bg-[#F1F1F1] rounded-[12px]">
+        <div className="flex w-[385px] lg:w-[425px] p-[3px] items-center gap-4 bg-[#F1F1F1] rounded-[12px]">
           <div className='flex justify-between items-center flex-auto'>
             <div
               className={`flex py-[5px] px-[15px] justify-center items-center gap-[10px] rounded-[10px] cursor-pointer ${
@@ -35,7 +35,7 @@ export default function Plan() {
               }`}
               onClick={() => handleClick(0)}
             >
-              <p className={`font-source-sans-pro text-[10px] font-bold ${selectedIndex === 0 ? 'text-white' : 'text-purple-900'}`}>
+              <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 0 ? 'text-white' : 'text-purple-900'}`}>
                 Web Design & Dev
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function Plan() {
               }`}
               onClick={() => handleClick(1)}
             >
-              <p className={`font-source-sans-pro text-[10px] font-bold ${selectedIndex === 1 ? 'text-white' : 'text-purple-900'}`}>
+              <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 1 ? 'text-white' : 'text-purple-900'}`}>
                 Branding & Visual
               </p>
             </div>
@@ -55,7 +55,7 @@ export default function Plan() {
               }`}
               onClick={() => handleClick(2)}
             >
-              <p className={`font-source-sans-pro text-[10px] font-bold ${selectedIndex === 2 ? 'text-white' : 'text-purple-900'}`}>
+              <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 2 ? 'text-white' : 'text-purple-900'}`}>
                 Hosting & Maintenance
               </p>
             </div>

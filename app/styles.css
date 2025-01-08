@@ -58,7 +58,7 @@
     opacity: 1;
   }
   to {
-    transform: translateX(-130%);
+    transform: translateX(-200%);
     opacity: 1;
   }
 }
