@@ -18,11 +18,11 @@ export default function Booking() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full justify-center items-center bg-grey-500">
+    <div className="flex flex-col w-full h-50vh justify-center items-center bg-grey-500">
       {/* Navbar */}
       <Navbar />
 
-      <div className="w-full gap-8 justify-between align-center self-center px-4 pt-24">
+      <div className="w-full h-full gap-8 justify-between align-center self-center px-4 pt-24">
         <div className="flex flex-col w-full bg-white py-4 rounded-lg max-w-screen mx-auto">
           <h1 className="text-center text-black font-maven-pro tracking-tight pt-2 pb-2 text-[22px] font-bold mx-8">
             Want to discuss our service options? Book a meeting with our team!
