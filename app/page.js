@@ -32,14 +32,24 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (window.location.hash === '#plan') {
-      const element = document.getElementById('plan');
-      if (element) {
-        const yOffset = -100; // Adjust this value to set the padding
-        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#plan' || hash === '#why') {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          const yOffset = -100; // Adjust this value to set the padding
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
       }
-    }
+    };
+  
+    handleHashChange(); // Handle the initial load
+    window.addEventListener('hashchange', handleHashChange); // Handle hash changes
+  
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   useEffect(() => {

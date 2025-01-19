@@ -64,6 +64,11 @@ export default function Navbar() {
   const handleLogoClick = () => {
     setActiveLink('none');
     setCurrentHref('/');
+
+    //if menu is open, close it
+    if (menuOpen) {
+      toggleMenu();
+    }
   };
 
   const scrollToSection = (id) => {
