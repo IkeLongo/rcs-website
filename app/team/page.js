@@ -12,7 +12,7 @@ export default function Home() {
   const planRef = useRef(null);
 
   return (
-    <div className="relative h-auto w-full bg-cover bg-top overflow-x-hidden">
+    <div className="relative h-auto w-full bg-cover bg-top overflow-x-hidden team">
       {/* Navbar */}
       {/* <div className="fixed top-0 z-50 w-full">
         <Navbar whyRef={whyRef} planRef={planRef} />

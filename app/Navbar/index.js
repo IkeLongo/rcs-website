@@ -29,6 +29,21 @@ export default function Navbar() {
     console.log('activeLink is', activeLink);
   }, [activeLink]);
 
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/services') {
+      setActiveLink('services');
+    } else if (path === '/team') {
+      setActiveLink('team');
+    } else if (path === '/#plan') {
+      setActiveLink('plan');
+    } else if (path === '/#why') {
+      setActiveLink('why');
+    } else {
+      setActiveLink('none');
+    }
+  }, []);
+
   const toggleMenu = () => {
     if (menuOpen) {
       // Play the second half of the animation

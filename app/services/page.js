@@ -12,7 +12,7 @@ export default function Services() {
   const planRef = useRef(null);
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden services'>
       {/* Navbar */}
       {/* <div className="fixed top-0 z-50 w-full">
         <Navbar whyRef={whyRef} planRef={planRef} />
