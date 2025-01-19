@@ -15,8 +15,11 @@ export default function Booking() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-300">
-      <div className="calendly-inline-widget" data-url="https://calendly.com/isaac-longoria9136/30min" style={{ width: '100%', height: '100vh', minWidth: '320px' }}></div>
+    <div className="flex justify-center items-center bg-grey-500">
+      <div className="flex flex-col w-full h-[800px] m-4">
+        <h1>Book a meeting</h1>
+        <div className="calendly-inline-widget w-full" data-url="https://calendly.com/isaac-longoria9136/30min" style={{ width: '100%', height: '100vh', minWidth: '320px' }}></div>
+      </div>
     </div>
   );
 }
