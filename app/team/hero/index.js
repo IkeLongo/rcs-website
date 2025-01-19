@@ -4,7 +4,7 @@ import Profiles from '../profiles';
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col w-full h-auto px-4 mb-20 bg-team-pattern bg-top bg-repeat-x bg-auto overflow-visible gap-10 shrink-0 md:-top-32 md:mb-0">
+    <div className="relative flex flex-col w-full h-auto px-4 mb-20 bg-team-pattern bg-top bg-repeat-x bg-auto overflow-visible gap-10 shrink-0 md:-top-0 md:mb-20">
       {/* Decorative Image */}
       <Image
         src='/blue-elipse.svg'

@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Process() {
 
   return (
-    <div className="relative flex flex-col w-full h-[775px] overflow-x-hidden md:-top-28">
+    <div className="relative flex flex-col w-full h-[775px] overflow-x-hidden md:-top-0">
       <div className="absolute -top-16 w-full h-full flex self-end bg-service-hero-blob bg-right bg-auto bg-no-repeat overflow-x-hidden -mr-1 md:-top-0 lg:hidden"></div>
       <div className="hidden lg:block lg:absolute lg:-top-16 lg:w-full lg:h-full lg:flex lg:self-end lg:bg-service-hero-blob-desktop lg:bg-right lg:bg-auto lg:bg-no-repeat lg:overflow-x-hidden lg:-mr-1 lg:bg-right-bottom"></div>
       <div className="relative flex flex-col w-full h-full overflow-x-hidden">

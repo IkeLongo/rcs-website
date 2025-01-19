@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from '../Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Booking() {
+  const whyRef = useRef(null);
+  const planRef = useRef(null);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -20,7 +23,9 @@ export default function Booking() {
   return (
     <div className="flex flex-col w-full h-50vh justify-center items-center bg-grey-500">
       {/* Navbar */}
-      <Navbar />
+      {/* <div className="fixed top-0 z-50 w-full">
+        <Navbar whyRef={whyRef} planRef={planRef} />
+      </div> */}
 
       <div className="w-full h-full gap-8 justify-between align-center self-center px-4 pt-24">
         <div className="flex flex-col w-full bg-white py-4 rounded-lg max-w-screen md:max-w-[700px] lg:max-w-[1000px] mx-auto">

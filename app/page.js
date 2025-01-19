@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import Navbar from './Navbar';
 import DoContainer from './Components/DoContainer';
 import Option from './Components/Options';
@@ -9,10 +9,14 @@ import Footer from './Footer';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 import Link from 'next/link';
+import { ActiveLinkContext } from './ActiveLinkContext/page';
 
 export default function Home() {
+  const { activeLink, setActiveLink } = useContext(ActiveLinkContext);
   const optionsContainerRef1 = useRef(null);
   const optionsContainerRef2 = useRef(null);
+  const whyRef = useRef(null);
+  const planRef = useRef(null);
 
   useEffect(() => {
     const assignRef = (ref) => {
@@ -36,13 +40,39 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    // Intersection Observer to track sections
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          } else if (activeLink === entry.target.id) {
+            setActiveLink('');
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust the threshold as needed
+    );
+
+    if (whyRef.current) observer.observe(whyRef.current);
+    if (planRef.current) observer.observe(planRef.current);
+
+    return () => {
+      if (whyRef.current) observer.unobserve(whyRef.current);
+      if (planRef.current) observer.unobserve(planRef.current);
+    };
+  }, [whyRef, planRef, activeLink]);
+
   return (
     <div className="relative h-auto w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
       {/* Navbar */}
-      <Navbar />
+      {/* <div className="fixed top-0 z-50 w-full">
+        <Navbar whyRef={whyRef} planRef={planRef} />
+      </div> */}
 
       {/* Hero Section */}
-      <div className="relative w-full h-[800px] md:h-[550px]">
+      <div className="relative w-full md:top-20 h-[800px] md:h-[550px]">
         {/* Mobile-only image */}
         <Image 
           src="/home-hero-blob.svg"
@@ -110,7 +140,7 @@ export default function Home() {
       </div>
 
       {/* Why Section */}
-      <div id='why' className="relative w-full h-[445px] bg-transparent lg:pt-20 lg:h-fit">
+      <div id='why' ref={whyRef} className="relative w-full h-[445px] bg-transparent lg:pt-20 lg:h-fit">
         <div className="absolute w-full h-full">
           <Image
             src="home-why-green-blob.svg"
@@ -207,7 +237,7 @@ export default function Home() {
       </div>
 
       {/* Plan Section */}
-      <div id='plan' className="relative w-full min-h-[450px] bg-transparent">
+      <div id='plan' ref={planRef} className="relative w-full min-h-[450px] bg-transparent">
         <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
           <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
             Choose Your Right Plan
