@@ -31,8 +31,8 @@ export default function Booking() {
           </div>
         </Link>
         <div className='flex flex-col w-full bg-white py-4 rounded-lg'>
-          <h1 className='text-center text-black font-maven-pro tracking-tighter pt-2 pb-2 text-[22px] font-bold'>What to discuss our service options?<br />Book a meeting with our team!</h1>
-          <div className="calendly-inline-widget w-full h-screen" data-url="https://calendly.com/isaac-longoria9136/30min?primary_color=46C1E3" style={{ width: '100%', height: '70vh', minWidth: '320px'}}></div>
+          <h1 className='text-center text-black font-maven-pro tracking-tight pt-2 pb-2 text-[22px] font-bold'>What to discuss our service options?<br />Book a meeting with our team!</h1>
+          <div className="calendly-inline-widget w-full h-screen" data-url="https://calendly.com/isaac-longoria9136/30min?primary_color=46C1E3" style={{ width: '100%', height: '60vh', minWidth: '320px'}}></div>
         </div>
       </div>
     </div>
