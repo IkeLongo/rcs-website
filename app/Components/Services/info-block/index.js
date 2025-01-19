@@ -17,7 +17,7 @@ export default function InfoBlock({ selectedBlock, onBack, isTransitioning }) {
     <div className="flex items-center justify-center">
       <div className="flex flex-col w-full items-center max-w-[900px]">
         {/* Accordion Block 1 */}
-        <div id="block-1" className={`flex flex-col w-full items-center px-4 py-[45px] gap-[37px] ${selectedBlock === 'block-1' ? 'block' : 'hidden'}`}>
+        <div id="block-1" className={`flex flex-col w-full items-center px-4 py-[45px] pt-[100px] md:pt-[120px] gap-[37px] ${selectedBlock === 'block-1' ? 'block' : 'hidden'}`}>
           <div className={`flex w-full gap-[11px] self-start cursor-pointer ${isTransitioning ? 'slide-out-left-0' : 'slide-in-right initial-offscreen'}`} onClick={onBack}>
             <Image
               src="/back arrow.svg"
@@ -76,7 +76,7 @@ export default function InfoBlock({ selectedBlock, onBack, isTransitioning }) {
         </div>
 
         {/* Accordion Block 2 */}
-        <div id="block-2" className={`flex flex-col w-full items-center px-4 py-[45px] gap-[37px] ${selectedBlock === 'block-2' ? 'block' : 'hidden'}`}>
+        <div id="block-2" className={`flex flex-col w-full items-center px-4 py-[45px] pt-[100px] md:pt-[120px] gap-[37px] ${selectedBlock === 'block-2' ? 'block' : 'hidden'}`}>
           <div className={`flex w-full gap-[11px] self-start cursor-pointer ${isTransitioning ? 'slide-out-left-0' : 'slide-in-right initial-offscreen'}`} onClick={onBack}>
             <Image
               src="/back arrow.svg"
@@ -126,7 +126,7 @@ export default function InfoBlock({ selectedBlock, onBack, isTransitioning }) {
         </div>
 
         {/* Accordion Block 3 */}
-        <div id="block-3" className={`flex flex-col w-full items-center px-4 py-[45px] gap-[37px] ${selectedBlock === 'block-3' ? 'block' : 'hidden'}`}>
+        <div id="block-3" className={`flex flex-col w-full items-center px-4 py-[45px] pt-[100px] md:pt-[120px] gap-[37px] ${selectedBlock === 'block-3' ? 'block' : 'hidden'}`}>
           <div className={`flex w-full gap-[11px] self-start cursor-pointer ${isTransitioning ? 'slide-out-left-0' : 'slide-in-right initial-offscreen'}`} onClick={onBack}>
             <Image
               src="/back arrow.svg"
