@@ -124,10 +124,10 @@ export default function Navbar() {
                   height={100}
                 />
               </Link>
-              <Link href="/#why" className={`font-maven-pro text-white text-[14px] ${activeLink === 'why' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); scrollToSection('why'); handleLinkClick('why') }}>Why Choose Us?</Link>
-              <Link href="/#plan" className={`font-maven-pro text-white text-[14px] ${activeLink === 'plan' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); scrollToSection('plan'); handleLinkClick('plan') }}>Pricing</Link>
-              <Link href="/services" className={`font-maven-pro text-white text-[14px] ${activeLink === 'services' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('services')}>Services</Link>
-              <Link href="/team" className={`font-maven-pro text-white text-[14px] ${activeLink === 'team' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('team')}>Team</Link>
+              <Link href="/#why" className={`font-maven-pro text-white text-[14px] ${activeLink === 'why' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); handleLinkClick('why', '/#why'); scrollToSection('why'); toggleMenu(); }}>Why Choose Us?</Link>
+              <Link href="/#plan" className={`font-maven-pro text-white text-[14px] ${activeLink === 'plan' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); handleLinkClick('plan', '/#plan'); scrollToSection('plan'); toggleMenu(); }}>Pricing</Link>
+              <Link href="/services" className={`font-maven-pro text-white text-[14px] ${activeLink === 'services' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); handleLinkClick('services', '/services'); toggleMenu(); }}>Services</Link>
+              <Link href="/team" className={`font-maven-pro text-white text-[14px] ${activeLink === 'team' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={toggleMenu}>Team</Link>
               <Button
                 onClick={() => setMenuOpen(false)} // Close the menu when the button is clicked
                 className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-green-500 py-2 lg:text-[16px]">
