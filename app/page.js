@@ -35,7 +35,9 @@ export default function Home() {
     if (window.location.hash === '#plan') {
       const element = document.getElementById('plan');
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const yOffset = -100; // Adjust this value to set the padding
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
   }, []);

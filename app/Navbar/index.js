@@ -46,9 +46,18 @@ export default function Navbar() {
     setActiveLink(none);
   };
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -100; // Adjust this value to set the padding
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className='relative w-full'>
-      <div className="z-50">
+      <div className="z-60">
         <div className='w-full align-center md:hidden'>
           <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
             <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
@@ -66,8 +75,8 @@ export default function Navbar() {
             </div>
           </div>
           <div className={`absolute top-[70px] w-full h-[250px] flex flex-col justify-between px-6 py-6 bg-[#292732] border-[1px] border-t-0 border-gray-500 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-500 ease-in-out z-10 ${menuOpen ? '-translate-y-6' : '-translate-y-[240px]'}`}>
-            <Link href="/#why" onClick={toggleMenu} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Why Choose Us?</Link>
-            <Link href="/#plan" onClick={toggleMenu} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Pricing</Link>
+            <Link href="/#why" onClick={(e) => { e.preventDefault(); scrollToSection('why'); toggleMenu(); }} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Why Choose Us?</Link>
+            <Link href="/#plan" onClick={(e) => { e.preventDefault(); scrollToSection('plan'); toggleMenu(); }} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Pricing</Link>
             <Link href="/services" onClick={toggleMenu} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Services</Link>
             <Link href="/team" onClick={toggleMenu} className="font-maven-pro text-white text-[14px] font-bold block mb-2">Team</Link>
             <Button
@@ -90,8 +99,8 @@ export default function Navbar() {
                   height={100}
                 />
               </Link>
-              <Link href="/#why" className={`font-maven-pro text-white text-[14px] ${activeLink === 'why' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('why')}>Why Choose Us?</Link>
-              <Link href="/#plan" className={`font-maven-pro text-white text-[14px] ${activeLink === 'plan' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('plan')}>Pricing</Link>
+              <Link href="/#why" className={`font-maven-pro text-white text-[14px] ${activeLink === 'why' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); scrollToSection('why'); handleLinkClick('why') }}>Why Choose Us?</Link>
+              <Link href="/#plan" className={`font-maven-pro text-white text-[14px] ${activeLink === 'plan' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={(e) => { e.preventDefault(); scrollToSection('plan'); handleLinkClick('plan') }}>Pricing</Link>
               <Link href="/services" className={`font-maven-pro text-white text-[14px] ${activeLink === 'services' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('services')}>Services</Link>
               <Link href="/team" className={`font-maven-pro text-white text-[14px] ${activeLink === 'team' ? 'font-bold' : 'font-normal'} block lg:text-[16px]`} onClick={() => handleLinkClick('team')}>Team</Link>
               <Button
