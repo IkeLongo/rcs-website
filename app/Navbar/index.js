@@ -37,7 +37,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative w-full'>
       <div className="sticky top-0 z-50">
         <div className='w-full align-center md:hidden'>
           <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
