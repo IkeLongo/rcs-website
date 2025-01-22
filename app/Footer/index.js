@@ -1,10 +1,42 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import PreferencesModal from '../Components/CookiePreferences';
 
 export default function Footer( {bgGradientClass} ) {
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [analyticsCookies, setAnalyticsCookies] = useState(true);
+  const [essentialCookies, setEssentialCookies] = useState(true);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    const preferences = JSON.parse(localStorage.getItem('cookiePreferences'));
+
+    if (consent) {
+      setEssentialCookies(consent === 'true');
+    }
+
+    if (preferences && preferences.analytics !== undefined) {
+      setAnalyticsCookies(preferences.analytics);
+    }
+  }, []);
+
+  const handleToggleEssentials = () => {
+    setEssentialCookies(!essentialCookies);
+  };
+
+  const handleToggleAnalytics = () => {
+    setAnalyticsCookies(!analyticsCookies);
+  };
+
+  const handleSavePreferences = () => {
+    localStorage.setItem('cookieConsent', essentialCookies);
+    localStorage.setItem('cookiePreferences', JSON.stringify({ analytics: analyticsCookies }));
+    setPreferencesOpen(false);
+  };
+
   const scrollToTop = (e) => {
     e.preventDefault();
     const duration = 1000; // Duration in milliseconds
@@ -178,22 +210,25 @@ export default function Footer( {bgGradientClass} ) {
           </div>
         </div>
         <div className="flex flex-col gap-4 md:hidden">
-          <div className="flex flex-col gap-[10px] self-stretch">
-            <p className="font-roboto text-[12px]">
+          <div className="font-roboto text-[12px] flex flex-col gap-[10px] self-stretch">
+            <Link href="/privacy-policy" className="block">
               Privacy Policy
-            </p>
-            <p className="font-roboto text-[12px]">
+            </Link>
+            <Link href="/terms-of-use" className="block">
               Terms of Use
-            </p>
-            <p className="font-roboto text-[12px]">
+            </Link>
+            <button className="block" onClick={() => setPreferencesOpen(true)}>
+              Cookie Settings
+            </button>
+            <Link href="/sales-and-refunds" className="block">
               Sales and Refunds
-            </p>
-            <p className="font-roboto text-[12px]">
+            </Link>
+            <Link href="/legal" className="block">
               Legal
-            </p>
-            <p className="font-roboto text-[12px]">
+            </Link>
+            <Link href="/site-map" className="block">
               Site Map
-            </p>
+            </Link>
           </div>
           <div className="flex items-center justify-center">
             <p className="font-roboto text-[11px] font-light">
@@ -203,22 +238,25 @@ export default function Footer( {bgGradientClass} ) {
         </div>
       </div>
       <div className="hidden md:block md:flex md:flex-col md:gap-4">
-        <div className="flex gap-[10px] self-center justify-between w-[535px]">
-          <p className="font-roboto text-[12px]">
+        <div className="flex gap-[10px] self-center justify-between w-[535px] font-roboto text-[12px]">
+          <Link href="/privacy-policy" className="block">
             Privacy Policy
-          </p>
-          <p className="font-roboto text-[12px]">
+          </Link>
+          <Link href="/terms-of-use" className="block">
             Terms of Use
-          </p>
-          <p className="font-roboto text-[12px]">
+          </Link>
+          <button className="block" onClick={() => setPreferencesOpen(true)}>
+            Cookie Settings
+          </button>
+          <Link href="/sales-and-refunds" className="block">
             Sales and Refunds
-          </p>
-          <p className="font-roboto text-[12px]">
+          </Link>
+          <Link href="/legal" className="block">
             Legal
-          </p>
-          <p className="font-roboto text-[12px]">
+          </Link>
+          <Link href="/site-map" className="block">
             Site Map
-          </p>
+          </Link>
         </div>
         <div className="flex items-center justify-center">
           <p className="font-roboto text-[11px] font-light">
@@ -234,6 +272,17 @@ export default function Footer( {bgGradientClass} ) {
           height={30}
         />
       </button>
+
+      {/* Preferences Modal */}
+      <PreferencesModal
+        isOpen={preferencesOpen}
+        onClose={() => setPreferencesOpen(false)}
+        essentialCookies={essentialCookies}
+        analyticsCookies={analyticsCookies}
+        handleToggleEssentials={handleToggleEssentials}
+        handleToggleAnalytics={handleToggleAnalytics}
+        handleSavePreferences={handleSavePreferences}
+      />
     </div>
   );
 }

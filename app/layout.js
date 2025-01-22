@@ -6,6 +6,7 @@ import "./globals.css";
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { ActiveLinkProvider } from './ActiveLinkContext/page';
+import CookieBanner from './Components/CookieBanner';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,6 +20,7 @@ const geistMono = localFont({
 });
 
 export default function RootLayout({ children }) {
+  const [blurContent, setBlurContent] = useState(false);
 
   return (
     <html lang="en">
@@ -29,10 +31,14 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ActiveLinkProvider>
-          <div className="fixed top-0 z-50 w-full">
-            <Navbar />
+          <CookieBanner setBlurContent={setBlurContent} />
+
+          <div className={`${blurContent ? 'blur-sm' : ''}`}>
+            <div className="fixed top-0 z-50 w-full">
+              <Navbar />
+            </div>
+            {children}
           </div>
-          {children}
         </ActiveLinkProvider>
       </body>
     </html>

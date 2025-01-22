@@ -13,11 +13,6 @@ export default function Services() {
 
   return (
     <div className='overflow-x-hidden services'>
-      {/* Navbar */}
-      {/* <div className="fixed top-0 z-50 w-full">
-        <Navbar whyRef={whyRef} planRef={planRef} />
-      </div> */}
-
       {/* Hero */}
       <Hero />
 
