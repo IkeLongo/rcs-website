@@ -6,8 +6,8 @@ import CreateForm from './CreateForm';
 
 export default function Main() {
   return (
-    <div className="bg-gray-900">
-      <div className="relative flex flex-col w-full h-auto px-4 mb-10 bg-gray-900 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
+    <div className="bg-gray-900 flex flex-col justify-center items-center">
+      <div className="relative flex flex-col w-full max-w-[60em] h-auto px-4 mb-10 bg-gray-900 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
         <header className="text-center py-8">
             <h1 className="text-[32px] font-gentium-book-plus">Website Privacy Policy</h1>
             <p className="text-sm font-maven-pro">Last updated January 24, 2025</p>
@@ -687,12 +687,12 @@ export default function Main() {
           </section>
         </main>
       </div>
-      <div className="relative flex flex-col w-full h-auto px-4 pb-10 mb-10 bg-gray-700 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
-        <header id="cookie-policy" className="text-center py-8">
+      <div className="relative flex flex-col justify-center items-center w-full h-auto px-4 pb-10 bg-gray-700 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
+        <header id="cookie-policy" className="text-center py-8 max-w-[60em]">
           <h2 className="text-[32px] font-gentium-book-plus">Website Cookie Policy</h2>
           <p className="text-sm font-maven-pro">Last updated January 24, 2025</p>
         </header>
-				<section className='px-6 pb-8'>
+				<section className='px-6 pb-8 max-w-[60em]'>
 					<h3 className="text-xl font-maven-pro mt-6">What is a Cookie?</h3>
 					<p className="mt-4">A cookie is a small data file stored in your computer, tablet or smartphone. A cookie is not a program and cannot carry harmful malware or viruses.</p>
 					<h3 className="text-xl font-maven-pro mt-6">How Our Website Utilizes Cookies</h3>
@@ -730,8 +730,8 @@ export default function Main() {
 					<p className="mt-4">The most recent update to this cookie policy was on <strong>January 25, 2025</strong>.</p>
 				</section>
       </div>
-			<div className="relative bg-gray-900 flex flex-col w-full h-auto px-4 pb-10 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
-        <header id="data-subject-request" className="text-center py-8">
+			<div className="relative bg-gray-900 flex flex-col w-full max-w-[60em] h-auto px-4 pb-10 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
+        <header id="data-subject-request" className="text-center pb-8">
           <h2 className="text-[32px] font-gentium-book-plus">Data Subject Request</h2>
         </header>
 				<section className='px-6 pb-8'>

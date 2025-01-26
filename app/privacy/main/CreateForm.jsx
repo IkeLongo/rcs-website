@@ -152,7 +152,7 @@ export default function CreateForm() {
         isRequired
         errorMessage="Please select a request type"
         backdrop="blur"
-        className="text-gray-900"
+        className="text-gray-300"
         color="gray-300"
         placeholder="Choose Request Type"
         variant="faded"
@@ -161,19 +161,26 @@ export default function CreateForm() {
             "bg-gray-900",
             "border-gray-900",
           ],
-          value: "text-gray-300",
+          value: [
+            "text-gray-300",
+            "group-data-[has-value=true]:text-white",
+          ],
           mainWrapper: [
             "bg-gray-900",
-            "text-white",
+            "text-gray-300",
             "placeholder:text-gray-300",
           ],
-          trigger: "bg-gray-900",
-          listboxWrapper: "bg-gray-900",
-          innerWrapper: "bg-gray-900",
+          trigger: [
+            "bg-gray-900",
+            "border-gray-300",
+          ],
+          listbox: "bg-gray-900 rounded-[14px] text-gray-300 hover:bg-gray-900",
+          innerWrapper: "bg-gray-900 hover:bg-gray-900",
           inputWrapper: [
             "shadow-xl",
             "bg-gray-900",
             "border-gray-300",
+            "hover:bg-gray-900",
             "hover:border-white",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
@@ -181,6 +188,27 @@ export default function CreateForm() {
             "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
           ],
+        }}
+        listboxProps={{
+          itemClasses: {
+            base: [
+              "bg-gray-900",
+              "text-gray-300",
+              "transition-opacity",
+              "data-[hover=true]:text-foreground",
+              "data-[hover=true]:bg-default-100",
+              "dark:data-[hover=true]:bg-default-50",
+              "data-[selectable=true]:focus:bg-default-50",
+              "data-[pressed=true]:opacity-70",
+              "data-[focus-visible=true]:ring-default-500",
+            ],
+          },
+        }}
+        popoverProps={{
+          classNames: {
+            base: "bg-gray-900 rounded-[14px] text-gray-300",
+            content: "bg-gray-900 p-0 radius-lg border-medium border-gray-300 bg-background backdrop-blur",
+          },
         }}
       >
         {selections.map((selection) => (
