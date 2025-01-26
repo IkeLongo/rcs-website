@@ -106,7 +106,7 @@ export default function Footer( {bgGradientClass} ) {
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
                 />
                 <p className="font-roboto text-[12px] lg:text-[14px]">
-                  support@rivercitydesignco.com
+                  contact@rivercitycreatives.com
                 </p>
               </div>
               <div className="flex items-center gap-3 lg:gap-2">
@@ -211,27 +211,27 @@ export default function Footer( {bgGradientClass} ) {
         </div>
         <div className="flex flex-col gap-4 md:hidden">
           <div className="font-roboto text-[12px] flex flex-col gap-[10px] self-stretch">
-            <Link href="/privacy-policy" className="block">
-              Privacy Policy
+            <Link href="/privacy" className="block text-white">
+              Cookie & Privacy Policy
             </Link>
-            <Link href="/terms-of-use" className="block">
+            <Link href="/terms-of-use" className="block text-white">
               Terms of Use
             </Link>
-            <button className="block" onClick={() => setPreferencesOpen(true)}>
+            <button className="block text-left" onClick={() => setPreferencesOpen(true)}>
               Cookie Settings
             </button>
-            <Link href="/sales-and-refunds" className="block">
+            <Link href="/sales-and-refunds" className="block text-white">
               Sales and Refunds
             </Link>
-            <Link href="/legal" className="block">
+            <Link href="/legal" className="block text-white">
               Legal
             </Link>
-            <Link href="/site-map" className="block">
+            <Link href="/site-map" className="block text-white">
               Site Map
             </Link>
           </div>
           <div className="flex items-center justify-center">
-            <p className="font-roboto text-[11px] font-light">
+            <p className="font-roboto text-[11px] font-light text-white">
               © 2024 All Rights Reserved
             </p>
           </div>
@@ -239,27 +239,27 @@ export default function Footer( {bgGradientClass} ) {
       </div>
       <div className="hidden md:block md:flex md:flex-col md:gap-4">
         <div className="flex gap-[10px] self-center justify-between w-[535px] font-roboto text-[12px]">
-          <Link href="/privacy-policy" className="block">
-            Privacy Policy
+          <Link href="/privacy" className="block text-white">
+            Cookie & Privacy Policy
           </Link>
-          <Link href="/terms-of-use" className="block">
+          <Link href="/terms-of-use" className="block text-white">
             Terms of Use
           </Link>
-          <button className="block" onClick={() => setPreferencesOpen(true)}>
+          <button className="block text-white" onClick={() => setPreferencesOpen(true)}>
             Cookie Settings
           </button>
-          <Link href="/sales-and-refunds" className="block">
+          <Link href="/sales-and-refunds" className="block text-white">
             Sales and Refunds
           </Link>
-          <Link href="/legal" className="block">
+          <Link href="/legal" className="block text-white">
             Legal
           </Link>
-          <Link href="/site-map" className="block">
+          <Link href="/site-map" className="block text-white">
             Site Map
           </Link>
         </div>
         <div className="flex items-center justify-center">
-          <p className="font-roboto text-[11px] font-light">
+          <p className="font-roboto text-[11px] font-light text-white">
             © 2024 All Rights Reserved
           </p>
         </div>
