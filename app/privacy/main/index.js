@@ -731,7 +731,7 @@ export default function Main() {
 				</section>
       </div>
 			<div className="relative bg-gray-900 flex flex-col w-full max-w-[60em] h-auto px-4 pb-10 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
-        <header id="data-subject-request" className="text-center pb-8">
+        <header id="data-subject-request" className="text-center py-8">
           <h2 className="text-[32px] font-gentium-book-plus">Data Subject Request</h2>
         </header>
 				<section id="dpo-contact-form" className='px-6 py-8'>
