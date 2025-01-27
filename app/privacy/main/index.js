@@ -734,7 +734,7 @@ export default function Main() {
         <header id="data-subject-request" className="text-center pb-8">
           <h2 className="text-[32px] font-gentium-book-plus">Data Subject Request</h2>
         </header>
-				<section id="dpo-contact-form" className='px-6 pb-8'>
+				<section id="dpo-contact-form" className='px-6 py-8'>
 					<CreateForm />
 				</section>
       </div>
