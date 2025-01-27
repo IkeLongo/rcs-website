@@ -542,7 +542,7 @@ export default function Main() {
             </ul>
             <p className="mt-4">More information about our data collection and sharing practices can be found in this privacy notice and our <a href="#cookie-policy" className="text-blue-400 hover:underline">Cookie Policy</a>.</p>
             <p className="mt-4">You can opt out from the selling or sharing of your personal information by disabling cookies in Cookie Preference Settings.</p>
-            <p className="mt-4">You may contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting [Contact Form URL], or by referring to the contact details at the bottom of this document.</p>
+            <p className="mt-4">You may contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
             <p className="mt-4">If you are using an authorized agent to exercise your right to opt out we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.</p>
 
             <h3 className="text-xl font-maven-pro mt-6">Will your information be shared with anyone else?</h3>
@@ -610,7 +610,7 @@ export default function Main() {
               <li>You can designate an authorized agent to make a request under the CCPA on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with the CCPA.</li>
               <li>You may request to opt out from future selling or sharing of your personal information to third parties. Upon receiving an opt-out request, we will act upon the request as soon as feasibly possible, but no later than fifteen (15) days from the date of the request submission.</li>
             </ul>
-            <p className="mt-4">To exercise these rights, you can contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting [Contact Form URL], or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</p>
+            <p className="mt-4">To exercise these rights, you can contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</p>
 
             <h3 className="text-xl font-maven-pro mt-6">Financial Incentives</h3>
             <p className="mt-4">“Financial incentive” means a program, benefit, or other offering, including payments to consumers as compensation, for the disclosure, deletion, sharing, or sale of personal information.</p>
@@ -621,7 +621,7 @@ export default function Main() {
             </ul>
             <p className="mt-4">We may decide to offer a financial incentive (e.g., price or service difference) in exchange for the retention, sale or sharing of a consumer’s personal information.</p>
             <p className="mt-4">If we decide to offer a financial incentive, we will notify you of such financial incentive and explain the price difference, as well as material terms of the financial incentive or price of service difference, including the categories of personal information that are implicated by the financial incentive or price or service difference.</p>
-            <p className="mt-4">If you choose to participate in the financial incentive you can withdraw from the financial incentive at any time by emailing us at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling us toll-free at 210-730-6232, by visiting [Contact Form URL], or by referring to the contact details at the bottom of this document.</p>
+            <p className="mt-4">If you choose to participate in the financial incentive you can withdraw from the financial incentive at any time by emailing us at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling us toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
 
             <h3 className="text-xl font-maven-pro mt-6">Metrics</h3>
             <p className="mt-4">Our metrics for all CCPA requests received for the previous calendar year can be found here: [Metrics URL].</p>
@@ -659,7 +659,7 @@ export default function Main() {
             <p className="mt-4">RiverCity Creatives has not sold any personal data to third parties for business or commercial purposes. RiverCity Creatives will not sell personal data in the future belonging to website visitors, users, and other consumers. </p>
             <p className="mt-4"><strong>Exercise your rights provided under the Virginia CDPA</strong></p>
             <p className="mt-4">More information about our data collection and sharing practices can be found in this privacy notice and our <a href="#cookie-policy" className="text-blue-400 hover:underline">Cookie Policy</a>.</p>
-            <p className="mt-4">You may contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by visiting [Contact Form URL], or by referring to the contact details at the bottom of this document.</p>
+            <p className="mt-4">You may contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
             <p className="mt-4">If you are using an authorized agent to exercise your rights, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.</p>
             <p className="mt-4"><strong>Verification process</strong></p>
             <p className="mt-4">We may request that you provide additional information reasonably necessary to verify you and your consumer’s request. If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request.</p>
@@ -734,7 +734,7 @@ export default function Main() {
         <header id="data-subject-request" className="text-center pb-8">
           <h2 className="text-[32px] font-gentium-book-plus">Data Subject Request</h2>
         </header>
-				<section className='px-6 pb-8'>
+				<section id="dpo-contact-form" className='px-6 pb-8'>
 					<CreateForm />
 				</section>
       </div>
