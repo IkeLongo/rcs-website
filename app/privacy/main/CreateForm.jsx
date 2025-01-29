@@ -2,7 +2,9 @@
 
 import {Form, Input, Button, Textarea, Select, SelectItem} from "@heroui/react";
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 export const selections = [
   {key: "information", label: "Information"},
@@ -16,14 +18,58 @@ export const selections = [
 
 export default function CreateForm() {
   const [submitted, setSubmitted] = useState(null);
+  const form = useRef();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(e.currentTarget));
 
     setSubmitted(data);
+
+    console.log("Submitting data:", data);
+
+    try {
+      const response = await fetch("/api/dpoContact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Network response was not ok: ${response.status} - ${errorData.message}`);
+      }
+  
+      // Handle successful response
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
   };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_of79jpv", "template_rrjiba9", form.current, {
+        publicKey: "aeIyCorze0snqKQe0",
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          e.target.reset();
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+  console.log("env:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
 
   // const selectedValue = React.useMemo(
   //   () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
@@ -31,7 +77,7 @@ export default function CreateForm() {
   // );
 
   return (
-    <Form className="w-full" validationBehavior="native" onSubmit={onSubmit}>
+    <Form className="w-full" validationBehavior="native" onSubmit={sendEmail} ref={form}>
       <div className="w-full flex justify-between gap-2">
         <Input
           isRequired
@@ -41,10 +87,7 @@ export default function CreateForm() {
           type="text"
           variant="faded"
           classNames={{
-            label: "text-white",
             input: [
-              "bg-gray-900",
-              "text-white",
               "placeholder:text-gray-300",
             ],
             innerWrapper: "bg-gray-900",
@@ -52,11 +95,6 @@ export default function CreateForm() {
               "shadow-xl",
               "bg-gray-900",
               "border-gray-300",
-              "hover:border-white",
-              "backdrop-blur-xl",
-              "backdrop-saturate-200",
-              "group-data-[focus=true]:bg-gray-900",
-              "dark:group-data-[focus=true]:bg-default/60",
               "!cursor-text",
             ],
           }}
@@ -69,10 +107,7 @@ export default function CreateForm() {
           type="text"
           variant="faded"
           classNames={{
-            label: "text-white",
             input: [
-              "bg-gray-900",
-              "text-white",
               "placeholder:text-gray-300",
             ],
             innerWrapper: "bg-gray-900",
@@ -80,11 +115,6 @@ export default function CreateForm() {
               "shadow-xl",
               "bg-gray-900",
               "border-gray-300",
-              "hover:border-white",
-              "backdrop-blur-xl",
-              "backdrop-saturate-200",
-              "group-data-[focus=true]:bg-gray-900",
-              "dark:group-data-[focus=true]:bg-default/60",
               "!cursor-text",
             ],
           }}
@@ -99,10 +129,7 @@ export default function CreateForm() {
           type="email"
           variant="faded"
           classNames={{
-            label: "text-white",
             input: [
-              "bg-gray-900",
-              "text-white",
               "placeholder:text-gray-300",
             ],
             innerWrapper: "bg-gray-900",
@@ -110,11 +137,6 @@ export default function CreateForm() {
               "shadow-xl",
               "bg-gray-900",
               "border-gray-300",
-              "hover:border-white",
-              "backdrop-blur-xl",
-              "backdrop-saturate-200",
-              "group-data-[focus=true]:bg-gray-900",
-              "dark:group-data-[focus=true]:bg-default/60",
               "!cursor-text",
             ],
           }}
@@ -127,10 +149,7 @@ export default function CreateForm() {
           type="text"
           variant="faded"
           classNames={{
-            label: "text-white",
             input: [
-              "bg-gray-900",
-              "text-white",
               "placeholder:text-gray-300",
             ],
             innerWrapper: "bg-gray-900",
@@ -138,11 +157,6 @@ export default function CreateForm() {
               "shadow-xl",
               "bg-gray-900",
               "border-gray-300",
-              "hover:border-white",
-              "backdrop-blur-xl",
-              "backdrop-saturate-200",
-              "group-data-[focus=true]:bg-gray-900",
-              "dark:group-data-[focus=true]:bg-default/60",
               "!cursor-text",
             ],
           }}
@@ -150,6 +164,7 @@ export default function CreateForm() {
       </div>
       <Select
         isRequired
+        name="type"
         errorMessage="Please select a request type"
         backdrop="blur"
         className="text-gray-300"
@@ -157,35 +172,24 @@ export default function CreateForm() {
         placeholder="Choose Request Type"
         variant="faded"
         classNames={{
-          base: [
-            "bg-gray-900",
-            "border-gray-900",
-          ],
           value: [
             "text-gray-300",
             "group-data-[has-value=true]:text-white",
-          ],
-          mainWrapper: [
-            "bg-gray-900",
-            "text-gray-300",
-            "placeholder:text-gray-300",
           ],
           trigger: [
             "bg-gray-900",
             "border-gray-300",
           ],
-          listbox: "bg-gray-900 rounded-[14px] text-gray-300 hover:bg-gray-900",
+          listbox: [
+            "bg-gray-900",
+            "rounded-[14px]",
+            "text-gray-300",
+          ],
           innerWrapper: "bg-gray-900 hover:bg-gray-900",
           inputWrapper: [
             "shadow-xl",
             "bg-gray-900",
             "border-gray-300",
-            "hover:bg-gray-900",
-            "hover:border-white",
-            "backdrop-blur-xl",
-            "backdrop-saturate-200",
-            "group-data-[focus=true]:bg-gray-900",
-            "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
           ],
         }}
@@ -195,8 +199,8 @@ export default function CreateForm() {
               "bg-gray-900",
               "text-gray-300",
               "transition-opacity",
-              "data-[hover=true]:text-foreground",
-              "data-[hover=true]:bg-default-100",
+              "data-[hover=true]:text-black",
+              "data-[hover=true]:bg-white",
               "dark:data-[hover=true]:bg-default-50",
               "data-[selectable=true]:focus:bg-default-50",
               "data-[pressed=true]:opacity-70",
@@ -206,34 +210,13 @@ export default function CreateForm() {
         }}
         popoverProps={{
           classNames: {
-            base: "bg-gray-900 rounded-[14px] text-gray-300",
-            content: "bg-gray-900 p-0 radius-lg border-medium border-gray-300 bg-background backdrop-blur",
+            base: "rounded-[14px]",
+            content: "bg-gray-900 p-0 border-medium border-gray-300",
           },
         }}
       >
         {selections.map((selection) => (
           <SelectItem key={selection.key} className="text-white bg-gray-900"
-          classNames={{
-            content: "bg-gray-900",
-            label: "text-white",
-            input: [
-              "bg-gray-900",
-              "text-white",
-              "placeholder:text-gray-300",
-            ],
-            innerWrapper: "bg-gray-900",
-            inputWrapper: [
-              "shadow-xl",
-              "bg-gray-900",
-              "border-gray-300",
-              "hover:border-white",
-              "backdrop-blur-xl",
-              "backdrop-saturate-200",
-              "group-data-[focus=true]:bg-gray-900",
-              "dark:group-data-[focus=true]:bg-default/60",
-              "!cursor-text",
-            ],
-          }}
           >
             {selection.label}</SelectItem>
         ))}
@@ -241,7 +224,7 @@ export default function CreateForm() {
       <Textarea
         isRequired
         errorMessage="Please a description of your request"
-        name="request"
+        name="description"
         placeholder="Description of Request"
         variant="faded"
         classNames={{
@@ -265,33 +248,6 @@ export default function CreateForm() {
           ],
         }}
       />
-      {/* <Dropdown
-        backdrop="blur"
-        isRequired
-        errorMessage="Please select a request type"
-        >
-        <DropdownTrigger>
-          <Button className="capitalize" variant="bordered">
-            {selectedValue}
-          </Button>
-        </DropdownTrigger>
-        <DropdownMenu
-          disallowEmptySelection
-          aria-label="Single selection example"
-          selectedKeys={selectedKeys}
-          selectionMode="single"
-          variant="flat"
-          onSelectionChange={setSelectedKeys}
-        >
-          <DropdownItem key="information" className="text-gray-900">Information</DropdownItem>
-          <DropdownItem key="correction" className="text-gray-900">Correction</DropdownItem>
-          <DropdownItem key="objection" className="text-gray-900">Objection</DropdownItem>
-          <DropdownItem key="insight" className="text-gray-900">Insight</DropdownItem>
-          <DropdownItem key="deletion" className="text-gray-900">Deletion</DropdownItem>
-          <DropdownItem key="data-portability" className="text-gray-900">Data Portability</DropdownItem>
-          <DropdownItem key="profiling" className="text-gray-900">Profiling</DropdownItem>
-        </DropdownMenu>
-      </Dropdown> */}
       <Button type="submit" variant="bordered">
         Submit
       </Button>

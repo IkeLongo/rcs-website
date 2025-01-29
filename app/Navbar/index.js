@@ -6,7 +6,6 @@ import {Button, ButtonGroup} from "@nextui-org/button";
 import Link from 'next/link';
 import lottie from 'lottie-web';
 import menuAnimationData from '../../public/Menu.json';
-import CalendlyWidget from '../Components/Calendly';
 import { ActiveLinkContext } from '../ActiveLinkContext/page';
 
 export default function Navbar() {
