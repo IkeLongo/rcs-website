@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import PreferencesModal from '../Components/CookiePreferences';
+import PreferencesModal from '../Components/CookiePreferences/page';
 
 export default function Footer( {bgGradientClass} ) {
   const [preferencesOpen, setPreferencesOpen] = useState(false);

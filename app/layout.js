@@ -6,7 +6,9 @@ import "./globals.css";
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { ActiveLinkProvider } from './ActiveLinkContext/page';
-import CookieBanner from './Components/CookieBanner';
+import CookieBanner from "./Components/CookieBanner/page";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +33,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ActiveLinkProvider>
-          <CookieBanner setBlurContent={setBlurContent} />
+          <CookieBanner />
 
           <div className={`${blurContent ? 'blur-sm' : ''}`}>
             <div className="fixed top-0 z-50 w-full">
@@ -40,6 +42,10 @@ export default function RootLayout({ children }) {
             {children}
           </div>
         </ActiveLinkProvider>
+        <ToastContainer
+        limit={1}
+        theme="dark"
+        />
       </body>
     </html>
   );

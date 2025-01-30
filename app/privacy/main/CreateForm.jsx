@@ -4,7 +4,7 @@ import {Form, Input, Button, Textarea, Select, SelectItem} from "@heroui/react";
 import { useRouter } from 'next/navigation';
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-
+import {toast} from 'react-toastify';
 
 export const selections = [
   {key: "information", label: "Information"},
@@ -46,6 +46,7 @@ export default function CreateForm() {
       // Handle successful response
       const result = await response.json();
       console.log("Success:", result);
+      // Show success toast
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -62,6 +63,11 @@ export default function CreateForm() {
         () => {
           console.log('SUCCESS!');
           e.target.reset();
+          // Show success toast
+          toast.success("Form submitted successfully!", {
+            className: 
+            "bg-gray-900",
+          });
         },
         (error) => {
           console.log('FAILED...', error.text);
