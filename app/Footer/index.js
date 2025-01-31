@@ -86,7 +86,7 @@ export default function Footer( {bgGradientClass} ) {
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
                 />
                 <p className="font-roboto text-[12px] lg:text-[14px]">
-                  (210) 730 6232
+                  (210) 730-6232
                 </p>
               </div>
               <div className="flex items-center gap-3 lg:gap-2">
