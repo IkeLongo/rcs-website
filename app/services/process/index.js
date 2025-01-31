@@ -36,7 +36,7 @@ export default function Process() {
 
   return (
     <div className='md:h-[1000px] lg:h-[625px]'>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center bg-gray-900">
         <div className='relative top-20 flex flex-col w-full justify-center self-center gap-[16px] bg-white mx-4 px-[34px] py-[20px] rounded-[10px] shadow-[-11px_15px_7.5px_0_rgba(0,0,0,0.25)] z-10 md:-top-10 md:max-w-[665px] lg:flex-row lg:max-w-[1000px] lg:-top-24'>
           <div>
             <p className="text-gray-800 font-bold text-[15px] font-maven-pro">

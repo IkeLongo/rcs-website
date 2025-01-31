@@ -12,7 +12,7 @@ export default function Home() {
   const planRef = useRef(null);
 
   return (
-    <div className="relative h-auto w-full bg-cover bg-top overflow-x-hidden team">
+    <div className="relative h-auto w-full bg-cover bg-top bg-gray-900 overflow-x-hidden team">
       {/* Hero Section */}
       <Hero />
 
