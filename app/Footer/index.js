@@ -234,17 +234,6 @@ export default function Footer( {bgGradientClass} ) {
           height={30}
         />
       </button>
-
-      {/* Preferences Modal */}
-      <PreferencesModal
-        isOpen={preferencesOpen}
-        onClose={() => setPreferencesOpen(false)}
-        essentialCookies={essentialCookies}
-        analyticsCookies={analyticsCookies}
-        handleToggleEssentials={handleToggleEssentials}
-        handleToggleAnalytics={handleToggleAnalytics}
-        handleSavePreferences={handleSavePreferences}
-      />
     </div>
   );
 }
