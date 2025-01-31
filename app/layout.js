@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <ActiveLinkProvider>
           <CookieBanner />
