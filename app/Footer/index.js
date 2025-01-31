@@ -40,7 +40,7 @@ export default function Footer( {bgGradientClass} ) {
             alt="Logo"
             width={200}
             height={200}
-            className='cursor-pointer w-[200px] h-[200px] lg:w-[200px] lg:h-[100px]'
+            className='cursor-pointer w-[150px] h-[100px] lg:w-[200px] lg:h-[100px]'
           />
         </Link>
         <Image
