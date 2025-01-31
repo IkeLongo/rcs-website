@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button, ButtonGroup } from "@nextui-org/button";
 import Form from 'next/form'
 import CreateForm from './CreateForm';
+import CookiePreferences from "../../Components/CookiePreferences/page";
 
 
 export default function Main() {
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
+
+
   return (
     <div className="bg-gray-900 flex flex-col justify-center items-center">
       <div className="relative flex flex-col w-full max-w-[60em] h-auto px-4 mb-10 bg-gray-900 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
@@ -723,7 +728,8 @@ export default function Main() {
 					</ul>
 					<p className="mt-4">Instructions are typically found under "Settings" → "Security and Privacy," though this may differ based on your browser.</p>
 					<h3 className="text-xl font-maven-pro mt-6">Changing Your Cookie Consent</h3>
-					<p className="mt-4">You can update your cookie preferences by either deleting cookies from your browser or modifying your previous consent via this link.</p>
+					<p className="mt-4">You can update your cookie preferences by either deleting cookies from your browser or modifying your previous consent via this <a onClick={() => setPreferencesOpen(true)} className="text-blue-400 hover:underline">link</a>.</p>
+          <CookiePreferences isOpen={preferencesOpen} onClose={() => setPreferencesOpen(false)} />
 					<p className="mt-4"><strong>Note: </strong>If you use multiple browsers, you will need to adjust settings for each one individually.</p>
 					<h3 className="text-xl font-maven-pro mt-6">Have Questions?</h3>
 					<p className="mt-4">For inquiries or comments regarding our cookie policy or data processing practices, feel free to contact us.</p>

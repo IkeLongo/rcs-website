@@ -1,41 +1,9 @@
-"use client";
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PreferencesModal from '../Components/CookiePreferences/page';
 
 export default function Footer( {bgGradientClass} ) {
-  const [preferencesOpen, setPreferencesOpen] = useState(false);
-  const [analyticsCookies, setAnalyticsCookies] = useState(true);
-  const [essentialCookies, setEssentialCookies] = useState(true);
-
-  useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    const preferences = JSON.parse(localStorage.getItem('cookiePreferences'));
-
-    if (consent) {
-      setEssentialCookies(consent === 'true');
-    }
-
-    if (preferences && preferences.analytics !== undefined) {
-      setAnalyticsCookies(preferences.analytics);
-    }
-  }, []);
-
-  const handleToggleEssentials = () => {
-    setEssentialCookies(!essentialCookies);
-  };
-
-  const handleToggleAnalytics = () => {
-    setAnalyticsCookies(!analyticsCookies);
-  };
-
-  const handleSavePreferences = () => {
-    localStorage.setItem('cookieConsent', essentialCookies);
-    localStorage.setItem('cookiePreferences', JSON.stringify({ analytics: analyticsCookies }));
-    setPreferencesOpen(false);
-  };
 
   const scrollToTop = (e) => {
     e.preventDefault();
@@ -217,9 +185,6 @@ export default function Footer( {bgGradientClass} ) {
             <Link href="/terms-of-use" className="block text-white">
               Terms of Use
             </Link>
-            <button className="block text-left" onClick={() => setPreferencesOpen(true)}>
-              Cookie Settings
-            </button>
             <Link href="/sales-and-refunds" className="block text-white">
               Sales and Refunds
             </Link>
@@ -245,9 +210,6 @@ export default function Footer( {bgGradientClass} ) {
           <Link href="/terms-of-use" className="block text-white">
             Terms of Use
           </Link>
-          <button className="block text-white" onClick={() => setPreferencesOpen(true)}>
-            Cookie Settings
-          </button>
           <Link href="/sales-and-refunds" className="block text-white">
             Sales and Refunds
           </Link>
