@@ -728,7 +728,7 @@ export default function Main() {
 					</ul>
 					<p className="mt-4">Instructions are typically found under "Settings" → "Security and Privacy," though this may differ based on your browser.</p>
 					<h3 className="text-xl font-maven-pro mt-6">Changing Your Cookie Consent</h3>
-					<p className="mt-4">You can update your cookie preferences by either deleting cookies from your browser or modifying your previous consent via this <a onClick={() => setPreferencesOpen(true)} className="text-blue-400 hover:underline">link</a>.</p>
+					<p className="mt-4">You can update your cookie preferences by either deleting cookies from your browser or modifying your previous consent via this <a onClick={() => setPreferencesOpen(true)} className="text-blue-400 hover:underline cursor-pointer">link</a>.</p>
           <CookiePreferences isOpen={preferencesOpen} onClose={() => setPreferencesOpen(false)} />
 					<p className="mt-4"><strong>Note: </strong>If you use multiple browsers, you will need to adjust settings for each one individually.</p>
 					<h3 className="text-xl font-maven-pro mt-6">Have Questions?</h3>
