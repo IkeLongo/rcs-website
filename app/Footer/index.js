@@ -36,11 +36,11 @@ export default function Footer( {bgGradientClass} ) {
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
-            src="/SiteLogo-mobile.svg"
+            src="/rcc-logo-menu.svg"
             alt="Logo"
-            width={116}
-            height={26}
-            className='cursor-pointer w-[116px] h-[26px] lg:w-[150px] lg:h-[39px]'
+            width={200}
+            height={200}
+            className='cursor-pointer w-[200px] h-[200px] lg:w-[200px] lg:h-[100px]'
           />
         </Link>
         <Image
@@ -51,7 +51,7 @@ export default function Footer( {bgGradientClass} ) {
           className="-mr-4 md:hidden"
         />
       </div>
-      <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:py-10 lg:items-center lg:justify-center">
+      <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:pb-10 md:pt-0 lg:items-center lg:justify-center">
         <Image
           src="/footer-app-dev.gif"
           alt="Mobile Application Developer"

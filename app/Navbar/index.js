@@ -102,9 +102,9 @@ export default function Navbar() {
             <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
               <Link href="/" onClick={handleLogoClick}>
                 <Image
-                  src="/SiteLogo-mobile.svg"
+                  src="/rcc-logo-menu.svg"
                   alt="Logo"
-                  width={100}
+                  width={125}
                   height={100}
                 />
               </Link>
@@ -132,9 +132,9 @@ export default function Navbar() {
             <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] border-gray-500 bg-[#292732]/75 backdrop-blur-[3.5px]'>
               <Link href="/" onClick={handleLogoClick}>
                 <Image
-                  src="/SiteLogo-mobile.svg"
+                  src="/rcc-logo-menu.svg"
                   alt="Logo"
-                  width={100}
+                  width={125}
                   height={100}
                 />
               </Link>
