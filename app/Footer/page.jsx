@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import PreferencesModal from '../Components/CookiePreferences/page';
+import ScrollToTopButton from './ScrollToTopButton';
 
 export default function Footer( {bgGradientClass} ) {
 
@@ -182,8 +182,8 @@ export default function Footer( {bgGradientClass} ) {
             <Link href="/privacy" className="block text-white">
               Cookie & Privacy Policy
             </Link>
-            <Link href="/terms-of-use" className="block text-white">
-              Terms of Use
+            <Link href="/terms" className="block text-white">
+              Terms & Conditions
             </Link>
             <Link href="/sales-and-refunds" className="block text-white">
               Sales and Refunds
@@ -207,8 +207,8 @@ export default function Footer( {bgGradientClass} ) {
           <Link href="/privacy" className="block text-white">
             Cookie & Privacy Policy
           </Link>
-          <Link href="/terms-of-use" className="block text-white">
-            Terms of Use
+          <Link href="/terms" className="block text-white">
+            Terms & Conditions
           </Link>
           <Link href="/sales-and-refunds" className="block text-white">
             Sales and Refunds
@@ -226,14 +226,7 @@ export default function Footer( {bgGradientClass} ) {
           </p>
         </div>
       </div>
-      <button className="absolute bottom-8 right-5" onClick={scrollToTop}>
-        <Image
-          src="/footer-arrow-up.svg"
-          alt="Arrow Up Icon"
-          width={30}
-          height={30}
-        />
-      </button>
+      <ScrollToTopButton />
     </div>
   );
 }

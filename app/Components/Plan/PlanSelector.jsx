@@ -1,8 +1,9 @@
-import Image from 'next/image';
-import { useState } from 'react';
-import Mobile from './Mobile';
+"use client";
 
-export default function Plan() {
+import { useState } from "react";
+import Mobile from "./Mobile/page";
+
+export default function PlanSelector() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleClick = (index) => {

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Navbar from '../Navbar';
 import Hero from './hero';
-import Footer from '../Footer';
+import Footer from '../Footer/page';
 import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 

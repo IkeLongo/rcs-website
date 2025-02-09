@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import Do from '../Do';
+import Do from '../Do/page';
 import '../../styles.css'
 
 export default function DoContainer() {

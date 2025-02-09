@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import PremiumCard from './Premium';
-import NormalCard from './Normal';
+"use client";
 
-export default function Mobile({ selectedIndex }) {
+import { useEffect, useRef, useState } from "react";
+import PremiumCard from "./Premium";
+import NormalCard from "./Normal";
+
+export default function MobileClient({ selectedIndex }) {
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(null);
 
@@ -10,7 +12,8 @@ export default function Mobile({ selectedIndex }) {
     const scrollContainer = scrollContainerRef.current;
     if (scrollContainer && scrollPosition === null) {
       // Set initial scroll position to center
-      const initialScrollPosition = (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
+      const initialScrollPosition =
+        (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2;
       scrollContainer.scrollLeft = initialScrollPosition;
       setScrollPosition(initialScrollPosition);
     }
@@ -23,8 +26,12 @@ export default function Mobile({ selectedIndex }) {
     }
   };
 
-	return (
-    <div className="flex overflow-x-auto overflow-y-hidden mx-[24px]" ref={scrollContainerRef} onScroll={handleScroll}>
+  return (
+    <div
+      className="flex overflow-x-auto overflow-y-hidden mx-[24px]"
+      ref={scrollContainerRef}
+      onScroll={handleScroll}
+    >
       {selectedIndex === 0 && (
         <div className="flex min-w-full md:justify-center">
           <NormalCard
@@ -39,7 +46,7 @@ export default function Mobile({ selectedIndex }) {
               "Basic SEO",
               "In House Development",
               "Simple Contact Form",
-              "SSL Security"
+              "SSL Security",
             ]}
           />
           <PremiumCard
@@ -54,7 +61,7 @@ export default function Mobile({ selectedIndex }) {
               "Advanced SEO",
               "In House Development",
               "Custom Contact Form",
-              "Interactive Features"
+              "Interactive Features",
             ]}
           />
           <NormalCard
@@ -69,7 +76,7 @@ export default function Mobile({ selectedIndex }) {
               "Advanced SEO",
               "Live Chat systems",
               "Advanced Security",
-              "API Integrations"
+              "API Integrations",
             ]}
           />
         </div>
@@ -88,7 +95,7 @@ export default function Mobile({ selectedIndex }) {
               "Mood Board",
               "2 Font Licenses",
               "Custom Brand Pattern",
-              "Mission & Vision Worksheet"
+              "Mission & Vision Worksheet",
             ]}
           />
           <PremiumCard
@@ -103,7 +110,7 @@ export default function Mobile({ selectedIndex }) {
               "2 Font Licenses",
               "Custom Brand Pattern",
               "Custom Graphic Elements",
-              "Professional Photography Photoshoot"
+              "Professional Photography Photoshoot",
             ]}
           />
           <NormalCard
@@ -117,7 +124,7 @@ export default function Mobile({ selectedIndex }) {
               "Custom Typography Solutions",
               "Extended Color Palette",
               "Professional Photography Photoshoot",
-              "Creative Consultation"
+              "Creative Consultation",
             ]}
           />
         </div>
@@ -135,7 +142,7 @@ export default function Mobile({ selectedIndex }) {
               "Routine Backups",
               "Basic Security Updates",
               "Performance Monitoring",
-              "Basic Analytics"
+              "Basic Analytics",
             ]}
           />
           <PremiumCard
@@ -149,7 +156,7 @@ export default function Mobile({ selectedIndex }) {
               "Enhanced Backups",
               "Advanced Security Updates",
               "Performance Monitoring & Optimization",
-              "Advanced Analytics"
+              "Advanced Analytics",
             ]}
           />
           <NormalCard
@@ -163,7 +170,7 @@ export default function Mobile({ selectedIndex }) {
               "Monthly SEO Updates",
               "Premium Security",
               "Advanced Performance Optimization",
-              "Comprehensive Monthly Reports"
+              "Comprehensive Monthly Reports",
             ]}
           />
         </div>

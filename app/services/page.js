@@ -4,7 +4,7 @@ import Navbar from '../Navbar';
 import Hero from './hero';
 import Process from './process';
 import ServiceBlocks from '../Components/Services';
-import Footer from '../Footer';
+import Footer from '../Footer/page';
 import {  useRef } from 'react';
 
 export default function Services() {
