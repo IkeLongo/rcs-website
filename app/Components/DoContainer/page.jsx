@@ -1,4 +1,4 @@
-import Do from '../Do/page';
+import Do from '../do';
 import '../../styles.css'
 
 export default function DoContainer() {
