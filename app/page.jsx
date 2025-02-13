@@ -1,64 +1,12 @@
-"use client";
 
-// import { useEffect, useRef, useContext } from 'react';
-// import Navbar from './Navbar';
 import HomeHero from './Components/home-hero/HomeHero';
 import HomeWhy from './Components/home-why/HomeWhy';
 import DoContainer from './Components/DoContainer/page';
 import ScrollingOptions from './Components/Options/ScrollingOptions';
 import Plan from './Components/Plan/page';
 import Footer from './Footer/page';
-// import { ActiveLinkContext } from './ActiveLinkContext/page';
 
 export default function Home() {
-  // const { activeLink, setActiveLink } = useContext(ActiveLinkContext);
-  // const whyRef = useRef(null);
-  // const planRef = useRef(null);
-
-  // useEffect(() => {
-  //   const handleHashChange = () => {
-  //     const hash = window.location.hash;
-  //     if (hash === '#plan' || hash === '#why') {
-  //       const element = document.getElementById(hash.substring(1));
-  //       if (element) {
-  //         const yOffset = -100; // Adjust this value to set the padding
-  //         const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-  //         window.scrollTo({ top: y, behavior: 'smooth' });
-  //       }
-  //     }
-  //   };
-  
-  //   handleHashChange(); // Handle the initial load
-  //   window.addEventListener('hashchange', handleHashChange); // Handle hash changes
-  
-  //   return () => {
-  //     window.removeEventListener('hashchange', handleHashChange);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   // Intersection Observer to track sections
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setActiveLink(entry.target.id);
-  //         } else if (activeLink === entry.target.id) {
-  //           setActiveLink('');
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 } // Adjust the threshold as needed
-  //   );
-
-  //   if (whyRef.current) observer.observe(whyRef.current);
-  //   if (planRef.current) observer.observe(planRef.current);
-
-  //   return () => {
-  //     if (whyRef.current) observer.unobserve(whyRef.current);
-  //     if (planRef.current) observer.unobserve(planRef.current);
-  //   };
-  // }, [whyRef, planRef, activeLink]);
 
   return (
     <div className='relative'>
