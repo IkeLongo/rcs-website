@@ -1,7 +1,7 @@
 "use client";
 
 import Main from './main/page';
-import Footer from '../Footer/page';
+import Footer from '@/components/layout/footer';
 
 export default function Home() {
 
