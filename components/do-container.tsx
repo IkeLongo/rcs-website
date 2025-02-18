@@ -4,7 +4,7 @@ import '@/app/globals.css';
 export default function DoContainer() {
 
   return (
-    <div className="relative w-full min-h-[596px] bg-transparent">
+    <div className="relative w-full min-h-[596px] pt-20 bg-transparent">
       <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
         <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
           What We Do

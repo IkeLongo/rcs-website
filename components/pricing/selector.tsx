@@ -26,7 +26,7 @@ export default function Pricing() {
   ];
 
 	return (
-    <div id='plan' className="relative w-full min-h-[450px] bg-transparent">
+    <div id='pricing' className="relative w-full min-h-[450px] pt-28 bg-transparent">
       <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
         <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
           Choose Your Right Plan
