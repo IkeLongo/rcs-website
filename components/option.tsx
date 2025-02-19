@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import { OptionProps } from '@/types/components';
 
@@ -12,7 +14,7 @@ export default function Option({ icon, title }: OptionProps) {
           height={28}
           className=""
         />
-        <h3 className="font-maven-pro text-white text-[16px] font-bold text-center">{title}</h3>
+        <p className="font-maven-pro text-white text-[16px] font-bold text-center">{title}</p>
       </div>
     </div>
 	);

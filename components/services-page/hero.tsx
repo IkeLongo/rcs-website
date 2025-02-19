@@ -1,9 +1,9 @@
 
 import Image from 'next/image';
-import {Button, ButtonGroup} from "@nextui-org/button";
+import { Button } from "@nextui-org/button";
 import Link from 'next/link';
 
-export default function Hero() {
+export async function Hero() {
 
   return (
     <div className="relative flex flex-col w-full h-[775px] overflow-x-hidden md:-top-0">

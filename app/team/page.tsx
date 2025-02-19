@@ -1,4 +1,4 @@
-import Hero from '@/components/team/hero';
+import { Hero } from '@/components/team/hero';
 import { Footer } from '@/components/layout/footer';
 
 export default function Home() {

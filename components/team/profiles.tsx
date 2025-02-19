@@ -152,12 +152,12 @@ export default function Profiles() {
               />
               {selectedTeamMember === 1 ? (
               <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-0 transition-all'> 
-                <h3 className='text-white font-maven-pro text-[18.5px]'>John Doe</h3>
+                <h3 className='text-white font-maven-pro text-[18.5px] my-0'>John Doe</h3>
                 <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CEO</p>
               </div>
               ) : (
                 <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-[150%] transition-all'> 
-                  <h3 className='text-white font-maven-pro text-[18.5px]'>John Doe</h3>
+                  <h3 className='text-white font-maven-pro text-[18.5px] my-0'>John Doe</h3>
                   <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CEO</p>
                 </div>
               )}
@@ -178,12 +178,12 @@ export default function Profiles() {
               />
               {selectedTeamMember === 2 ? (
               <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-0 transition-all'> 
-                <h3 className='text-white font-maven-pro text-[18.5px]'>Jane Smith</h3>
+                <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Jane Smith</h3>
                 <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CTO</p>
               </div>
               ) : (
                 <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-[150%] transition-all'> 
-                  <h3 className='text-white font-maven-pro text-[18.5px]'>Jane Smith</h3>
+                  <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Jane Smith</h3>
                   <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CTO</p>
                 </div>
               )}
@@ -204,12 +204,12 @@ export default function Profiles() {
               />
               {selectedTeamMember === 3 ? (
               <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-0 transition-all'> 
-                <h3 className='text-white font-maven-pro text-[18.5px]'>Alice Johnson</h3>
+                <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Alice Johnson</h3>
                 <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CFO</p>
               </div>
               ) : (
                 <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-[150%] transition-all'> 
-                  <h3 className='text-white font-maven-pro text-[18.5px]'>Alice Johnson</h3>
+                  <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Alice Johnson</h3>
                   <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CFO</p>
                 </div>
               )}
@@ -230,12 +230,12 @@ export default function Profiles() {
               />
               {selectedTeamMember === 4 ? (
               <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-0 transition-all'> 
-                <h3 className='text-white font-maven-pro text-[18.5px]'>Bob Brown</h3>
+                <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Bob Brown</h3>
                 <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>COO</p>
               </div>
               ) : (
                 <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-[150%] transition-all'> 
-                  <h3 className='text-white font-maven-pro text-[18.5px]'>Bob Brown</h3>
+                  <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Bob Brown</h3>
                   <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>COO</p>
                 </div>
               )}
@@ -256,12 +256,12 @@ export default function Profiles() {
               />
               {selectedTeamMember === 5 ? (
               <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-0 transition-all'> 
-                <h3 className='text-white font-maven-pro text-[18.5px]'>Charlie Davis</h3>
+                <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Charlie Davis</h3>
                 <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CMO</p>
               </div>
               ) : (
                 <div className='absolute bottom-4 left-4 right-4 h-[66px] flex flex-col justify-center self-end bg-[#27272A] rounded-[16px] p-4 py-6 gap-[5px] translate-y-[150%] transition-all'> 
-                  <h3 className='text-white font-maven-pro text-[18.5px]'>Charlie Davis</h3>
+                  <h3 className='text-white font-maven-pro text-[18.5px] my-0'>Charlie Davis</h3>
                   <p className='text-white font-abhaya-libre text-[10px] md:text-[12px] lg:text-[14px]'>CMO</p>
                 </div>
               )}

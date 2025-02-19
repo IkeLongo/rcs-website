@@ -1,7 +1,7 @@
 import Do from './do';
 import '@/app/globals.css';
 
-export default function DoContainer() {
+export async function DoContainer() {
 
   return (
     <div className="relative w-full min-h-[596px] pt-20 bg-transparent">

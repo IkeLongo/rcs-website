@@ -1,3 +1,5 @@
+"use client";
+
 import MobileClient from "./mobile-client";
 import { MobilePricingProps } from "@/types/components";
 

@@ -1,4 +1,4 @@
-import Hero from '@/components/services-page/hero';
+import { Hero } from '@/components/services-page/hero';
 import Process from '@/components/services-page/process';
 import ServiceBlocks from '@/components/services-page/service-blocks';
 import { Footer } from '@/components/layout/footer';
