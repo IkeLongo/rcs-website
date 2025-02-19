@@ -1,21 +1,23 @@
+const { DBA_NAME } = process.env;
+const { BUSINESS_EMAIL } = process.env;
 
-export default function California() {
+export async function California() {
   return (
     <section id="do-california-residents-have-specific-privacy-rights" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">14. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</h2>
+      <h3>14. Do California Residents Have Specific Privacy Rights?</h3>
       <p className="mt-6"><strong>In Short:</strong> <span className="italic">Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.</span></p>
       
       <p className="mt-4">California Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.</p>
       <p className="mt-4">If you are under 18 years of age, reside in California, and have a registered account with Services, you have the right to request removal of unwanted data that you publicly post on the Services. To request removal of such data, please contact us using the contact information provided below and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Services, but please be aware that the data may not be completely or comprehensively removed from all our systems (e.g., backups, etc.).</p>
 
-      <h3 className="text-xl font-maven-pro mt-6">CCPA Privacy Notice</h3>
+      <h4>CCPA Privacy Notice</h4>
       <p className="mt-4">The California Code of Regulations defines a “resident” as:</p>
       <p className="mt-4">(1) every individual who is in the State of California for other than a temporary or transitory purpose and</p>
       <p className="mt-4">(2) every individual who is domiciled in the State of California who is outside the State of California for a temporary or transitory purpose</p>
       <p className="mt-4">All other individuals are defined as “non-residents.”</p>
       <p className="mt-4">If this definition of “resident” applies to you, we must adhere to certain rights and obligations regarding your personal information.</p>
 
-      <h3 className="text-xl font-maven-pro mt-6">What categories of personal information do we collect?</h3>
+      <h4>What categories of personal information do we collect?</h4>
       <p className="mt-4">We have collected the following categories of personal information in the past twelve (12) months:</p>
       <div className="overflow-x-auto mt-4">
         <table className="min-w-full border-collapse border border-gray-200">
@@ -113,8 +115,8 @@ export default function California() {
         <li>Facilitation in the delivery of our Services and to respond to your inquiries.</li>
       </ul>
 
-      <h3 className="text-xl font-maven-pro mt-6">How do we use and share your personal information?</h3>
-      <p className="mt-4">RiverCity Creatives collects and shares your personal information through:</p>
+      <h4>How do we use and share your personal information?</h4>
+      <p className="mt-4">{DBA_NAME} collects and shares your personal information through:</p>
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
         <li>Targeting cookies/Marketing cookies</li>
         <li>Social media cookies</li>
@@ -124,10 +126,13 @@ export default function California() {
       </ul>
       <p className="mt-4">More information about our data collection and sharing practices can be found in this privacy notice and our <a href="#cookie-policy" className="text-blue-400 hover:underline">Cookie Policy</a>.</p>
       <p className="mt-4">You can opt out from the selling or sharing of your personal information by disabling cookies in Cookie Preference Settings.</p>
-      <p className="mt-4">You may contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
+      <p className="mt-4">You may contact us by email at{' '}
+        <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-400 hover:underline">
+          {BUSINESS_EMAIL}
+        </a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
       <p className="mt-4">If you are using an authorized agent to exercise your right to opt out we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.</p>
 
-      <h3 className="text-xl font-maven-pro mt-6">Will your information be shared with anyone else?</h3>
+      <h4>Will your information be shared with anyone else?</h4>
       <p className="mt-4">We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Each service provider is a for-profit entity that processes the information on our behalf, following the same strict privacy protection obligations mandated by the CCPA.</p>
       <p className="mt-4">We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be “selling” of your personal information.</p>
       <p className="mt-4">RiverCity Creatives has disclosed the following categories of personal information to third parties for a business or commercial purpose in the preceding twelve (12) months:</p>
@@ -145,7 +150,7 @@ export default function California() {
         <li>Category K. Inferences drawn from any of the personal information listed above to create a profile or summary about, for example, an individual’s preferences and characteristics.</li>
         <li>Category L. Sensitive personal information, such as account login information, drivers’ licenses, health data, precise geolocation, racial or ethnic origin, religious or philosophical beliefs, and sex life or sexual orientation.</li>
       </ul>
-      <p className="mt-4">The categories of third parties to whom we disclosed personal information for a business or commercial purpose can be found under <a href="when-and-with-whom-do-we-share-your-personal-information" className="text-blue-400 hover:underline">“When and with Whom do we Share your Personal Information?”</a>.</p>
+      <p className="mt-4">The categories of third parties to whom we disclosed personal information for a business or commercial purpose can be found under <a href="#when-and-with-whom-do-we-share-your-personal-information" className="text-blue-400 hover:underline">When and with Whom do we Share your Personal Information?</a>.</p>
       <p className="mt-4">RiverCity Creatives has not sold or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months.</p>
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
         <li>Category A. Identifiers, such as contact details like your real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name.</li>
@@ -162,7 +167,7 @@ export default function California() {
         <li>Category L. Sensitive personal information, such as account login information, drivers’ licenses, health data, precise geolocation, racial or ethnic origin, religious or philosophical beliefs, and sex life or sexual orientation.</li>
       </ul>
 
-      <h3 className="text-xl font-maven-pro mt-6">Your rights with respect to your personal data</h3>
+      <h4>Your rights with respect to your personal data</h4>
       <p className="mt-4"><strong>Right to request deletion of the data — Request to delete</strong></p>
       <p className="mt-4">You can ask for the deletion of your personal information. If you ask us to delete your personal information, we will respect your request and delete your personal information, subject to certain exceptions provided by law, such as (but not limited to) the exercise by another consumer of his or her right to free speech, our compliance requirements resulting from a legal obligation, or any processing that may be required to protect against illegal activities.</p>
       <p className="mt-4"><strong>Right to be informed — Request to know</strong></p>
@@ -192,9 +197,12 @@ export default function California() {
         <li>You can designate an authorized agent to make a request under the CCPA on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with the CCPA.</li>
         <li>You may request to opt out from future selling or sharing of your personal information to third parties. Upon receiving an opt-out request, we will act upon the request as soon as feasibly possible, but no later than fifteen (15) days from the date of the request submission.</li>
       </ul>
-      <p className="mt-4">To exercise these rights, you can contact us by email at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</p>
+      <p className="mt-4">To exercise these rights, you can contact us by email at{' '}
+        <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-400 hover:underline">
+          {BUSINESS_EMAIL}
+        </a>, by calling toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</p>
 
-      <h3 className="text-xl font-maven-pro mt-6">Financial Incentives</h3>
+      <h4>Financial Incentives</h4>
       <p className="mt-4">“Financial incentive” means a program, benefit, or other offering, including payments to consumers as compensation, for the disclosure, deletion, sharing, or sale of personal information.</p>
       <p className="mt-4">The law permits financial incentives or a price or service difference if it is reasonably related to the value of the consumer’s data. A business must be able to explain how the financial incentive or price or service difference is reasonably related to the value of the consumer’s data. The explanation must include:</p>
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
@@ -203,9 +211,12 @@ export default function California() {
       </ul>
       <p className="mt-4">We may decide to offer a financial incentive (e.g., price or service difference) in exchange for the retention, sale or sharing of a consumer’s personal information.</p>
       <p className="mt-4">If we decide to offer a financial incentive, we will notify you of such financial incentive and explain the price difference, as well as material terms of the financial incentive or price of service difference, including the categories of personal information that are implicated by the financial incentive or price or service difference.</p>
-      <p className="mt-4">If you choose to participate in the financial incentive you can withdraw from the financial incentive at any time by emailing us at <a href="mailto:contact@rivercitycreatives.com" className="text-blue-400 hover:underline">contact@rivercitycreatives.com</a>, by calling us toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
+      <p className="mt-4">If you choose to participate in the financial incentive you can withdraw from the financial incentive at any time by emailing us at{' '}
+        <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-400 hover:underline">
+          {BUSINESS_EMAIL}
+        </a>, by calling us toll-free at 210-730-6232, by visiting <a href="#dpo-contact-form" className="text-blue-400 hover:underline">our Contact Form</a>, or by referring to the contact details at the bottom of this document.</p>
 
-      <h3 className="text-xl font-maven-pro mt-6">Metrics</h3>
+      <h4>Metrics</h4>
       <p className="mt-4">Our metrics for all CCPA requests received for the previous calendar year can be found here: [Metrics URL].</p>
     </section>
   )

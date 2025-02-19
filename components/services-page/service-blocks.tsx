@@ -38,7 +38,7 @@ export default function ServiceBlocks() {
   };
   
   return (
-    <div className="flex flex-col w-full h-auto items-center justify-center bg-gray-900 z-40">
+    <div className="relative flex flex-col w-full h-auto items-center justify-center bg-gray-900 z-40">
       {selectedBlock === null ? (
         <div className={`flex flex-col h-auto w-full items-center justify-center md:flex-row ${hasLoaded ? (isTransitioning ? 'slide-out-bottom' : 'slide-in-top initial-offscreen-y') : ''}`}>
           <LightBlueBlock 

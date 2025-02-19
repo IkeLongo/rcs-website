@@ -1,7 +1,7 @@
-export default function SocailLogins() {
+export async function SocailLogins() {
   return (
     <section id="how-do-we-handle-your-social-logins" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">7. HOW DO WE HANDLE YOUR SOCIAL LOGINS?</h2>
+      <h3>7. How Do We Handle Your Social Logins?</h3>
       <p className="mt-6"><strong>In Short:</strong> <span className="italic">If you choose to register or log in to our services using a social media account, we may have access to certain information about you.</span></p>
       
       <p className="mt-4">Our Services offer you the ability to register and log in using your third-party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile information we receive may vary depending on the social media provider concerned, but will often include your name, email address, friends list, and profile picture, as well as other information you choose to make public on such a social media platform. If you log in using Facebook, we may also request access to other permissions related to your account, such as your friends, check-ins, and likes, and you may choose to grant or deny us access to each individual permission.</p>

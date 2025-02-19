@@ -1,9 +1,9 @@
-export default function InfoWeCollect() {
+export async function InfoWeCollect() {
   return (
     <section id="what-information-do-we-collect" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">1. WHAT INFORMATION DO WE COLLECT?</h2>
+      <h3>1. What Information Do We Collect?</h3>
 
-      <h3 className="text-xl font-maven-pro mt-6">Personal information you disclose to us</h3>
+      <h4>Personal information you disclose to us</h4>
       <p className="mt-4">
         <strong>In Short:</strong> <span className="italic">We collect personal information that you provide to us.</span>
       </p>
@@ -26,7 +26,7 @@ export default function InfoWeCollect() {
         <strong>Payment Data.</strong> We may collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by Stripe. You may find their privacy notice link(s) here: <a href="https://stripe.com/privacy" target="_blank" className="text-blue-400 hover:underline">Stripe Privacy Policy</a>.
       </p>
       <p className="mt-4">
-        <strong>Social Media Login Data.</strong> We may provide you with the option to register with us using your existing social media account details, like your Facebook, Twitter, or other social media account. If you choose to register in this way, we will collect the information described in the section called <a href="#how-do-we-handle-your-social-logins" className="text-blue-400 hover:underline">“How Do We Handle Your Social Logins?”</a> below.
+        <strong>Social Media Login Data.</strong> We may provide you with the option to register with us using your existing social media account details, like your Facebook, Twitter, or other social media account. If you choose to register in this way, we will collect the information described in the section called <a href="#how-do-we-handle-your-social-logins" className="text-blue-400 hover:underline">How Do We Handle Your Social Logins?</a> below.
       </p>
       <p className="mt-4">
         <strong>Application Data.</strong> If you use our application(s), we also may collect the following information if you choose to provide us with access or permission:
@@ -44,7 +44,7 @@ export default function InfoWeCollect() {
         All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.
       </p>
 
-      <h3 className="text-xl font-maven-pro mt-6">Information automatically collected</h3>
+      <h4>Information automatically collected</h4>
       <p className="mt-4">
         <strong>In Short:</strong> <span className="italic">Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.</span>
       </p>

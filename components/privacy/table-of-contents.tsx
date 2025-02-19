@@ -1,8 +1,8 @@
 
-export default function TableOfContents() {
+export async function TableOfContents() {
   return (
     <section id="table-of-contents" className="mt-8">
-      <h2 className="text-2xl font-maven-pro mb-4">TABLE OF CONTENTS</h2>
+      <h3>Table of Contents</h3>
       <ul className="list-decimal mt-2 flex flex-col gap-2">
         <li className="ml-[20px]">
           <p><a href="#what-information-do-we-collect" className="text-blue-400 hover:underline">What Information Do We Collect?</a></p>

@@ -1,7 +1,7 @@
-export default function ProcessYourInfo() {
+export async function ProcessYourInfo() {
   return (
     <section id="how-do-we-process-your-information" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
+      <h3>2. How Do We Process Your Information?</h3>
       <p className="mt-6"><strong>In Short:</strong> <span className="italic">We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</span></p>
       
       <p className="mt-4"><strong>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</strong></p>
@@ -21,7 +21,7 @@ export default function ProcessYourInfo() {
         
         <li><strong>To request feedback.</strong> We may process your information when necessary to request feedback and to contact you about your use of our Services.</li>
         
-        <li><strong>To send you marketing and promotional communications.</strong> We may process the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt out of our marketing emails at any time. For more information, see <a href="what-are-your-privacy-rights" className="text-blue-400 hover:underline">“What are Your Privacy Rights?”</a> below.</li>
+        <li><strong>To send you marketing and promotional communications.</strong> We may process the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt out of our marketing emails at any time. For more information, see <a href="#what-are-your-privacy-rights" className="text-blue-400 hover:underline">What are Your Privacy Rights?</a> below.</li>
         
         <li><strong>To deliver targeted advertising to you.</strong> We may process your information to develop and display personalized content and advertising tailored to your interests, location, and more. For more information see our <a href="#cookie-policy" className="text-blue-400 hover:underline">Cookie Policy</a>.</li>
         

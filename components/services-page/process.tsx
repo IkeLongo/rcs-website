@@ -34,9 +34,9 @@ export default function Process() {
   };
 
   return (
-    <div className='md:h-[1000px] lg:h-[625px]'>
+    <div className='md:h-auto lg:h-auto'>
       <div className="flex items-center justify-center bg-gray-900">
-        <div className='relative top-20 flex flex-col w-full justify-center self-center gap-[16px] bg-white mx-4 px-[34px] py-[20px] rounded-[10px] shadow-[-11px_15px_7.5px_0_rgba(0,0,0,0.25)] z-10 md:-top-10 md:max-w-[665px] lg:flex-row lg:max-w-[1000px] lg:-top-24'>
+        <div className='relative top-20 flex flex-col w-full justify-center self-center gap-[16px] bg-white mx-4 px-[34px] py-[20px] rounded-[10px] shadow-[-11px_15px_7.5px_0_rgba(0,0,0,0.25)] z-10 md:top-20 lg:top-8 md:max-w-[665px] lg:flex-row lg:max-w-[1000px] lg:-top-24'>
           <div>
             <p className="text-gray-800 font-bold text-[15px] font-maven-pro">
               JUMP TO
@@ -49,7 +49,7 @@ export default function Process() {
           </div>
         </div>
       </div>
-      <div className="relative flex flex-col w-full h-auto px-4 pt-[150px] pb-[50px] gap-14 bg-gray-800 overflow-x-hidden z-5 md:-top-32 md:px-20 lg:pt-[100px]">
+      <div className="relative flex flex-col w-full h-auto px-4 pt-[150px] pb-[50px] gap-14 bg-gray-800 overflow-x-hidden z-5 md:px-20 lg:pt-[100px]">
         <div className='flex flex-col gap-4'>
           <h3 className='w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]'>
             Our Process is Simple<br className='md:hidden'/> & Effective
@@ -197,7 +197,7 @@ export default function Process() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-[16px] bg-gray-900 px-[34px] py-[60px] md:relative md:-top-32'>
+      <div className='flex flex-col gap-[16px] bg-gray-900 px-[34px] py-[60px] md:relative'>
         <p className="font-avenir text-center text-[14px]">
           Click on any of the service boxes below to learn more about each option.
         </p>

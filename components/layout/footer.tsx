@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
+const { BUSINESS_EMAIL } = process.env;
 
-export default function Footer( {bgGradientClass}: FooterProps ) {
+export async function Footer( {bgGradientClass}: FooterProps ) {
 
   return (
     <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 lg:pt-10 ${bgGradientClass}`}>
@@ -33,9 +34,9 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           height={142}
           className="hidden md:block w-[152px] h-[142px] lg:w-[200px] lg:h-[186px]"
         />
-        <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[15px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
+        <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
-            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold">
+            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold my-1">
               Contact Us
             </h4>
             <div className="flex flex-col justify-center gap-[10px] md:gap-6 md:justify-start lg:flex-row">
@@ -47,8 +48,8 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                   height={20}
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
                 />
-                <a href="mailto:contact@rivercitycreatives.com" className="font-roboto text-[12px] lg:text-[14px]">
-                  contact@rivercitycreatives.com
+                <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-[12px] lg:text-[14px]">
+                  {BUSINESS_EMAIL}
                 </a>
               </div>
               <div className="flex items-center gap-3 lg:gap-2">
@@ -78,7 +79,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             </div>
           </div>
           <div className="flex flex-col justify-center gap-[15px] lg:gap-[40px] md:justify-start lg:flex-row lg:self-start lg:items-center">
-            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold">
+            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold my-1">
               Follow Us
             </h4>
             <div className="flex items-center self-stretch gap-[32px] md:hidden lg:flex">

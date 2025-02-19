@@ -1,12 +1,12 @@
 import Hero from '@/components/services-page/hero';
 import Process from '@/components/services-page/process';
 import ServiceBlocks from '@/components/services-page/service-blocks';
-import Footer from '@/components/layout/footer';
+import { Footer } from '@/components/layout/footer';
 
 export default function Services() {
 
   return (
-    <div className='overflow-x-hidden services'>
+    <div className='flex flex-col overflow-x-hidden services'>
       <Hero />
       <Process />
       <ServiceBlocks />

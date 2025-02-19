@@ -1,7 +1,10 @@
-export default function Summary() {
+const { LEGAL_COMPANY_NAME } = process.env;
+const { BUSINESS_EMAIL } = process.env;
+
+export async function Summary() {
   return (
     <section id="key-points" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">SUMMARY OF KEY POINTS</h2>
+      <h3>Summary of Key Points</h3>
       <p className="mt-4 italic">
         This summary provides key points from our privacy notice, but you can find out more details about any of these topics 
         by using our table of contents below to find the section you are looking for.
@@ -9,7 +12,7 @@ export default function Summary() {
       <ul className="list-none mt-2 flex flex-col gap-2">
         <li>
           <p>
-            <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with RiverCity Creatives and the Services, the choices you make, and the products and features you use.
+            <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with {LEGAL_COMPANY_NAME} and the Services, the choices you make, and the products and features you use.
           </p>
         </li>
         <li>
@@ -44,7 +47,11 @@ export default function Summary() {
         </li>
         <li>
           <p>
-            <strong>How do I exercise my rights?</strong> The easiest way to exercise your rights is by filling out our data subject request form available here: [DSAR Form URL], or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
+            <strong>How do I exercise my rights?</strong> The easiest way to exercise your rights is by requesting a data subject request to our email,{' '}
+            <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-400 hover:underline">
+              {BUSINESS_EMAIL}
+            </a>
+            . We will consider and act upon any request in accordance with applicable data protection laws.
           </p>
         </li>
       </ul>

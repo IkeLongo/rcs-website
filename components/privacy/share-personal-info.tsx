@@ -1,8 +1,8 @@
 
-export default function SharePersonalInfo() {
+export async function SharePersonalInfo() {
   return (
     <section id="when-and-with-whom-do-we-share-your-personal-information" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h2>
+      <h3>4. When And With Whom Do We Share Your Personal Information?</h3>
       <p className="mt-6"><strong>In Short:</strong> <span className="italic">We may share information in specific situations described in this section and/or with the following categories of third parties.</span></p>
       
       <p className="mt-4"><strong>Vendors, Consultants, and Other Third-Party Service Providers. </strong>We may share your data with third-party vendors, service providers, contractors, or agents (“<strong>third parties</strong>”) who perform services for us or on our behalf and require access to such information to do that work. We have contracts in place with our third parties, which are designed to help safeguard your personal information. This means that they cannot do anything with your personal information unless we have instructed them to do it. They will also not share your personal information with any organization apart from us. They also commit to protect the data they hold on our behalf and to retain it for the period we instruct. The categories of third parties we may share personal information with are as follows:</p>

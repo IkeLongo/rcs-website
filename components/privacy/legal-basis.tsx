@@ -1,8 +1,8 @@
 
-export default function LegalBasis() {
+export async function LegalBasis() {
   return (
     <section id="what-legal-bases-do-we-rely-on-to-process-your-information" className="mt-8">
-      <h2 className="text-2xl font-maven-pro">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?</h2>
+      <h3>3. What Legal Basis Do We Rely On To Process Your Information?</h3>
       <p className="mt-6"><strong>In Short:</strong> <span className="italic">We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.</span></p>
       
       <p className="mt-4"><strong>If you are located in the EU or UK, this section applies to you.</strong></p>

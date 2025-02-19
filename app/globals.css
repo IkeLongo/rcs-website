@@ -23,3 +23,15 @@ html, body {
   height: 100vh; /* Ensure body covers full viewport height */
   width: 100vw; /* Ensure body covers full viewport width */
 }
+
+@layer base {
+  h3 {
+    @apply text-lg md:text-xl font-semibold my-6;
+  }
+  h4 {
+    @apply text-medium md:text-lg font-semibold my-6;
+  }
+  p {
+    @apply text-sm md:text-base;
+  }
+}
