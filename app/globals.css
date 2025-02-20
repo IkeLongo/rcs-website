@@ -45,34 +45,14 @@ html, body {
 
 /* Width of the scrollbar */
 .simplebar-scrollbar::before {
-  background-color: #8E80EF;  /* Matches your thumb color */
+  background-color: #352894;  /* Matches your thumb color */
   border-radius: 5px;
   background-clip: content-box;  /* Ensures proper padding effect */
+  opacity: 1;
 }
 
 /* Scrollbar track (background) */
 .simplebar-track.simplebar-vertical {
   background-color: rgba(211, 211, 211, 0.4);  /* Matches track color */
   width: 10px;  /* Matches your defined width */
-}
-
-/* Handle hover state */
-.simplebar-scrollbar:hover::before {
-  background-color: #5243C2;  /* Matches hover color */
-  border-radius: 5px;
-  background-clip: content-box;
-  opacity: 1;  /* Always show on hover */
-}
-
-/* Handle hover state */
-.simplebar-scrollbar:active::before {
-  background-color: #5243C2;  /* Matches hover color */
-  border-radius: 5px;
-  background-clip: content-box;
-  opacity: 1;  /* Always show on hover */
-}
-
-/* Hide horizontal scrollbar */
-.simplebar-track.simplebar-horizontal {
-  display: none;  /* Hide horizontal scrollbar */
 }
