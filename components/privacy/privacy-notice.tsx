@@ -1,6 +1,6 @@
 const { LEGAL_COMPANY_NAME } = process.env;
 const { DBA_NAME } = process.env;
-const { SITE_NAME } = process.env;
+const { SITE_NAME_VAR } = process.env;
 const { BUSINESS_EMAIL } = process.env;
 
 export async function PrivacyNotice() {
@@ -13,7 +13,7 @@ export async function PrivacyNotice() {
         (“process“) your information when you use our services (“Services“), such as when you:
       </p>
       <ul className="list-disc pl-6 mt-2">
-        <li>Visit our website at <a href={SITE_NAME} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> {SITE_NAME} </a> , or any website of ours that links to this privacy notice</li>
+        <li>Visit our website at <a href={SITE_NAME_VAR} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> {SITE_NAME_VAR} </a> , or any website of ours that links to this privacy notice</li>
         <li>Engage with us in other related ways ― including any sales, marketing, or events</li>
       </ul>
       <p className="mt-4">

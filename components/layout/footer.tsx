@@ -36,9 +36,9 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
         />
         <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
-            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold my-1">
+            <p className="text-left font-bold my-1">
               Contact Us
-            </h4>
+            </p>
             <div className="flex flex-col justify-center gap-[10px] md:gap-6 md:justify-start lg:flex-row">
               <div className="flex items-center gap-3 lg:gap-2">
                 <Image
@@ -79,9 +79,9 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
             </div>
           </div>
           <div className="flex flex-col justify-center gap-[15px] lg:gap-[40px] md:justify-start lg:flex-row lg:self-start lg:items-center">
-            <h4 className="font-roboto text-[12px] lg:text-[14px] font-bold my-1">
+            <p className="text-left font-bold my-1">
               Follow Us
-            </h4>
+            </p>
             <div className="flex items-center self-stretch gap-[32px] md:hidden lg:flex">
               <Image
                 src="/facebook.svg"

@@ -1,7 +1,7 @@
 const { LEGAL_COMPANY_NAME } = process.env;
 const { DBA_NAME } = process.env;
 const { BUSINESS_EMAIL } = process.env;
-const { SITE_NAME } = process.env;
+const { SITE_NAME_VAR } = process.env;
 const { BUSINESS_LOCATION } = process.env;
 
 
@@ -15,7 +15,7 @@ export async function Main() {
 
       <p className="mt-4">
         Welcome to <strong>{LEGAL_COMPANY_NAME}</strong> (“Company”, “we”, “our”, “us”) doing business as <strong>{DBA_NAME}</strong>. By accessing or using our website 
-        <a href={SITE_NAME} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> {SITE_NAME} </a> 
+        <a href={SITE_NAME_VAR} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> {SITE_NAME_VAR} </a> 
         (the “Site”) and our services, including web design, web development, branding, and hosting (collectively, the “Services”), 
         you agree to comply with and be bound by these Terms of Service (“Terms”). If you do not agree to these Terms, please do not use our Services.
       </p>

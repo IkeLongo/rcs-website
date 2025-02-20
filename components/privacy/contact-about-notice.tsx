@@ -1,6 +1,6 @@
 const { LEGAL_COMPANY_NAME } = process.env;
 const { DBA_NAME } = process.env;
-const { SITE_NAME } = process.env;
+const { SITE_NAME_VAR } = process.env;
 const { BUSINESS_EMAIL } = process.env;
 
 export async function ContactAboutNotice() {
