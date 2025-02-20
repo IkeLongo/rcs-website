@@ -28,10 +28,10 @@ export default function Pricing() {
 	return (
     <div id='pricing' className="relative w-full min-h-[450px] pt-28 bg-transparent">
       <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
-        <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+        <h3>
           Choose Your Right Plan
         </h3>
-        <p className='font-avenir text-center text-[14px] text-white max-w-[500px]'>
+        <p className='max-w-[500px]'>
           Select from our best plans according to the service you need. Need more or less? Book a call to discuss a custom subscription for a seamless fit. 
         </p>
       </div>
@@ -72,10 +72,10 @@ export default function Pricing() {
             </div>
           </div>
           <div className="flex flex-col px-4 justify-center items-center gap-[10px] self-stretch">
-            <h4 className='font-maven-pro text-[16px] font-bold text-gray-200 text-center pt-[29px]'>
+            <p className='font-maven-pro font-bold pt-[29px]'>
               {serviceDetails[selectedIndex].commitmentTerm}
-            </h4>
-            <p className='font-avenir text-center text-[14px] pb-[30px] text-white max-w-[400px]'>
+            </p>
+            <p className='pb-[30px] max-w-[400px]'>
               {serviceDetails[selectedIndex].commitmentDescription}
             </p>
           </div>

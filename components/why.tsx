@@ -25,10 +25,10 @@ export async function HomeWhy() {
           </div>
         </div>
         <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-center h-full">
-          <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
+          <h3>
             Why Choose Us
           </h3>
-          <div className="w-[295px] h-[248px] mt-10 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
+          <div className="w-[295px] h-[248px] mt-4 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
             {/* Video Content */}
           </div>
         </div>

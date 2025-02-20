@@ -20,11 +20,28 @@ export default function ScrollingOptions() {
     assignRef(optionsContainerRef2.current);
   }, []);
 
+  // 🌟 Store option data in arrays
+  const firstRowOptions = [
+    { icon: "/Api.svg", title: "Integrations" },
+    { icon: "/Bezier Tool.svg", title: "Web Design" },
+    { icon: "/Paint Swatches.svg", title: "Branding" },
+    { icon: "/Art Brush.svg", title: "Logos" },
+    { icon: "/Online Equalizer.svg", title: "Maintenance" },
+  ];
+
+  const secondRowOptions = [
+    { icon: "/Transformation Tool.svg", title: "Typography" },
+    { icon: "/Mobile Profile.svg", title: "Social Media" },
+    { icon: "/Cloud Energy.svg", title: "Web Hosting" },
+    { icon: "/Criminal Record.svg", title: "Web Security" },
+    { icon: "/Source Page.svg", title: "Development" },
+  ];
+
   return (
     <div className="relative w-full h-[450px] pt-12 bg-transparent md:h-[400px]">
       <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
-        <h3 className="w-auto text-[32px] text-white font-gentium-book-plus font-bold text-center drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]">
-          Options to Suit<br className='md:hidden'/> Every Vision
+        <h3>
+          Options to Suit<br className="md:hidden" /> Every Vision
         </h3>
         <div className="flex flex-col gap-10 w-full max-w-[950px]">
           {/* First Row */}
@@ -33,11 +50,9 @@ export default function ScrollingOptions() {
               className="flex gap-[19px] pr-[19px] animate-infinite-scroll md:gap-[58px] md:pr-[58px]"
               ref={optionsContainerRef1}
             >
-              <Option icon="/Api.svg" title="Integrations" />
-              <Option icon="/Bezier Tool.svg" title="Web Design" />
-              <Option icon="/Paint Swatches.svg" title="Branding" />
-              <Option icon="/Art Brush.svg" title="Logos" />
-              <Option icon="/Online Equalizer.svg" title="Maintenance" />
+              {firstRowOptions.map((option, index) => (
+                <Option key={index} icon={option.icon} title={option.title} />
+              ))}
             </div>
           </div>
 
@@ -47,11 +62,9 @@ export default function ScrollingOptions() {
               className="flex pt-1 gap-[19px] pl-[19px] animate-reverse-infinite-scroll md:gap-[58px] md:pl-[58px]"
               ref={optionsContainerRef2}
             >
-              <Option icon="/Transformation Tool.svg" title="Typography" />
-              <Option icon="/Mobile Profile.svg" title="Social Media" />
-              <Option icon="/Cloud Energy.svg" title="Web Hosting" />
-              <Option icon="/Criminal Record.svg" title="Web Security" />
-              <Option icon="/Source Page.svg" title="Development" />
+              {secondRowOptions.map((option, index) => (
+                <Option key={index} icon={option.icon} title={option.title} />
+              ))}
             </div>
           </div>
         </div>
@@ -59,3 +72,4 @@ export default function ScrollingOptions() {
     </div>
   );
 }
+

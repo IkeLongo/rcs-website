@@ -38,6 +38,8 @@ module.exports = {
         bluegradient: 'var(--Blue-Gradient, linear-gradient(169deg, #90A6E2 -26.67%, #0096C0 127.92%))',
         babyblueoverlay: 'rgba(128, 216, 254, 0.85)',
         darkblueoverlay: 'rgba(64, 188, 242, 0.85)',
+        'normal-card-dark-purple': '#231D4F',
+        'normal-card-gray': '#848199',
         green: {
           200: '#D5FEEE',
           300: '#65EDB7',
@@ -97,6 +99,14 @@ module.exports = {
         extrabold: 800,
         black: 900,
       },
+      fontSize: {
+        sm: '14px', // Override `text-sm` to be 14px
+        base: '16px', // Override `text-base` to be 16px
+        md: '18px', // Override `text-md` to be 18px
+        md2: '24px',
+        lg: '32px', // Override `text-lg` to be 32px
+        xl: '36px',
+      },
       keyframes: {
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
@@ -121,5 +131,6 @@ module.exports = {
     heroui({
       addCommonColors: true,
     }),
+    require('tailwind-scrollbar'),
   ],
 };

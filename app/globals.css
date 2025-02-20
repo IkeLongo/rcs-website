@@ -25,13 +25,45 @@ html, body {
 }
 
 @layer base {
+  h1 {
+    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-white;
+  }
   h3 {
-    @apply text-lg md:text-xl font-semibold my-6;
+    @apply font-gentium-book-plus text-lg md:text-xl font-semibold my-6 text-white drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] text-center;
   }
   h4 {
-    @apply text-medium md:text-lg font-semibold my-6;
+    @apply font-gentium-book-plus text-md2 md:text-md2 font-semibold my-6 text-center text-white;
   }
   p {
-    @apply text-sm md:text-base;
+    @apply font-avenir text-sm lg:text-base text-white text-center;
   }
+  .btn-primary {
+    @apply w-[140px] h-[36px] font-maven-pro text-blue-700 text-sm font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px];
+  }
+}
+
+/* width */
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(211, 211, 211, 0.4);
+}
+
+/* Handle */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #8E80EF;
+  border-radius: 5px;
+  border: 2px solid transparent; /* Add border to create space */
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #5243C2;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }

@@ -14,7 +14,7 @@ export default function Option({ icon, title }: OptionProps) {
           height={28}
           className=""
         />
-        <p className="font-maven-pro text-white text-[16px] font-bold text-center">{title}</p>
+        <p className="font-maven-pro font-bold">{title}</p>
       </div>
     </div>
 	);

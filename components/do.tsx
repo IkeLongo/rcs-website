@@ -15,13 +15,13 @@ export default function Do({ icon, title, description, link, className }: DoProp
           height={60.25}
           className=""
         />
-        <h3 className="font-gentium-book-plus text-white text-[18px] lg:text-[22px] font-bold text-center">{title}</h3>
+        <h4 className='my-2'>{title}</h4>
       </div>
-      <p className="font-avenir text-center text-[14px] lg:text-[16px] flex-grow text-white">
+      <p className="flex-grow">
         {description}
       </p>
       <Link href={link} passHref className='flex justify-center gap-1'>
-        <p className='font-avenir uppercase text-[14px] text-white'>
+        <p className='uppercase'>
           Learn More
         </p>
         <Image 
