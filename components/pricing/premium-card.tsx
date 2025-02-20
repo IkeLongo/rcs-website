@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {Button, ButtonGroup} from "@nextui-org/button";
 import Link from 'next/link';
 import { CardProps } from '@/types/components';
+import SimpleBar from 'simplebar-react';
 
 export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDescription, features }: CardProps) {
 
@@ -38,7 +39,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                   {planDescription}
                 </p>
               </div>
-              <div className='h-[150px] grow overflow-y-auto relative pr-2 custom-scroll'>
+              <SimpleBar className='h-[150px] grow overflow-y-auto relative pr-2 custom-scroll'>
                 {features.map((feature, index) => (
                   <div key={index} className='flex gap-2 items-center pr-10 lg:pr-12'>
                     <Image 
@@ -53,7 +54,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                     </p>
                   </div>
                 ))}
-              </div>
+              </SimpleBar>
             </div>
           </div>
           <Link href="/booking" passHref className='self-center pt-4'>
