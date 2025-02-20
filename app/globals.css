@@ -47,7 +47,6 @@ html, body {
 .simplebar-scrollbar::before {
   background-color: #8E80EF;  /* Matches your thumb color */
   border-radius: 5px;
-  border: 2px solid transparent;  /* Creates spacing around the thumb */
   background-clip: content-box;  /* Ensures proper padding effect */
 }
 
@@ -55,14 +54,12 @@ html, body {
 .simplebar-track.simplebar-vertical {
   background-color: rgba(211, 211, 211, 0.4);  /* Matches track color */
   width: 10px;  /* Matches your defined width */
-  margin-right: 2px;  /* Adjust to shift scrollbar slightly inward */
 }
 
 /* Handle hover state */
 .simplebar-scrollbar.simplebar-visible::before {
   background-color: #5243C2;  /* Matches hover color */
   border-radius: 5px;
-  border: 2px solid transparent;
   background-clip: content-box;
   opacity: 1;  /* Always show on hover */
 }
