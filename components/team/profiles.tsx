@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@heroui/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, User, Link } from "@heroui/react";
 import TeamMemberCard from "./team-member-card";
 import { TeamMember } from '@/types/components';
 
@@ -13,6 +13,8 @@ const people: TeamMember[] = [
     imageDescription: "Team member 1",
     bgImageClass: "bg-photo-1",
     description: "John is the visionary leader of the company with over 20 years of experience driving business growth.",
+    profileLink: "https://www.linkedin.com/in/johndoe",
+    profileUsername: "johndoe",
   },
   {
     memberName: "Jane Smith",
@@ -21,6 +23,8 @@ const people: TeamMember[] = [
     imageDescription: "Team member 2",
     bgImageClass: "bg-photo-2",
     description: "Jane oversees all tech innovations, leading the charge in cutting-edge technology solutions.",
+    profileLink: "https://www.linkedin.com/in/janesmith",
+    profileUsername: "janesmith",
   },
   {
     memberName: "Alice Johnson",
@@ -29,6 +33,8 @@ const people: TeamMember[] = [
     imageDescription: "Team member 3",
     bgImageClass: "bg-photo-3",
     description: "Alice manages the company's finances with precision, ensuring fiscal responsibility and growth.",
+    profileLink: "https://www.linkedin.com/in/alicejohnson",
+    profileUsername: "alicejohnson",
   },
   {
     memberName: "Bob Brown",
@@ -37,6 +43,8 @@ const people: TeamMember[] = [
     imageDescription: "Team member 4",
     bgImageClass: "bg-photo-4",
     description: "Bob ensures operations run smoothly, focusing on optimizing performance and productivity.",
+    profileLink: "https://www.linkedin.com/in/bobbrown",
+    profileUsername: "bobbrown",
   },
   {
     memberName: "Charlie Davis",
@@ -45,6 +53,8 @@ const people: TeamMember[] = [
     imageDescription: "Team member 5",
     bgImageClass: "bg-photo-5",
     description: "Charlie leads the marketing efforts, crafting strategies that engage and grow the customer base.",
+    profileLink: "https://www.linkedin.com/in/charliedavis",
+    profileUsername: "charliedavis",
   },
 ];
 
@@ -90,6 +100,10 @@ export default function Profiles() {
             member={member}
             selected={selectedTeamMember === index}
             onClick={() => handleProfileClick(index)}
+            onViewProfile={() => {
+              setActiveProfile(member);
+              onOpen();
+            }}
           />
         ))}
       </div>
@@ -102,6 +116,10 @@ export default function Profiles() {
           selected={true}
           onClick={() => handleProfileClick(selectedTeamMember)}
           isSmallScreen={true}
+          onViewProfile={() => {
+            setActiveProfile(people[selectedTeamMember]);
+            onOpen();
+          }}
         />
 
         {/* Unselected Members Below */}
@@ -119,24 +137,42 @@ export default function Profiles() {
                 selected={false}
                 onClick={() => setSelectedTeamMember(index)} // ✅ Now setting the correct index
                 isSmallScreen={true}
+                onViewProfile={() => {
+                  setActiveProfile(member);
+                  onOpen();
+                }}
               />
             ))}
         </div>
       </div>
 
       {/* Modal for Profile Info */}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur" className='bg-gray-950'>
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 text-gray-900 font-maven-pro text-md2">
-                {activeProfile?.memberName} - {activeProfile?.position}
+                <User
+                  avatarProps={{
+                    size: "lg",
+                    src: activeProfile?.imageRoute,
+                  }}
+                  description={
+                    <Link isExternal href={activeProfile?.profileLink || "#"} size="sm">
+                      @{activeProfile?.profileUsername || "username"}
+                    </Link>
+                  }
+                  name={activeProfile?.memberName}
+                  classNames={{
+                    name: "text-md"
+                  }}
+                />
               </ModalHeader>
-              <ModalBody>
-                <p className='text-gray-900 text-left'>{activeProfile?.description}</p>
+              <ModalBody className='pb-4'>
+                <p className='text-gray-200 text-left'>{activeProfile?.description}</p>
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+              <ModalFooter className='bg-black-500'>
+                <Button className='bg-gray-800 text-white font-bold' variant="light" onPress={onClose}>
                   Close
                 </Button>
               </ModalFooter>

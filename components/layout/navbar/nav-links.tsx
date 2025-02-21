@@ -24,12 +24,15 @@ export default function NavLinks({ onClick }: {onClick: () => void}) {
             key={link.name}
             href={link.href}
             onClick={onClick} // Attach the onClick function
-            className={clsx(
-              'flex h-[48px] grow font-maven-pro items-center justify-start md:justify-center gap-2 hover:font-bold md:flex-none md:justify-start md:p-2 md:px-3',
-              pathname === link.href ? 'text-blue-300 font-bold' : 'font-medium'
-            )}
+            className="flex h-[48px] grow font-maven-pro items-center justify-start md:justify-center gap-2 hover:font-bold md:flex-none md:justify-start md:p-2 md:px-3"
           >
-            <p className="block text-sm">{link.name}</p>
+            <p
+              className={clsx(
+                pathname === link.href ? 'text-blue-300 font-bold' : 'font-medium hover:font-bold'
+              )}
+            >
+              {link.name}
+            </p>
           </Link>
         );
       })}

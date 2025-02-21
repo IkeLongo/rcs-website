@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Arrow" viewBox="0 0 32 32">
+  <path d="M13.5,19.5v4.08l-9-8.08,9-8.08V11.5s14.17-.75,14.17,12.17C23.25,16.5,13.5,19.5,13.5,19.5Z" fill="none" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" class="colorStroke0832ff svgStroke"></path>
+  <line x1="6.53" x2="13.8" y1="17.59" y2="11.24" fill="none" stroke="#dfdfdf" stroke-miterlimit="10" class="colorStroke0832ff svgStroke"></line>
+  <polygon points="4.5 15.5 5.88 16.63 13.44 9.75 13.5 7.42 4.5 15.5" fill="#acacac" class="color0832ff svgShape"></polygon>
+</svg>

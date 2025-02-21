@@ -65,6 +65,8 @@ export interface TeamMember {
   top?: string;
   right?: string;
   description: string; // ✅ Add this line
+  profileLink: string;
+  profileUsername?: string; // ✅ Add this line
 }
 
 

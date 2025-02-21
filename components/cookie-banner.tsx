@@ -64,7 +64,7 @@ export default function CookieBanner() {
       )}
 
       <Drawer
-        backdrop="blur"
+        //backdrop="blur"
         placement="bottom"
         hideCloseButton={false}
         isDismissable={false}
@@ -79,7 +79,7 @@ export default function CookieBanner() {
                 We Respect Your Privacy
               </DrawerHeader>
               <DrawerBody>
-                <p>
+                <p className='text-left'>
                   We use cookies to tailor our website and services to your preferences, as well as
                   for analytics and performance tracking. By continuing to use our website and
                   products, you consent to our use of cookies.
