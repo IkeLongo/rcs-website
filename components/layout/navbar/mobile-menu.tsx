@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
 import lottie from 'lottie-web';
 import menuAnimationData from '../../../public/Menu.json';
 import { AnimationItem } from 'lottie-web';
@@ -49,7 +49,7 @@ export default function MobileMenu () {
   };
 
   return (
-    <div className='w-full align-center md:hidden'>
+    (<div className='w-full align-center md:hidden'>
       <div className='absolute z-20 w-full bg-[#292732] border-x-[1px] border-gray-500'>
         <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
           <Link href="/" onClick={handleLogoClick}>
@@ -58,7 +58,10 @@ export default function MobileMenu () {
               alt="Logo"
               width={125}
               height={100}
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </Link>
           <div onClick={toggleMenu} className="cursor-pointer" id="menu-icon" style={{ height: '50px', width: '50px' }}>
             {/* The Lottie animation will be rendered here */}
@@ -77,6 +80,6 @@ export default function MobileMenu () {
           </Link>
         </Button>
       </div>
-    </div>
+    </div>)
   );
 }

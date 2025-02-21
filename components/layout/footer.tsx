@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
 import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
 const { BUSINESS_EMAIL } = process.env;
@@ -7,7 +7,7 @@ const { BUSINESS_EMAIL } = process.env;
 export async function Footer( {bgGradientClass}: FooterProps ) {
 
   return (
-    <div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 lg:pt-10 ${bgGradientClass}`}>
+    (<div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 lg:pt-10 ${bgGradientClass}`}>
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
@@ -16,7 +16,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
             width={200}
             height={200}
             className='cursor-pointer w-[150px] h-[100px] lg:w-[200px] lg:h-[100px]'
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </Link>
         <Image
           src="/footer-app-dev.gif"
@@ -24,7 +27,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
           width={152}
           height={142}
           className="-mr-4 md:hidden"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:pb-10 md:pt-0 lg:items-center lg:justify-center">
         <Image
@@ -33,7 +39,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
           width={152}
           height={142}
           className="hidden md:block w-[152px] h-[142px] lg:w-[200px] lg:h-[186px]"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
         <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
             <p className="text-left font-bold my-1">
@@ -47,7 +56,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                   width={20}
                   height={20}
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-[12px] lg:text-[14px]">
                   {BUSINESS_EMAIL}
                 </a>
@@ -59,7 +71,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                   width={20}
                   height={20}
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <p className="font-roboto text-[12px] lg:text-[14px]">
                   (210) 730-6232
                 </p>
@@ -71,7 +86,10 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                   width={20}
                   height={20}
                   className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <p className="font-roboto text-[12px] lg:text-[14px]">
                   San Antonio, Texas
                 </p>
@@ -88,31 +106,46 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                 alt="Facebook Icon"
                 width={30}
                 height={30}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Image
                 src="/twitter.svg"
                 alt="Twitter Icon"
                 width={30}
                 height={30}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Image
                 src="/instagram.svg"
                 alt="Instagram Icon"
                 width={30}
                 height={30}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Image
                 src="/messenger.svg"
                 alt="Messenger Icon"
                 width={30}
                 height={30}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Image
                 src="/figma.svg"
                 alt="Figma Icon"
                 width={30}
                 height={30}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
             <div className="hidden md:flex lg:hidden md:items-center md:self-stretch md:gap-[32px] md:flex-col md:justify-start">
               <div className='flex gap-8 justify-start'>
@@ -121,19 +154,28 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                   alt="Facebook Icon"
                   width={30}
                   height={30}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Image
                   src="/twitter.svg"
                   alt="Twitter Icon"
                   width={30}
                   height={30}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Image
                   src="/instagram.svg"
                   alt="Instagram Icon"
                   width={30}
                   height={30}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
               <div className='flex gap-8 justify-start'>
                 <Image
@@ -141,13 +183,19 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                   alt="Messenger Icon"
                   width={30}
                   height={30}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <Image
                   src="/figma.svg"
                   alt="Figma Icon"
                   width={30}
                   height={30}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </div>
             </div>
           </div>
@@ -202,6 +250,6 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
         </div>
       </div>
       <ScrollToTopButton />
-    </div>
+    </div>)
   );
 }

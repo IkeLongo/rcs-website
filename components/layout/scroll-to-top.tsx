@@ -30,13 +30,16 @@ export default function ScrollToTopButton() {
   };
 
   return (
-    <button className="absolute bottom-8 right-10" onClick={scrollToTop}>
+    (<button className="absolute bottom-8 right-10" onClick={scrollToTop}>
       <Image
         src="/footer-arrow-up.svg"
         alt="Arrow Up Icon"
         width={30}
         height={30}
-      />
-    </button>
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
+    </button>)
   );
 };

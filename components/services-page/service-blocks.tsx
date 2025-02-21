@@ -6,8 +6,6 @@ import DarkBlueBlock from "./dark-blue-block";
 import InfoBlock from "./info-block";
 import '../../app/styles.css'
 
-import { BlockProps, InfoBlockProps } from '@/types/components';
-
 export default function ServiceBlocks() {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);

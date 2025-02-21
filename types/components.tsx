@@ -62,9 +62,11 @@ export interface TeamMember {
   imageRoute: string;
   imageDescription: string;
   bgImageClass: string;
-  top: string;
-  right: string;
+  top?: string;
+  right?: string;
+  description: string; // ✅ Add this line
 }
+
 
 export interface ProfilesProps {
   team: TeamMember[];

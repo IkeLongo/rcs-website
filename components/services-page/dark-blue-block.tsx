@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
 import { BlockProps } from '@/types/components';
 
 export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId, onClick, top }: BlockProps) {
@@ -39,7 +39,7 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
   }, [blockId, isLg]);
 
   return (
-    <div className={`group flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center bg-cover cursor-pointer`} onClick={onClick}>
+    (<div className={`group flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center bg-cover cursor-pointer`} onClick={onClick}>
       <div
         id={blockId}
         className={`relative flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
@@ -49,18 +49,21 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
         <Image
           src={iconRoute}
           alt={iconDescription}
-          layout="intrinsic"
           width={Number(iconWidth)}
-          height={51} // Adjust the height as needed to maintain aspect ratio
+          // Adjust the height as needed to maintain aspect ratio
+          height={51}
           className={`object-contain absolute left-1/2 transform -translate-x-1/2 ${top}`}
-        />
-        <h1
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
+        <h4
           className={`font-maven-pro text-center font-bold ease-in-out duration-700 md:pt-10 ${
             isHalfway && !isLg ? 'text-[28px] md:text-[18px]' : 'text-[24px] md:text-[16px]'
           } text-gray-900 ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>
-    </div>
+    </div>)
   );
 }

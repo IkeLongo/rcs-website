@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import Link from 'next/link';
 import NavLinks from './nav-links';
@@ -16,7 +16,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className='relative w-full'>
+    (<div className='relative w-full'>
       <div className="z-60">
         <MobileMenu />
         <div className="flex items-center justify-center">
@@ -28,7 +28,10 @@ export default function Navbar() {
                   alt="Logo"
                   width={125}
                   height={100}
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
               </Link>
               <NavLinks 
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
@@ -44,6 +47,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }

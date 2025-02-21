@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { SubTeamMemberProps } from '@/types/components';``
 
 export default function Sub({ imageRoute, imageDescription, top = '50%', right = '50%', onClick }: SubTeamMemberProps) {
   return (
-    <div 
+    (<div 
       className='relative flex w-full bg-team-blend rounded-[16px] cursor-pointer overflow-hidden transition-all'
       onClick={onClick}
     >
@@ -12,12 +12,15 @@ export default function Sub({ imageRoute, imageDescription, top = '50%', right =
         <Image
           src={imageRoute}
           alt={imageDescription}
-          layout="fill" // Fill the parent container completely
-          objectFit="cover" // Ensures image maintains aspect ratio and fills the parent
-          objectPosition={`${right} ${top}`} // Dynamic positioning
+          // Dynamic positioning
+          objectPosition={`${right} ${top}`}
           className="transition-all"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       </div>
-    </div>
+    </div>)
   );
 }

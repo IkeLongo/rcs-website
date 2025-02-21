@@ -18,7 +18,7 @@ export async function Hero() {
           <h1 className='font-bold text-right leading-9 md:text-left lg:text-[46px] lg:leading-[3.5rem]'>
             Turn Your Website<br/>& Brand into Your<br/>Top <span className='italic text-blue-300'>Sales </span>Tools
           </h1>
-          <h2 className='font-maven-pro text-sm text-right leading-4 md:text-left lg:text-md lg:leading-[1.5rem] lg:w-[300px] xl:w-[336px]'>
+          <h2 className='font-maven-pro font-normal text-sm text-right leading-4 md:text-left lg:text-md lg:leading-[1.5rem] lg:w-[300px] xl:w-[336px]'>
             Our brands and websites strategically<br className='lg:hidden'/> connect your services to the right<br className='lg:hidden'/>clients, enabling you to raise prices<br className='lg:hidden'/>and sell with confidence.
           </h2>
           <div className="hidden md:block">

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import Link from 'next/link';
 import { CardProps } from '@/types/components';
@@ -6,7 +6,7 @@ import SimpleBar from 'simplebar-react';
 
 export default function NormalCard({ monthlyPrice, totalPrice, planName, planDescription, features }: CardProps) {
   return (
-    <div className="flex h-auto items-center gap-[40px] justify-center">
+    (<div className="flex h-auto items-center gap-[40px] justify-center">
       <div className="flex flex-col w-[250px] lg:w-[300px] h-[506px] lg:h-[575px] justify-start bg-mobile-normal-bg bg-center bg-cover">
         <div className="relative invisible z-10 flex items-center justify-center self-end uppercase w-[99px] h-[22px] bg-white rounded-[20px] mx-10 my-7">
           <p className="hidden">Most Popular</p>
@@ -43,12 +43,15 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
               <SimpleBar autoHide={false} className="h-[150px] grow overflow-y-auto relative pr-2 custom-scroll">                
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-2 items-center pr-10 lg:pr-12 fade-text">
-                    <Image 
+                    <Image
                       src="/normal-checkmark.svg"
                       alt="Checkmark"
                       width={15}
                       height={15}
-                    />
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto"
+                      }} />
                     <p className="text-normal-card-gray text-[12px] lg:text-[14px] capitalize leading-4 text-left my-1">
                       {feature}
                     </p>
@@ -65,6 +68,6 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
           </Link>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }
