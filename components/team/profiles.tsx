@@ -10,6 +10,7 @@ const people: TeamMember[] = [
     memberName: "Isaac Longoria",
     position: "Chief Energy Officer",
     imageRoute: "/isaac-profile.jpg",
+    imageAvatar: "/isaac-avatar.jpg",
     imagePosition: "object-top",
     imageDescription: "Profile of Isaac Longoria",
     bgImageClass: "bg-photo-1",
@@ -156,11 +157,13 @@ export default function Profiles() {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-gray-900 font-maven-pro text-md2">
+              <ModalHeader className="flex flex-col text-gray-900 font-maven-pro text-md2">
                 <User
                   avatarProps={{
+                    isBordered: true,
                     size: "lg",
-                    src: activeProfile?.imageRoute,
+                    src: activeProfile?.imageAvatar || activeProfile?.imageRoute,
+                    name: activeProfile?.memberName || "Profile Image",
                   }}
                   description={
                     <Link isExternal href={activeProfile?.profileLink || "#"} size="sm">
@@ -169,6 +172,7 @@ export default function Profiles() {
                   }
                   name={activeProfile?.memberName}
                   classNames={{
+                    base: "gap-4 justify-start",
                     name: "text-md"
                   }}
                 />

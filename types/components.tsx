@@ -60,6 +60,7 @@ export interface TeamMember {
   memberName: string;
   position: string;
   imageRoute: string;
+  imageAvatar?: string; // ✅ Add this line
   imageDescription: string;
   imagePosition?: string; // ✅ Add this line
   bgImageClass: string;
