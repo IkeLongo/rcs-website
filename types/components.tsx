@@ -61,6 +61,7 @@ export interface TeamMember {
   position: string;
   imageRoute: string;
   imageDescription: string;
+  imagePosition?: string; // ✅ Add this line
   bgImageClass: string;
   top?: string;
   right?: string;

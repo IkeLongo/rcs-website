@@ -33,13 +33,13 @@ export default function TeamMemberCard({
       {/* Mask and Image Container */}
       <div
         className={`absolute inset-0 rounded-[16px] transition-all overflow-hidden ${
-          selected ? "mix-blend-normal" : "mix-blend-luminosity"
+          selected ? "mix-blend-normal" : "filter grayscale"
         }`}
       >
         <Image
           src={member.imageRoute}
           alt={member.imageDescription}
-          className="object-cover"
+          className={`object-cover ${member.imagePosition || "object-center"}`}
           fill
           sizes="100vw"
         />
