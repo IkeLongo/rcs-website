@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, User, Link } from "@heroui/react";
 import TeamMemberCard from "./team-member-card";
 import { TeamMember } from '@/types/components';
+import Image from 'next/image';
 
 const people: TeamMember[] = [
   {
@@ -14,7 +15,9 @@ const people: TeamMember[] = [
     imagePosition: "object-top",
     imageDescription: "Profile of Isaac Longoria",
     bgImageClass: "bg-photo-1",
-    description: "Isaac is the visionary leader of the company with over 20 years of experience driving business growth.",
+    description: `Isaac is a visionary leader with a passion to empower business owners by providing them with the opportunity to establish a strong online presence.
+      After a rewarding collegiate baseball career, he earned a Bachelor of Science in Computer Information Systems and Security from Our Lady of the Lake University.
+      In his free time, he enjoys coaching baseball, serving at his church, spending time with friends, and exploring the great outdoors.`,
     profileLink: "https://www.instagram.com/ike.longo/",
     profileUsername: "ike.longo",
   },
@@ -166,7 +169,14 @@ export default function Profiles() {
                     name: activeProfile?.memberName || "Profile Image",
                   }}
                   description={
-                    <Link isExternal href={activeProfile?.profileLink || "#"} size="sm">
+                    <Link isExternal href={activeProfile?.profileLink || "#"} size="sm" className='text-blue-200'>
+                      <Image
+                        src="/instagram-color.svg"
+                        alt="Instagram Icon"
+                        width={4}
+                        height={4}
+                        className="w-4 h-4 mr-1"
+                      />
                       @{activeProfile?.profileUsername || "username"}
                     </Link>
                   }
