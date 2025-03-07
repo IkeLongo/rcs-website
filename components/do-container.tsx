@@ -28,7 +28,7 @@ export async function DoContainer() {
   ];
 
   return (
-    <div className="relative w-full min-h-[596px] pt-20 bg-transparent">
+    <div className="relative w-full min-h-[596px] bg-transparent">
       <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
         <h3>
           What We Do

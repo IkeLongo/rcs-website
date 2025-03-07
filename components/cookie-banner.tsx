@@ -75,7 +75,7 @@ export default function CookieBanner() {
         <DrawerContent>
           {(onClose) => (
             <>
-              <DrawerHeader className="flex flex-col gap-1 font-gentium-book-plus text-[28px]">
+              <DrawerHeader className="flex flex-col gap-1 font-gentium-book-plus text-[28px] text-white">
                 We Respect Your Privacy
               </DrawerHeader>
               <DrawerBody>

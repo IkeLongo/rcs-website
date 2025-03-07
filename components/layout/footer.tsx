@@ -60,7 +60,7 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-[12px] lg:text-[14px]">
+                <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-[12px] lg:text-[14px] text-white">
                   {BUSINESS_EMAIL}
                 </a>
               </div>

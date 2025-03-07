@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Video from 'next-video';
+import webVideo from '../videos/why-choose-rivercity-creatives.mp4.json';
 
 export async function HomeWhy() {
 
@@ -31,11 +33,11 @@ export async function HomeWhy() {
       </div>
       <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-center h-full">
         <h3>
-          Why Choose Us
+          Why Choose Us?
         </h3>
-        <div className="w-[295px] h-[248px] mt-4 rounded-[20px] bg-white/30 drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] backdrop-blur-[10px] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
-          {/* Video Content */}
-        </div>
+          <div className="w-full h-[230px] mt-4 rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
+            <Video src={webVideo.sources[0].src} className="custom-video" />
+          </div>
       </div>
     </div>
   </>);
