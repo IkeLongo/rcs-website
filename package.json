@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@heroicons/react": "^2.2.0",
     "@heroui/button": "^2.2.16",
     "@heroui/form": "^2.1.9",
     "@heroui/input": "^2.4.16",
@@ -24,6 +25,7 @@
     "alpinejs": "^3.14.6",
     "babel-runtime": "^6.26.0",
     "bcryptjs": "^3.0.2",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "framer-motion": "^11.12.0",
     "jose": "^6.0.10",
