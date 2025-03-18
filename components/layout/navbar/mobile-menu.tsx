@@ -73,7 +73,7 @@ export default function MobileMenu () {
           onClick={toggleMenu}  // Close the menu when a link is clicked and toggle the menu state
         />
         <Button
-          onClick={toggleMenu}  // Close the menu when the button is clicked
+          onPress={toggleMenu}  // Close the menu when the button is clicked
           className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4">
           <Link href="/booking" className="w-full h-full flex items-center justify-center">
             Book a Call

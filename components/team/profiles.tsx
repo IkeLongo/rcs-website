@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, User, Link } from "@heroui/react";
+import { Avatar, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, User, Link } from "@heroui/react";
 import TeamMemberCard from "./team-member-card";
 import { TeamMember } from '@/types/components';
 import Image from 'next/image';
@@ -164,9 +164,10 @@ export default function Profiles() {
                 <User
                   avatarProps={{
                     isBordered: true,
-                    size: "lg",
+                    size: "sm",
                     src: activeProfile?.imageAvatar || activeProfile?.imageRoute,
                     name: activeProfile?.memberName || "Profile Image",
+                    className: "w-16 h-16 rounded-full border border-gray-500 border-width-2",
                   }}
                   description={
                     <Link isExternal href={activeProfile?.profileLink || "#"} size="sm" className='text-blue-200'>

@@ -28,18 +28,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-gray-900`}
       >
-        {/* <ActiveLinkProvider> */}
           <CookieBanner />
-
-          <div className="fixed top-0 z-50 w-full">
+          <main className="fixed top-0 z-50 w-full">
             <Navbar />
-          </div>
+            <ToastContainer
+              limit={1}
+              theme="dark"
+            />
+          </main>
           {children}
-        {/* </ActiveLinkProvider> */}
-        <ToastContainer
-        limit={1}
-        theme="dark"
-        />
       </body>
     </html>
   );

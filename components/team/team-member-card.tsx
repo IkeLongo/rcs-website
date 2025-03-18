@@ -41,7 +41,7 @@ export default function TeamMemberCard({
           alt={member.imageDescription}
           className={`object-cover ${member.imagePosition || "object-center"}`}
           fill
-          sizes="100vw"
+          //sizes="100vw"
         />
         
         {/* Member Info Footer */}

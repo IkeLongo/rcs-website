@@ -25,7 +25,7 @@ export default function Booking() {
           </h1>
           <div
             className="calendly-inline-widget w-full h-screen"
-            data-url="https://calendly.com/isaac-longoria9136/30min?primary_color=46C1E3"
+            data-url="https://calendly.com/isaac-longoria9136/30min?primary_color=46C1E3?hide_gdpr_banner=1"
             style={{ width: "100%", height: "60vh", minWidth: "320px" }}
           ></div>
         </div>

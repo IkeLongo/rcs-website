@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import Link from 'next/link';
 import HeroBlob from './hero-blob';
 
@@ -23,7 +23,13 @@ export async function HomeHero() {
 
         <div className="flex justify-end mt-4 md:mt-10">
           <Link href="/booking" passHref>
-            <Button className="bg-babyblue-300 text-blue-700 font-bold">Book a Call</Button>
+            <Button
+              className="bg-babyblue-300 text-blue-700 font-bold"
+              radius="lg"
+              variant="solid"
+            >
+              Book a Call
+            </Button>
           </Link>
         </div>
       </div>
