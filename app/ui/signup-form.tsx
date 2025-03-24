@@ -25,7 +25,7 @@ export function SignupForm() {
         progress: undefined,
         className: "bg-gray-900",
       }); // In order for toast to display on routed page, the page must exist!
-      router.push('/profile');
+      router.push('/dashboard');
     } else {
       toast.error(result.message || 'An error occurred during signup.');
     }
@@ -61,7 +61,7 @@ export function SignupForm() {
         <div className="absolute -top-6 left-0 right-0 h-full bg-green-300 rounded-t-[50px] md:hidden z-2"></div>
         {/* Layer 2 */}
         <div className="absolute -top-3 left-0 right-0 h-full bg-green-500 rounded-t-[50px] md:hidden z-1"></div>
-        <div className="absolute md:relative flex flex-col w-full h-full items-center md:justify-center bg-white rounded-t-[50px] md:rounded-none z-2">
+        <div className="absolute md:relative md:mt-20 flex flex-col w-full h-full items-center md:justify-center bg-white rounded-t-[50px] md:rounded-none z-2">
           <h1 className='text-3xl font-bold text-black-500 py-8'>
             Create your account
           </h1>
@@ -80,7 +80,6 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "pl-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [
@@ -108,7 +107,6 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "pl-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [
@@ -136,7 +134,6 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "pl-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [
@@ -164,7 +161,6 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "px-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [

@@ -1,11 +1,66 @@
+"use client";
+
 import Image from 'next/image';
 import { Form, Button } from "@heroui/react";
 import {Input} from "@heroui/input";
+import { signIn } from "next-auth/react"
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
-export async function Login() {
+export function Login() {
+  const router = useRouter();
+
+  // Define the credentialsAction function
+  const credentialsAction = async (formData: FormData) => {
+    try {
+      const result = await signIn("credentials", {
+        redirect: false, // Prevent automatic redirection
+        email: formData.get("email"),
+        password: formData.get("password"),
+      });
+
+      if (result?.error) {
+        toast.error(result.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: "bg-gray-900",
+        });
+      } else {
+        toast.success('Sign-in successful!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: "bg-gray-900",
+        });
+        router.push('/dashboard'); // Redirect to the dashboard
+      }
+    } catch (error) {
+      console.error('Error during sign-in:', error);
+      toast.error('An unexpected error occurred.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: "bg-gray-900",
+      });
+    }
+  };
+
   return (
     <div className='flex flex-col items-center overflow-x-hidden min-h-screen bg-login-mobile-bg'>
-      <div className="grid grid-rows-3 md:grid-cols-2 md:grid-rows-1 w-full max-w-[1040px] h-screen">
+      <div className="grid grid-rows-3 md:grid-cols-2 md:grid-rows-1 w-full max-w-[1040px] h-screen md:my-20">
         <div className="row-span-1 md:col-span-1 flex flex-col justify-center items-center -mt-20">
           <Image
             src='/river-rat-head-logo.svg'
@@ -87,6 +142,7 @@ export async function Login() {
           </h1>
           <Form
             className="w-80 flex flex-col gap-4"
+            action={credentialsAction} // Set the action to the handleSubmit function
           >
             <Input
               isRequired
@@ -99,7 +155,6 @@ export async function Login() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "pl-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [
@@ -126,7 +181,6 @@ export async function Login() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "pl-2",
                   "focus:rounded-[13px]",
                 ],
                 innerWrapper: [
@@ -148,7 +202,7 @@ export async function Login() {
               variant="solid"
               className="w-full mt-4 bg-login-button text-white"
             >
-              Submit
+              Sign In
             </Button>
           </Form>
           <p className="text-gray-500 pt-4">

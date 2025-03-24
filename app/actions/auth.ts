@@ -5,6 +5,9 @@ import bcryptjs from 'bcryptjs';
 import { createSession } from '@/app/libs/session'
 import { redirect } from 'next/navigation';
 import { deleteSession } from '@/app/libs/session'
+// import NextAuth from "next-auth"
+// import Credentials from "next-auth/providers/credentials"
+import { saltAndHashPassword } from '@/app/utils/password'
 
 export async function signup(state: FormState, formData: FormData) {
   // 1. Validate form fields
@@ -25,7 +28,7 @@ export async function signup(state: FormState, formData: FormData) {
 
   // 2. Prepare data for insertion into database
   const { firstName, lastName, email, password } = validatedFields.data;
-  const hashedPassword = await bcryptjs.hash(password, 10);
+  const hashedPassword = await saltAndHashPassword(password);
 
   let userId: string | undefined;
 
