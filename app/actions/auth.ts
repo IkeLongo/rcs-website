@@ -1,13 +1,11 @@
-"use server";
+//"use server";
 
 import { SignupFormSchema, FormState } from '@/app/libs/definitions'
-import bcryptjs from 'bcryptjs';
-import { createSession } from '@/app/libs/session'
-import { redirect } from 'next/navigation';
-import { deleteSession } from '@/app/libs/session'
-// import NextAuth from "next-auth"
-// import Credentials from "next-auth/providers/credentials"
+// import { createSession } from '@/app/libs/session'
+// import { redirect } from 'next/navigation';
+// import { deleteSession } from '@/app/libs/session'
 import { saltAndHashPassword } from '@/app/utils/password'
+import { signIn } from 'next-auth/react';
 
 export async function signup(state: FormState, formData: FormData) {
   // 1. Validate form fields
@@ -53,16 +51,27 @@ export async function signup(state: FormState, formData: FormData) {
     return { status: 'error', message: 'An error occurred while creating your account.' };
   }
 
-  // 4. Create user session (separate try/catch block optional here)
-  if (userId) {
-    try {
-      await createSession(userId);
-    } catch (err) {
-      console.error('Session Error:', err);
-      return { status: 'error', message: 'User created, but session could not be started.' };
+  // 4. Create session via next-auth's signIn()
+  try {
+    const res = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (!res?.ok) {
+      console.error('Sign-in failed after signup:', res);
+      return {
+        status: 'error',
+        message: 'User created, but automatic sign-in failed.',
+      };
     }
-  } else {
-    return { status: 'error', message: 'User ID is undefined after insertion.' };
+  } catch (err) {
+    console.error('Sign-in Error:', err);
+    return {
+      status: 'error',
+      message: 'User created, but session could not be started.',
+    };
   }
 
   // 5. OPTIONAL: Show success message *before* redirect
@@ -75,7 +84,7 @@ export async function signup(state: FormState, formData: FormData) {
   //redirect('/profile'); 
 }
 
-export async function logout() {
-  deleteSession()
-  redirect('/login')
-}
+// export async function logout() {
+//   deleteSession()
+//   redirect('/login')
+// }

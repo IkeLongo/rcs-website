@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import pool from '@/app/libs/mysql';
+import { User } from '@/app/types/types';
+import { RowDataPacket } from 'mysql2';
 
 export async function POST(request: Request) {
   const { email } = await request.json();
@@ -16,16 +18,19 @@ export async function POST(request: Request) {
 
   try {
     // Query the database for the user by email
-    const [rows] = await pool.execute(
-      `SELECT id, first_name, last_name, email, password_hash FROM users WHERE email = ?`,
+    const [rows] = await pool.execute<RowDataPacket[]>(
+      `SELECT id, first_name, last_name, email, password_hash, is_admin FROM users WHERE email = ?`,
       [email]
     );
+
+    // Map the result to the User type
+    const users = rows as User[];
 
     // Debug: Log the database query result
     // console.log("Database Query Result:", rows);
 
-    if (Array.isArray(rows) && rows.length > 0) {
-      const user = rows[0]; // Get the first matching user
+    if (users.length > 0) {
+      const user = users[0]; // Get the first matching user
       return NextResponse.json({
         status: 'success',
         message: 'User found successfully.',
