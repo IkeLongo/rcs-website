@@ -1,4 +1,4 @@
-import pool from './app/libs/mysql'; // Import the connection pool from db.ts
+import pool from './app/lib/mysql'; // Import the connection pool from db.ts
 
 async function testMySQLConnection() {
   try {

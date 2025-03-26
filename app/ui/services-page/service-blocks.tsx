@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import LightBlueBlock from "./light-blue-block";
 import DarkBlueBlock from "./dark-blue-block";
 import InfoBlock from "./info-block";
-import '../../app/styles.css'
+import '/app/styles.css';
 
 export default function ServiceBlocks() {
   const [selectedBlock, setSelectedBlock] = useState<string | null>(null);

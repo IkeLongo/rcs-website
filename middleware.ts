@@ -8,12 +8,12 @@ export default async function middleware(req: any) {
   const url = new URL(req.url);
   const pathname = url.pathname;
 
-  // No token? Allow normal access
-  if (!token) {
-    return NextResponse.next();
+  // Redirect unauthenticated users trying to access protected routes
+  if (!token && (pathname === "/dashboard" || pathname === "/admin/dashboard")) {
+    return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  const isAdmin = token.is_admin;
+  const isAdmin = token?.is_admin;
 
   // ✅ Redirect logic
   if (pathname === "/dashboard" || pathname === "/admin/dashboard") {

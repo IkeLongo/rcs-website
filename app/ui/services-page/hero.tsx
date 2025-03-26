@@ -1,5 +1,5 @@
 
-import HeroImages from "@/components/services-page/hero-images";
+import HeroImages from "@/app/ui/services-page/hero-images";
 import { Button } from "@nextui-org/button";
 import Link from 'next/link';
 

@@ -1,9 +1,9 @@
-import { HomeHero } from '@/components/home-hero';
-import { HomeWhy } from '@/components/why';
-import { DoContainer } from '@/components/do-container';
-import ScrollingOptions from '@/components/scrolling-options';
-import Pricing from '@/components/pricing/selector';
-import { Footer } from '@/components/layout/footer';
+import { HomeHero } from '@/app/ui/home/home-hero';
+import { HomeWhy } from '@/app/ui/home/why';
+import { DoContainer } from '@/app/ui/home/do-container';
+import ScrollingOptions from '@/app/ui/home/scrolling-options';
+import Pricing from '@/app/ui/pricing/selector';
+import { Footer } from '@/app/ui/layout/footer';
 
 export default function Home() {
 

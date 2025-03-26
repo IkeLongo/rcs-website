@@ -14,7 +14,7 @@ import {
   Checkbox,
   Link,
 } from "@heroui/react";
-import PreferencesModal from '@/components/cookie-preferences';
+import PreferencesModal from './cookie-preferences';
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -70,6 +70,7 @@ export default function CookieBanner() {
         isDismissable={false}
         className="bg-gray-900"
         isOpen={showBanner}
+        shouldBlockScroll={false}
         onOpenChange={() => setShowBanner(false)}
       >
         <DrawerContent>

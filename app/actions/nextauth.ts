@@ -1,11 +1,14 @@
-import { signInSchema } from '@/app/libs/definitions'
+import { signInSchema } from '@/app/lib/definitions'
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import Google from "next-auth/providers/google"
 import { comparePassword } from '@/app/utils/password'
-import { User } from '@/app/types/types';
+import { User } from '@/types/types';
+import pool from '@/app/lib/mysql';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    // Credentials Provider
     Credentials({
       credentials: {
         email: { label: "Email", type: "text" },
@@ -67,8 +70,77 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
       },
     }),
+
+    // Google Provider
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
   ],
   callbacks: {
+    async signIn({ account, profile }) {
+      if (!profile?.email) {
+        throw new Error('No profile email found.');
+      }
+    
+      try {
+        // Check if the user exists in the database
+        const [rows] = await pool.execute(
+          `SELECT id, email FROM users WHERE email = ?`,
+          [profile.email]
+        );
+    
+        const users = rows as User[];
+    
+        if (users.length === 0) {
+          // If the user does not exist, create a new user
+          await pool.execute(
+            `INSERT INTO users (email, first_name, last_name) VALUES (?, ?, ?)`,
+            [profile.email, profile.given_name || profile.name, profile.family_name || ""]
+          );
+        } else {
+          // If the user exists, update their information
+          await pool.execute(
+            `UPDATE users SET first_name = ?, last_name = ? WHERE email = ?`,
+            [profile.given_name || profile.name, profile.family_name || "", profile.email]
+          );
+        }
+    
+        return true;
+      } catch (error) {
+        console.error('Error during signIn callback:', error);
+        return false;
+      }
+    },
+
+    async jwt({ token, user, account, profile }) {
+      if (profile) {
+        try {
+          // Fetch the user from the database
+          const [rows] = await pool.execute(
+            `SELECT id, is_admin FROM users WHERE email = ?`,
+            [profile.email]
+          );
+
+          const users = rows as User[];
+
+          if (users.length === 0) {
+            throw new Error('No user found in the database.');
+          }
+
+          const dbUser = users[0];
+
+          // Attach the user's ID and is_admin to the token
+          token.id = dbUser.id;
+          token.is_admin = dbUser.is_admin;
+        } catch (error) {
+          console.error('Error during jwt callback:', error);
+        }
+      }
+
+      return token;
+    },
+
     async session({ session, token }) {
       // Attach `is_admin` to the session object
       if (token) {
@@ -79,13 +151,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         };
       }
       return session;
-    },
-    async jwt({ token, user }) {
-      // On login, add `is_admin` to the token
-      if (user) {
-        token.is_admin = user.is_admin;
-      }
-      return token;
     },
   },
 });

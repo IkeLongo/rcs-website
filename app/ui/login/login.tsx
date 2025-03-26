@@ -209,14 +209,18 @@ export function Login() {
             or sign in with
           </p>
           <div className="flex gap-4 pt-4">
-            <div className="flex bg-white p-2 rounded-md min-w-[86px] justify-center md:border md:border-gray-300">
+            {/* Google Sign-In Button */}
+            <button
+              onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+              className="flex bg-white p-2 rounded-md min-w-[86px] justify-center border border-gray-300"
+            >
               <Image
                 src='/google-logo.svg'
                 alt='google'
                 width={27}
                 height={27}
               />
-            </div>
+            </button>
             <div className="flex bg-white p-2 rounded-md min-w-[86px] justify-center md:border md:border-gray-300">
               <Image
                 src='/facebook-logo.svg'

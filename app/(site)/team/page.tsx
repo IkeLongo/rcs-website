@@ -1,5 +1,5 @@
-import { Hero } from '@/components/team/hero';
-import { Footer } from '@/components/layout/footer';
+import { Hero } from '@/app/ui/team/hero';
+import { Footer } from '@/app/ui/layout/footer';
 
 export default function Home() {
 

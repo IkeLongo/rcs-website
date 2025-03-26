@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import pool from '@/app/libs/mysql';
-import { User } from '@/app/types/types';
+import pool from '@/app/lib/mysql';
+import { User } from '@/types/types';
 import { RowDataPacket } from 'mysql2';
 
 export async function POST(request: Request) {

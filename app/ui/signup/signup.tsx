@@ -1,6 +1,6 @@
 
 //import { signup } from '@/app/actions/auth';
-import { SignupForm } from '@/app/ui/signup-form';
+import { SignupForm } from '@/app/ui/signup/signup-form';
 
 export async function SignUp() {
   return (

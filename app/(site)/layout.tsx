@@ -1,5 +1,5 @@
-import Navbar from '@/components/layout/navbar/navbar';
-import CookieBanner from '@/components/cookie-banner';
+import Navbar from '@/app/ui/layout/navbar/navbar';
+import CookieBanner from '@/app/ui/cookie-prefs/cookie-banner';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

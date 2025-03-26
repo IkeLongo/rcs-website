@@ -1,5 +1,5 @@
-import { Footer } from '@/components/layout/footer';
-import { SignUp as SignUpComponent } from '@/components/signup/signup';
+import { Footer } from '@/app/ui/layout/footer';
+import { SignUp as SignUpComponent } from '@/app/ui/signup/signup';
 
 export default function Login() {
   return (

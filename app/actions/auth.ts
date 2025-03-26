@@ -1,6 +1,6 @@
 //"use server";
 
-import { SignupFormSchema, FormState } from '@/app/libs/definitions'
+import { SignupFormSchema, FormState } from '@/app/lib/definitions'
 // import { createSession } from '@/app/libs/session'
 // import { redirect } from 'next/navigation';
 // import { deleteSession } from '@/app/libs/session'

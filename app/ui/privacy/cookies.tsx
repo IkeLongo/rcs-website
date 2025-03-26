@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import CookiePreferences from '@/components/cookie-preferences';
+import CookiePreferences from '@/app/ui/cookiePrefs/cookie-preferences';
 
 export default function Cookies() {
   const [preferencesOpen, setPreferencesOpen] = useState<boolean>(false);

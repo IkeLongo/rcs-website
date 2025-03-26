@@ -1,6 +1,6 @@
 
 import { NextResponse } from 'next/server';
-import pool from "@/app/libs/mysql"; // Ensure you have the correct import for your database pool
+import pool from "@/app/lib/mysql"; // Ensure you have the correct import for your database pool
 
 export async function GET() {
   try {

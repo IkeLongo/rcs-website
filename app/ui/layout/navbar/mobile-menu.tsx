@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from "next/image";
 import lottie from 'lottie-web';
-import menuAnimationData from '../../../public/Menu.json';
+import menuAnimationData from 'public/Menu.json';
 import { AnimationItem } from 'lottie-web';
 import { useEffect, useRef, useState } from 'react';
 import NavLinks from './nav-links';

@@ -1,5 +1,5 @@
-import { Main } from '@/components/terms/main';
-import { Footer } from '@/components/layout/footer';
+import { Main } from '@/app/ui/terms/main';
+import { Footer } from '@/app/ui/layout/footer';
 
 export default function Home() {
 

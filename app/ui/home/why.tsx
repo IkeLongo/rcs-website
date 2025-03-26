@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Video from 'next-video';
-import webVideo from '../videos/why-choose-rivercity-creatives.mp4.json';
+import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
 
 export async function HomeWhy() {
 

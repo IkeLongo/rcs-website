@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import Link from 'next/link';
-import '../../app/styles.css';
+import '/app/styles.css';
 import { AccordionItemProps } from '@/types/components';
 
 export default function AccordionItem({ iconRoute, iconDescription, title, description, className }: AccordionItemProps) {

@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import CookieBanner from "@/components/cookie-banner";
+import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { ReactNode } from "react";
