@@ -44,6 +44,12 @@ html, body {
   .btn-primary {
     @apply w-[140px] h-[36px] font-maven-pro text-blue-700 text-sm font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px];
   }
+  button {
+    @apply py-2 rounded-[13px];
+  }
+  input {
+    @apply py-2;
+  }
 }
 
 /* Width of the scrollbar */

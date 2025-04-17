@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'simplebar-react/dist/simplebar.min.css';
+
+:root {
+  --background: #292732;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #292732;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0; /* Ensure no default margin */
+  padding: 0; /* Ensure no default padding */
+  height: 100vh; /* Ensure body covers full viewport height */
+  width: 100vw; /* Ensure body covers full viewport width */
+}
+
+@layer base {
+  h1 {
+    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-black-500;
+  }
+  h2 {
+    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-black-500;
+  }
+  h3 {
+    @apply font-gentium-book-plus text-lg md:text-xl font-semibold my-6 text-black-500 drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] text-center;
+  }
+  h4 {
+    @apply font-gentium-book-plus text-md2 md:text-md2 font-semibold my-6 text-center text-black-500;
+  }
+  p {
+    @apply font-avenir text-sm lg:text-base text-black-500 text-center;
+  }
+  .btn-primary {
+    @apply w-[140px] h-[36px] font-maven-pro text-black-500 text-sm font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px];
+  }
+  button {
+    @apply py-2 rounded-[13px];
+  }
+  input {
+    @apply py-2;
+  }
+}
+
+/* Width of the scrollbar */
+.simplebar-scrollbar::before {
+  background-color: #352894;  /* Matches your thumb color */
+  border-radius: 5px;
+  background-clip: content-box;  /* Ensures proper padding effect */
+  opacity: 1;
+}
+
+/* Scrollbar track (background) */
+.simplebar-track.simplebar-vertical {
+  background-color: rgba(211, 211, 211, 0.4);  /* Matches track color */
+  width: 10px;  /* Matches your defined width */
+}
+
+.custom-video {
+  border-radius: 20px;
+  overflow: hidden; /* Ensures radius is properly applied */
+  background-color: transparent !important;  /* Matches your background color */
+}
+
+hls-video {
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent !important;
+}

@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@heroicons/react": "^2.2.0",
+    "@heroui/button": "^2.2.16",
     "@heroui/form": "^2.1.9",
+    "@heroui/input": "^2.4.16",
     "@heroui/react": "^2.6.14",
     "@next/env": "^15.1.6",
     "@nextui-org/button": "^2.0.38",
@@ -21,11 +24,18 @@
     "@react-email/components": "0.0.32",
     "alpinejs": "^3.14.6",
     "babel-runtime": "^6.26.0",
+    "bcryptjs": "^3.0.2",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
     "framer-motion": "^11.12.0",
+    "jose": "^6.0.10",
     "js-cookie": "^3.0.5",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
+    "mysql2": "^3.13.0",
+    "net": "^1.0.2",
     "next": "^15.1.7",
+    "next-auth": "5.0.0-beta.25",
     "next-video": "^2.1.0",
     "nodemailer": "^6.10.0",
     "react": "^19.0.0",
@@ -33,9 +43,11 @@
     "react-lottie": "^1.2.9",
     "react-toastify": "^11.0.3",
     "react-transition-group": "^4.4.5",
+    "recharts": "^2.15.1",
     "simplebar": "^6.3.0",
     "simplebar-react": "^3.3.0",
-    "tailwind-scrollbar": "^4.0.0"
+    "tailwind-scrollbar": "^4.0.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
@@ -46,5 +58,14 @@
     "react-email": "3.0.6",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bcrypt"
+    ]
+  },
+  "browser": {
+    "tls": false,
+    "net": false
   }
 }

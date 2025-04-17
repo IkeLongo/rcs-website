@@ -31,6 +31,9 @@ module.exports = {
         'photo-5': "url('/Image 5.jpg')",
         'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
         'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
+        'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
+        'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
+        'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
       },
       colors: {
         background: "var(--background)",
@@ -45,6 +48,12 @@ module.exports = {
           300: '#65EDB7',
           500: '#00CF7D',
           700: '#179865',
+        },
+        neongreen: {
+          200: '#EFF88E',
+          300: '#BFEE3C',
+          500: '#A8DD76',
+          700: '#79DD1A',
         },
         blue: {
           300: '#46C1E3',
@@ -62,6 +71,12 @@ module.exports = {
           300: '#C3EDFF',
           500: '#80D8FE',
           700: '#40BCF2',
+        },
+        navy: {
+          300: '#C6DDEA',
+          500: '#2B5882',
+          600: '#2E61A6',
+          700: '#002145',
         },
         yellow: {
           300: '#FFF4C7',
