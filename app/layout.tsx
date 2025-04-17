@@ -6,6 +6,7 @@ import CookieBanner from "@/components/cookie-banner";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { ReactNode } from "react";
+import type { Metadata } from 'next'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,6 +18,17 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: 'RiverCity Creatives',
+    template: '%s | RiverCity Creatives',
+  },
+  description: 'RiverCity Creatives is a San Antonio-based studio offering custom branding and web design for small businesses. Let’s build your digital presence.',
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 

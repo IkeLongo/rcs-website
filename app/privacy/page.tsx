@@ -21,6 +21,15 @@ import { UpdatesToNotice } from '@/components/privacy/updates-to-notice';
 import { ContactAboutNotice } from '@/components/privacy/contact-about-notice';
 import Cookies from '@/components/privacy/cookies';
 import PrivacyContactForm from '@/components/privacy/form';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Learn how River City Creatives collects, uses, and protects your personal information when you use our website and services.',
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
 
 export default function Home() {
 

@@ -1,5 +1,14 @@
 import { Main } from '@/components/terms/main';
 import { Footer } from '@/components/layout/footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions',
+  description: "Review the terms and conditions for using River City Creatives' website and services.",
+  twitter: {
+    card: 'summary_large_image',
+  },
+}
 
 export default function Home() {
 
