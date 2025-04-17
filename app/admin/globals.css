@@ -50,6 +50,12 @@ html, body {
   input {
     @apply py-2;
   }
+  th {
+    @apply text-sm lg:text-base text-gray-500 text-left;
+  }
+  tr {
+    @apply text-sm lg:text-base text-gray-500 text-left;
+  }
 }
 
 /* Width of the scrollbar */

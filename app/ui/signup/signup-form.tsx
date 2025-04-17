@@ -212,20 +212,23 @@ export function SignupForm() {
                 height={27}
               />
             </button>
-            <div className="flex bg-white p-2 rounded-md min-w-[86px] justify-center border border-gray-300">
+            <button
+              onClick={() => signIn("facebook", { callbackUrl: "/dashboard" })}
+              className="flex bg-white p-2 rounded-md min-w-[86px] justify-center border border-gray-300"
+            >
               <Image
                 src='/facebook-logo.svg'
                 alt='facebook'
                 width={17}
                 height={26}
               />
-            </div>
+            </button>
             <div className="flex bg-white p-2 rounded-md min-w-[86px] justify-center border border-gray-300">
               <Image
-                src='/x-logo.svg'
-                alt='facebook'
-                width={27}
-                height={27}
+                src='/logo-apple.svg'
+                alt='apple'
+                width={25}
+                height={30}
               />
             </div>
           </div>

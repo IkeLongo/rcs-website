@@ -5,7 +5,12 @@ declare module "next-auth" {
    * Extended User type to include `is_admin`.
    */
   interface User {
-    is_admin: boolean;
+    id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    role_id: number; // Add the role_id property
+    role_name: string; // Add the role_name property
   }
 
   /**

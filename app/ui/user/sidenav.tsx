@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavLinks from "./nav-links";
+import AdminNavLinks from "./admin-nav-links";
 import Image from "next/image";
 import { SignOutButton } from "./signout-button";
 
@@ -12,7 +12,7 @@ export default function SideNav() {
       >
         <div className="w-32 md:w-40">
           <Image
-            src="/rrc-logo-flat-gradient.svg"
+            src="/rcc-logo-horizontal-blue-gradient.png"
             alt="Logo"
             width={160}
             height={40}
@@ -21,7 +21,7 @@ export default function SideNav() {
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-        <NavLinks />
+        <AdminNavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <SignOutButton />
       </div>

@@ -19,7 +19,19 @@ export async function POST(request: Request) {
   try {
     // Query the database for the user by email
     const [rows] = await pool.execute<RowDataPacket[]>(
-      `SELECT id, first_name, last_name, email, password_hash, is_admin FROM users WHERE email = ?`,
+      `
+      SELECT 
+        User.id, 
+        User.email, 
+        User.first_name, 
+        User.last_name, 
+        User.role_id,
+        User.password_hash,
+        Role.name AS role_name
+      FROM User
+      JOIN Role ON User.role_id = Role.id
+      WHERE User.email = ?
+      `,
       [email]
     );
 
