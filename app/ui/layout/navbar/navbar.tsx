@@ -45,7 +45,7 @@ export default function Navbar() {
               </Button>
               <Button
                 onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked
-                className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-gray-500 py-2 lg:text-[16px]">
+                className="hidden font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-gray-500 py-2 lg:text-[16px]">
                 <Link href="/login" className="h-full flex items-center justify-center">
                   Login
                 </Link>
