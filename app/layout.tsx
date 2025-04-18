@@ -27,7 +27,17 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-}
+  openGraph: {
+    images: [
+      {
+        url: '/api/opengraph-image', // Path to your OpenGraph image route
+        width: 1200,
+        height: 630,
+        alt: 'RiverCity Creatives OpenGraph Image',
+      },
+    ],
+  },
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 

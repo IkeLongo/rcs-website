@@ -1,32 +1,39 @@
 import { ImageResponse } from 'next/og';
 import { join } from 'node:path';
 import { readFile } from 'node:fs/promises';
+import React from 'react';
 
 export const runtime = 'edge'; // Use the edge runtime for faster responses
 
-export default async function handler() {
+export async function GET() {
   try {
-    const imagePath = join(process.cwd(), 'app/opengraph-image.png');
+    // Resolve the path to the image file
+    const imagePath = join(process.cwd(), 'public/opengraph-image.png'); // Ensure the file is in the 'public' directory
     const logoData = await readFile(imagePath);
 
+    // Generate the OpenGraph image
     return new ImageResponse(
-      (
-        <div
-          style={{
+      React.createElement(
+        'div',
+        {
+          style: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: '#fff',
             width: '1200px',
             height: '630px',
-          }}
-        >
-          <img
-            src={`data:image/png;base64,${Buffer.from(logoData).toString('base64')}`}
-            alt="OpenGraph Image"
-            style={{ height: '100px' }}
-          />
-        </div>
+            fontSize: '48px',
+            fontWeight: 'bold',
+            color: '#333',
+          },
+        },
+        React.createElement('img', {
+          src: `data:image/png;base64,${Buffer.from(logoData).toString('base64')}`,
+          alt: 'OpenGraph Image',
+          style: { height: '100px', marginRight: '20px' },
+        }),
+        'RiverCity Creatives'
       ),
       {
         width: 1200,
