@@ -5,7 +5,7 @@ export const runtime = 'edge'; // Use the edge runtime for faster responses
 export async function GET() {
   try {
     // Use the public URL for the image
-    const imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/opengraph-image.png`;
+    const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://rivercitycreatives.com/'}/opengraph-image.png`;
 
     // Generate the OpenGraph image
     return new ImageResponse(
