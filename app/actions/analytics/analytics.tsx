@@ -4,13 +4,13 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { pageview } from '@/app/lib/gtag';
-const { GA_TRACKING_ID } = process.env;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function Analytics() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (GA_TRACKING_ID) {
+    if (GA_ID) {
       pageview(pathname);
     }
   }, [pathname]);
@@ -19,7 +19,7 @@ export default function Analytics() {
     <>
       {/* Google Analytics Script */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         strategy="afterInteractive"
       />
       <Script id="ga-init" strategy="afterInteractive">
@@ -27,7 +27,8 @@ export default function Analytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
+          console.log("GA initialized: ${GA_ID}");
+          gtag('config', '${GA_ID}', {
             page_path: window.location.pathname,
           });
         `}
