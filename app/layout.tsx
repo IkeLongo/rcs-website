@@ -19,6 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rivercitycreatives.com'),
   title: {
     default: 'RiverCity Creatives',
     template: '%s | RiverCity Creatives',
