@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { ReactNode } from "react";
 import type { Metadata } from 'next'
+import Analytics from "./actions/analytics/analytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-gray-900`}
       >
+        <Analytics />
         <CookieBanner />
         <ToastContainer limit={1} theme="dark" />
         {children}
