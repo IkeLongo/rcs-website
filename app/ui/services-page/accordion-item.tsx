@@ -27,18 +27,22 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
     (<div className={`flex flex-col w-full cursor-pointer hover-section ${className}`} onClick={toggleAccordion}>
       <div className={`flex w-full py-[15px] pr-6 justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} hover:text-babyblue-500 hover-bounce`}>
         <div className='flex gap-[10px]'>
-          <Image
-            src={iconRoute}
-            alt={iconDescription}
-            // Adjust the width as needed
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             width={25}
-            // Adjust the height as needed to maintain aspect ratio
             height={25}
             className="object-contain"
             style={{
               maxWidth: "100%",
-              height: "auto"
-            }} />
+              height: "auto",
+            }}
+          >
+            <source src={`${iconRoute}.webm`} type="video/webm" />
+            <source src={`${iconRoute}.mp4`} type="video/mp4" />
+          </video>
           <p className={`leading-1 pt-1 text-base italic ${isOpen ? 'text-babyblue-500' : 'hover-text-babyblue-500'}`}>
             {title}
           </p>

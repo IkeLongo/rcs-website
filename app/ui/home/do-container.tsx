@@ -5,21 +5,21 @@ export async function DoContainer() {
   // Array of services to be displayed
   const services = [
     {
-      icon: "/home-do-web.gif",
+      icon: "/home-web-design-animation",
       title: "Website Design & Development",
       description:
         "Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices.",
       link: "/services#block-1",
     },
     {
-      icon: "/home-do-brand.gif",
+      icon: "/home-branding-animation",
       title: "Branding & Visual Identity Systems",
       description:
         "Our Branding & Visual Identity Systems package creates a cohesive identity that resonates with your audience. From custom logos to color palettes and iconography, we build a distinctive visual story to elevate your brand and leave a lasting impression across all platforms.",
       link: "/services#block-2",
     },
     {
-      icon: "/home-do-host.gif",
+      icon: "/home-hosting-animation",
       title: "Hosting, Maintenance & Security",
       description:
         "Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business.",

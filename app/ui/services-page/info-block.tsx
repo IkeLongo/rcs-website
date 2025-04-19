@@ -11,28 +11,28 @@ const accordionBlocks = [
     title: "Web Design & Development",
     accordions: [
       {
-        iconRoute: "/services-Target.gif",
+        iconRoute: "/target-animation",
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "This package is ideal for business owners looking to start or elevate their online presence. From engaging design to custom development, this package covers it all.",
       },
       {
-        iconRoute: "/services-Dollar.gif",
+        iconRoute: "/dollar-animation",
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "We offer three packages: Base - $300/month, Pro - $800/month, Enterprise - $1,300/month. Payment plans are available.",
       },
       {
-        iconRoute: "/services-check-list.gif",
+        iconRoute: "/checklist-animation",
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Custom Design, SEO, In-House Development, Security Features, API Integrations, and more.",
       },
       {
-        iconRoute: "/services-calendar.gif",
+        iconRoute: "/calendar-animation",
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description: "Our typical turnaround time is 90 days.",
@@ -44,28 +44,28 @@ const accordionBlocks = [
     title: "Visual & Identity Systems",
     accordions: [
       {
-        iconRoute: "/services-Target.gif",
+        iconRoute: "/target-animation",
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "Ideal for business owners aiming to elevate their brand’s visual impact, offering a complete branding overhaul.",
       },
       {
-        iconRoute: "/services-Dollar.gif",
+        iconRoute: "/dollar-animation",
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "Base: $200/month, Pro: $450/month, Enterprise: $750/month, with flexible payment options.",
       },
       {
-        iconRoute: "/services-check-list.gif",
+        iconRoute: "/checklist-animation",
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Logo, Typography, Color Palettes, Visual Identity Assets, and Optional Add-ons.",
       },
       {
-        iconRoute: "/services-calendar.gif",
+        iconRoute: "/calendar-animation",
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description: "Timeline of 60-90 days depending on customizations.",
@@ -77,28 +77,28 @@ const accordionBlocks = [
     title: "Hosting, Maintenance & Security",
     accordions: [
       {
-        iconRoute: "/services-Target.gif",
+        iconRoute: "/target-animation",
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "Perfect for business owners who need reliable hosting, security, and maintenance.",
       },
       {
-        iconRoute: "/services-Dollar.gif",
+        iconRoute: "/dollar-animation",
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "Base: $99/month, Pro: $219/month, Enterprise: $599/month with flexible month-to-month payments.",
       },
       {
-        iconRoute: "/services-check-list.gif",
+        iconRoute: "/checklist-animation",
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Hosting, Security Updates, Regular Maintenance, and SEO support (Enterprise only).",
       },
       {
-        iconRoute: "/services-calendar.gif",
+        iconRoute: "/calendar-animation",
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description:

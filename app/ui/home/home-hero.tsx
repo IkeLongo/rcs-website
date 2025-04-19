@@ -44,11 +44,16 @@ export async function HomeHero() {
             maxWidth: "100%",
             height: "auto"
           }} />
-        <img
-          src="/home-page-gif.gif"
-          alt="Home page gif"
-          className="absolute top-0 left-0 w-full h-full"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full" // Same styles as the <img> element
+        >
+          <source src="home-hero-animation.webm" type="video/webm" />
+          <source src="home-hero-animation.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </>);
