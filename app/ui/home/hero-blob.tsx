@@ -9,11 +9,11 @@ export default function HeroBlob() {
   useEffect(() => {
     const updateBlob = () => {
       if (window.innerWidth >= 1280) { // XL screens
-        setBlobSrc("/home-hero-blob-xl.webp");
+        setBlobSrc("/home-hero-blob-xl.svg");
       } else if (window.innerWidth >= 768) { // Tablet
-        setBlobSrc("/home-hero-blob-tablet.webp");
+        setBlobSrc("/home-hero-blob-tablet.svg");
       } else { // Mobile
-        setBlobSrc("/home-hero-blob.webp");
+        setBlobSrc("/home-hero-blob.svg");
       }
     };
 
