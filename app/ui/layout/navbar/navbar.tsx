@@ -27,11 +27,7 @@ export default function Navbar() {
                   src="/rcc-logo-menu.svg"
                   alt="Logo"
                   width={125}
-                  height={100}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                  height={100}/>
               </Link>
               <NavLinks 
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked

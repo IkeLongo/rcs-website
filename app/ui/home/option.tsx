@@ -12,11 +12,7 @@ export default function Option({ icon, title }: OptionProps) {
             alt="Icon"
             width={28}
             height={28}
-            className=""
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+          />
           <p className="font-maven-pro font-bold">{title}</p>
         </div>
       </div>)

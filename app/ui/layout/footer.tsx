@@ -16,10 +16,7 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
             width={200}
             height={200}
             className='cursor-pointer w-[150px] h-[100px] lg:w-[200px] lg:h-[100px]'
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+          />
         </Link>
         {/* <Image
           src="/footer-app-dev.gif"
