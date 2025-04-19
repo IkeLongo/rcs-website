@@ -11,7 +11,11 @@ export default function Analytics() {
 
   useEffect(() => {
     if (GA_ID) {
-      pageview(pathname);
+      // Send a pageview event to Google Analytics whenever the pathname changes
+      window.gtag('config', GA_ID, {
+        page_path: pathname,
+      });
+      pageview(pathname); // Optional: If you have a custom `pageview` function
     }
   }, [pathname]);
 
