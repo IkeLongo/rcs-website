@@ -8,16 +8,21 @@ export default function Do({ icon, title, description, link, className }: DoProp
   return (
     (<div className="min-w-[233px] p-6 flex flex-col justify-between gap-4 items-stretch rounded-[14px] border border-gray-500 bg-do-custom-gradient">
       <div className='flex flex-col items-center'>
-        <Image
-          src={icon}
-          alt="Icon"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           width={60.25}
           height={60.25}
-          className=""
           style={{
             maxWidth: "100%",
-            height: "auto"
-          }} />
+            height: "auto",
+          }}
+        >
+          <source src={`${icon}.webm`} type="video/webm" />
+          <source src={`${icon}.mp4`} type="video/mp4" />
+        </video>
         <h4 className='my-2'>{title}</h4>
       </div>
       <p className="flex-grow">
