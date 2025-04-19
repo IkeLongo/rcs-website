@@ -30,6 +30,7 @@ export default function HeroBlob() {
       // Set max width for XL screens
       width={950}
       height={732}
+      priority
       className="absolute left-auto -right-20 top-0 max-h-[800px]
                  md:w-[450px] md:h-[647px] md:-right-2 md:-top-32 
                  lg:w-[750px] lg:h-[732px] lg:-right-20 
