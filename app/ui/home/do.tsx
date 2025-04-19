@@ -28,10 +28,13 @@ export default function Do({ icon, title, description, link, className }: DoProp
       <p className="flex-grow">
         {description}
       </p>
-      <Link href={link} passHref className='flex justify-center gap-1'>
-        <p className='uppercase'>
-          Learn More
-        </p>
+      <Link
+        href={link}
+        passHref
+        className="flex justify-center gap-1"
+        aria-label={`Learn more about ${title}`} // Add a descriptive label
+      >
+        <p className='uppercase'>Learn More</p>
         <Image
           src="/arrow-circle-right.svg"
           alt="Right arrow"
