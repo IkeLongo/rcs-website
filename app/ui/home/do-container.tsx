@@ -1,25 +1,28 @@
 import Do from "./do";
 import "@/app/globals.css";
+import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
+import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
+import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
 
 export async function DoContainer() {
   // Array of services to be displayed
   const services = [
     {
-      icon: "/home-web-design-animation",
+      animation: webDesignAnimation,
       title: "Website Design & Development",
       description:
         "Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices.",
       link: "/services#block-1",
     },
     {
-      icon: "/home-branding-animation",
+      animation: brandingAnimation,
       title: "Branding & Visual Identity Systems",
       description:
         "Our Branding & Visual Identity Systems package creates a cohesive identity that resonates with your audience. From custom logos to color palettes and iconography, we build a distinctive visual story to elevate your brand and leave a lasting impression across all platforms.",
       link: "/services#block-2",
     },
     {
-      icon: "/home-hosting-animation",
+      animation: hostingAnimation,
       title: "Hosting, Maintenance & Security",
       description:
         "Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business.",
@@ -41,7 +44,7 @@ export async function DoContainer() {
           {services.map((service, index) => (
             <div className="flex min-w-[250px]" key={index}>
               <Do
-                icon={service.icon}
+                animation={service.animation}
                 title={service.title}
                 description={service.description}
                 className="min-w-[300px] flex-shrink-0 md:min-w-[350px]"

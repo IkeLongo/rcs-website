@@ -1,5 +1,5 @@
 export interface DoProps {
-  icon: string;
+  animation: object;
   title: string;
   description: string;
   link: string;
@@ -49,7 +49,7 @@ export interface InfoBlockProps {
 }
 
 export interface AccordionItemProps {
-  iconRoute: string;
+  animation: object;
   iconDescription: string;
   title: string;
   description: string;

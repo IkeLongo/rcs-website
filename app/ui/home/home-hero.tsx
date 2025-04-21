@@ -50,21 +50,6 @@ export async function HomeHero() {
           animationData={animation}
           className="absolute top-0 left-0 w-full h-full"
         />
-        {/* <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            backgroundColor: 'transparent',
-            WebkitMaskImage: 'none',
-            WebkitBackdropFilter: 'none', 
-          }}
-        >
-          <source src="home-hero-animation.webm" type="video/webm" />
-          <source src="home-hero-animation.mp4" type="video/mp4" />
-        </video> */}
       </div>
     </div>
   </>);

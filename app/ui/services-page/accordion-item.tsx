@@ -4,10 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import Link from 'next/link';
-import '/app/styles.css';
 import { AccordionItemProps } from '@/types/components';
+import AnimatedLottie from "../components/animations";
+import '/app/styles.css';
 
-export default function AccordionItem({ iconRoute, iconDescription, title, description, className }: AccordionItemProps) {
+export default function AccordionItem({ animation, iconDescription, title, description, className }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -27,7 +28,15 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
     (<div className={`flex flex-col w-full cursor-pointer hover-section ${className}`} onClick={toggleAccordion}>
       <div className={`flex w-full py-[15px] pr-6 justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} hover:text-babyblue-500 hover-bounce`}>
         <div className='flex gap-[10px]'>
-          <video
+          <AnimatedLottie
+            animationData={animation}
+            className="object-contain w-[25px] h-[25px]"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          />
+          {/* <video
             autoPlay
             loop
             muted
@@ -40,9 +49,9 @@ export default function AccordionItem({ iconRoute, iconDescription, title, descr
               height: "auto",
             }}
           >
-            <source src={`${iconRoute}.webm`} type="video/webm" />
-            <source src={`${iconRoute}.mp4`} type="video/mp4" />
-          </video>
+            <source src={`${animation}.webm`} type="video/webm" />
+            <source src={`${animation}.mp4`} type="video/mp4" />
+          </video> */}
           <p className={`leading-1 pt-1 text-base italic ${isOpen ? 'text-babyblue-500' : 'hover-text-babyblue-500'}`}>
             {title}
           </p>

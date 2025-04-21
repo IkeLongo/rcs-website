@@ -1,14 +1,21 @@
-// "use client";
-
 import Image from "next/image";
 import Link from 'next/link';
+import AnimatedLottie from "../components/animations";
 import { DoProps } from "@/types/components";
 
-export default function Do({ icon, title, description, link, className }: DoProps) {
+export default function Do({ animation, title, description, link, className }: DoProps) {
   return (
     (<div className="min-w-[233px] p-6 flex flex-col justify-between gap-4 items-stretch rounded-[14px] border border-gray-500 bg-do-custom-gradient">
       <div className='flex flex-col items-center'>
-        <video
+        <AnimatedLottie
+          animationData={animation}
+          className="h-[60.25px] w-[60.25px]"
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
+        />
+        {/* <video
           autoPlay
           loop
           muted
@@ -22,7 +29,7 @@ export default function Do({ icon, title, description, link, className }: DoProp
         >
           <source src={`${icon}.webm`} type="video/webm" />
           <source src={`${icon}.mp4`} type="video/mp4" />
-        </video>
+        </video> */}
         <h4 className='my-2'>{title}</h4>
       </div>
       <p className="flex-grow">

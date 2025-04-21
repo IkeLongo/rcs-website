@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from "next/image";
 import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
+import AnimatedLottie from "../components/animations";
+import footerAnimation from "@/app/lib/assets/footer-animation.json";
 const { BUSINESS_EMAIL } = process.env;
 
 export async function Footer( {bgGradientClass}: FooterProps ) {
@@ -18,60 +20,24 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
             className='cursor-pointer w-[150px] h-[100px] lg:w-[200px] lg:h-[100px]'
           />
         </Link>
-        {/* <Image
-          src="/footer-app-dev.gif"
-          alt="Mobile Application Developer"
-          width={152}
-          height={142}
-          className="-mr-4 md:hidden"
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} /> */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          width={152}
-          height={142}
-          className="-mr-4 md:hidden"
+        <AnimatedLottie
+          animationData={footerAnimation}
+          className="-mr-4 md:hidden w-[152px] h-[142px]"
           style={{
             maxWidth: "100%",
             height: "auto"
           }}
-        >
-          <source src="/footer-animation.webm" type="video/webm" />
-          <source src="/footer-animation.mp4" type="video/mp4" />
-        </video>
+        />
       </div>
       <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:pb-10 md:pt-0 lg:items-center lg:justify-center">
-        {/* <Image
-          src="/footer-app-dev.gif"
-          alt="Mobile Application Developer"
-          width={152}
-          height={142}
-          className="hidden md:block w-[152px] h-[142px] lg:w-[200px] lg:h-[186px]"
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} /> */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          width={152}
-          height={142}
+        <AnimatedLottie
+          animationData={footerAnimation}
           className="hidden md:block w-[152px] h-[142px] lg:w-[200px] lg:h-[186px]"
           style={{
             maxWidth: "100%",
             height: "auto"
           }}
-        >
-          <source src="/footer-animation.webm" type="video/webm" />
-          <source src="/footer-animation.mp4" type="video/mp4" />
-        </video>
+        />
         <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
             <p className="text-left font-bold my-1">

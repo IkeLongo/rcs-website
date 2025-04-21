@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import AccordionItem from "./accordion-item";
 import { InfoBlockProps } from '@/types/components';
+import targetAnimation from "@/app/lib/assets/target-animation.json";
+import dollarAnimation from "@/app/lib/assets/dollar-animation.json";
+import checklistAnimation from "@/app/lib/assets/checklist-animation.json";
+import calendarAnimation from "@/app/lib/assets/calendar-animation.json";
 
 const accordionBlocks = [
   {
@@ -11,28 +15,28 @@ const accordionBlocks = [
     title: "Web Design & Development",
     accordions: [
       {
-        iconRoute: "/target-animation",
+        iconRoute: targetAnimation,
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "This package is ideal for business owners looking to start or elevate their online presence. From engaging design to custom development, this package covers it all.",
       },
       {
-        iconRoute: "/dollar-animation",
+        iconRoute: dollarAnimation,
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "We offer three packages: Base - $300/month, Pro - $800/month, Enterprise - $1,300/month. Payment plans are available.",
       },
       {
-        iconRoute: "/checklist-animation",
+        iconRoute: checklistAnimation,
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Custom Design, SEO, In-House Development, Security Features, API Integrations, and more.",
       },
       {
-        iconRoute: "/calendar-animation",
+        iconRoute: calendarAnimation,
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description: "Our typical turnaround time is 90 days.",
@@ -44,28 +48,28 @@ const accordionBlocks = [
     title: "Visual & Identity Systems",
     accordions: [
       {
-        iconRoute: "/target-animation",
+        iconRoute: targetAnimation,
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "Ideal for business owners aiming to elevate their brand’s visual impact, offering a complete branding overhaul.",
       },
       {
-        iconRoute: "/dollar-animation",
+        iconRoute: dollarAnimation,
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "Base: $200/month, Pro: $450/month, Enterprise: $750/month, with flexible payment options.",
       },
       {
-        iconRoute: "/checklist-animation",
+        iconRoute: checklistAnimation,
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Logo, Typography, Color Palettes, Visual Identity Assets, and Optional Add-ons.",
       },
       {
-        iconRoute: "/calendar-animation",
+        iconRoute: calendarAnimation,
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description: "Timeline of 60-90 days depending on customizations.",
@@ -77,28 +81,28 @@ const accordionBlocks = [
     title: "Hosting, Maintenance & Security",
     accordions: [
       {
-        iconRoute: "/target-animation",
+        iconRoute: targetAnimation,
         iconDescription: "Target icon animation",
         title: "Who Should Consider This?",
         description:
           "Perfect for business owners who need reliable hosting, security, and maintenance.",
       },
       {
-        iconRoute: "/dollar-animation",
+        iconRoute: dollarAnimation,
         iconDescription: "Money icon animation",
         title: "Investment",
         description:
           "Base: $99/month, Pro: $219/month, Enterprise: $599/month with flexible month-to-month payments.",
       },
       {
-        iconRoute: "/checklist-animation",
+        iconRoute: checklistAnimation,
         iconDescription: "Check list icon animation",
         title: "What's Included?",
         description:
           "Hosting, Security Updates, Regular Maintenance, and SEO support (Enterprise only).",
       },
       {
-        iconRoute: "/calendar-animation",
+        iconRoute: calendarAnimation,
         iconDescription: "Calendar icon animation",
         title: "Timeline",
         description:
@@ -174,7 +178,7 @@ export default function InfoBlock({
             {selectedAccordionBlock.accordions.map((accordion, index) => (
               <AccordionItem
                 key={index}
-                iconRoute={accordion.iconRoute}
+                animation={accordion.iconRoute}
                 iconDescription={accordion.iconDescription}
                 title={accordion.title}
                 description={accordion.description}
