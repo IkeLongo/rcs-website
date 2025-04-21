@@ -42,14 +42,19 @@ export async function HomeHero() {
           className="w-[224px] h-[212px] lg:w-[300px] lg:h-[300px] 2xl:w-[400px] 2xl:h-[400px]"
           style={{
             maxWidth: "100%",
-            height: "auto"
+            height: "auto",
           }} />
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover bg-transparent"
+          className="absolute top-0 left-0 w-full h-full"
+          style={{
+            backgroundColor: 'transparent',
+            WebkitMaskImage: 'none',
+            WebkitBackdropFilter: 'none', 
+          }}
         >
           <source src="home-hero-animation.webm" type="video/webm" />
           <source src="home-hero-animation.mp4" type="video/mp4" />
