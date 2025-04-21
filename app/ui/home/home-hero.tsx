@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Button } from "@heroui/button";
 import Link from 'next/link';
 import HeroBlob from './hero-blob';
+import AnimatedLottie from "../components/animations";
+import animation from "@/app/lib/assets/home-hero-animation.json";
 
 export async function HomeHero() {
 
@@ -33,35 +35,7 @@ export async function HomeHero() {
           </Link>
         </div>
       </div>
-      <div className="absolute left-[10%] top-[500px] md:top-[150px] w-[224px] h-[212px] lg:w-[300px] lg:h-[300px] 2xl:w-[400px] 2xl:h-[400px]">
-        {/* Background Blob Image */}
-        <Image
-          src="/home-hero-gif-blob.svg"
-          alt="Hero gif background blob"
-          fill
-          className="object-cover z-0"
-          style={{
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* Video Animation */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-10"
-          style={{
-            backgroundColor: 'transparent',
-          }}
-        >
-          <source src="/home-hero-animation.webm" type="video/webm" />
-          <source src="/home-hero-animation.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      {/* <div className="absolute left-[10%] top-[500px] md:top-[150px]">
+      <div className="absolute left-[10%] top-[500px] md:top-[150px]">
         <Image
           src="/home-hero-gif-blob.svg"
           alt="Hero gif background blob"
@@ -72,7 +46,11 @@ export async function HomeHero() {
             maxWidth: "100%",
             height: "auto",
           }} />
-        <video
+        <AnimatedLottie
+          animationData={animation}
+          className="absolute top-0 left-0 w-full h-full"
+        />
+        {/* <video
           autoPlay
           loop
           muted
@@ -86,8 +64,8 @@ export async function HomeHero() {
         >
           <source src="home-hero-animation.webm" type="video/webm" />
           <source src="home-hero-animation.mp4" type="video/mp4" />
-        </video>
-      </div> */}
+        </video> */}
+      </div>
     </div>
   </>);
 }
