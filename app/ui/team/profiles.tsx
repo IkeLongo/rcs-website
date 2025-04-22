@@ -10,8 +10,8 @@ const people: TeamMember[] = [
   {
     memberName: "Isaac Longoria",
     position: "Chief Energy Officer",
-    imageRoute: "/isaac-profile.jpg",
-    imageAvatar: "/isaac-avatar.jpg",
+    imageRoute: "/isaac-profile-image.webp",
+    imageAvatar: "/isaac-headshot-avatar.webp",
     imagePosition: "object-top",
     imageDescription: "Profile of Isaac Longoria",
     bgImageClass: "bg-photo-1",
@@ -24,7 +24,7 @@ const people: TeamMember[] = [
   {
     memberName: "Barbara Longoria",
     position: "Chief Creative Officer",
-    imageRoute: "/Image 2.jpg",
+    imageRoute: "/barbara-profile-image.webp",
     imagePosition: "object-top",
     imageDescription: "Team member 2",
     bgImageClass: "bg-photo-2",
@@ -35,7 +35,7 @@ const people: TeamMember[] = [
   {
     memberName: "Alice Johnson",
     position: "CFO",
-    imageRoute: "/Image 3.jpg",
+    imageRoute: "/caitlyn-profile-image.webp",
     imagePosition: "object-bottom",
     imageDescription: "Team member 3",
     bgImageClass: "bg-photo-3",
@@ -46,7 +46,7 @@ const people: TeamMember[] = [
   {
     memberName: "Bob Brown",
     position: "COO",
-    imageRoute: "/Image 4.jpg",
+    imageRoute: "/derek-profile-image.webp",
     imagePosition: "object-bottom",
     imageDescription: "Team member 4",
     bgImageClass: "bg-photo-4",
@@ -57,7 +57,7 @@ const people: TeamMember[] = [
   {
     memberName: "Charlie Davis",
     position: "CMO",
-    imageRoute: "/Image 5.jpg",
+    imageRoute: "/random-profile-image.webp",
     imagePosition: "object-top",
     imageDescription: "Team member 5",
     bgImageClass: "bg-photo-5",

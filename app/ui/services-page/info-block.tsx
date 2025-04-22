@@ -150,7 +150,7 @@ export default function InfoBlock({
             onClick={onBack}
           >
             <Image
-              src="/back arrow.svg"
+              src="/arrow-left.svg"
               alt="Back Arrow"
               width={6.37}
               height={11.22}

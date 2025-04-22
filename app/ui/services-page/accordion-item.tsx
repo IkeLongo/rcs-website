@@ -36,28 +36,12 @@ export default function AccordionItem({ animation, iconDescription, title, descr
               height: "auto",
             }}
           />
-          {/* <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            width={25}
-            height={25}
-            className="object-contain"
-            style={{
-              maxWidth: "100%",
-              height: "auto",
-            }}
-          >
-            <source src={`${animation}.webm`} type="video/webm" />
-            <source src={`${animation}.mp4`} type="video/mp4" />
-          </video> */}
           <p className={`leading-1 pt-1 text-base italic ${isOpen ? 'text-babyblue-500' : 'hover-text-babyblue-500'}`}>
             {title}
           </p>
         </div>
         <Image
-          src={isOpen ? "/Up.svg" : "/Down.svg"}
+          src={isOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
           alt={isOpen ? "Bouncing Up Arrow" : "Bouncing Down Arrow"}
           // Adjust the width as needed
           width={11.22}

@@ -41,7 +41,7 @@ export default function HeroImages() {
     {/* Main Clip Art */}
     <div className="absolute right-36 bottom-40 w-[225px] h-[130px] flex justify-end md:bottom-40 lg:w-[250px] lg:h-[190px] lg:right-80 lg:bottom-[288px] overflow-hidden">
       <Image
-        src="/Main clip art.svg"
+        src="/cloud-clipart-design-team.svg"
         alt="Creative cloud clipart with web designers"
         className="object-contain"
         priority
