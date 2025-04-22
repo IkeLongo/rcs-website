@@ -37,8 +37,8 @@ export async function HomeHero() {
       </div>
       <div className="absolute left-[10%] top-[500px] md:top-[150px]">
         <Image
-          src="/home-hero-gif-blob.webp"
-          fallbackSrc="/home-hero-gif-blob.png"
+          src="/home-hero-gif-blob.svg"
+          fallbackSrc="/home-hero-gif-blob.webp"
           alt="Hero page background blob image."
           width={224}
           height={212}

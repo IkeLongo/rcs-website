@@ -10,8 +10,8 @@ export async function HomeWhy() {
       <div className="absolute w-full h-full">
         <div className="flex h-full w-full max-w-[570px] md:max-w-[1020px] items-center justify-center mx-auto relative">
           <Image
-            src="/home-why-green-blob.webp"
-            fallbackSrc="/home-why-green-blob.png"
+            src="/home-why-green-blob.svg"
+            fallbackSrc="/home-why-green-blob.webp"
             alt="Green background blob image."
             width={116}
             height={165}
@@ -21,8 +21,8 @@ export async function HomeWhy() {
               height: "auto"
             }} />
           <Image
-            src="/home-why-blue-blob.webp"
-            fallbackSrc="/home-why-blue-blob.png"
+            src="/home-why-blue-blob.svg"
+            fallbackSrc="/home-why-blue-blob.webp"
             alt="Blue background image blob"
             width={163}
             height={144}

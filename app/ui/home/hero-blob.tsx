@@ -11,16 +11,16 @@ export default function HeroBlob() {
     const updateBlob = () => {
       if (window.innerWidth >= 1280) {
         // XL screens
-        setBlobSrc("/home-hero-blob-xl.webp");
-        setFallbackSrc("/home-hero-blob-xl.png");
+        setBlobSrc("/home-hero-blob-xl.svg");
+        setFallbackSrc("/home-hero-blob-xl.webp");
       } else if (window.innerWidth >= 768) {
         // Tablet
-        setBlobSrc("/home-hero-blob-tablet.webp");
-        setFallbackSrc("/home-hero-blob-tablet.png");
+        setBlobSrc("/home-hero-blob-tablet.svg");
+        setFallbackSrc("/home-hero-blob-tablet.webp");
       } else {
         // Mobile
-        setBlobSrc("/home-hero-blob.webp");
-        setFallbackSrc("/home-hero-blob.png");
+        setBlobSrc("/home-hero-blob.svg");
+        setFallbackSrc("/home-hero-blob.webp");
       }
     };
 
