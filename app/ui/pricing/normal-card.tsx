@@ -44,7 +44,7 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-2 items-center pr-10 lg:pr-12 fade-text">
                     <Image
-                      src="/normal-checkmark.svg"
+                      src="/checkmark-purple.svg"
                       alt="Checkmark"
                       width={15}
                       height={15}

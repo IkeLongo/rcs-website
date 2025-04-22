@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../components/image";
 import Video from 'next-video';
 import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
 
@@ -10,8 +10,9 @@ export async function HomeWhy() {
       <div className="absolute w-full h-full">
         <div className="flex h-full w-full max-w-[570px] md:max-w-[1020px] items-center justify-center mx-auto relative">
           <Image
-            src="home-why-green-blob.svg"
-            alt="First blob"
+            src="/home-why-green-blob.webp"
+            fallbackSrc="/home-why-green-blob.png"
+            alt="Green background blob image."
             width={116}
             height={165}
             className="absolute right-20 top-10 md:top-16 md:w-[210px] md:h-[284px] md:right-20"
@@ -20,8 +21,9 @@ export async function HomeWhy() {
               height: "auto"
             }} />
           <Image
-            src="home-why-blue-blob.svg"
-            alt="Second blob"
+            src="/home-why-blue-blob.webp"
+            fallbackSrc="/home-why-blue-blob.png"
+            alt="Blue background image blob"
             width={163}
             height={144}
             className="absolute left-10 bottom-20 lg:bottom-20 md:w-[271px] md:h-[226px]"

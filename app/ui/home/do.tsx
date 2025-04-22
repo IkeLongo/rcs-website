@@ -15,21 +15,6 @@ export default function Do({ animation, title, description, link, className }: D
             height: "auto",
           }}
         />
-        {/* <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          width={60.25}
-          height={60.25}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
-        >
-          <source src={`${icon}.webm`} type="video/webm" />
-          <source src={`${icon}.mp4`} type="video/mp4" />
-        </video> */}
         <h4 className='my-2'>{title}</h4>
       </div>
       <p className="flex-grow">
@@ -43,10 +28,10 @@ export default function Do({ animation, title, description, link, className }: D
       >
         <p className='uppercase'>Learn More</p>
         <Image
-          src="/arrow-circle-right.svg"
+          src="/arrow-pointing-right.svg"
           alt="Right arrow"
-          width={16.87}
-          height={16.87}
+          width={20}
+          height={20}
           className=""
           style={{
             maxWidth: "100%",

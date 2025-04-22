@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../components/image";
 import { Button } from "@heroui/button";
 import Link from 'next/link';
 import HeroBlob from './hero-blob';
@@ -37,15 +37,17 @@ export async function HomeHero() {
       </div>
       <div className="absolute left-[10%] top-[500px] md:top-[150px]">
         <Image
-          src="/home-hero-gif-blob.svg"
-          alt="Hero gif background blob"
+          src="/home-hero-gif-blob.webp"
+          fallbackSrc="/home-hero-gif-blob.png"
+          alt="Hero page background blob image."
           width={224}
           height={212}
           className="w-[224px] h-[212px] lg:w-[300px] lg:h-[300px] 2xl:w-[400px] 2xl:h-[400px]"
           style={{
             maxWidth: "100%",
             height: "auto",
-          }} />
+          }}
+        />
         <AnimatedLottie
           animationData={animation}
           className="absolute top-0 left-0 w-full h-full"

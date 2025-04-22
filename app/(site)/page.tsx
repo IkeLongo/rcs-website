@@ -1,7 +1,7 @@
 import { HomeHero } from '@/app/ui/home/home-hero';
 import { HomeWhy } from '@/app/ui/home/why';
 import { DoContainer } from '@/app/ui/home/do-container';
-import ScrollingOptions from '@/app/ui/home/scrolling-options';
+import OptionsContainer from '@/app/ui/home/options-container';
 import Pricing from '@/app/ui/pricing/selector';
 import { Footer } from '@/app/ui/layout/footer';
 
@@ -13,7 +13,7 @@ export default function Home() {
         <HomeHero />
         <HomeWhy />
         <DoContainer />
-        <ScrollingOptions />
+        <OptionsContainer />
         <Pricing />
         <Footer 
           bgGradientClass='bg-footer-bg-gradient'

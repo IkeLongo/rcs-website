@@ -43,7 +43,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                   {features.map((feature, index) => (
                     <div key={index} className='flex gap-2 items-center pr-10 lg:pr-12'>
                       <Image
-                        src="/premium-checkmark.svg"
+                        src="/checkmark-white.svg"
                         alt="Checkmark"
                         width={15}
                         height={15}

@@ -135,18 +135,18 @@ module.exports = {
         xl: '36px',
       },
       keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
+        "infinite-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" }, // Scroll left by 50% of the container width
         },
-        'reverse-infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(100%)' },
-        }
+        "reverse-infinite-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(50%)" }, // Scroll right by 50% of the container width
+        },
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 20s linear infinite',
-        'reverse-infinite-scroll': 'reverse-infinite-scroll 20s linear infinite',
+        "infinite-scroll": "infinite-scroll 20s linear infinite", // 20s duration for left scroll
+        "reverse-infinite-scroll": "reverse-infinite-scroll 20s linear infinite", // 20s duration for right scroll
       },
       rotate: {
         '-4.961': '-4.961deg',

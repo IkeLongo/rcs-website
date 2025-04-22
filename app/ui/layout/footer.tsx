@@ -13,11 +13,11 @@ export async function Footer( {bgGradientClass}: FooterProps ) {
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
-            src="/rcc-logo-menu.svg"
-            alt="Logo"
-            width={200}
-            height={200}
-            className='cursor-pointer w-[150px] h-[100px] lg:w-[200px] lg:h-[100px]'
+            src="/logo-rivercity-creatives-horizontal.svg"
+            alt="Rivercity Creatives Logo"
+            width={200} // This is still required for Next.js Image optimization
+            height={100}
+            className="cursor-pointer w-[150px] lg:w-[200px] aspect-auto"
           />
         </Link>
         <AnimatedLottie
