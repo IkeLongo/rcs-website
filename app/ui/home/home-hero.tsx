@@ -1,9 +1,11 @@
+import { Suspense, lazy } from 'react';
 import Image from "../components/image";
 import { Button } from "@heroui/button";
 import Link from 'next/link';
 import HeroBlob from './hero-blob';
-import AnimatedLottie from "../components/animations";
 import animation from "@/app/lib/assets/home-hero-animation.json";
+
+const LazyLottie = lazy(() => import('../components/animations')); // path to AnimatedLottie
 
 export async function HomeHero() {
 
@@ -48,10 +50,12 @@ export async function HomeHero() {
             height: "auto",
           }}
         />
-        <AnimatedLottie
-          animationData={animation}
-          className="absolute top-0 left-0 w-full h-full"
-        />
+        <Suspense fallback={null}>
+          <LazyLottie
+            animationData={animation}
+            className="absolute top-0 left-0 w-full h-full"
+          />
+        </Suspense>
       </div>
     </div>
   </>);
