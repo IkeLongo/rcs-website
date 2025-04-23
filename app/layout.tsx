@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-gray-900`}
