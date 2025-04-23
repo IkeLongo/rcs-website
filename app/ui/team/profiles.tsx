@@ -173,7 +173,7 @@ export default function Profiles() {
                   name={activeProfile?.memberName}
                   classNames={{
                     base: "gap-4 justify-start",
-                    name: "text-md text-white",
+                    name: "text-md text-white text-left",
                   }}
                 />
               </ModalHeader>

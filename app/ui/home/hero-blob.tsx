@@ -1,43 +1,43 @@
-"use client";
+//"use client";
 
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function HeroBlob() {
-  const [blobSrc, setBlobSrc] = useState("/home-hero-blob.svg"); // Default to mobile
-  const [fallbackSrc, setFallbackSrc] = useState("/home-hero-blob-fallback.svg"); // Default fallback
+  // const [blobSrc, setBlobSrc] = useState("/home-hero-blob.svg"); // Default to mobile
+  // const [fallbackSrc, setFallbackSrc] = useState("/home-hero-blob-fallback.svg"); // Default fallback
 
-  useEffect(() => {
-    const updateBlob = () => {
-      if (window.innerWidth >= 1280) {
-        // XL screens
-        setBlobSrc("/home-hero-blob-xl.svg");
-        setFallbackSrc("/home-hero-blob-xl.webp");
-      } else if (window.innerWidth >= 768) {
-        // Tablet
-        setBlobSrc("/home-hero-blob-tablet.svg");
-        setFallbackSrc("/home-hero-blob-tablet.webp");
-      } else {
-        // Mobile
-        setBlobSrc("/home-hero-blob.svg");
-        setFallbackSrc("/home-hero-blob.webp");
-      }
-    };
+  // useEffect(() => {
+  //   const updateBlob = () => {
+  //     if (window.innerWidth >= 1280) {
+  //       // XL screens
+  //       setBlobSrc("/home-hero-blob-xl.svg");
+  //       setFallbackSrc("/home-hero-blob-xl.webp");
+  //     } else if (window.innerWidth >= 768) {
+  //       // Tablet
+  //       setBlobSrc("/home-hero-blob-tablet.svg");
+  //       setFallbackSrc("/home-hero-blob-tablet.webp");
+  //     } else {
+  //       // Mobile
+  //       setBlobSrc("/home-hero-blob.svg");
+  //       setFallbackSrc("/home-hero-blob.webp");
+  //     }
+  //   };
 
-    updateBlob(); // Run on mount
-    window.addEventListener("resize", updateBlob); // Update on resize
+  //   updateBlob(); // Run on mount
+  //   window.addEventListener("resize", updateBlob); // Update on resize
 
-    return () => window.removeEventListener("resize", updateBlob); // Cleanup event listener
-  }, []);
+  //   return () => window.removeEventListener("resize", updateBlob); // Cleanup event listener
+  // }, []);
 
-  const handleImageError = () => {
-    // Use fallback image if the primary image fails to load
-    setBlobSrc(fallbackSrc);
-  };
+  // const handleImageError = () => {
+  //   // Use fallback image if the primary image fails to load
+  //   setBlobSrc(fallbackSrc);
+  // };
 
   return (
     <Image
-      src={blobSrc}
+      src="/home-hero-blob-xl.svg"
       alt="Colorful background blob image"
       width={950}
       height={732}
@@ -50,7 +50,7 @@ export default function HeroBlob() {
         maxWidth: "100%",
         height: "auto",
       }}
-      onError={handleImageError} // Handle image load errors
+      //onError={handleImageError} // Handle image load errors
     />
   );
 }
