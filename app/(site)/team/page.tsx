@@ -1,5 +1,5 @@
 import { Hero } from '@/app/ui/team/hero';
-import { Footer } from '@/app/ui/layout/footer';
+import Footer from '@/app/ui/layout/footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

@@ -1,4 +1,4 @@
-import { Footer } from '@/app/ui/layout/footer';
+import Footer from '@/app/ui/layout/footer';
 import { Login as LoginComponent } from '@/app/ui/login/login';
 
 export default function Login() {
