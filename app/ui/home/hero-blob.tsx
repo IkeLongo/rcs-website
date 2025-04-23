@@ -7,36 +7,36 @@ export default function HeroBlob() {
     <picture>
       {/* XL Screens */}
       <source
-        srcSet="/home-hero-blob-xl.webp"
-        type="image/webp"
+        srcSet="/home-hero-blob-xl.svg"
+        type="image/svg+xml"
         media="(min-width: 1280px)"
       />
       <source
-        srcSet="/home-hero-blob-xl.svg"
-        type="image/svg+xml"
+        srcSet="/home-hero-blob-xl.webp"
+        type="image/webp"
         media="(min-width: 1280px)"
       />
 
       {/* Tablet Screens */}
       <source
-        srcSet="/home-hero-blob-tablet.webp"
-        type="image/webp"
+        srcSet="/home-hero-blob-tablet.svg"
+        type="image/svg+xml"
         media="(min-width: 768px)"
       />
       <source
-        srcSet="/home-hero-blob-tablet.svg"
-        type="image/svg+xml"
+        srcSet="/home-hero-blob-tablet.webp"
+        type="image/webp"
         media="(min-width: 768px)"
       />
 
       {/* Mobile Screens */}
       <source
-        srcSet="/home-hero-blob.webp"
-        type="image/webp"
-      />
-      <source
         srcSet="/home-hero-blob.svg"
         type="image/svg+xml"
+      />
+      <source
+        srcSet="/home-hero-blob.webp"
+        type="image/webp"
       />
 
       {/* Fallback Image */}
