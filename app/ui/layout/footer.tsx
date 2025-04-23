@@ -6,7 +6,7 @@ import AnimatedLottie from "../components/animations";
 import footerAnimation from "@/app/lib/assets/footer-animation.json";
 const { BUSINESS_EMAIL } = process.env;
 
-export async function Footer( {bgGradientClass}: FooterProps ) {
+export default function Footer( {bgGradientClass}: FooterProps ) {
 
   return (
     (<div className={`relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 lg:pt-10 ${bgGradientClass}`}>

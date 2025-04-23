@@ -2,7 +2,7 @@ import Image from "../components/image";
 import Video from 'next-video';
 import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
 
-export async function HomeWhy() {
+export default function HomeWhy() {
 
   return (<>
     {/* Why Section */}

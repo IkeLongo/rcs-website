@@ -1,9 +1,11 @@
+import { Suspense, lazy } from 'react';
+
 import { HomeHero } from '@/app/ui/home/home-hero';
-import { HomeWhy } from '@/app/ui/home/why';
-import { DoContainer } from '@/app/ui/home/do-container';
-import OptionsContainer from '@/app/ui/home/options-container';
-import Pricing from '@/app/ui/pricing/selector';
-import { Footer } from '@/app/ui/layout/footer';
+const HomeWhy = lazy(() => import('@/app/ui/home/why'));
+const DoContainer = lazy(() => import('@/app/ui/home/do-container'));
+const OptionsContainer = lazy(() => import('@/app/ui/home/options-container'));
+const Pricing = lazy(() => import('@/app/ui/pricing/selector'));
+const Footer = lazy(() => import('@/app/ui/layout/footer'));
 
 export default function Home() {
 
@@ -11,13 +13,15 @@ export default function Home() {
     <div className='relative'>
       <div className="relative h-auto w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
         <HomeHero />
-        <HomeWhy />
-        <DoContainer />
-        <OptionsContainer />
-        <Pricing />
-        <Footer 
-          bgGradientClass='bg-footer-bg-gradient'
-        />
+        <Suspense fallback={null}>
+          <>
+            <HomeWhy />
+            <DoContainer />
+            <OptionsContainer />
+            <Pricing />
+            <Footer bgGradientClass='bg-footer-bg-gradient' />
+          </>
+        </Suspense>
       </div>
     </div>
   );

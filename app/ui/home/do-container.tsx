@@ -4,7 +4,7 @@ import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json"
 import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
 
-export async function DoContainer() {
+export default function DoContainer() {
   // Array of services to be displayed
   const services = [
     {
