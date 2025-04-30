@@ -7,6 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   // You can place other config options here if needed
   // e.g., reactStrictMode: true,
+  productionBrowserSourceMaps: true, // <-- add this
 };
 
 // Compose both wrappers

@@ -1,4 +1,5 @@
 import Image from "../components/image";
+import MuxPlayer from '@mux/mux-player-react';
 //import Video from 'next-video';
 //import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
 

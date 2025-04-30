@@ -1,13 +1,11 @@
 "use client";
 
-import { Suspense, lazy } from 'react';
 import Image from "../components/image";
 import { Button } from "@heroui/button";
 import Link from 'next/link';
+import LottieIdleLoader from "../components/lottie-loader";
 import HeroBlob from './hero-blob';
 import animation from "@/app/lib/assets/home-hero-animation.json";
-
-const LazyLottie = lazy(() => import('../components/animations')); // path to AnimatedLottie
 
 export default function HomeHero() {
 
@@ -52,12 +50,12 @@ export default function HomeHero() {
             height: "auto",
           }}
         />
-        <Suspense fallback={null}>
-          <LazyLottie
-            animationData={animation}
-            className="absolute top-0 left-0 w-full h-full"
-          />
-        </Suspense>
+        <LottieIdleLoader
+          animationData={animation}
+          previewSrc="/animated-menu.svg"
+          className="w-full h-full"
+          alt="Animated illustration of hero background"
+        />
       </div>
     </div>
   </>);
