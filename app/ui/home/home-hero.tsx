@@ -1,3 +1,5 @@
+"use client";
+
 import { Suspense, lazy } from 'react';
 import Image from "../components/image";
 import { Button } from "@heroui/button";
@@ -7,7 +9,7 @@ import animation from "@/app/lib/assets/home-hero-animation.json";
 
 const LazyLottie = lazy(() => import('../components/animations')); // path to AnimatedLottie
 
-export async function HomeHero() {
+export default function HomeHero() {
 
   return (<>
     {/* Hero Section */}

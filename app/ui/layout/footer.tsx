@@ -203,12 +203,12 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             <Link href="/terms" className="block text-white">
               Terms & Conditions
             </Link>
-            <Link href="/sales-and-refunds" className="block text-white">
+            {/* <Link href="/sales-and-refunds" className="block text-white">
               Sales and Refunds
             </Link>
             <Link href="/legal" className="block text-white">
               Legal
-            </Link>
+            </Link> */}
             <Link href="/site-map" className="block text-white">
               Site Map
             </Link>
@@ -228,12 +228,12 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           <Link href="/terms" className="block text-white">
             Terms & Conditions
           </Link>
-          <Link href="/sales-and-refunds" className="block text-white">
+          {/* <Link href="/sales-and-refunds" className="block text-white">
             Sales and Refunds
           </Link>
           <Link href="/legal" className="block text-white">
             Legal
-          </Link>
+          </Link> */}
           <Link href="/site-map" className="block text-white">
             Site Map
           </Link>
