@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  alternates: {
+    canonical: 'https://rivercitycreatives.com/services', // Add your canonical URL here
+  },
 }
 
 export default function Services() {

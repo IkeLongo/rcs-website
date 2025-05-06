@@ -33,5 +33,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly", // Privacy policy rarely changes
       priority: 0.3,
     },
+    {
+      url: `${SITE_NAME_VAR}/booking`,
+      lastModified: "2025-05-06",
+      changeFrequency: "yearly", // Privacy policy rarely changes
+      priority: 0.3,
+    },
   ];
 }

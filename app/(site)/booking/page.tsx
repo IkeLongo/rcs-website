@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  alternates: {
+    canonical: 'https://rivercitycreatives.com/booking', // Add your canonical URL here
+  },
 }
 
 export default function Booking() {
