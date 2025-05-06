@@ -20,10 +20,10 @@ export default function HomeHero() {
           Websites and Branding for Your Business
         </h1>
 
-        <p className="text-gray-800 text-right mt-4 w-[250px] md:w-[340px] lg:w-[400px] self-end">
+        <h2 className="text-gray-800 text-right mt-4 w-[250px] md:w-[340px] lg:w-[400px] self-end">
           Propel your business forward with innovative web
           solutions, reliable hosting, and impactful branding.
-        </p>
+        </h2>
 
         <div className="flex justify-end mt-4 md:mt-10">
           <Link href="/booking" passHref>
