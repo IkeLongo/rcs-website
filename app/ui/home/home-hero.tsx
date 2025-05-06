@@ -20,7 +20,7 @@ export default function HomeHero() {
           Websites and Branding for Your Business
         </h1>
 
-        <h2 className="text-gray-800 text-right mt-4 w-[250px] md:w-[340px] lg:w-[400px] self-end">
+        <h2 className="font-avenir text-sm font-normal lg:text-base text-gray-800 text-right mt-4 w-[250px] md:w-[340px] lg:w-[400px] self-end">
           Propel your business forward with innovative web
           solutions, reliable hosting, and impactful branding.
         </h2>
