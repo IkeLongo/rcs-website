@@ -21,7 +21,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
   title: {
-    default: 'RiverCity Creatives',
+    default: 'Branding & Web Design in San Antonio, TX | RiverCity Creatives',
     template: '%s | RiverCity Creatives',
   },
   description: 'RiverCity Creatives is a San Antonio-based studio offering custom branding and web design for small businesses. Let’s build your digital presence.',
