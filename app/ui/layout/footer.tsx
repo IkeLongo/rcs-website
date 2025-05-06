@@ -209,7 +209,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             <Link href="/legal" className="block text-white">
               Legal
             </Link> */}
-            <Link href="/site-map" className="block text-white">
+            <Link href="/sitemap.xml" className="block text-white">
               Site Map
             </Link>
           </div>
@@ -234,7 +234,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           <Link href="/legal" className="block text-white">
             Legal
           </Link> */}
-          <Link href="/site-map" className="block text-white">
+          <Link href="/sitemap.xml" className="block text-white">
             Site Map
           </Link>
         </div>
