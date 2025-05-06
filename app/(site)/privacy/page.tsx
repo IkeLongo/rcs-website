@@ -29,6 +29,17 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  openGraph: {
+    images: [
+      {
+        url: 'https://rivercitycreatives.com/privacy', // Custom OpenGraph image for the booking page
+        width: 1200,
+        height: 630,
+        alt: 'Privacy Policy | RiverCity Creatives Web Design & Branding',
+        type: 'website', // Specify the MIME type
+      },
+    ],
+  },
   alternates: {
     canonical: 'https://rivercitycreatives.com/privacy', // Add your canonical URL here
   },

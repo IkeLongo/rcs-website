@@ -31,10 +31,11 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://rivercitycreatives.com/api/og', // Path to your OpenGraph image route
+        url: 'https://rivercitycreatives.com/',
         width: 1200,
         height: 630,
-        alt: 'RiverCity Creatives OpenGraph Image',
+        alt: 'Branding & Web Design in San Antonio, TX | RiverCity Creatives',
+        type: 'website',
       },
     ],
   },

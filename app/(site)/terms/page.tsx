@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  openGraph: {
+    images: [
+      {
+        url: 'https://rivercitycreatives.com/terms', // Custom OpenGraph image for the booking page
+        width: 1200,
+        height: 630,
+        alt: 'Terms & Conditions | RiverCity Creatives Web Design & Branding',
+        type: 'website', // Specify the MIME type
+      },
+    ],
+  },
   alternates: {
     canonical: 'https://rivercitycreatives.com/terms', // Add your canonical URL here
   },
