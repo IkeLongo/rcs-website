@@ -17,7 +17,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             alt="Rivercity Creatives Logo"
             width={200} // This is still required for Next.js Image optimization
             height={100}
-            className="cursor-pointer w-[150px] lg:w-[200px] aspect-auto"
+            className="cursor-pointer w-[150px] lg:w-[200px] h-auto"
           />
         </Link>
         <AnimatedLottie
