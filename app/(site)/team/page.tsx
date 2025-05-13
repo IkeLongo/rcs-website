@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://rivercitycreatives.com/page', // Add your canonical URL here
+    canonical: 'https://rivercitycreatives.com/team', // Add your canonical URL here
   },
 }
   

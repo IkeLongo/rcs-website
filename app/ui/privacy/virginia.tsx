@@ -15,11 +15,11 @@ export async function Virginia() {
       <p className="mt-4">If this definition of “consumer” applies to you, we must adhere to certain rights and obligations regarding your personal data.</p>
       <p className="mt-4">The information we collect, use, and disclose about you will vary depending on how you interact with {DBA_NAME} and our Services. To find out more, please visit the following sections above:</p>
       <ol className="list-decimal pl-6 mt-4 flex flex-col gap-2">
-        <li><a href="what-information-do-we-collect" className="text-blue-400 hover:underline">What Information do we Collect?</a></li>
-        <li><a href="how-do-we-process-your-information" className="text-blue-400 hover:underline">How do we Process your Information?</a></li>
+        <li><a href="#what-information-do-we-collect" className="text-blue-400 hover:underline">What Information do we Collect?</a></li>
+        <li><a href="#how-do-we-process-your-information" className="text-blue-400 hover:underline">How do we Process your Information?</a></li>
         <li style={{ listStyleType: 'none' }}>
           <span className="before:content-['4.'] before:-ml-[18px] before:mr-1">
-            <a href="when-and-with-whom-do-we-share-your-personal-information" className="text-blue-400 hover:underline">When and with Whom do we Share your Personal Information</a>
+            <a href="#when-and-with-whom-do-we-share-your-personal-information" className="text-blue-400 hover:underline">When and with Whom do we Share your Personal Information</a>
           </span>
         </li>
       </ol>
