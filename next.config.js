@@ -8,6 +8,8 @@ const nextConfig = {
   // You can place other config options here if needed
   // e.g., reactStrictMode: true,
   productionBrowserSourceMaps: true, // <-- add this
+  reactStrictMode: true,
+  experimental: { optimizeCss: true }
 };
 
 // Compose both wrappers
