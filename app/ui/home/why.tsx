@@ -1,5 +1,5 @@
 import Image from "../components/image";
-//import MuxPlayer from '@mux/mux-player-react';
+import MuxPlayer from '@mux/mux-player-react/lazy';
 //import Video from 'next-video';
 //import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
 
@@ -41,7 +41,7 @@ export default function HomeWhy() {
           {/* <div className="w-full h-[230px] mt-4 rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto">
             <Video src={webVideo.sources[0].src} className="custom-video" />
           </div> */}
-          <div className="w-full h-[230px] mt-4 rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
+          {/* <div className="w-full h-[230px] mt-4 rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
             <iframe
               src="https://player.mux.com/LQbVyBeNte01DWPMOACL02MpcwLBwpXageShslp01ttXcc?accent-color=%2379dd1a"
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
@@ -49,7 +49,20 @@ export default function HomeWhy() {
               title="Why Choose Rivercity Creatives?"
               className="w-auto h-full rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto"
             ></iframe>
-          </div>
+          </div> */}
+
+        <div className="w-full h-[230px] mt-4 rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
+          <MuxPlayer
+            playbackId="LQbVyBeNte01DWPMOACL02MpcwLBwpXageShslp01ttXcc"
+            accentColor="#79DD1A"
+            thumbnailTime={0}
+            style={{ borderRadius: "20px" }}
+            metadata={{
+              videoTitle: "Rivercity Creatives - Why Choose Us?",
+              ViewerUserId: "user-id-007",
+            }}
+          />
+        </div>  
       </div>
     </div>
   </>);
