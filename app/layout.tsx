@@ -1,4 +1,3 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,17 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ReactNode } from "react";
 import type { Metadata } from 'next'
 import Analytics from "./actions/analytics/analytics";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -53,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-gray-900`}
+        className={`antialiased overflow-x-hidden bg-gray-900`}
       >
         <Analytics />
         <CookieBanner />

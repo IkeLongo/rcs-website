@@ -56,9 +56,9 @@ export default function HomeWhy() {
             playbackId="LQbVyBeNte01DWPMOACL02MpcwLBwpXageShslp01ttXcc"
             accentColor="#79DD1A"
             thumbnailTime={0}
-            style={{ borderRadius: "20px" }}
+            style={{ borderRadius: "20px", aspectRatio: 16/9 }}
             metadata={{
-              videoTitle: "Rivercity Creatives - Why Choose Us?",
+              videoTitle: "Why Choose Rivercity Creatives?",
               ViewerUserId: "user-id-007",
             }}
           />
