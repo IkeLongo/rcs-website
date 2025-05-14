@@ -1,4 +1,4 @@
-import "./globals.css";
+// import "./globals.css";
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -37,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <link rel="stylesheet" href="./globals.css" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       </head>
