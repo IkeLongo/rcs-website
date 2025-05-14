@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Image from "../components/image";
 import { Button } from "@heroui/button";
