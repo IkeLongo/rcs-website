@@ -56,11 +56,11 @@ module.exports = {
           500: '#A8DD76',
           700: '#79DD1A',
         },
-        blue: {
-          300: '#46C1E3',
-          500: '#0096C0',
-          700: '#05708E',
-        },
+        // blue: {
+        //   300: '#46C1E3',
+        //   500: '#0096C0',
+        //   700: '#05708E',
+        // },
         purple: {
           300: '#D0DBFB',
           500: '#7985CC',
@@ -74,10 +74,16 @@ module.exports = {
           700: '#40BCF2',
         },
         navy: {
-          300: '#C6DDEA',
-          500: '#2B5882',
-          600: '#2E61A6',
-          700: '#002145',
+          50: '#e7e9ec',  // Light
+          100: '#dbdee3', // Light:hover
+          200: '#b4bac5', // Light:active
+          500: '#0c2244', // Normal
+          600: '#0b1f3d', // Normal:hover
+          700: '#0a1b36', // Normal:active
+          800: '#091a33', // Dark
+          900: '#071429', // Dark:hover
+          950: '#050f1f', // Dark:active
+          975: '#040c18'  // Darker
         },
         yellow: {
           300: '#FFF4C7',
@@ -106,6 +112,78 @@ module.exports = {
           700: '#',
           800: '#',
           900: '#000000',
+        },
+        blue: {
+          50: '#eaeff6',  // Light
+          100: '#e0e7f2', // Light:hover
+          200: '#becee4', // Light:active
+          500: '#2d62a8', // Normal
+          600: '#295897', // Normal:hover
+          700: '#244e86', // Normal:active
+          800: '#224a7e', // Dark
+          900: '#1b3b65', // Dark:hover
+          950: '#142c4c', // Dark:active
+          975: '#10223b', // Darker
+        },
+        'alice-blue': {
+          50: '#fdfeff',  // Light  
+          100: '#fcfdfe', // Light:hover
+          200: '#f9fcfd', // Light:active
+          500: '#ebf4fa', // Normal
+          600: '#d4dce1', // Normal:hover
+          700: '#bcc3c8', // Normal:active
+          800: '#b0b7bc', // Dark
+          900: '#8d9296', // Dark:hover
+          950: '#6a6e70', // Dark:active
+          975: '#525558', // Darker
+        },
+        green: {
+          50: '#f3f9ec',  // Light
+          100: '#edf6e3', // Light:hover
+          200: '#d9edc4', // Light:active
+          500: '#84c441', // Normal
+          600: '#77b03b', // Normal:hover
+          700: '#6a9d34', // Normal:active
+          800: '#639331', // Dark
+          900: '#4f7627', // Dark:hover
+          950: '#3b581d', // Dark:active
+          975: '#2e4517', // Darker
+        },
+        'light-green': {
+          50: '#f9fdec',  // Light
+          100: '#f5fce2', // Light:hover
+          200: '#ebfac3', // Light:active
+          500: '#bfee3c', // Normal
+          600: '#acd636', // Normal:hover
+          700: '#99be30', // Normal:active
+          800: '#8fb32d', // Dark
+          900: '#738f24', // Dark:hover
+          950: '#566b1b', // Dark:active
+          975: '#435315', // Darker
+        },
+        lime: {
+          50: '#fbfded',  // Light
+          100: '#f9fbe4', // Light:hover
+          200: '#f3f7c8', // Light:active
+          500: '#d9e64e', // Normal
+          600: '#c3cf46', // Normal:hover
+          700: '#aeb83e', // Normal:active
+          800: '#a3ad3b', // Dark
+          900: '#828a2f', // Dark:hover
+          950: '#626723', // Dark:active
+          975: '#4c511b', // Darker
+        },
+        gray: {
+          50: '#f6f7f7',  // Light
+          100: '#f2f3f3', // Light:hover
+          200: '#e3e5e6', // Light:active
+          500: '#a5acaf', // Normal
+          600: '#959b9e', // Normal:hover
+          700: '#848a8c', // Normal:active
+          800: '#7c8183', // Dark
+          900: '#636769', // Dark:hover
+          950: '#4a4d4f', // Dark:active
+          975: '#3a3c3d', // Darker
         },
       },
       fontFamily: {
