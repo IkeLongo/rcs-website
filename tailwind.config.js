@@ -35,6 +35,7 @@ module.exports = {
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
         'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
+        'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);'
       },
       colors: {
         background: "var(--background)",

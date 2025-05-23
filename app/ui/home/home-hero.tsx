@@ -2,11 +2,6 @@
 
 import Image from "../components/image";
 import Carousel from "../components/carosel";
-import { Button } from "@heroui/button";
-import Link from 'next/link';
-import LottieIdleLoader from "../components/lottie-loader";
-import HeroBlob from './hero-blob';
-import animation from "@/app/lib/assets/home-hero-animation.json";
 
 const images = [
   { src: "/hero-devices.webp", alt: "Responsive web design on different devices." },
@@ -19,7 +14,7 @@ export default function HomeHero() {
 
   return (<>
     {/* Hero Section */}
-    <div className="relative w-full md:top-20 h-[600px] md:h-[550px]">
+    <div className="relative w-full md:top-20 h-[650px] md:h-[550px]">
       {/* Background squiggly images */}
       <Image
         src="/mobile-hero-vector-right.svg"
