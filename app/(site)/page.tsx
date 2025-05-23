@@ -6,6 +6,7 @@ const DoContainer = lazy(() => import('@/app/ui/home/do-container'));
 const OptionsContainer = lazy(() => import('@/app/ui/home/options-container'));
 const Pricing = lazy(() => import('@/app/ui/pricing/selector'));
 const Footer = lazy(() => import('@/app/ui/layout/footer'));
+import StickyBottomButton from '../ui/components/sticky-button-bottom';
 
 export default function Home() {
 
@@ -28,6 +29,7 @@ export default function Home() {
         <Suspense fallback={null}>
           <Footer bgGradientClass="bg-footer-bg-gradient" />
         </Suspense>
+        <StickyBottomButton />
       </div>
     </div>
   );
