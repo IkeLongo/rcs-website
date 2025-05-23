@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className='relative'>
-      <div className="relative h-auto w-full bg-cover bg-top bg-home-pattern overflow-x-hidden">
+      <div className="relative h-auto w-full bg-cover bg-top bg-navy-500 overflow-x-hidden">
         <HomeHero />
         <Suspense fallback={null}>
           <HomeWhy />
