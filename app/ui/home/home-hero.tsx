@@ -34,7 +34,7 @@ export default function HomeHero() {
       />
 
       {/* Mobile-only image */}
-      <div className="absolute flex flex-col top-24 z-10 p-6 md:top-4 md:right-0 md:left-auto md:flex md:flex-col md:items-end md:justify-end lg:right-10 xl:right-20">
+      <div className="absolute flex flex-col w-full top-24 z-10 p-6 md:top-4 md:right-0 md:left-auto md:flex md:flex-col md:items-end md:justify-end lg:right-10 xl:right-20">
         <h1 className="w-full md:w-[340px] lg:w-[400px] right-4 self-end text-right text-white">
           Crafting Powerful<br />
           <span className="italic text-lime-500">Websites</span> and <span className="italic text-lime-500">Branding</span><br />for Your Business
