@@ -31,15 +31,19 @@ export default function DoContainer() {
   ];
 
   return (
-    <div className="relative w-full min-h-[596px] bg-transparent">
-      <div className="relative z-10 p-6 pt-20 flex flex-col items-center justify-start h-full gap-10">
-        <h3>
-          What We Do
-        </h3>
+    <div className="relative w-full min-h-[596px] bg-home-do-mountain-range bg-top py-10 pb-20">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
+      <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">
+        <h4 className="text-white">
+          Crafting Unique Websites & Memorable Brands
+        </h4>
       </div>
 
-      <div className="flex justify-center overflow-x-auto overflow-y-hidden mx-[26px] md:mx-[80px]">
+      <div className="relative z-10 flex justify-center overflow-x-auto overflow-y-hidden md:mx-[80px]">
         <div className="flex gap-6 w-full max-w-[950px]">
+          {/* Left ghost padding */}
+          <div className="min-w-[20px] flex-shrink-0" aria-hidden="true" />
           {/* Map through the services array */}
           {services.map((service, index) => (
             <div className="flex min-w-[250px]" key={index}>
@@ -52,6 +56,8 @@ export default function DoContainer() {
               />
             </div>
           ))}
+          {/* Right ghost padding */}
+          <div className="min-w-[20px] flex-shrink-0" aria-hidden="true" />
         </div>
       </div>
     </div>

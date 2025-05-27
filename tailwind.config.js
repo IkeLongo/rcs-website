@@ -14,7 +14,7 @@ module.exports = {
         'home-pattern': "url('/Backgrounds.svg')",
         'team-pattern': "url('/team-pattern.svg')",
         'footer-texture': "url('/img/footer-texture.png')",
-        'do-custom-gradient': 'linear-gradient(170deg, #292732 50.24%, #3C2F58 153.54%)',
+        'do-custom-gradient': 'linear-gradient(170deg, #06407F 50.24%, #002145 153.54%)',
         'mobile-premium-bg': "url('/mobile-premium-bg.svg')",
         'mobile-normal-bg': "url('/mobile-normal-bg.svg')",
         'footer-bg-gradient': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 0.50) 0%, rgba(41, 39, 50, 0.50) 100%)',
@@ -35,7 +35,8 @@ module.exports = {
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
         'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
-        'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);'
+        'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);',
+        'home-do-mountain-range': 'url("/home-landscape-bluegrad.webp")',
       },
       colors: {
         background: "var(--background)",
