@@ -3,7 +3,7 @@ import ScrollingOptions from "./scrolling-options"; // Adjust path based on your
 
 export default function OptionsContainer() {
   return (
-    <div className="relative flex justify-center w-full pt-10 bg-transparent">
+    <div className="relative flex justify-center w-full py-10 bg-transparent">
       {/* Decorative background images */}
       <Image
         src="/home-extraordinary-left-blob.svg"

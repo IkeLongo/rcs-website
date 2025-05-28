@@ -119,6 +119,8 @@ module.exports = {
           50: '#eaeff6',  // Light
           100: '#e0e7f2', // Light:hover
           200: '#becee4', // Light:active
+          300: '#8ea8cf',
+          400: '#5e82ba',
           500: '#2d62a8', // Normal
           600: '#295897', // Normal:hover
           700: '#244e86', // Normal:active

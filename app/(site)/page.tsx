@@ -4,6 +4,7 @@ import HomeHero from '@/app/ui/home/home-hero';
 const HomeWhy = lazy(() => import('@/app/ui/home/why'));
 const DoContainer = lazy(() => import('@/app/ui/home/do-container'));
 const OptionsContainer = lazy(() => import('@/app/ui/home/options-container'));
+const Portfolio = lazy(() => import('@/app/ui/home/portfolio'));
 const Pricing = lazy(() => import('@/app/ui/pricing/selector'));
 const Footer = lazy(() => import('@/app/ui/layout/footer'));
 import StickyBottomButton from '../ui/components/sticky-button-bottom';
@@ -22,6 +23,9 @@ export default function Home() {
         </Suspense>
         <Suspense fallback={null}>
           <OptionsContainer />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Portfolio />
         </Suspense>
         <Suspense fallback={null}>
           <Pricing />
