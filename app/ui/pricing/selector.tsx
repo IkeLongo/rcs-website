@@ -152,11 +152,11 @@ export default function Pricing() {
                   style={{ width: "220px" }}
                 >
                   {idx === 1 ? (
-                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80"}>
+                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
                       <PremiumCard {...plan} />
                     </div>
                   ) : (
-                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80"}>
+                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
                       <NormalCard {...plan} />
                     </div>
                   )}

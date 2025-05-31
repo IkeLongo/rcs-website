@@ -68,7 +68,7 @@ export default function CookieBanner() {
         placement="bottom"
         hideCloseButton={false}
         isDismissable={false}
-        className="bg-gray-900"
+        className="bg-blue-950"
         isOpen={showBanner}
         shouldBlockScroll={false}
         onOpenChange={() => setShowBanner(false)}
