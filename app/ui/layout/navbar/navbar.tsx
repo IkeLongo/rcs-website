@@ -24,7 +24,7 @@ export default function Navbar() {
             <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] border-gray-500 bg-[#292732]/75 backdrop-blur-[3.5px]'>
               <Link href="/" onClick={handleLogoClick}>
                 <Image
-                  src="/logo-rivercity-creatives-horizontal.svg"
+                  src="/logo-rivercity-creatives-horizontal-green-white.svg"
                   alt="Logo"
                   width={125}
                   height={100}/>

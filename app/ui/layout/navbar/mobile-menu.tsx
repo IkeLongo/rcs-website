@@ -54,7 +54,7 @@ export default function MobileMenu () {
         <div className='flex flex-row justify-between h-[65px] px-6 pt-[10px] items-center'>
           <Link href="/" onClick={handleLogoClick}>
             <Image
-              src="/logo-horiz-white-green.svg"
+              src="/logo-rivercity-creatives-horizontal-green-white.svg"
               alt="Logo"
               width={125}
               height={100}

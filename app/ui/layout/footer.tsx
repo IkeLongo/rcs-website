@@ -13,7 +13,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
-            src="/logo-horiz-white-green.svg"
+            src="/logo-rivercity-creatives-horizontal-green-white.svg"
             alt="Rivercity Creatives Logo"
             width={200} // This is still required for Next.js Image optimization
             height={100}
