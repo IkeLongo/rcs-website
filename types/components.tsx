@@ -16,12 +16,14 @@ export interface MobilePricingProps {
 }
 
 export interface CardProps {
+  key: string;
+  title: string | React.ReactNode;
   monthlyPrice: string;
-  totalPrice?: string;
-  planName: string;
+  totalPrice: string;
+  planName: string | React.ReactNode;
   planDescription: string;
   features: string[];
-}
+};
 
 export interface MobileClientProps { 
   selectedIndex: number;

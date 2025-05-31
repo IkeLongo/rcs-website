@@ -54,16 +54,15 @@ html, body {
 
 /* Width of the scrollbar */
 .simplebar-scrollbar::before {
-  background-color: #352894;  /* Matches your thumb color */
+  background-color: #2d62a8;  /* Matches your thumb color */
   border-radius: 5px;
   background-clip: content-box;  /* Ensures proper padding effect */
-  opacity: 1;
 }
 
 /* Scrollbar track (background) */
 .simplebar-track.simplebar-vertical {
-  background-color: rgba(211, 211, 211, 0.4);  /* Matches track color */
   width: 10px;  /* Matches your defined width */
+  border-radius: 8px;
 }
 
 .custom-video {

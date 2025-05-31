@@ -38,7 +38,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <NormalCard
             monthlyPrice="300"
             totalPrice="3,600"
-            planName="Base"
+            planName="Foundation"
             planDescription="Perfect for businesses starting fresh, our Base plan delivers a professional, foundational website to establish your online presence."
             features={[
               "1-3 Pages",
@@ -53,7 +53,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <PremiumCard
             monthlyPrice="800"
             totalPrice="9,600"
-            planName="Pro"
+            planName="Signature"
             planDescription="Designed for established businesses, the Pro plan enhances your online presence with strategic design to turn visitors into clients."
             features={[
               "4-8 Pages",
@@ -68,7 +68,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <NormalCard
             monthlyPrice="1,300"
             totalPrice="15,600"
-            planName="Enterprise"
+            planName="Growth"
             planDescription="The Enterprise plan is built for businesses that need powerful, customized websites, from booking systems to e-commerce solutions."
             features={[
               "9+ Pages",
@@ -87,7 +87,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <NormalCard
             monthlyPrice="200"
             totalPrice="2,400"
-            planName="Base"
+            planName="Foundation"
             planDescription="Perfect for individuals or businesses with no branding who want to establish a professional image."
             features={[
               "Primary Logo Design",
@@ -102,7 +102,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <PremiumCard
             monthlyPrice="450"
             totalPrice="5,400"
-            planName="Pro"
+            planName="Signature"
             planDescription="Best suited for growing brands that need a comprehensive set of visual tools."
             features={[
               "Primary Logo Design",
@@ -117,7 +117,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           <NormalCard
             monthlyPrice="750"
             totalPrice="9,000"
-            planName="Enterprise"
+            planName="Growth"
             planDescription="Best for businesses requiring not just branding, but strategic, full-service design solutions."
             features={[
               "Primary Logo Design",
@@ -134,7 +134,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
         <div className="flex min-w-full md:justify-center">
           <NormalCard
             monthlyPrice="99"
-            planName="Base"
+            planName="Foundation"
             planDescription="Affordable website maintenance to keep your website running smoothly without the stress."
             features={[
               "Reliable Website Hosting",
@@ -148,7 +148,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           />
           <PremiumCard
             monthlyPrice="219"
-            planName="Pro"
+            planName="Signature"
             planDescription="Enhanced maintenance and hosting with more support for growing sites."
             features={[
               "Reliable Website Hosting",
@@ -162,7 +162,7 @@ export default function MobileClient({ selectedIndex }: MobileClientProps) {
           />
           <NormalCard
             monthlyPrice="599"
-            planName="Enterprise"
+            planName="Growth"
             planDescription="Comprehensive hosting and care for websites that demand top-tier performance."
             features={[
               "Reliable Website Hosting",

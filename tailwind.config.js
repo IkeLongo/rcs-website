@@ -37,6 +37,7 @@ module.exports = {
         'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
         'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);',
         'home-do-mountain-range': 'url("/home-landscape-bluegrad.webp")',
+        'home-pricing-bg': 'url("/home-pricing-bg.webp")',
       },
       colors: {
         background: "var(--background)",
@@ -197,6 +198,7 @@ module.exports = {
         'source-sans-pro': ['"Source Sans Pro"', 'sans-serif'],
         'roboto': ['"Roboto"', 'sans-serif'],
         'abhaya-libre': ['"Abhaya Libre"', 'serif'],
+        'passero-one': ['"Passero One"', 'sans-serif'],
       },
       fontWeight: {
         thin: 100,

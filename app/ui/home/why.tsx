@@ -7,7 +7,7 @@ export default function HomeWhy() {
 
   return (<>
     {/* Why Section */}
-    <div id='why' className="relative w-full h-auto bg-home-why pt-10 lg:pt-48 lg:mb-20 lg:h-fit">
+    <div id='why' className="relative w-full h-auto bg-home-why py-10 lg:pt-48 lg:mb-20 lg:h-fit">
       <div className="absolute w-full h-full">
         <div className="flex h-full w-full max-w-[570px] md:max-w-[1020px] items-center justify-center mx-auto relative">
           <Image
@@ -32,7 +32,7 @@ export default function HomeWhy() {
             }} />
         </div>
       </div>
-      <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-center h-full">
+      <div className="relative z-10 p-6 pt-0 flex flex-col gap-10 items-center justify-center h-full">
         <h3>
           Why Choose Us?
         </h3>

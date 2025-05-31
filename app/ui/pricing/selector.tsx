@@ -1,86 +1,168 @@
 "use client";
 
+import { useSwipeable } from "react-swipeable";
 import { useState } from "react";
-import Mobile from "./mobile";
+import {Tab, Tabs} from "@heroui/react";
+import PremiumCard from "./premium-card";
+import NormalCard from "./normal-card";
+
+const plans = [
+  {
+    key: "web-design",
+    title: "Web Design",
+    monthlyPrice: "350",
+    totalPrice: "4,200",
+    planName: "Web Design & Development",
+    planDescription: `Launch a custom, responsive website that reflects your brand, engages visitors, 
+                      and supports your goals—with expert development and a seamless user experience.`,
+    features: [
+              "Strategy Call",
+              "Custom Website Design",
+              "In House Development",
+              "1-3 Web Pages",
+              "Responsive Design",
+              "Contact Form",
+              "On-Page SEO",
+              "SSL Security",
+              "Two Months Free Hosting & Support",
+              "Domain Name Registration",
+              "Google Analytics Setup",
+              "Google Business Profile Setup",
+            ],
+  },
+  {
+    key: "web-branding",
+    title: (
+      <>
+        Web Design <span className="text-green-500">&</span> Branding
+      </>
+    ),
+    monthlyPrice: "450",
+    totalPrice: "5,400",
+    planName: (
+      <>
+        Web Design <span className="font-passero-one text-lime-500 font-normal text-md2">PLUS</span> Branding
+      </>
+    ),
+    planDescription: `Bring your brand to life with a complete identity and a high-quality website. 
+                      Ideal for service-based businesses ready to launch a clean, conversion-focused online presence.`,
+    features: [
+              "Everything in Web Design",
+              "Everything in Branding",
+              "Performance Optimization",
+              "Social Media Starter Kit",
+              "Professional Photoshoot",
+              "Brand Messaging Guide",
+              "Launch Graphics for Social Media",
+              "Email Sign-Up Integration",
+              "Website Training Session",
+              "Mockup Previews of Your Brand & Website",
+              "Client Launch Checklist"
+            ],
+  },
+  {
+    key: "branding",
+    title: "Branding",
+    monthlyPrice: "183",
+    totalPrice: "2,200",
+    planName: "Branding & Visual Identity",
+    planDescription: `Build a strong visual identity before launching your website. 
+                      This package helps your brand stand out and connect through a thoughtful, 
+                      strategic design process.`,
+    features: [
+              "1-on-1 Brand Discovery Session",
+              "Brand Moodboard",
+              "Brand Style Guide",
+              "Color Palette",
+              "Primary Logo Design",
+              "2 Secondary Logos",
+              "Icon Variations",
+              "Custom Brand Pattern",
+              "2 Font Licenses",
+              "2 Printing Assets",
+              "Mission & Vision Worksheet",
+            ],
+  },
+];
 
 export default function Pricing() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  
+  // Default to "Web Design & Branding" (index 1)
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
-  const handleClick = (index: number) => {
-    setSelectedIndex(index);
-  };
-
-  const serviceDetails = [
-    {
-      commitmentTerm: "12-Month Commitment",
-      commitmentDescription: "Distribute the cost of full-scale web design and development solutions into 12 monthly payments for financial flexibility.",
+  // Swipe handlers
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (selectedIndex < plans.length - 1) setSelectedIndex(selectedIndex + 1);
     },
-    {
-      commitmentTerm: "12-Month Commitment",
-      commitmentDescription: "Distribute the cost of full-scale branding solutions into 12 monthly payments for financial flexibility.",
+    onSwipedRight: () => {
+      if (selectedIndex > 0) setSelectedIndex(selectedIndex - 1);
     },
-    {
-      commitmentTerm: "Month-to-Month",
-      commitmentDescription: "Enjoy the freedom of a month-to-month commitment tailored to your immediate needs.",
-    },
-  ];
+    trackMouse: true, // allows swipe with mouse as well
+  });
 
 	return (
-    <div id='pricing' className="relative w-full min-h-[450px] pt-28 bg-transparent">
-      <div className="relative z-10 p-6 pt-6 flex flex-col items-center justify-start h-full gap-4">
+    <div id='pricing' className="relative w-full min-h-[450px] bg-home-pricing-bg bg-cover bg-top">
+      <div className="relative z-10 p-6 pt-10 flex flex-col items-center justify-start h-full gap-4">
         <h3>
-          Choose Your Right Plan
+          Choose Your Plan!
         </h3>
-        <p className='max-w-[500px]'>
-          Select from our best plans according to the service you need. Need more or less? Book a call to discuss a custom subscription for a seamless fit. 
-        </p>
       </div>
-      <div className='pb-16'>
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex w-[385px] lg:w-[425px] p-[3px] items-center gap-4 bg-[#F1F1F1] rounded-[12px]">
-            <div className='flex justify-between items-center flex-auto'>
-              <div
-                className={`flex py-[5px] px-[15px] justify-center items-center gap-[10px] rounded-[10px] cursor-pointer ${
-                  selectedIndex === 0 ? 'bg-[#359CCD] rounded-[10px] text-white' : 'text-purple-800'
-                }`}
-                onClick={() => handleClick(0)}
-              >
-                <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 0 ? 'text-white' : 'text-purple-900'}`}>
-                  Web Design & Dev
-                </p>
-              </div>
-              <div
-                className={`flex py-[5px] px-[15px] justify-center items-center gap-[10px] rounded-[10px] cursor-pointer ${
-                  selectedIndex === 1 ? 'bg-[#359CCD] rounded-[10px] text-white' : 'text-purple-900'
-                }`}
-                onClick={() => handleClick(1)}
-              >
-                <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 1 ? 'text-white' : 'text-purple-900'}`}>
-                  Branding & Visual
-                </p>
-              </div>
-              <div
-                className={`flex py-[5px] px-[15px] justify-center items-center gap-[10px] rounded-[10px] cursor-pointer ${
-                  selectedIndex === 2 ? 'bg-[#359CCD] rounded-[10px] text-white' : 'text-purple-900'
-                }`}
-                onClick={() => handleClick(2)}
-              >
-                <p className={`font-source-sans-pro text-[10px] lg:text-[12px] font-bold ${selectedIndex === 2 ? 'text-white' : 'text-purple-900'}`}>
-                  Hosting & Maintenance
-                </p>
-              </div>
+      <div className='flex flex-col items-center pb-16'>
+        {/* Tabs Row */}
+        <div className="flex flex-col items-center">
+          <Tabs
+            aria-label="Dynamic tabs"
+            selectedKey={plans[selectedIndex].key}
+            onSelectionChange={(key) => {
+              const idx = plans.findIndex((plan) => plan.key === key);
+              setSelectedIndex(idx);
+            }}
+            variant="solid"
+            radius="lg"
+            classNames={{
+              base: "bg-alice-blue-500 rounded-[14px] p-1 px-0 h-[40px] w-auto self-center",
+              tabContent: "group-data-[selected=true]:text-white p-1 font-source-sans-pro text-sm font-semibold text-navy-500 rounded-sm",
+              tab: "h-[30px] w-auto rounded-[10px] bg-transparent data-[selected=true]:bg-navy-500",
+            }}
+          >
+            {plans.map((plan, idx) => (
+              <Tab key={plan.key} title={plan.title} />
+            ))}
+          </Tabs>
+
+          {/* Cards Row */}
+          <div className="relative w-full max-w-3xl overflow-hidden pt-16">
+            <div
+              {...handlers}
+              className="flex justify-center gap-6 transition-transform duration-500 ease-in-out"
+              style={{
+                width: `${plans.length * 220}px`,
+                transform: `translateX(calc(50% - ${(selectedIndex + 0.5) * (100 / plans.length)}%))`,
+                touchAction: "pan-y", // allows horizontal swipe
+              }}
+            >
+              {plans.map((plan, idx) => (
+                <div
+                  key={plan.key}
+                  className="flex-shrink-0 flex justify-center items-end"
+                  style={{ width: "220px" }}
+                >
+                  {idx === 1 ? (
+                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80"}>
+                      <PremiumCard {...plan} />
+                    </div>
+                  ) : (
+                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80"}>
+                      <NormalCard {...plan} />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col px-4 justify-center items-center gap-[10px] self-stretch">
-            <p className='font-maven-pro font-bold pt-[29px]'>
-              {serviceDetails[selectedIndex].commitmentTerm}
-            </p>
-            <p className='pb-[30px] max-w-[400px]'>
-              {serviceDetails[selectedIndex].commitmentDescription}
-            </p>
-          </div>
         </div>
-        <Mobile selectedIndex={selectedIndex} />
+        <p className="w-full text-navy-500 px-8">Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project’s needs.</p>
       </div>
     </div>
   );

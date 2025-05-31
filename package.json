@@ -46,6 +46,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-lottie": "^1.2.9",
+    "react-swipeable": "^7.0.2",
     "react-toastify": "^11.0.3",
     "react-transition-group": "^4.4.5",
     "recharts": "^2.15.1",

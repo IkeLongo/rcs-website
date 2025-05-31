@@ -2,7 +2,7 @@
 
 import WebsiteWork from "./website-work";
 import BrandingWork from "./branding-work";
-import {Tabs, Tab, Card, CardBody} from "@heroui/react";
+import {Tabs, Tab} from "@heroui/react";
 
 export default function Portfolio() {
 
@@ -20,9 +20,9 @@ export default function Portfolio() {
         variant="solid"
         radius="lg"
         classNames={{
-          base: "bg-alice-blue-200 rounded-[10px] p-1 h-[40px] w-[200px] self-center",
-          tabContent: "group-data-[selected=true]:text-navy-500 p-1 font-avenir text-sm text-blue-500 rounded-sm",
-          tab: "h-[30px] rounded-[5px] bg-transparent data-[selected=true]:bg-light-green-500",
+          base: "bg-navy-500 rounded-[14px] p-1 px-0 h-[40px] w-auto self-center",
+          tabContent: "group-data-[selected=true]:text-navy-500 p-1 font-source-sans-pro text-sm font-semibold text-alice-blue-500 rounded-sm",
+          tab: "h-[30px] rounded-[10px] bg-transparent data-[selected=true]:bg-light-green-500",
         }}>
           <Tab key="websites" title="Websites">
             <WebsiteWork />
