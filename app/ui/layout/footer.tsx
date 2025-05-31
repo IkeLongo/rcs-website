@@ -213,7 +213,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               Site Map
             </Link>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pb-12">
             <p className="font-roboto text-[11px] font-light text-white">
               © 2024 All Rights Reserved
             </p>
