@@ -34,7 +34,7 @@ const plans = [
     key: "web-branding",
     title: (
       <>
-        Web Design <span className="text-green-500">&</span> Branding
+        Web <span className="text-green-500">&</span> Branding
       </>
     ),
     monthlyPrice: "450",
@@ -111,25 +111,28 @@ export default function Pricing() {
       <div className='flex flex-col items-center pb-16'>
         {/* Tabs Row */}
         <div className="flex flex-col items-center">
-          <Tabs
-            aria-label="Dynamic tabs"
-            selectedKey={plans[selectedIndex].key}
-            onSelectionChange={(key) => {
-              const idx = plans.findIndex((plan) => plan.key === key);
-              setSelectedIndex(idx);
-            }}
-            variant="solid"
-            radius="lg"
-            classNames={{
-              base: "bg-alice-blue-500 rounded-[14px] p-1 px-0 h-[40px] w-auto self-center",
-              tabContent: "group-data-[selected=true]:text-white p-1 font-source-sans-pro text-sm font-semibold text-navy-500 rounded-sm",
-              tab: "h-[30px] w-auto rounded-[10px] bg-transparent data-[selected=true]:bg-navy-500",
-            }}
-          >
-            {plans.map((plan, idx) => (
-              <Tab key={plan.key} title={plan.title} />
-            ))}
-          </Tabs>
+          <div className="w-auto max-w-3xl px-6 flex items-center justify-center">
+            <Tabs
+              aria-label="Dynamic tabs"
+              selectedKey={plans[selectedIndex].key}
+              onSelectionChange={(key) => {
+                const idx = plans.findIndex((plan) => plan.key === key);
+                setSelectedIndex(idx);
+              }}
+              variant="solid"
+              radius="lg"
+              classNames={{
+                base: "w-full whitespace-nowrap bg-alice-blue-500 rounded-[14px] p-1 px-0 h-[40px] mx-2 self-center",
+                tabList: "w-full flex items-center justify-center",
+                tabContent: "group-data-[selected=true]:text-white p-1 font-source-sans-pro text-sm font-semibold text-navy-500 rounded-sm",
+                tab: "h-[30px] w-fit rounded-[10px] bg-transparent data-[selected=true]:bg-navy-500",
+              }}
+            >
+              {plans.map((plan, idx) => (
+                <Tab key={plan.key} title={plan.title} />
+              ))}
+            </Tabs>
+          </div>
 
           {/* Cards Row */}
           <div className="relative w-full max-w-3xl overflow-hidden pt-16">
