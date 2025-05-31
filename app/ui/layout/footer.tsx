@@ -9,11 +9,11 @@ const { BUSINESS_EMAIL } = process.env;
 export default function Footer( {bgGradientClass}: FooterProps ) {
 
   return (
-    (<div className="relative w-full h-auto shrink-0 px-8 pb-1 z-50 md:pt-4 lg:pt-10 bg-navy-500">
+    (<div className="relative w-full h-auto shrink-0 px-8 pb-1 z-0 md:pt-4 lg:pt-10 bg-navy-500">
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
-            src="/logo-rivercity-creatives-horizontal-green-white.svg"
+            src="/logo-rivercity-creatives-horizontal-green-white.png"
             alt="Rivercity Creatives Logo"
             width={200} // This is still required for Next.js Image optimization
             height={100}
