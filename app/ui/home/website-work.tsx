@@ -3,19 +3,19 @@ import PortfolioWebsite from "../components/portfolio-website";
 const portfolioItems = [
   {
     bg: "/portfolio-countdownfantasy-bg.webp",
-    web: "/portfolio-countdownfantasy-web.webp",
+    web: "/portfolio-countdownfantasy-web-2x.webp",
     name: "Countdown Fantasy Sports",
     link: "https://countdownfantasy.com",
   },
   {
     bg: "/portfolio-maximstrong-bg.webp",
-    web: "/portfolio-maximstrong-web.webp",
+    web: "/portfolio-maximstrong-web-2x.webp",
     name: "Maximstrong",
     link: "https://maximstrong.com",
   },
   {
     bg: "/portfolio-bobbielynn-bg.webp",
-    web: "/portfolio-bobbielynn-web.webp",
+    web: "/portfolio-bobbielynn-web-2x.webp",
     name: "Bobbie Lynn Designs",
     link: "https://bobbielynndesigns.com",
   },
