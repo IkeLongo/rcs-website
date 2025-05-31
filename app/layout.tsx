@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       </head>
       <body
-        className={`antialiased overflow-x-hidden bg-gray-900`}
+        className={`antialiased overflow-x-hidden bg-navy-500`}
       >
         <Analytics />
         <CookieBanner />
