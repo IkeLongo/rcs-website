@@ -55,7 +55,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-[12px] lg:text-[14px] text-white">
+                <a href={`mailto:${BUSINESS_EMAIL}`} className="font-roboto text-sm lg:text-[14px] text-white">
                   {BUSINESS_EMAIL}
                 </a>
               </div>
@@ -70,7 +70,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <p className="font-roboto text-[12px] lg:text-[14px]">
+                <p className="font-roboto text-sm lg:text-[14px]">
                   (210) 730-6232
                 </p>
               </div>
@@ -85,7 +85,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <p className="font-roboto text-[12px] lg:text-[14px]">
+                <p className="font-roboto text-sm lg:text-[14px]">
                   San Antonio, Texas
                 </p>
               </div>
@@ -197,10 +197,10 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
         </div>
         <div className="flex flex-col gap-4 md:hidden">
           <div className="font-roboto text-[12px] flex flex-col gap-[10px] self-stretch">
-            <Link href="/privacy" className="block text-white">
+            <Link href="/privacy" className="block text-white text-sm">
               Cookie & Privacy Policy
             </Link>
-            <Link href="/terms" className="block text-white">
+            <Link href="/terms" className="block text-white text-sm">
               Terms & Conditions
             </Link>
             {/* <Link href="/sales-and-refunds" className="block text-white">
@@ -209,12 +209,12 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             <Link href="/legal" className="block text-white">
               Legal
             </Link> */}
-            <Link href="/sitemap.xml" className="block text-white">
+            <Link href="/sitemap.xml" className="block text-white text-sm">
               Site Map
             </Link>
           </div>
           <div className="flex items-center justify-center pb-12">
-            <p className="font-roboto text-[11px] font-light text-white">
+            <p className="font-roboto text-sm font-light text-white">
               © 2024 All Rights Reserved
             </p>
           </div>
