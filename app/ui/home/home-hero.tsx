@@ -40,7 +40,7 @@ export default function HomeHero() {
           <span className="italic text-lime-500">Websites</span> and <span className="italic text-lime-500">Branding</span><br />for Your Business
         </h1>
 
-        <h2 className="font-avenir text-sm font-normal lg:text-base text-white text-right mt-4 w-[350px] md:w-[340px] lg:w-[400px] self-end">
+        <h2 className="font-avenir text-base font-normal lg:text-base text-white text-right mt-4 w-auto max-w-[350px] md:w-[340px] lg:w-[400px] self-end">
           Propel your business forward with innovative web
           solutions, reliable hosting, and impactful branding.
         </h2>

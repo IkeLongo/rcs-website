@@ -18,23 +18,23 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                 <p className='font-maven-pro text-white text-[20px] lg:text-md2 font-semibold fade-text'>
                   ${monthlyPrice}
                 </p>
-                <p className='font-maven-pro text-purple-300 text-[11px] lg:text-[14px] pb-[4px]'>
+                <p className='font-maven-pro text-purple-300 text-sm lg:text-[14px] pb-[4px]'>
                   /month
                 </p>
               </div>
               {totalPrice && (
                 <div className='-mt-1'>
-                  <p className='w-auto font-maven-pro text-purple-300 text-[11px] lg:text-[12px] text-left'>
+                  <p className='w-auto font-maven-pro text-purple-300 text-sm lg:text-[12px] text-left'>
                     ${totalPrice} Total
                   </p>
                 </div>
               )}
               <div className='flex flex-col pt-0 grow gap-4'>
                 <div className="fade-text">
-                  <p className='self-stretch font-maven-pro text-[20px] lg:text-md2 text-white font-semibold my-2 text-left'>
+                  <p className='self-stretch font-maven-pro text-[20px] lg:text-md2 text-white font-semibold my-2 text-left leading-6'>
                     {planName}
                   </p>
-                  <p className='font-maven-pro text-gray-200 text-[11px] lg:text-sm pr-4 lg:pr-12 leading-4 text-left'>
+                  <p className='font-maven-pro text-gray-200 text-sm lg:text-sm pr-4 lg:pr-12 leading-4 text-left'>
                     {planDescription}
                   </p>
                 </div>
@@ -51,7 +51,7 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
                           maxWidth: "100%",
                           height: "auto"
                         }} />
-                      <p className='font-maven-pro text-gray-200 text-[12px] lg:text-[14px] capitalize leading-4 text-left my-1'>
+                      <p className='font-maven-pro text-gray-200 text-sm lg:text-[14px] capitalize leading-4 text-left my-1'>
                         {feature}
                       </p>
                     </div>

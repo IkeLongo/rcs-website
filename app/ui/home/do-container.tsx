@@ -31,13 +31,13 @@ export default function DoContainer() {
   ];
 
   return (
-    <div className="relative w-full min-h-[596px] bg-home-do-mountain-range bg-top py-10 pb-20">
+    <div className="relative w-full min-h-[596px] bg-home-do-mountain-range bg-origin-padding bg-cover bg-top py-10 pb-20">
       {/* Overlay */}
       <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
       <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">
-        <h4 className="text-white">
-          Crafting Unique Websites & Memorable Brands
-        </h4>
+        <h3 className="text-white">
+          Crafting Unique Websites
+        </h3>
       </div>
 
       <div className="relative z-10 flex justify-center overflow-x-auto overflow-y-hidden md:mx-[80px]">
