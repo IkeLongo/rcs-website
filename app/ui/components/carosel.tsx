@@ -12,7 +12,7 @@ interface CarouselProps {
 
 export default function Carousel({
   images,
-  interval = 4000,
+  interval = 2000,
   className = "",
   showDots = true, // Default to true for backward compatibility
 }: CarouselProps) {
