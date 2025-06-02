@@ -3,6 +3,8 @@ import Process from '@/app/ui/services-page/process';
 import ServiceBlocks from '@/app/ui/services-page/service-blocks';
 import Footer from '@/app/ui/layout/footer';
 import { Metadata } from 'next';
+import StickyBottomButton from '../../ui/components/sticky-button-bottom';
+
 
 export const metadata: Metadata = {
   title: 'Branding & Web Design Services',
@@ -33,6 +35,7 @@ export default function Services() {
       <Hero />
       <Process />
       <ServiceBlocks />
+      <StickyBottomButton />
       <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
       />

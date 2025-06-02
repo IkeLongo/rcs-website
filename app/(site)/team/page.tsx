@@ -1,6 +1,8 @@
 import { Hero } from '@/app/ui/team/hero';
 import Footer from '@/app/ui/layout/footer';
 import { Metadata } from 'next';
+import StickyBottomButton from '../../ui/components/sticky-button-bottom';
+
 
 export const metadata: Metadata = {
   title: 'Meet the Team',
@@ -30,6 +32,7 @@ export default function Home() {
   return (
     <div className="relative h-auto w-full bg-cover bg-top bg-gray-900 overflow-x-hidden team">
       <Hero />
+      <StickyBottomButton />
       <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
       />

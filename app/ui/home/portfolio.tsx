@@ -11,7 +11,7 @@ export default function Portfolio() {
       <h3 className="text-navy-500 pt-10">
         Our Work
       </h3>
-      <p className="text-navy-500 mt-2 mb-8 text-center max-w-xl">
+      <p className="text-navy-500 mt-2 mb-8 text-center max-w-xl px-6">
         A selection of websites and brands we've brought to life.
       </p>
       <div className="flex w-full flex-col gap-6">

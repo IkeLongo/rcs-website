@@ -22,6 +22,7 @@ import { ContactAboutNotice } from '@/app/ui/privacy/contact-about-notice';
 import Cookies from '@/app/ui/privacy/cookies';
 import PrivacyContactForm from '@/app/ui/privacy/form';
 import { Metadata } from 'next';
+import StickyBottomButton from '../../ui/components/sticky-button-bottom';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -76,6 +77,7 @@ export default function Home() {
             <Virginia />
             <UpdatesToNotice />
             <ContactAboutNotice />
+            <StickyBottomButton />
           </main>
         </div>
       </div>
