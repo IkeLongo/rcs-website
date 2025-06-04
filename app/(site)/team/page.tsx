@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <div className="relative h-auto w-full bg-cover bg-top bg-gray-900 overflow-x-hidden team">
+    <div className="relative h-auto w-full bg-cover bg-top bg-navy-500 overflow-x-hidden team">
       <Hero />
       <StickyBottomButton />
       <Footer 

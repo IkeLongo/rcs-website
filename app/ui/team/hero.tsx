@@ -3,7 +3,7 @@ import Profiles from './profiles';
 
 export async function Hero() {
   return (
-    (<div className="relative flex flex-col w-full h-auto px-4 mb-20 bg-team-pattern bg-gray-900 bg-top bg-repeat-x bg-auto overflow-visible gap-10 shrink-0 md:-top-0 md:mb-20">
+    (<div className="relative flex flex-col w-full h-auto px-4 mb-20 bg-navy-500 bg-top bg-repeat-x bg-auto overflow-visible gap-10 shrink-0 md:-top-0 md:mb-20">
       {/* Decorative Image */}
       <Image
         src='/blue-elipse.svg'
@@ -36,7 +36,7 @@ export async function Hero() {
         alt='Green elipse'
         width={300}
         height={300}
-        className='absolute -bottom-80 left-0 rotate-180 z-10 md:left-32 md:-bottom-80 md:z-0'
+        className='absolute -bottom-80 left-0 rotate-180 z-0 md:left-32 md:-bottom-80 md:z-0'
         style={{
           maxWidth: "100%",
           height: "auto"

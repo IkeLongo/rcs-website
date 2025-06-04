@@ -145,7 +145,7 @@ export default function Profiles() {
       </div>
 
       {/* Modal for Profile Info */}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur" className='bg-gray-950'>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur" className='bg-navy-800 my-0'>
         <ModalContent>
           {(onClose) => (
             <>
@@ -178,10 +178,10 @@ export default function Profiles() {
                 />
               </ModalHeader>
               <ModalBody className='pb-4'>
-                <p className='text-gray-200 text-left'>{activeProfile?.description}</p>
+                <p className='text-white text-left'>{activeProfile?.description}</p>
               </ModalBody>
-              <ModalFooter className='bg-black-500'>
-                <Button className='bg-gray-800 text-white font-bold' variant="light" onPress={onClose}>
+              <ModalFooter className='bg-navy-975'>
+                <Button className='bg-blue-900 text-white font-bold' variant="light" onPress={onClose}>
                   Close
                 </Button>
               </ModalFooter>
