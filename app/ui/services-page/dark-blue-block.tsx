@@ -43,7 +43,7 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
       <div
         id={blockId}
         className={`relative flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
-          isHalfway && !isLg ? 'bg-darkblueoverlay' : 'bg-babyblue-700'
+          isHalfway && !isLg ? 'bg-darkblueoverlay' : 'bg-dark-blue-radial-gradient'
         } ${isLg ? 'hover:bg-darkblueoverlay' : ''}`}
       >
         <Image
@@ -52,7 +52,7 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
           width={Number(iconWidth)}
           // Adjust the height as needed to maintain aspect ratio
           height={51}
-          className={`object-contain absolute left-1/2 transform -translate-x-1/2 ${top}`}
+          className={`object-contain absolute left-1/2 transform -translate-x-1/2 ${top} text-white`}
           style={{
             maxWidth: "100%",
             height: "auto"
@@ -60,7 +60,7 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
         <h4
           className={`font-maven-pro text-center font-bold ease-in-out duration-700 md:pt-10 ${
             isHalfway && !isLg ? 'text-[28px] md:text-[18px]' : 'text-[24px] md:text-[16px]'
-          } text-gray-900 ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
+          } text-white ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

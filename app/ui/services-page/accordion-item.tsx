@@ -26,7 +26,7 @@ export default function AccordionItem({ animation, iconDescription, title, descr
 
   return (
     (<div className={`flex flex-col w-full cursor-pointer hover-section ${className}`} onClick={toggleAccordion}>
-      <div className={`flex w-full py-[15px] pr-6 justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} hover:text-babyblue-500 hover-bounce`}>
+      <div className={`flex w-full py-[15px] pr-6 justify-between ${isOpen ? 'no-border' : 'border-b border-solid border-gray-500 delay-500'} hover:text-lime-500 hover-bounce`}>
         <div className='flex gap-[10px]'>
           <AnimatedLottie
             animationData={animation}
@@ -36,7 +36,7 @@ export default function AccordionItem({ animation, iconDescription, title, descr
               height: "auto",
             }}
           />
-          <p className={`leading-1 pt-1 text-base italic ${isOpen ? 'text-babyblue-500' : 'hover-text-babyblue-500'}`}>
+          <p className={`leading-1 pt-1 text-base italic ${isOpen ? 'text-lime-500' : 'hover:text-lime-500'}`}>
             {title}
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function AccordionItem({ animation, iconDescription, title, descr
           }} />
       </div>
       <div ref={contentRef} className={`accordion-content ${isOpen ? 'open' : ''}`}>
-        <div className='flex flex-col p-[30px] gap-[30px] pt-0 justify-start border-b border-solid border-babyblue-500'>
+        <div className='flex flex-col p-[30px] gap-[30px] pt-0 justify-start border-b border-solid border-lime-500'>
           <p className='text-left'>
             {description}
           </p>

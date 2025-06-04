@@ -106,8 +106,8 @@ export default function Process() {
         />
         
       </div>
-      <div className='flex flex-col gap-[16px] bg-gray-900 px-[34px] py-[60px] md:relative'>
-        <p>
+      <div className='flex flex-col gap-[16px] bg-alice-blue-500 px-[34px] py-[60px] md:relative'>
+        <p className="text-navy-500">
           Click on any of the service boxes below to learn more about each option.
         </p>
       </div>

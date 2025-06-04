@@ -136,7 +136,7 @@ export default function InfoBlock({
       <div className="flex flex-col w-full items-center max-w-[900px]">
         <div
           id={selectedAccordionBlock.id}
-          className={`flex flex-col w-full items-center bg-gray-900 px-4 py-[45px] pt-[100px] md:pt-[120px] gap-[37px] ${
+          className={`flex flex-col w-full items-center bg-navy-500 px-4 py-[45px] pt-[100px] md:pt-[120px] gap-[37px] ${
             selectedBlock === selectedAccordionBlock.id ? "block" : "hidden"
           }`}
         >

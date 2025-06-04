@@ -39,13 +39,16 @@ module.exports = {
         'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);',
         'home-do-mountain-range': 'url("/home-landscape-bluegrad.webp")',
         'home-pricing-bg': 'url("/home-pricing-bg.webp")',
+        'light-blue-radial-gradient': 'var(--Light-Blue-Radial-Gradient, radial-gradient(50% 50% at 50% 50%, #E9F2F8 0%, #C6DDEA 100%))',
+        'dark-blue-radial-gradient': 'var(--Dark-Blue-Light-Blue-Radial-Gradient, radial-gradient(62.99% 62.99% at 50% 37.01%, #0052AB 0%, #002145 100%))',
+        'darkblueoverlay': 'radial-gradient(62.99% 62.99% at 50% 37.01%, rgba(0, 82, 171, 0.80) 0%, rgba(0, 33, 69, 0.80) 100%)',
+        'lightblueoverlay': 'radial-gradient(50% 50% at 50% 50%, rgba(233,242,248, 0.80) 0%, rgba(198,221,234, 0.80) 100%)',
+
       },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         bluegradient: 'var(--Blue-Gradient, linear-gradient(169deg, #90A6E2 -26.67%, #0096C0 127.92%))',
-        babyblueoverlay: 'rgba(128, 216, 254, 0.85)',
-        darkblueoverlay: 'rgba(64, 188, 242, 0.85)',
         'normal-card-dark-purple': '#231D4F',
         'normal-card-gray': '#848199',
         green: {

@@ -43,8 +43,8 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
       <div
         id={blockId}
         className={`relative flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
-          isHalfway && !isLg ? 'bg-babyblueoverlay' : 'bg-babyblue-500'
-        } ${isLg ? 'hover:bg-babyblueoverlay' : ''}`}
+          isHalfway && !isLg ? 'bg-lightblueoverlay' : 'bg-light-blue-radial-gradient'
+        } ${isLg ? 'hover:bg-lightblueoverlay' : ''}`}
       >
         <Image
           src={iconRoute}
@@ -60,7 +60,7 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
         <h4
           className={`font-maven-pro font-bold ease-in-out duration-500 md:pt-10 ${
             isHalfway && !isLg ? 'text-[28px] md:text-[18px]' : 'text-[24px] md:text-[16px]'
-          } text-gray-900 ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
+          } text-navy-500 ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

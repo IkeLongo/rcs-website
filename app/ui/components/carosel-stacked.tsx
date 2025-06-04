@@ -19,7 +19,7 @@ interface StackedCarouselProps {
 
 export default function StackedCarousel({
   items,
-  interval = 2000,
+  interval = 3000,
   className = "",
   showDots = true,
 }: StackedCarouselProps) {
