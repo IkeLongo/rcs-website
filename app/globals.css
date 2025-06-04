@@ -41,6 +41,12 @@ html, body {
   p {
     @apply font-avenir text-base lg:text-base text-white text-center;
   }
+  li {
+    @apply font-avenir text-base lg:text-base text-navy-975 text-left;
+  }
+  td {
+    @apply font-avenir text-base lg:text-base text-navy-975 text-left;
+  }
   .btn-primary {
     @apply w-[140px] h-[36px] font-maven-pro text-blue-700 text-sm font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px];
   }

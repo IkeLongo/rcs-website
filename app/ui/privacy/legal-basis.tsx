@@ -2,12 +2,12 @@
 export async function LegalBasis() {
   return (
     <section id="what-legal-bases-do-we-rely-on-to-process-your-information" className="mt-8">
-      <h3>3. What Legal Basis Do We Rely On To Process Your Information?</h3>
-      <p className="mt-6"><strong>In Short:</strong> <span className="italic">We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.</span></p>
+      <h4 className="text-navy-975">3. What Legal Basis Do We Rely On To Process Your Information?</h4>
+      <p className="mt-6 text-navy-975 text-left"><strong>In Short:</strong> <span className="italic">We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e., legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.</span></p>
       
-      <p className="mt-4"><strong>If you are located in the EU or UK, this section applies to you.</strong></p>
+      <p className="mt-4 text-navy-975 text-left"><strong>If you are located in the EU or UK, this section applies to you.</strong></p>
 
-      <p className="mt-4">The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process your personal information:</p>
+      <p className="mt-4 text-navy-975 text-left">The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process your personal information:</p>
       
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
         <li><strong>Consent. </strong> We may process your information if you have given us permission (i.e., consent) to use your personal information for a specific purpose. You can withdraw your consent at any time.</li>
@@ -30,10 +30,10 @@ export async function LegalBasis() {
         <li><strong>Vital Interests. </strong> We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a third party, such as situations involving potential threats to the safety of any person.</li>
       </ul>
 
-      <p className="mt-4">In legal terms, we are generally the “data controller” under European data protection laws of the personal information described in this privacy notice, since we determine the means and/or purposes of the data processing we perform. This privacy notice does not apply to the personal information we process as a “data processor” on behalf of our customers. In those situations, the customer that we provide services to and with whom we have entered into a data processing agreement is the “data controller” responsible for your personal information, and we merely process your information on their behalf in accordance with your instructions. If you want to know more about our customers’ privacy practices, you should read their privacy policies and direct any questions you have to them.</p>
-      <p className="mt-4 italic">If you are located in Canada, this section applies to you.</p>
-      <p className="mt-4">We may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (i.e., implied consent). You can withdraw your consent at any time.</p>
-      <p className="mt-4">In some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for example:</p>
+      <p className="mt-4 text-navy-975 text-left">In legal terms, we are generally the “data controller” under European data protection laws of the personal information described in this privacy notice, since we determine the means and/or purposes of the data processing we perform. This privacy notice does not apply to the personal information we process as a “data processor” on behalf of our customers. In those situations, the customer that we provide services to and with whom we have entered into a data processing agreement is the “data controller” responsible for your personal information, and we merely process your information on their behalf in accordance with your instructions. If you want to know more about our customers’ privacy practices, you should read their privacy policies and direct any questions you have to them.</p>
+      <p className="mt-4 italic text-navy-975 text-left">If you are located in Canada, this section applies to you.</p>
+      <p className="mt-4 text-navy-975 text-left">We may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (i.e., implied consent). You can withdraw your consent at any time.</p>
+      <p className="mt-4 text-navy-975 text-left">In some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for example:</p>
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
         <li>If collection is clearly in the interests of an individual and consent cannot be obtained in a timely way</li>
         <li>For investigations and fraud detection and prevention</li>

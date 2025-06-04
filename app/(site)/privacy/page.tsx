@@ -56,7 +56,7 @@ export default function Home() {
             <h1 className="text-navy-975">Website Privacy Policy</h1>
             <p className="text-navy-500">Last updated June 4, 2025</p>
           </header>
-          <main className="px-6 py-8">
+          <main className="px-6 pb-8">
             <PrivacyNotice />
             <Summary />
             <TableOfContents />

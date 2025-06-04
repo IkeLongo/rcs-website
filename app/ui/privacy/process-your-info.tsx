@@ -1,10 +1,10 @@
 export async function ProcessYourInfo() {
   return (
     <section id="how-do-we-process-your-information" className="mt-8">
-      <h3>2. How Do We Process Your Information?</h3>
-      <p className="mt-6"><strong>In Short:</strong> <span className="italic">We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</span></p>
+      <h4 className="text-navy-975">2. How Do We Process Your Information?</h4>
+      <p className="mt-6 text-navy-975 text-left"><strong>In Short:</strong> <span className="italic">We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</span></p>
       
-      <p className="mt-4"><strong>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</strong></p>
+      <p className="mt-4 text-navy-975 text-left"><strong>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</strong></p>
       
       <ul className="list-disc pl-6 mt-4 flex flex-col gap-2">
         <li><strong>To facilitate account creation and authentication and otherwise manage user accounts.</strong> We may process your information so you can create and log in to your account, as well as keep your account in working order.</li>
@@ -21,9 +21,9 @@ export async function ProcessYourInfo() {
         
         <li><strong>To request feedback.</strong> We may process your information when necessary to request feedback and to contact you about your use of our Services.</li>
         
-        <li><strong>To send you marketing and promotional communications.</strong> We may process the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt out of our marketing emails at any time. For more information, see <a href="#what-are-your-privacy-rights" className="text-blue-400 hover:underline">What are Your Privacy Rights?</a> below.</li>
+        <li><strong>To send you marketing and promotional communications.</strong> We may process the personal information you send to us for our marketing purposes, if this is in accordance with your marketing preferences. You can opt out of our marketing emails at any time. For more information, see <a href="#what-are-your-privacy-rights" className="text-blue-500 hover:underline">What are Your Privacy Rights?</a> below.</li>
         
-        <li><strong>To deliver targeted advertising to you.</strong> We may process your information to develop and display personalized content and advertising tailored to your interests, location, and more. For more information see our <a href="#cookie-policy" className="text-blue-400 hover:underline">Cookie Policy</a>.</li>
+        <li><strong>To deliver targeted advertising to you.</strong> We may process your information to develop and display personalized content and advertising tailored to your interests, location, and more. For more information see our <a href="#cookie-policy" className="text-blue-500 hover:underline">Cookie Policy</a>.</li>
         
         <li><strong>To protect our Services.</strong> We may process your information as part of our efforts to keep our Services safe and secure, including fraud monitoring and prevention.</li>
         

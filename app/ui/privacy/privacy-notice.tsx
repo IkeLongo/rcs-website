@@ -6,7 +6,7 @@ const { BUSINESS_EMAIL } = process.env;
 export async function PrivacyNotice() {
   return (
     <section id="privacy-notice">
-      <h4 className="text-navy-975 font-semibold my-6">Privacy Notice</h4>
+      <h4 className="text-navy-975 font-semibold">Privacy Notice</h4>
       <p className="mt-4 text-navy-975 text-left">
         This privacy notice for <strong>{LEGAL_COMPANY_NAME}</strong> (doing business as <strong>{DBA_NAME} </strong> 
         (“Company,” “we,” “us,” or “our”), describes how and why we might collect, store, use, and/or share 

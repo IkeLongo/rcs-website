@@ -66,12 +66,12 @@ export default function PreferencesModal({ isOpen, onClose }: PreferencesModalPr
                 <p>
                   You may adjust or withdraw your consent anytime by clicking the icon in the bottom left corner. 
                   For more details on how we handle cookies and data, please review our 
-                  <a href="/privacy#privacy-notice" className="text-blue-400 hover:underline" onClick={onClose}> Privacy Policy</a> and 
-                  <a href="/privacy#cookie-policy" className="text-blue-400 hover:underline" onClick={onClose}> Cookie Policy</a>.
+                  <a href="/privacy#privacy-notice" className="text-blue-500 hover:underline" onClick={onClose}> Privacy Policy</a> and 
+                  <a href="/privacy#cookie-policy" className="text-blue-500 hover:underline" onClick={onClose}> Cookie Policy</a>.
                 </p>
                 <p>
                   We adhere to 
-                  <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> Google’s Business Data Responsibility guidelines </a>
+                  <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline"> Google’s Business Data Responsibility guidelines </a>
                   to ensure transparency and control over your information.
                 </p>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
