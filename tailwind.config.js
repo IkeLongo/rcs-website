@@ -32,6 +32,7 @@ module.exports = {
         'photo-5': "url('/Image 5.jpg')",
         'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
         'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
+        'service-hero-bg-blob': "url('/service-hero-bg-blob.webp')",
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
         'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
@@ -235,6 +236,9 @@ module.exports = {
       },
       rotate: {
         '-4.961': '-4.961deg',
+      },
+      backgroundPosition: {
+        'bottom-right': 'right bottom',
       },
     },
   },

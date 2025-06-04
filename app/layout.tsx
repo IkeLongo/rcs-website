@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ReactNode } from "react";
 import type { Metadata } from 'next'
 import Analytics from "./actions/analytics/analytics";
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -37,7 +38,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="./globals.css" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
