@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { BookingWidget } from '@/app/ui/booking/booking';
+import Footer from '@/app/ui/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Book a Discovery Call',
@@ -26,6 +27,11 @@ export const metadata: Metadata = {
 export default function Booking() {
 
   return (
-    <BookingWidget />
+    <>
+      <BookingWidget />
+      <Footer 
+        bgGradientClass='bg-footer-bg-gradient-solid'
+      />
+    </>
   );
 }

@@ -28,7 +28,7 @@ export default function NavLinks({ onClick }: {onClick: () => void}) {
           >
             <p
               className={clsx(
-                pathname === link.href ? 'text-blue-300 font-bold' : 'font-medium hover:font-bold'
+                pathname === link.href ? 'text-lime-500 font-bold' : 'font-medium hover:font-bold'
               )}
             >
               {link.name}
