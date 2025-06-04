@@ -15,7 +15,7 @@ export async function Main() {
 
       <p className="mt-4">
         Welcome to <strong>{LEGAL_COMPANY_NAME}</strong> (“Company”, “we”, “our”, “us”) doing business as <strong>{DBA_NAME}</strong>. By accessing or using our website 
-        <a href={SITE_NAME_VAR} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline"> {SITE_NAME_VAR} </a> 
+        <a href={SITE_NAME_VAR} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline"> {SITE_NAME_VAR} </a> 
         (the “Site”) and our services, including web design, web development, branding, and hosting (collectively, the “Services”), 
         you agree to comply with and be bound by these Terms of Service (“Terms”). If you do not agree to these Terms, please do not use our Services.
       </p>
@@ -29,7 +29,7 @@ export async function Main() {
       <h4 className="mt-6 text-lg font-semibold">2. Privacy Policy</h4>
       <p className="mt-2">
         Your use of our Services is also governed by our 
-        <a href="/privacy" className="text-blue-400 hover:underline"> Privacy Policy</a>. 
+        <a href="/privacy" className="text-blue-500 hover:underline"> Privacy Policy</a>. 
         We encourage you to review it to understand our data collection and usage practices.
       </p>
 
@@ -109,7 +109,7 @@ export async function Main() {
       <h4 className="mt-6 text-lg font-semibold">12. Contact Us</h4>
       <p className="mt-2">
         If you have any questions about these Terms, please contact us at{' '}
-        <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-400 hover:underline">
+        <a href={`mailto:${BUSINESS_EMAIL}`} className="text-blue-500 hover:underline">
           {BUSINESS_EMAIL}
         </a>.
       </p>

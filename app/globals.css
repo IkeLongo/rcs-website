@@ -30,7 +30,7 @@ html, body {
     @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-white;
   }
   h2 {
-    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-white;
+    @apply font-gentium-book-plus font-bold text-md2 lg:text-xl text-center text-white;
   }
   h3 {
     @apply font-gentium-book-plus drop-shadow-none text-lg md:text-xl font-semibold my-4 text-navy-500 drop-shadow-[2px_5px_4.6px_rgba(0,0,0,0.2)] text-center;

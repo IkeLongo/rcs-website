@@ -49,12 +49,12 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <div className="bg-gray-900 flex flex-col justify-center items-center min-h-screen">
+    <div className="bg-blue-100 flex flex-col justify-center items-center min-h-screen">
       <div className="relative h-auto w-full max-w-[1020px] bg-cover bg-top overflow-x-hidden top-24 mb-24 px-4">
         <div className="flex flex-col justify-center items-center">
           <header className="text-center py-8">
-            <h1 className="text-2xl font-maven-pro font-bold text-center pb-8 md:pt-8">Website Privacy Policy</h1>
-            <p className="text-sm font-maven-pro">Last updated January 24, 2025</p>
+            <h1 className="text-navy-975">Website Privacy Policy</h1>
+            <p className="text-navy-500">Last updated June 4, 2025</p>
           </header>
           <main className="px-6 py-8">
             <PrivacyNotice />
