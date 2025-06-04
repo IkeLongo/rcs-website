@@ -59,7 +59,7 @@ export default function AccordionItem({ animation, iconDescription, title, descr
             {description}
           </p>
           <Link href="/#plan" passHref scroll={false}>
-            <Button className="w-[118px] h-[37px] font-maven-pro text-white text-[12px] md:text-[14px] rounded-[20px] bg-blue-300">
+            <Button className="w-[118px] h-[37px] font-maven-pro text-navy-500 text-sm font-semibold md:text-[14px] rounded-[20px] bg-alice-blue-500">
               View Pricing
             </Button>
           </Link>

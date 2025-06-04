@@ -39,7 +39,7 @@ export default function HeroImages() {
       />
     </div>
     {/* Main Clip Art */}
-    <div className="absolute right-0 bottom-20 w-[400px] h-[320px] flex justify-end md:bottom-40 lg:w-[250px] lg:h-[190px] lg:right-80 lg:bottom-[288px] overflow-hidden">
+    <div className="absolute right-0 bottom-10 w-[400px] h-[320px] flex justify-end md:bottom-40 lg:w-[250px] lg:h-[190px] lg:right-80 lg:bottom-[288px] overflow-hidden">
       <Image
         src="/cloud-clipart-design-team.webp"
         alt="Creative cloud clipart with web designers"
