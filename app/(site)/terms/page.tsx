@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <div className="flex flex-col justify-center items-center h-auto w-full bg-gray-900 bg-cover bg-top overflow-x-hidden pt-24">
+    <div className="flex flex-col justify-center items-center h-auto w-full bg-white bg-cover bg-top overflow-x-hidden pt-24">
       {/* Hero Section */}
       <Main />
 
