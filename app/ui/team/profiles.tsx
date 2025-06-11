@@ -145,7 +145,7 @@ export default function Profiles() {
       </div>
 
       {/* Modal for Profile Info */}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur" className='bg-navy-800 my-0'>
+      <Modal placement="center" isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur" className='bg-navy-800 my-0 rounded-[14px]'>
         <ModalContent>
           {(onClose) => (
             <>
