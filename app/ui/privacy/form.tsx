@@ -90,16 +90,24 @@ export default function PrivacyContactForm() {
           type="text"
           variant="faded"
           classNames={{
-            input: [
-              "placeholder:text-gray-300",
+            mainWrapper: [
+              "rounded-[14px]",
+              "bg-white",
+              "text-navy-900",
             ],
-            innerWrapper: "bg-gray-900",
             inputWrapper: [
               "shadow-xl",
-              "bg-gray-900",
-              "border-gray-300",
+              "border-navy-900",
               "!cursor-text",
+              "rounded-[14px]",
             ],
+            input: [
+              "rounded-[14px]",
+              "placeholder:text-blue-500/60",
+            ],
+            innerWrapper: [
+              "rounded-[14px]",
+            ]
           }}
         />
         <Input
@@ -110,16 +118,24 @@ export default function PrivacyContactForm() {
           type="text"
           variant="faded"
           classNames={{
-            input: [
-              "placeholder:text-gray-300",
+            mainWrapper: [
+              "rounded-[14px]",
+              "bg-white",
+              "text-navy-900",
             ],
-            innerWrapper: "bg-gray-900",
             inputWrapper: [
               "shadow-xl",
-              "bg-gray-900",
-              "border-gray-300",
+              "border-navy-900",
               "!cursor-text",
+              "rounded-[14px]",
             ],
+            input: [
+              "rounded-[14px]",
+              "placeholder:text-blue-500/60",
+            ],
+            innerWrapper: [
+              "rounded-[14px]",
+            ]
           }}
         />
       </div>
@@ -132,16 +148,24 @@ export default function PrivacyContactForm() {
           type="email"
           variant="faded"
           classNames={{
-            input: [
-              "placeholder:text-gray-300",
+            mainWrapper: [
+              "rounded-[14px]",
+              "bg-white",
+              "text-navy-900",
             ],
-            innerWrapper: "bg-gray-900",
             inputWrapper: [
               "shadow-xl",
-              "bg-gray-900",
-              "border-gray-300",
+              "border-navy-900",
               "!cursor-text",
+              "rounded-[14px]",
             ],
+            input: [
+              "rounded-[14px]",
+              "placeholder:text-blue-500/60",
+            ],
+            innerWrapper: [
+              "rounded-[14px]",
+            ]
           }}
         />
         <Input
@@ -152,16 +176,24 @@ export default function PrivacyContactForm() {
           type="text"
           variant="faded"
           classNames={{
-            input: [
-              "placeholder:text-gray-300",
+            mainWrapper: [
+              "rounded-[14px]",
+              "bg-white",
+              "text-navy-900",
             ],
-            innerWrapper: "bg-gray-900",
             inputWrapper: [
               "shadow-xl",
-              "bg-gray-900",
-              "border-gray-300",
+              "border-navy-900",
               "!cursor-text",
+              "rounded-[14px]",
             ],
+            input: [
+              "rounded-[14px]",
+              "placeholder:text-blue-500/60",
+            ],
+            innerWrapper: [
+              "rounded-[14px]",
+            ]
           }}
         />
       </div>
@@ -169,31 +201,35 @@ export default function PrivacyContactForm() {
         isRequired
         name="type"
         errorMessage="Please select a request type"
-        // backdrop="blur"
+        itemType="button"
         className="text-gray-300"
         placeholder="Choose Request Type"
         variant="faded"
         classNames={{
           value: [
-            "text-gray-300",
+            "text-blue-500/60",
             "group-data-[has-value=true]:text-white",
           ],
           trigger: [
-            "bg-gray-900",
-            "border-gray-300",
+            "bg-white",
+            "border-navy-900",
           ],
           listbox: [
-            "bg-gray-900",
+            "bg-white",
             "rounded-[14px]",
-            "text-gray-300",
+            "text-navy-900",
           ],
-          innerWrapper: "bg-gray-900 hover:bg-gray-900",
+          innerWrapper: "bg-white hover:bg-gray-900",
           // inputWrapper: [
           //   "shadow-xl",
           //   "bg-gray-900",
           //   "border-gray-300",
           //   "!cursor-text",
           // ],
+          selectorIcon: [
+            "right-2",
+            "text-blue-500/60"
+          ]
         }}
         listboxProps={{
           itemClasses: {
@@ -223,6 +259,7 @@ export default function PrivacyContactForm() {
             {selection.label}</SelectItem>
         ))}
       </Select>
+      
       <Textarea
         isRequired
         errorMessage="Please a description of your request"
@@ -230,27 +267,39 @@ export default function PrivacyContactForm() {
         placeholder="Description of Request"
         variant="faded"
         classNames={{
-          label: "text-white",
-          input: [
-            "bg-gray-900",
-            "text-white",
-            "placeholder:text-gray-300",
-          ],
-          innerWrapper: "bg-gray-900",
           inputWrapper: [
             "shadow-xl",
-            "bg-gray-900",
-            "border-gray-300",
-            "hover:border-white",
+            "bg-white",
+            "border-navy-900",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
             "group-data-[focus=true]:bg-gray-900",
             "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
+            "rounded-[14px]",
+            "h-32",
+            "flex-col", // Ensure it's a flex container if needed
+            "items-stretch", // Let children stretch
           ],
+          innerWrapper: [
+            "bg-white",
+            "flex-col", // Ensure it's a flex container if needed
+            "items-stretch", // Let children stretch
+          ],
+          input: [
+            "bg-white",
+            "text-navy-900",
+            "placeholder:text-blue-500/60",
+            "resize-y", // Allow vertical resizing
+          ],
+          label: "text-white",
         }}
       />
-      <Button type="submit" variant="bordered">
+      <Button
+      type="submit"
+      variant="bordered"
+      className='bg-navy-900 text-white font-bold border-navy-900'
+      >
         Submit
       </Button>
       {submitted && (

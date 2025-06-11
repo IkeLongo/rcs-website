@@ -146,6 +146,18 @@ module.exports = {
           950: '#6a6e70', // Dark:active
           975: '#525558', // Darker
         },
+        'royal-blue': {
+          50: '',  // Light  
+          100: '', // Light:hover
+          200: '', // Light:active
+          500: '#3A88EE', // Normal
+          600: '', // Normal:hover
+          700: '', // Normal:active
+          800: '', // Dark
+          900: '', // Dark:hover
+          950: '', // Dark:active
+          975: '', // Darker
+        },
         green: {
           50: '#f3f9ec',  // Light
           100: '#edf6e3', // Light:hover

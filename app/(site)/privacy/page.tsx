@@ -81,18 +81,18 @@ export default function Home() {
           </main>
         </div>
       </div>
-      <div className="relative flex flex-col justify-center items-center w-full h-auto px-4 pb-10 bg-gray-700 overflow-visible shrink-0 md:-top-0 text-white font-avenir tracking-wide">
+      <div className="relative flex flex-col justify-center items-center w-full h-auto px-4 pb-10 bg-navy-800 overflow-visible shrink-0 md:-top-0 text-white font-avenir tracking-wide">
         <div id="cookie-policy" className="text-center py-8 max-w-[60em]">
-          <h3 className="text-2xl font-maven-pro font-bold text-center md:pt-8">Website Cookie Policy</h3>
-          <p className="text-sm font-maven-pro">Last updated January 24, 2025</p>
+          <h3 className="font-bold text-center text-white md:pt-8">Website Cookie Policy</h3>
+          <p className="text-white">Last updated June 11, 2025</p>
         </div>
         <Cookies />
       </div>
-      <div className="relative bg-gray-900 flex flex-col w-full max-w-[60em] h-auto px-4 pb-10 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
+      <div className="relative bg-alice-blue-500 flex flex-col w-full max-w-[60em] h-auto px-4 pb-10 overflow-visible shrink-0 md:-top-0 md:mb-20 text-white font-avenir tracking-wide">
         <div id="data-subject-request" className="text-center py-8">
-          <h3 className="text-2xl font-maven-pro font-bold text-center">Data Subject Request</h3>
+          <h4 className="text-navy-900">Data Subject Request</h4>
         </div>
-        <section id="dpo-contact-form" className='px-6 py-8'>
+        <section id="dpo-contact-form" className='px-6'>
           <PrivacyContactForm />
         </section>
       </div>
