@@ -202,13 +202,13 @@ export default function PrivacyContactForm() {
         name="type"
         errorMessage="Please select a request type"
         itemType="button"
-        className="text-gray-300"
+        className="text-blue-500/60"
         placeholder="Choose Request Type"
         variant="faded"
         classNames={{
           value: [
             "text-blue-500/60",
-            "group-data-[has-value=true]:text-white",
+            "group-data-[has-value=true]:text-blue-500/60",
           ],
           trigger: [
             "bg-white",
@@ -274,6 +274,7 @@ export default function PrivacyContactForm() {
             "backdrop-blur-xl",
             "backdrop-saturate-200",
             "group-data-[focus=true]:bg-white",
+            "group-data-[focus=true]:text-navy-900",
             "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
             "rounded-[14px]",
