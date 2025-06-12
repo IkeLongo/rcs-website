@@ -273,7 +273,7 @@ export default function PrivacyContactForm() {
             "border-navy-900",
             "backdrop-blur-xl",
             "backdrop-saturate-200",
-            "group-data-[focus=true]:bg-gray-900",
+            "group-data-[focus=true]:bg-white",
             "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
             "rounded-[14px]",
