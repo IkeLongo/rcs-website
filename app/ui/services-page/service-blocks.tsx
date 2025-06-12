@@ -34,16 +34,6 @@ export default function ServiceBlocks() {
       setIsTransitioning(false);
     }, 1200); // Match this duration with the CSS animation duration
   };
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const id = window.location.hash.replace("#", "");
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
-  }, []);
   
   return (
     <div className="relative flex flex-col w-full h-auto items-center justify-center bg-gray-900 z-40">

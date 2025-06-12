@@ -2,7 +2,7 @@ export interface DoProps {
   animation: object;
   title: string;
   description: string;
-  onClick?: () => void; // <-- Add this line
+  link: string;
   className?: string;
 }
 

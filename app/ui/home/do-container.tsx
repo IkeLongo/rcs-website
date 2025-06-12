@@ -1,6 +1,3 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import Do from "./do";
 import "@/app/globals.css";
 import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
@@ -8,8 +5,7 @@ import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
 
 export default function DoContainer() {
-  const router = useRouter();
-  
+ 
   // Array of services to be displayed
   const services = [
     {
@@ -57,9 +53,7 @@ export default function DoContainer() {
                 title={service.title}
                 description={service.description}
                 className="min-w-[300px] flex-shrink-0 md:min-w-[350px]"
-                onClick={() => {
-                  router.push(service.link); // navigates to /services#block-x
-                }}
+                link={service.link}
               />
             </div>
           ))}
