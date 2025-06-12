@@ -234,10 +234,10 @@ export default function PrivacyContactForm() {
         listboxProps={{
           itemClasses: {
             base: [
-              "bg-gray-900",
-              "text-gray-300",
+              "bg-white",
+              "text-blue-500/60",
               "transition-opacity",
-              "data-[hover=true]:text-black",
+              "data-[hover=true]:text-navy-500",
               "data-[hover=true]:bg-white",
               "dark:data-[hover=true]:bg-default-50",
               "data-[selectable=true]:focus:bg-default-50",
@@ -249,7 +249,7 @@ export default function PrivacyContactForm() {
         popoverProps={{
           classNames: {
             base: "rounded-[14px]",
-            content: "bg-gray-900 p-0 border-medium border-gray-300",
+            content: "bg-white p-0 border-medium border-navy-500 rounded-[14px]",
           },
         }}
       >
