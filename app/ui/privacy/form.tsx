@@ -219,7 +219,7 @@ export default function PrivacyContactForm() {
             "rounded-[14px]",
             "text-navy-900",
           ],
-          innerWrapper: "bg-white hover:bg-gray-900",
+          innerWrapper: "bg-white hover:bg-white",
           // inputWrapper: [
           //   "shadow-xl",
           //   "bg-gray-900",
