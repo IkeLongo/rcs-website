@@ -1,9 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from 'next/link';
 import AnimatedLottie from "../components/animations";
 import { DoProps } from "@/types/components";
 
-export default function Do({ animation, title, description, link, className }: DoProps) {
+export default function Do({ animation, title, description, onClick, className }: DoProps) {
   return (
     (<div className="min-w-[233px] p-6 flex flex-col justify-between gap-4 items-stretch rounded-[14px] border border-gray-500 bg-do-custom-gradient">
       <div className='flex flex-col items-center'>
@@ -20,11 +22,11 @@ export default function Do({ animation, title, description, link, className }: D
       <p className="flex-grow">
         {description}
       </p>
-      <Link
-        href={link}
-        passHref
-        className="flex justify-center gap-1"
-        aria-label={`Learn more about ${title}`} // Add a descriptive label
+      <button
+        type="button"
+        onClick={onClick}
+        className="flex justify-center gap-1 uppercase text-inherit bg-transparent border-none outline-none cursor-pointer"
+        aria-label={`Learn more about ${title}`}
       >
         <p className='uppercase'>Learn More</p>
         <Image
@@ -37,7 +39,7 @@ export default function Do({ animation, title, description, link, className }: D
             maxWidth: "100%",
             height: "auto"
           }} />
-      </Link>
+      </button>
     </div>)
   );
 }

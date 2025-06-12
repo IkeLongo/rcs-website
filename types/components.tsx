@@ -2,8 +2,8 @@ export interface DoProps {
   animation: object;
   title: string;
   description: string;
-  link: string;
-  className?: string; // ✅ Add this
+  onClick?: () => void; // <-- Add this line
+  className?: string;
 }
 
 export interface OptionProps {
