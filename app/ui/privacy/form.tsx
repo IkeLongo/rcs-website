@@ -1,7 +1,6 @@
 "use client";
 
 import {Form, Input, Button, Textarea, Select, SelectItem} from "@heroui/react";
-import { useRouter } from 'next/navigation';
 import React, { useState, useRef, FormEvent } from "react";
 import emailjs from '@emailjs/browser';
 import {toast} from 'react-toastify';
@@ -20,6 +19,7 @@ export const selections = [
 export default function PrivacyContactForm() {
   const [submitted, setSubmitted] = useState<PrivacyFormData | null>(null); // ✅ Ensure state matches form data type
   const formRef = useRef<HTMLFormElement>(null); // ✅ Correctly type useRef
+  const [isOpen, setIsOpen] = React.useState(false);
 
   // ✅ Type the Form Submission Handler
   // const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -80,7 +80,12 @@ export default function PrivacyContactForm() {
   console.log("env:", process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
 
   return (
-    <Form className="w-full" validationBehavior="native" onSubmit={sendEmail} ref={formRef}>
+    <Form
+      className="w-full"
+      validationBehavior="native"
+      onSubmit={sendEmail}
+      ref={formRef}
+    >
       <div className="w-full flex justify-between gap-2">
         <Input
           isRequired
@@ -197,14 +202,20 @@ export default function PrivacyContactForm() {
           }}
         />
       </div>
-      <Select
+      {/* <Select
         isRequired
         name="type"
         errorMessage="Please select a request type"
-        itemType="button"
         className="text-blue-500/60"
         placeholder="Choose Request Type"
         variant="faded"
+        defaultOpen={true}
+        aria-label="Request Type"
+        isOpen={isOpen}
+        onOpenChange={(open) => setIsOpen(open)}
+        onChange={(value) => {
+          console.log("Selected value:", value);
+        }}
         classNames={{
           value: [
             "text-blue-500/60",
@@ -258,7 +269,7 @@ export default function PrivacyContactForm() {
           >
             {selection.label}</SelectItem>
         ))}
-      </Select>
+      </Select> */}
       
       <Textarea
         isRequired
