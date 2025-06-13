@@ -43,7 +43,7 @@ module.exports = {
         'dark-blue-radial-gradient': 'var(--Dark-Blue-Light-Blue-Radial-Gradient, radial-gradient(62.99% 62.99% at 50% 37.01%, #0052AB 0%, #002145 100%))',
         'darkblueoverlay': 'radial-gradient(62.99% 62.99% at 50% 37.01%, rgba(0, 82, 171, 0.80) 0%, rgba(0, 33, 69, 0.80) 100%)',
         'lightblueoverlay': 'radial-gradient(50% 50% at 50% 50%, rgba(233,242,248, 0.80) 0%, rgba(198,221,234, 0.80) 100%)',
-
+        'nav-bar-button': 'linear-gradient(105deg, #192E56 -11.82%, #6585C0 89.44%)',
       },
       colors: {
         background: "var(--background)",

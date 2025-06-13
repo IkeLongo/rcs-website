@@ -21,10 +21,10 @@ export default function Navbar() {
         <MobileMenu />
         <div className="flex items-center justify-center">
           <div className='hidden md:w-[800px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>
-            <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] border-gray-500 bg-[#292732]/75 backdrop-blur-[3.5px]'>
+            <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] bg-alice-blue-200/75 backdrop-blur-[3.5px]'>
               <Link href="/" onClick={handleLogoClick}>
                 <Image
-                  src="/logo-rivercity-creatives-horizontal-green-white.svg"
+                  src="/logo-rivercity-creatives-horizontal-green-blue.png"
                   alt="Logo"
                   width={125}
                   height={100}/>
@@ -34,7 +34,7 @@ export default function Navbar() {
               />
               <Button
                 onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked
-                className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-green-500 py-2 lg:text-[16px]">
+                className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 lg:text-[16px]">
                 <Link href="/booking" className="h-full flex items-center justify-center">
                   Book a Call
                 </Link>
