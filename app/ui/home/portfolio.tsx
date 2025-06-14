@@ -14,7 +14,7 @@ export default function Portfolio() {
       <p className="text-navy-500 mt-2 mb-8 text-center max-w-xl px-6">
         A selection of websites and brands we've brought to life.
       </p>
-      <div className="flex w-full flex-col gap-6">
+      <div className="flex w-full flex-col gap-6 md:px-20">
         <Tabs
         aria-label="Dynamic tabs"
         variant="solid"
