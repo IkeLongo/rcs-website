@@ -12,9 +12,10 @@ const images = [
 
 export default function HomeHero() {
 
-  return (<>
+  return (
+  <>
     {/* Hero Section */}
-    <div className="relative w-full md:top-20 h-[650px] md:h-[550px]">
+    <div className="flex flex-col w-full mt-20 md:mt-32 md:mb-20">
       {/* Background squiggly images */}
       <Image
         src="/mobile-hero-vector-right.svg"
@@ -33,22 +34,26 @@ export default function HomeHero() {
         style={{ pointerEvents: "none", userSelect: "none" }}
       />
 
-      {/* Mobile-only image */}
-      <div className="absolute flex flex-col w-full top-24 z-10 p-6 md:top-4 md:right-0 md:left-auto md:flex md:flex-col md:items-end md:justify-end lg:right-10 xl:right-20">
-        <h1 className="w-full md:w-[340px] lg:w-[400px] right-4 self-end text-right text-white">
-          Crafting Powerful<br />
-          <span className="italic text-lime-500">Websites</span> and <span className="italic text-lime-500">Branding</span><br />for Your Business
-        </h1>
+      <div className="flex flex-col w-full top-24 z-10 p-6 md:top-4 md:flex md:flex-row-reverse md:items-center md:justify-center md:px-20 lg:right-10 xl:right-20">
+        <div className="flex flex-col items-end justify-end w-full md:w-auto md:items-end md:justify-end md:w-1/2">
+          <h1 className="w-full md:w-[340px] lg:w-[400px] right-4 self-end text-right text-white">
+            Crafting Powerful<br />
+            <span className="italic text-lime-500">Websites</span> and <span className="italic text-lime-500">Branding</span><br />for Your Business
+          </h1>
 
-        <h2 className="font-avenir text-base font-normal lg:text-base text-white text-right mt-4 w-auto max-w-[350px] md:w-[340px] lg:w-[400px] self-end">
-          Propel your business forward with innovative web
-          solutions, reliable hosting, and impactful branding.
-        </h2>
+          <h2 className="font-avenir text-base font-normal lg:text-base text-white text-right mt-4 w-auto max-w-[350px] md:w-[340px] lg:w-[400px] self-end">
+            Propel your business forward with innovative web
+            solutions, reliable hosting, and impactful branding.
+          </h2>
+        </div>
 
-        <Carousel images={images} showDots={false} className="pt-10"/>
+        <div className="w-full md:w-1/2">
+          <Carousel images={images} showDots={false} className="pt-10"/>
+        </div>
       </div>
-      <div className="absolute left-[10%] top-[500px] md:top-[150px]">
+      <div className="left-[10%] top-[500px] md:top-[150px]">
       </div>
     </div>
-  </>);
+  </>
+  );
 }
