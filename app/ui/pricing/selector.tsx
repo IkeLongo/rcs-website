@@ -110,7 +110,7 @@ export default function Pricing() {
       </div>
       <div className='flex flex-col items-center pb-16'>
         {/* Tabs Row */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col w-full self-center justify-center items-center">
           <div className="w-auto max-w-3xl px-6 flex items-center justify-center">
             <Tabs
               aria-label="Dynamic tabs"
@@ -135,7 +135,7 @@ export default function Pricing() {
           </div>
 
           {/* Cards Row */}
-          <div className="relative w-full max-w-3xl overflow-hidden pt-16">
+          <div className="flex flex-row w-full items-center justify-center overflow-hidden pt-16">
             <div
               {...handlers}
               className="flex justify-center gap-6 transition-transform duration-500 ease-in-out"
@@ -165,7 +165,9 @@ export default function Pricing() {
             </div>
           </div>
         </div>
-        <p className="w-full text-navy-500 px-8">Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project’s needs.</p>
+        <div className="`flex flex-col items-center justify-center px-8">
+          <p className="w-fyll max-w-[500px] mx-auto text-navy-500">Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project’s needs.</p>
+        </div>
       </div>
     </div>
   );
