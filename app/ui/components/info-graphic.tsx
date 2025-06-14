@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from 'next/link';
-import AnimatedLottie from "../components/animations";
+import AnimatedLottie from "./animations";
 import { DoProps } from "@/types/components";
 
-export default function Do({ animation, title, description, link, className }: DoProps) {
+export default function InfoGraphic({ animation, title, description, link, className }: DoProps) {
   return (
     (<div className="min-w-[233px] p-6 flex flex-col justify-between gap-4 items-stretch rounded-[14px] border border-gray-500 bg-do-custom-gradient">
       <div className='flex flex-col items-center'>
@@ -15,7 +15,7 @@ export default function Do({ animation, title, description, link, className }: D
             height: "auto",
           }}
         />
-        <h4 className='my-2'>{title}</h4>
+        <h4 className='my-2 text-md2'>{title}</h4>
       </div>
       <p className="flex-grow">
         {description}

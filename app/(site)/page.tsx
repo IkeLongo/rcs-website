@@ -2,8 +2,8 @@ import { Suspense, lazy } from 'react';
 
 import HomeHero from '@/app/ui/home/home-hero';
 const HomeWhy = lazy(() => import('@/app/ui/home/why'));
-const DoContainer = lazy(() => import('@/app/ui/home/do-container'));
-const OptionsContainer = lazy(() => import('@/app/ui/home/options-container'));
+const UniqueWebsites = lazy(() => import('@/app/ui/home/crafting-unique-websites'));
+const ExtraordinaryConatiner = lazy(() => import('@/app/ui/home/extraordinary-container'));
 const Portfolio = lazy(() => import('@/app/ui/home/portfolio'));
 const Pricing = lazy(() => import('@/app/ui/pricing/selector'));
 const Footer = lazy(() => import('@/app/ui/layout/footer'));
@@ -19,10 +19,10 @@ export default function Home() {
           <HomeWhy />
         </Suspense>
         <Suspense fallback={null}>
-          <DoContainer />
+          <UniqueWebsites />
         </Suspense>
         <Suspense fallback={null}>
-          <OptionsContainer />
+          <ExtraordinaryConatiner />
         </Suspense>
         <Suspense fallback={null}>
           <Portfolio />

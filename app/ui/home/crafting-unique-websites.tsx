@@ -1,10 +1,10 @@
-import Do from "./do";
+import InfoGraphic from "../components/info-graphic";
 import "@/app/globals.css";
 import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
 import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
 
-export default function DoContainer() {
+export default function UniqueWebsites() {
  
   // Array of services to be displayed
   const services = [
@@ -48,7 +48,7 @@ export default function DoContainer() {
           {/* Map through the services array */}
           {services.map((service, index) => (
             <div className="flex min-w-[250px]" key={index}>
-              <Do
+              <InfoGraphic
                 animation={service.animation}
                 title={service.title}
                 description={service.description}

@@ -1,8 +1,8 @@
 "use client";
 
-import Option from "./option"; // Adjust path based on your folder structure
+import Chip from "../components/chip"; // Adjust path based on your folder structure
 
-export default function ScrollingOptions() {
+export default function ScrollingChips() {
   const firstRowOptions = [
     { icon: "/api-icon.svg", title: "Integrations" },
     { icon: "/bezier-tool.svg", title: "Web Design" },
@@ -25,10 +25,10 @@ export default function ScrollingOptions() {
       <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_20px,_black_calc(100%-40px),transparent_100%)]">
         <div className="flex gap-[19px] pr-[19px] animate-infinite-scroll md:gap-[58px] md:pr-[58px]">
           {firstRowOptions.map((option, index) => (
-            <Option key={index} icon={option.icon} title={option.title} />
+            <Chip key={index} icon={option.icon} title={option.title} />
           ))}
           {firstRowOptions.map((option, index) => (
-            <Option key={`duplicate-${index}`} icon={option.icon} title={option.title} />
+            <Chip key={`duplicate-${index}`} icon={option.icon} title={option.title} />
           ))}
         </div>
       </div>
@@ -37,10 +37,10 @@ export default function ScrollingOptions() {
       <div className="w-full justify-end inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_20px,_black_calc(100%-40px),transparent_100%)]">
         <div className="flex pt-1 gap-[19px] pl-[19px] animate-reverse-infinite-scroll md:gap-[58px] md:pl-[58px]">
           {secondRowOptions.map((option, index) => (
-            <Option key={index} icon={option.icon} title={option.title} />
+            <Chip key={index} icon={option.icon} title={option.title} />
           ))}
           {secondRowOptions.map((option, index) => (
-            <Option key={`duplicate-${index}`} icon={option.icon} title={option.title} />
+            <Chip key={`duplicate-${index}`} icon={option.icon} title={option.title} />
           ))}
         </div>
       </div>
