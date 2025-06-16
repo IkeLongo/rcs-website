@@ -23,6 +23,7 @@ export default function Portfolio() {
           base: "bg-navy-500 rounded-[14px] p-1 px-0 h-[40px] w-auto self-center",
           tabContent: "group-data-[selected=true]:text-navy-500 p-1 font-source-sans-pro text-sm font-semibold text-alice-blue-500 rounded-sm",
           tab: "h-[30px] rounded-[10px] bg-transparent data-[selected=true]:bg-light-green-500",
+          panel: "px-0"
         }}>
           <Tab key="websites" title="Websites">
             <WebsiteWork />

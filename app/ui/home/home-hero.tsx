@@ -34,7 +34,7 @@ export default function HomeHero() {
         style={{ pointerEvents: "none", userSelect: "none" }}
       />
 
-      <div className="flex flex-col w-full top-24 z-10 p-6 md:top-4 md:flex md:flex-row-reverse md:items-center md:justify-center md:px-20 lg:right-10 xl:right-20">
+      <div className="flex flex-col w-full lg:max-w-[1120px] top-24 z-10 p-6 md:top-4 md:flex md:flex-row-reverse md:items-center md:justify-center md:px-20 lg:self-center lg:right-10 xl:right-20">
         <div className="flex flex-col items-end justify-end w-full md:w-auto md:items-end md:justify-end md:w-1/2">
           <h1 className="w-full md:w-[340px] lg:w-[400px] right-4 self-end text-right text-white">
             Crafting Powerful<br />

@@ -7,7 +7,7 @@ export default function HomeWhy() {
 
   return (<>
     {/* Why Section */}
-    <div id='why' className="relative w-full h-auto bg-home-why py-10 lg:pt-48 lg:mb-20 lg:h-fit">
+    <div id='why' className="relative w-full h-auto bg-home-why py-10 lg:pt-10 lg:h-fit">
       <div className="absolute w-full h-full">
         <div className="flex h-full w-full max-w-[570px] md:max-w-[1020px] items-center justify-center mx-auto relative">
           <Image

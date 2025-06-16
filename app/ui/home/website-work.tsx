@@ -22,8 +22,9 @@ const portfolioItems = [
 ];
 
 export default function WebsiteWork() {
+  
   return (
-    <div className="flex gap-8 w-full max-w-full overflow-x-auto px-6 pb-8">
+    <div className="flex gap-8 w-full max-w-full overflow-x-auto pb-8 mx-6 snap-x snap-mandatory">
       {portfolioItems.map((item, idx) => (
         <PortfolioWebsite key={idx} {...item} />
       ))}

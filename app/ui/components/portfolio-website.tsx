@@ -9,9 +9,9 @@ type PortfolioWebsiteProps = {
 
 export default function PortfolioWebsite({ bg, web, name, link }: PortfolioWebsiteProps) {
   const content = (
-    <div className="flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col items-center cursor-pointer snap-start">
       <div
-        className="relative w-[230px] md:w-[300px] h-[230px] md:h-[300px] rounded-[10px] overflow-hidden"
+        className="relative w-[270px] md:w-[300px] h-[270px] md:h-[300px] rounded-[10px] overflow-hidden"
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: "cover",
