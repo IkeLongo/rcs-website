@@ -24,7 +24,7 @@ const portfolioItems = [
 export default function WebsiteWork() {
   
   return (
-    <div className="flex gap-8 w-full max-w-full overflow-x-auto pb-8 mx-6 snap-x snap-mandatory">
+    <div className="flex gap-8 w-full max-w-full overflow-x-auto pb-8 mx-6 snap-x snap-mandatory lg:justify-center lg:items-center">
       {portfolioItems.map((item, idx) => (
         <PortfolioWebsite key={idx} {...item} />
       ))}
