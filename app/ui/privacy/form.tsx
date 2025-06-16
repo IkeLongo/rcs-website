@@ -310,7 +310,7 @@ export default function PrivacyContactForm() {
       <Button
       type="submit"
       variant="bordered"
-      className='bg-navy-900 text-white font-bold border-navy-900'
+      className='bg-navy-900 text-white font-bold border-navy-900 mt-4'
       >
         Submit
       </Button>

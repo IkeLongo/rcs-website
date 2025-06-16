@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <div className="bg-blue-100 flex flex-col justify-center items-center min-h-screen">
+    <div className="bg-alice-blue-500 flex flex-col justify-center items-center min-h-screen">
       <div className="relative h-auto w-full max-w-[1020px] bg-cover bg-top overflow-x-hidden top-24 mb-24 px-4">
         <div className="flex flex-col justify-center items-center">
           <header className="text-center py-8">
@@ -81,7 +81,7 @@ export default function Home() {
           </main>
         </div>
       </div>
-      <div className="relative flex flex-col justify-center items-center w-full h-auto px-4 pb-10 bg-navy-800 overflow-visible shrink-0 md:-top-0 text-white font-avenir tracking-wide">
+      <div className="relative flex flex-col justify-center items-center w-full h-auto px-10 pb-10 bg-navy-800 overflow-visible shrink-0 md:-top-0 text-white font-avenir tracking-wide">
         <div id="cookie-policy" className="text-center py-8 max-w-[60em]">
           <h3 className="font-bold text-center text-white md:pt-8">Website Cookie Policy</h3>
           <p className="text-white">Last updated June 11, 2025</p>
@@ -92,7 +92,7 @@ export default function Home() {
         <div id="data-subject-request" className="text-center py-8">
           <h4 className="text-navy-900">Data Subject Request</h4>
         </div>
-        <section id="dpo-contact-form" className='px-6'>
+        <section id="dpo-contact-form" className='px-4 md:px-10'>
           <PrivacyContactForm />
         </section>
       </div>

@@ -89,9 +89,9 @@ export default function Profiles() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full gap-4 h-full max-w-96 self-center md:flex-row md:max-w-[900px] md:gap-2 md:mx-6">
+    <div className="flex flex-col w-full gap-4 h-full max-w-96 self-center md:flex-row md:max-w-[900px] md:gap-2">
       {/* Desktop View */}
-      <div className="hidden md:flex md:flex-row md:w-full md:h-full md:self-center md:max-w-[900px] md:gap-2">
+      <div className="hidden md:flex md:flex-row md:w-full md:h-full md:self-center md:max-w-[900px] md:gap-2 md:mx-16">
         {people.map((member, index) => (
           <TeamMemberCard
             key={index}

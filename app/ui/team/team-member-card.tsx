@@ -26,7 +26,7 @@ export default function TeamMemberCard({
             : "w-1/3 h-80" // ✅ Smaller thumbnails for unselected on small screens
           : selected
           ? "w-1/2 h-96"
-          : "w-[12.5%] h-96"
+          : "w-[16.67%] h-96"
       }`}
       onClick={onClick}
     >
