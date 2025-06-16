@@ -138,7 +138,7 @@ export default function Pricing() {
           <div className="flex flex-row w-full items-center justify-center overflow-hidden pt-16">
             <div
               {...handlers}
-              className="flex justify-center gap-6 transition-transform duration-500 ease-in-out"
+              className="flex justify-center gap-6 lg:gap-10 transition-transform duration-500 ease-in-out"
               style={{
                 width: `${plans.length * 220}px`,
                 transform: `translateX(calc(50% - ${(selectedIndex + 0.5) * (100 / plans.length)}%))`,

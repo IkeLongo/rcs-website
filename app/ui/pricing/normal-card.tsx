@@ -12,7 +12,7 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
           <p className="hidden">Most Popular</p>
         </div>
 
-        <div className='flex flex-col items-stretch h-[447px] lg:h-[525px] pb-16 md:-top-10 lg:top-4 ml-6 mr-1 box-border'>
+        <div className='flex flex-col items-stretch h-[447px] lg:h-[525px] pb-16 md:-top-10 lg:top-4 ml-6 lg:ml-14 mr-1 lg:mr-12 box-border'>
           <div className='flex flex-col self-stretch grow'>
             <div className='-mt-12 lg:-mt-12'>
               <div className="flex flex gap-1 items-end transition-opacity duration-500 opacity-100">
@@ -31,18 +31,18 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
                 </p>
               </div>
             )}
-            <div className='flex flex-col pt-0 md:pt-2 grow lg:pr-9 gap-4'>
+            <div className='flex flex-col pt-0 md:pt-2 grow gap-4'>
               <div className="fade-text">
                 <p className='font-maven-pro self-stretch text-[20px] lg:text-md2 text-normal-card-dark-purple font-semibold my-2 md:mt-0 text-left leading-6'>
                   {planName}
                 </p>
-                <p className='text-normal-card-gray text-sm lg:text-sm pr-4 lg:pr-12 leading-4 text-left'>
+                <p className='text-normal-card-gray text-sm lg:text-sm pr-4 leading-4 text-left'>
                   {planDescription}
                 </p>
               </div>
               <SimpleBar autoHide={false} className="h-[150px] grow overflow-y-auto relative pr-2">                
                 {features.map((feature, index) => (
-                  <div key={index} className="flex gap-2 items-center pr-10 lg:pr-12 fade-text">
+                  <div key={index} className="flex gap-2 items-center pr-10 lg:pr-10 fade-text">
                     <Image
                       src="/checkmark-blue.svg"
                       alt="Checkmark"
