@@ -1,4 +1,3 @@
-// import "./globals.css";
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -6,6 +5,9 @@ import { ReactNode } from "react";
 import type { Metadata } from 'next'
 import Analytics from "./actions/analytics/analytics";
 import './globals.css';
+
+// Add this line to access GTM_ID
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -44,11 +46,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet" />
         <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
+        <Analytics />
       </head>
       <body
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
-        <Analytics />
+        {/* GTM Noscript - MUST be immediately after opening body tag */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <CookieBanner />
         <ToastContainer limit={1} theme="dark" />
         {children}

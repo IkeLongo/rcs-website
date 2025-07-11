@@ -1,4 +1,5 @@
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 // Track pageviews
 export const pageview = (url: string) => {
@@ -25,5 +26,22 @@ export const event = ({
     event_category: category,
     event_label: label,
     value,
+  });
+};
+
+// GTM functions
+export const gtmPageview = (url: string) => {
+  if (!GTM_ID) return;
+  (window as any).dataLayer?.push({
+    event: 'page_view',
+    page_path: url,
+  });
+};
+
+export const gtmEvent = (eventName: string, parameters: Record<string, any> = {}) => {
+  if (!GTM_ID) return;
+  (window as any).dataLayer?.push({
+    event: eventName,
+    ...parameters,
   });
 };
