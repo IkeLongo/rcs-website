@@ -1,6 +1,7 @@
 // "use client";
 
 import Image from "../components/image";
+import TransChip from "../components/trans-chip"
 import Carousel from "../components/carosel";
 
 const images = [
@@ -33,13 +34,14 @@ export default function HomeHero() {
         className="absolute left-0 top-20 z-0 pointer-events-none select-none"
         style={{ pointerEvents: "none", userSelect: "none" }}
       />
-
+      <TransChip label="Web Design" />
       <div className="relative flex flex-col w-full min-h-screen lg:max-w-[1120px] z-10 p-6 md:top-4 md:px-20 lg:self-center">
         <div className="flex flex-col w-full pt-32 self-center md:w-auto md:items-end md:justify-end md:w-1/2">
           <h1 className="w-full right-4 text-navy-500">
             Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and<br /><span className="italic text-neongreen-700">Branding </span>for Your Business
           </h1>
         </div>
+        <TransChip label="Web Design"/>
         {/* Centered, bottom-positioned div */}
         <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 w-[1220px] flex flex-col items-center">
           <Image
