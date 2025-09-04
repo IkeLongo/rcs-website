@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 
 import HomeHero from '@/app/ui/home/home-hero';
 const HomeWhy = lazy(() => import('@/app/ui/home/why'));

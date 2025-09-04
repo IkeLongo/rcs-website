@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function TransChip({ label = "Web Design" }: { label?: string }) {
+export default function TransChip({
+  label = "Web Design",
+  className = "",
+}: { label?: string; className?: string }) {
   return (
-    <div className="relative inline-flex justify-center items-center z-40">
+    <div className={`relative inline-flex justify-center items-center z-40 ${className}`}>
       <div className="
         relative
         px-7 py-4
@@ -10,7 +13,7 @@ export default function TransChip({ label = "Web Design" }: { label?: string }) 
         flex justify-center items-center
         overflow-hidden
         bg-gray-50/10
-        backdrop-blur-md
+        backdrop-blur-sm
         [box-shadow:0_6px_5px_0_rgba(0,0,0,0.25),inset_4px_4px_8px_0_rgba(255,255,255,0.18),inset_-2px_-2px_5px_0_rgba(0,0,0,0.25)]
       ">
         {/* Glassy overlay */}
