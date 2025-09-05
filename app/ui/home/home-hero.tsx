@@ -12,14 +12,14 @@ const leftChips = [
   { label: "UI/UX Design", pos: "12%" },
   { label: "Logo Design", pos: "22%" },
   { label: "Creative Direction", pos: "15%" },
-  { label: "Responsive Design", pos: "13%" },
+  { label: "Responsive Design", pos: "7%" },
 ];
 
 const rightChips = [
   { label: "SEO Optimization", pos: "10%" },
   { label: "Hosting", pos: "24%" },
   { label: "Content Strategy", pos: "8%" },
-  { label: "Custom Code", pos: "30%" },
+  { label: "Custom Code", pos: "20%" },
   { label: "Storytelling", pos: "12%" },
   { label: "Style Guides", pos: "20%" },
   { label: "Conversion Strategy", pos: "2%" },
