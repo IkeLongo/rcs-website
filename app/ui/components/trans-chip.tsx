@@ -5,7 +5,7 @@ export default function TransChip({
   className = "",
 }: { label?: string; className?: string }) {
   return (
-    <div className={`relative inline-flex justify-center items-center z-40 ${className}`}>
+    <div className={`relative inline-flex justify-center items-center ${className}`}>
       <div className="
         relative
         px-7 py-4
@@ -13,13 +13,13 @@ export default function TransChip({
         flex justify-center items-center
         overflow-hidden
         bg-gray-50/10
-        backdrop-blur-sm
+        backdrop-blur-md
         [box-shadow:0_6px_5px_0_rgba(0,0,0,0.25),inset_4px_4px_8px_0_rgba(255,255,255,0.18),inset_-2px_-2px_5px_0_rgba(0,0,0,0.25)]
       ">
         {/* Glassy overlay */}
-        <div className="absolute inset-0 rounded-[30px] bg-white/10 pointer-events-none" />
+        <div className="absolute inset-0 rounded-[30px] bg-gray-50/10 pointer-events-none" />
         {/* Text above the glass */}
-        <div className="relative z-10 text-center text-sky-950 text-md font-semibold font-maven-pro drop-shadow-sm">
+        <div className="relative text-center text-sky-950 text-sm lg:text-md font-semibold font-maven-pro drop-shadow-sm">
           {label}
         </div>
       </div>
