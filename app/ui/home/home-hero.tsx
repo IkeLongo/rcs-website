@@ -6,23 +6,23 @@ import TransChip from "../components/trans-chip";
 
 const leftChips = [
   { label: "Web Design", pos: "10%" },
-  { label: "Web Development", pos: "25%" },
+  { label: "Web Development", pos: "3%" },
   { label: "Brand Strategy", pos: "18%" },
-  { label: "Visual Identity", pos: "30%" },
+  { label: "Visual Identity", pos: "5%" },
   { label: "UI/UX Design", pos: "12%" },
   { label: "Logo Design", pos: "22%" },
   { label: "Creative Direction", pos: "15%" },
-  { label: "Responsive Design", pos: "28%" },
+  { label: "Responsive Design", pos: "13%" },
 ];
 
 const rightChips = [
   { label: "SEO Optimization", pos: "10%" },
   { label: "Hosting", pos: "24%" },
-  { label: "Content Strategy", pos: "16%" },
+  { label: "Content Strategy", pos: "8%" },
   { label: "Custom Code", pos: "30%" },
   { label: "Storytelling", pos: "12%" },
   { label: "Style Guides", pos: "20%" },
-  { label: "Conversion Strategy", pos: "26%" },
+  { label: "Conversion Strategy", pos: "2%" },
   { label: "Pixel Precision", pos: "18%" },
 ];
 
@@ -33,10 +33,10 @@ export default function HomeHero() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [chipsY, setChipsY] = useState(0);
 
-  const CHIP_RAIN_DURATION = 10; // seconds
+  const CHIP_RAIN_DURATION = 12; // seconds
   const CHIP_COUNT = leftChips.length; // 8
 
-  const CHIP_DELAY = CHIP_RAIN_DURATION / CHIP_COUNT; // 1.25s
+  const CHIP_DELAY = CHIP_RAIN_DURATION / CHIP_COUNT; // 2s
 
   // Replace your useEffect with this version
   useEffect(() => {
@@ -112,7 +112,7 @@ export default function HomeHero() {
         {/* Mobile raining chips */}
         <div className="absolute inset-0 -top-20 z-20 flex flex-row justify-between md:hidden pointer-events-none w-full">
           {/* Left column */}
-          <div className="relative w-1/2 h-full flex flex-col items-center gap-16">
+          <div className="relative w-1/2 h-full flex flex-col items-center">
             {leftChips.map((chip, i) => (
               <div
                 key={chip.label}
@@ -129,7 +129,7 @@ export default function HomeHero() {
             ))}
           </div>
           {/* Right column */}
-          <div className="relative w-1/2 h-full flex flex-col items-center gap-16">
+          <div className="relative w-1/2 h-full flex flex-col items-center">
             {rightChips.map((chip, i) => (
               <div
                 key={chip.label}
