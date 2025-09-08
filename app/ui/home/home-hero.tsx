@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "../components/image";
 import TransChip from "../components/trans-chip";
+import FadeInUp from "../components/fade-in-up";
 
 const leftChips = [
   { label: "Web Design", pos: "10%" },
@@ -196,15 +197,21 @@ export default function HomeHero() {
         <div className="relative flex h-full w-full flex-col items-center p-6 md:top-4 md:px-20">
           <div className="flex w-full flex-col pt-28 md:pt-36 self-center md:items-end md:justify-end">
             <h1 className="w-full text-navy-500 z-40">
-              Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and
-              <br />
-              <span className="italic text-neongreen-700">Branding</span> for Your Business
+              <FadeInUp>
+                Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and
+                <br />
+                <span className="italic text-neongreen-700">Branding</span> for Your Business
+              </FadeInUp>
             </h1>
 
             {/* People (on top) */}
             <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10">
-              <Image src="/barb.webp" alt="Barb" width={350} height={450} className="-mr-8" />
-              <Image src="/isaac.webp" alt="Isaac" width={300} height={400} className="-ml-8" />
+              <FadeInUp delay={400}>
+                <Image src="/barb.webp" alt="Barb" width={350} height={450} className="-mr-8" />
+              </FadeInUp>
+              <FadeInUp delay={400}>
+                <Image src="/isaac.webp" alt="Isaac" width={300} height={400} className="-ml-8" />
+              </FadeInUp>
             </div>
           </div>
         </div>
