@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import StepCard from "./step-card"
+import FadeInUp from "../components/fade-in-up";
 import StackedCarousel from "../components/carosel-stacked";
 
 const processSteps = [
@@ -67,9 +66,10 @@ export default function Process() {
   };
 
   return (
-    (<div className='md:h-auto lg:h-auto'>
+    (
+    <div className='md:h-auto lg:h-auto'>
       <div className="flex items-center justify-center bg-white">
-        <div className='relative top-12 flex flex-col w-full justify-center self-center gap-[16px] bg-navy-500 mx-4 px-[34px] py-[20px] rounded-[10px] shadow-[-11px_15px_7.5px_0_rgba(0,0,0,0.25)] z-10 md:top-20 lg:top-8 md:max-w-[665px] lg:flex-row lg:max-w-[1000px] lg:-top-24'>
+        <FadeInUp className='relative top-12 flex flex-col w-full justify-center self-center gap-[16px] bg-navy-500 mx-4 px-[34px] py-[20px] rounded-[10px] shadow-[-11px_15px_7.5px_0_rgba(0,0,0,0.25)] z-10 md:top-20 lg:top-8 md:max-w-[665px] lg:flex-row lg:max-w-[1000px] lg:-top-24'>
           <div>
             <p className="text-white font-bold text-md font-maven-pro">
               JUMP TO
@@ -80,15 +80,19 @@ export default function Process() {
             <a href="#block-2" className="text-alice-blue-500 font-normal text-base font-maven-pro lg:border-r lg:border-gray-300 lg:px-4" onClick={(e) => { e.preventDefault(); scrollToId('block-2'); }}>Branding & Visual Identity Systems</a>
             <a href="#block-3" className="text-alice-blue-500 font-normal text-base font-maven-pro lg:pl-4" onClick={(e) => { e.preventDefault(); scrollToId('block-3'); }}>Hosting, Maintenance & Security</a>
           </div>
-        </div>
+        </FadeInUp>
       </div>
       <div className="relative flex flex-col w-full h-auto px-4 pt-32 pb-[50px] gap-14 bg-white overflow-x-hidden z-5 md:px-20 lg:pt-[100px]">
         <div className='flex flex-col gap-4'>
           <h3 className='font-bold drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)]'>
-            Our Process is Simple<br className='md:hidden'/> & Effective
+            <FadeInUp>
+              Our Process is Simple<br className='md:hidden'/> & Effective
+            </FadeInUp>
           </h3>
           <p className="text-navy-500">
-            Achieving your vision is easy with our refined and effective approach.
+            <FadeInUp>
+              Achieving your vision is easy with our refined and effective approach.
+            </FadeInUp>
           </p>
         </div>
         
@@ -108,9 +112,12 @@ export default function Process() {
       </div>
       <div className='flex flex-col gap-[16px] bg-alice-blue-500 px-[34px] py-[60px] md:relative'>
         <p className="text-navy-500">
-          Click on any of the service boxes below to learn more about each option.
+          <FadeInUp>
+            Click on any of the service boxes below to learn more about each option.
+          </FadeInUp>
         </p>
       </div>
-    </div>)
+    </div>
+    )
   );
 }32
