@@ -13,8 +13,8 @@ export default function StickyBottomButton() {
       >
         <Link href="/booking" className="w-full flex justify-center">
           <button
-            className="w-40 h-[96px] bg-lime-500 text-navy-500 font-bold text-base flex items-start justify-center pt-4
-              rounded-t-full rounded-b-full shadow-lg hover:bg-lime-600 transition"
+            className="w-40 h-[96px] bg-neongreen-700 text-alice-blue-500 font-bold text-base flex items-start justify-center pt-4
+              rounded-t-full rounded-b-full shadow-lg hover:bg-green-600 transition"
             style={{
               boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
               borderBottomLeftRadius: "9999px",
