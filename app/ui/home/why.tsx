@@ -39,8 +39,8 @@ export default function HomeWhy() {
           </FadeInUp>
         </h3>
 
-        <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
-          <FadeInUp >
+        <FadeInUp >
+          <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto max-w-[600px] md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
             <MuxPlayer
               playbackId="LQbVyBeNte01DWPMOACL02MpcwLBwpXageShslp01ttXcc"
               accentColor="#79DD1A"
@@ -51,8 +51,8 @@ export default function HomeWhy() {
                 ViewerUserId: "user-id-007",
               }}
             />
-          </FadeInUp>
-        </div>  
+          </div>
+        </FadeInUp>
       </div>
     </div>
   </>);
