@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ScrollingChips from "./scrolling-chips"; // Adjust path based on your folder structure
+import FadeInUp from "../components/fade-in-up";
 
 export default function ExtraordinaryContainer() {
   return (
@@ -50,11 +51,15 @@ export default function ExtraordinaryContainer() {
       <div className="flex z-10 p-6 pt-0 flex flex-col items-center justify-start h-full w-full gap-10">
         <div className="w-full max-w-[950px] flex flex-col justify-center items-center gap-6">
           <h4 className="text-white text-center mb-0">
-            Forget Fitting In<br className="" /> Let's Create Something <span className="text-lime-500 italic">Extraordinary!</span>
+            <FadeInUp>
+              Forget Fitting In<br className="" /> Let's Create Something <span className="text-lime-500 italic">Extraordinary!</span>
+            </FadeInUp>
           </h4>
           <hr className="w-[50%] border-t-[0.35px] border-gray-400" />
           <p className="text-white text-center md:px-20">
-            We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
+            <FadeInUp>
+              We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
+            </FadeInUp>
           </p>
         </div>
         <ScrollingChips />

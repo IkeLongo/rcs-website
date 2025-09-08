@@ -5,6 +5,7 @@ import { useState } from "react";
 import {Tab, Tabs} from "@heroui/react";
 import PremiumCard from "./premium-card";
 import NormalCard from "./normal-card";
+import FadeInUp from "../components/fade-in-up";
 
 const plans = [
   {
@@ -105,7 +106,9 @@ export default function Pricing() {
     <div id='pricing' className="relative w-full min-h-[450px] bg-home-pricing-bg bg-cover bg-top">
       <div className="relative z-10 p-6 pt-10 flex flex-col items-center justify-start h-full gap-4">
         <h3>
-          Choose Your Plan!
+          <FadeInUp>
+            Choose Your Plan!
+          </FadeInUp>
         </h3>
       </div>
       <div className='flex flex-col items-center pb-16'>
@@ -166,7 +169,11 @@ export default function Pricing() {
           </div>
         </div>
         <div className="`flex flex-col items-center justify-center px-8">
-          <p className="w-fyll max-w-[500px] mx-auto text-navy-500">Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project’s needs.</p>
+          <p className="w-fyll max-w-[500px] mx-auto text-navy-500">
+            <FadeInUp>
+              Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project’s needs.
+            </FadeInUp>
+          </p>
         </div>
       </div>
     </div>

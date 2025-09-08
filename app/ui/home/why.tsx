@@ -1,7 +1,7 @@
+
 import Image from "../components/image";
 import MuxPlayer from '@mux/mux-player-react/lazy';
-//import Video from 'next-video';
-//import webVideo from '../../../videos/why-choose-rivercity-creatives.mp4.json';
+import FadeInUp from "../components/fade-in-up";
 
 export default function HomeWhy() {
 
@@ -34,7 +34,9 @@ export default function HomeWhy() {
       </div>
       <div className="relative z-10 p-6 pt-0 flex flex-col gap-10 items-center justify-center h-full">
         <h3>
-          Why Choose Us?
+          <FadeInUp>
+            Why Choose Us?
+          </FadeInUp>
         </h3>
 
         <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">

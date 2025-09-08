@@ -1,28 +1,52 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+"use client";
+
+import { ReactNode, useEffect, useRef, useState, ElementType } from "react";
 
 type FadeInUpProps = {
   children: ReactNode;
   delay?: number;
+  always?: boolean;
+  as?: ElementType;
+  className?: string;
 };
 
-export default function FadeInUp({ children, delay = 0 }: FadeInUpProps) {
+export default function FadeInUp({
+  children,
+  delay = 0,
+  always = false,
+  as: Tag = "div",
+  className = "",
+}: FadeInUpProps) {
   const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (always) {
+      setVisible(true);
+      return;
+    }
     const handleScroll = () => {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) setVisible(true);
+      if (rect.top < window.innerHeight - 50 && rect.bottom > 0) {
+        setVisible(true);
+      } else if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+        setVisible(false);
+      }
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [always]);
 
   return (
-    <div
-      ref={ref}
+    <Tag
+      ref={ref as any}
+      className={className}
       style={{
         transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",
         transitionDelay: `${delay}ms`,
@@ -32,6 +56,6 @@ export default function FadeInUp({ children, delay = 0 }: FadeInUpProps) {
       }}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
