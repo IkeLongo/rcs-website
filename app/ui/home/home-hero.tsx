@@ -199,8 +199,8 @@ export default function HomeHero() {
             <h1 className="w-full text-navy-500 z-40">
               <FadeInUp>
                 Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and
-                <br />
-                <span className="italic text-neongreen-700">Branding</span> for Your Business
+                <br className="hidden md:block"/>
+                <span className="italic text-neongreen-700"> Branding</span> for Your Business
               </FadeInUp>
             </h1>
 
