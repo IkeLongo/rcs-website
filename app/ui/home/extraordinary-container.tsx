@@ -49,14 +49,14 @@ export default function ExtraordinaryContainer() {
 
       {/* Main content */}
       <div className="flex z-10 p-6 pt-0 flex flex-col items-center justify-start h-full w-full gap-10">
-        <div className="w-full max-w-[950px] flex flex-col justify-center items-center gap-6">
-          <h4 className="text-white text-center mb-0">
+        <div className="w-full flex flex-col justify-center items-center gap-6">
+          <h3 className="text-white text-center mb-0">
             <FadeInUp>
               Forget Fitting In<br className="" /> Let's Create Something <span className="text-lime-500 italic">Extraordinary!</span>
             </FadeInUp>
-          </h4>
+          </h3>
           <hr className="w-[50%] border-t-[0.35px] border-gray-400" />
-          <p className="text-white text-center md:px-20 text-md2">
+          <p className="text-white text-center md:px-20 text-md md:text-md2">
             <FadeInUp>
               We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
             </FadeInUp>
