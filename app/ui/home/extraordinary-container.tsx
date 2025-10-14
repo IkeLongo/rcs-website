@@ -56,7 +56,7 @@ export default function ExtraordinaryContainer() {
             </FadeInUp>
           </h4>
           <hr className="w-[50%] border-t-[0.35px] border-gray-400" />
-          <p className="text-white text-center md:px-20">
+          <p className="text-white text-center md:px-20 text-md2">
             <FadeInUp>
               We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
             </FadeInUp>

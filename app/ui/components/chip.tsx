@@ -14,7 +14,7 @@ export default function Chip({ icon, title }: OptionProps) {
             height={28}
             style={{ height: "auto" }}
           />
-          <p className="font-maven-pro font-bold">{title}</p>
+          <p className="font-maven-pro font-bold text-md">{title}</p>
         </div>
       </div>)
     );

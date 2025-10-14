@@ -21,7 +21,7 @@ export default function InfoGraphic({ animation, title, description, link, class
           {title}
         </h4>
       </div>
-      <p className="flex-grow">
+      <p className="flex-grow text-md">
         {description}
       </p>
       <Link

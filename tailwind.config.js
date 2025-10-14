@@ -224,7 +224,7 @@ module.exports = {
       },
       fontSize: {
         sm: '14px', // Override `text-sm` to be 14px
-        base: '18px', // Override `text-base` to be 16px
+        base: '16px', // Override `text-base` to be 16px
         md: '18px', // Override `text-md` to be 18px
         md2: '24px',
         lg: '32px', // Override `text-lg` to be 32px
