@@ -229,6 +229,7 @@ module.exports = {
         md2: '24px',
         lg: '32px', // Override `text-lg` to be 32px
         xl: '36px',
+        '2xl': '40px',
       },
       keyframes: {
         "infinite-scroll": {
