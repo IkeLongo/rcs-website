@@ -32,14 +32,14 @@ export default function HomeWhy() {
             }} />
         </div>
       </div>
-      <div className="relative z-10 p-6 pt-0 flex flex-col gap-10 items-center justify-center h-full">
+      <div className="relative z-10 p-6 pt-0 flex flex-col gap-4 items-center justify-center h-full">
         <h3>
           <FadeInUp>
             Why Choose Us?
           </FadeInUp>
         </h3>
 
-        <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] md:w-auto max-w-[600px] md:h-[337px] md:aspect-video lg:h-[400px] lg:w-auto items-center justify-center flex">
+        <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] mt-10 md:mt-0 md:w-auto max-w-[550px] md:max-w-[850px] md:h-[450px] md:aspect-video lg:h-[550px] lg:w-auto items-center justify-center flex">
           <MuxPlayer
             playbackId="LQbVyBeNte01DWPMOACL02MpcwLBwpXageShslp01ttXcc"
             accentColor="#79DD1A"
