@@ -14,7 +14,7 @@ export default function Portfolio() {
           Our Work
         </FadeInUp>
       </h3>
-      <p className="text-navy-500 mt-2 mb-8 text-center max-w-xl px-6">
+      <p className="text-navy-500 mt-2 mb-8 text-center max-w-3xl px-6 text-md2">
         <FadeInUp>
           A selection of websites and brands we've brought to life.
         </FadeInUp>
