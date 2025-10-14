@@ -152,11 +152,16 @@ export default function Profiles() {
               <ModalHeader className="flex flex-col text-gray-900 font-maven-pro text-md2">
                 <User
                   avatarProps={{
+                    showFallback: true,
                     isBordered: true,
                     size: "sm",
                     src: activeProfile?.imageAvatar || activeProfile?.imageRoute,
                     name: activeProfile?.memberName || "Profile Image",
-                    className: "w-16 h-16 rounded-full border border-gray-500 border-width-2",
+                    style: { opacity: 1 },
+                    classNames: {
+                      base: "w-16 h-16 rounded-full border border-gray-500 border-width-2",
+                      img: "opacity-100",
+                    }
                   }}
                   description={
                     <Link isExternal href={activeProfile?.profileLink || "#"} size="sm" className='text-blue-200'>
