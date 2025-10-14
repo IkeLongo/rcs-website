@@ -9,28 +9,29 @@ export default function UniqueWebsites() {
  
   // Array of services to be displayed
   const services = [
-    {
-      animation: webDesignAnimation,
-      title: "Website Design & Development",
-      description:
-        "Our Web Design & Development package delivers captivating designs tailored to engage and convert your audience. Each website is crafted with strategic attention to detail, bringing your digital vision to life with a high-performing, user-friendly website on all devices.",
-      link: "/services#block-1",
-    },
-    {
-      animation: brandingAnimation,
-      title: "Branding & Visual Identity Systems",
-      description:
-        "Our Branding & Visual Identity Systems package creates a cohesive identity that resonates with your audience. From custom logos to color palettes and iconography, we build a distinctive visual story to elevate your brand and leave a lasting impression across all platforms.",
-      link: "/services#block-2",
-    },
-    {
-      animation: hostingAnimation,
-      title: "Hosting, Maintenance & Security",
-      description:
-        "Simplify website management with our Hosting, Maintenance, and Security package, which covers updates, security, and protection. Our package ensures that your site runs smoothly and securely, giving you peace of mind letting you focus on your business.",
-      link: "/services#block-3",
-    },
-  ];
+  {
+    animation: webDesignAnimation,
+    title: "Website Design & Development",
+    description:
+      "Custom-built websites designed to engage your audience and grow your business.",
+    link: "/services#block-1",
+  },
+  {
+    animation: brandingAnimation,
+    title: "Branding & Visual Identity Systems",
+    description:
+      "Craft a unique brand identity with logos, colors, and visuals that leave a lasting impression.",
+    link: "/services#block-2",
+  },
+  {
+    animation: hostingAnimation,
+    title: "Hosting, Maintenance & Security",
+    description:
+      "We keep your website running fast, safe, and up to date—so you can focus on your business.",
+    link: "/services#block-3",
+  },
+];
+
 
   return (
     <div className="relative w-full min-h-[596px] bg-home-do-mountain-range bg-origin-padding bg-cover bg-top py-10 pb-20">
