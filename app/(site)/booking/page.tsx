@@ -1,3 +1,5 @@
+// app/(site)/booking/page.tsx
+
 import { Metadata } from 'next';
 import { BookingWidget } from '@/app/ui/booking/booking';
 import Footer from '@/app/ui/layout/footer';
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://rivercitycreatives.com/booking', // Custom OpenGraph image for the booking page
+        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the booking page
         width: 1200,
         height: 630,
         alt: 'Book a Discovery Call with RiverCity Creatives Branding and Web Design',

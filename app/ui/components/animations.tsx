@@ -1,3 +1,5 @@
+// app/ui/components/animations.tsx
+
 'use client';
 import Lottie from "lottie-react";
 import { CSSProperties } from "react";
@@ -27,4 +29,3 @@ export default function AnimatedLottie({
     />
   );
 }
-

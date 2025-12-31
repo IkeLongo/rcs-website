@@ -1,10 +1,12 @@
+// app/ui/layout/footer.tsx
+
 import Link from 'next/link';
 import Image from "next/image";
 import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
 import AnimatedLottie from "../components/animations";
 import footerAnimation from "@/app/lib/assets/footer-animation.json";
-const { BUSINESS_EMAIL } = process.env;
+const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
 export default function Footer( {bgGradientClass}: FooterProps ) {
 

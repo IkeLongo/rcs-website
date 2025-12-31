@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: 'https://rivercitycreatives.com/privacy', // Custom OpenGraph image for the booking page
+        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the booking page
         width: 1200,
         height: 630,
         alt: 'Privacy Policy | RiverCity Creatives Web Design & Branding',
