@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
   },
   openGraph: {
+    type: 'website',
     images: [
       {
-        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the booking page
+        url: 'https://rivercitycreatives.com/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Privacy Policy | RiverCity Creatives Web Design & Branding',
-        type: 'website', // Specify the MIME type
       },
     ],
   },
