@@ -1,0 +1,8 @@
+// app/ui/components/toaster.tsx
+"use client";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export default function Toaster() {
+  return <ToastContainer limit={1} theme="dark" />;
+}

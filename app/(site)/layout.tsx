@@ -1,17 +1,16 @@
-import Navbar from '@/app/ui/layout/navbar/navbar';
-import CookieBanner from '@/app/ui/cookie-prefs/cookie-banner';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// app/(site)/layout.tsx
+
+import Navbar from "@/app/ui/layout/navbar/navbar";
+import Toaster from "@/app/ui/components/toaster";
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <CookieBanner />
       <main className="fixed top-0 z-50 w-full">
         <Navbar />
-        <ToastContainer limit={1} theme="dark" />
+        <Toaster />
       </main>
-      <div>{children}</div> {/* offset for navbar */}
+      <div>{children}</div>
     </>
   );
 }

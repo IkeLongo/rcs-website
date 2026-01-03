@@ -9,10 +9,6 @@ import {
   DrawerBody,
   DrawerFooter,
   Button,
-  useDisclosure,
-  Input,
-  Checkbox,
-  Link,
 } from "@heroui/react";
 import PreferencesModal from './cookie-preferences';
 

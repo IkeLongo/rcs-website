@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://rivercitycreatives.com/privacy', // Add your canonical URL here
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function Home() {

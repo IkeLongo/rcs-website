@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://rivercitycreatives.com/terms', // Add your canonical URL here
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function Home() {

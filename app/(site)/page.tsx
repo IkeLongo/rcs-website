@@ -1,12 +1,14 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+// app/(site)/page.tsx
+
+import { Suspense } from 'react';
 
 import HomeHero from '@/app/ui/home/home-hero';
-const HomeWhy = lazy(() => import('@/app/ui/home/why'));
-const UniqueWebsites = lazy(() => import('@/app/ui/home/crafting-unique-websites'));
-const ExtraordinaryConatiner = lazy(() => import('@/app/ui/home/extraordinary-container'));
-const Portfolio = lazy(() => import('@/app/ui/home/portfolio'));
-const Pricing = lazy(() => import('@/app/ui/pricing/selector'));
-const Footer = lazy(() => import('@/app/ui/layout/footer'));
+import HomeWhy from '@/app/ui/home/why';
+import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
+import ExtraordinaryContainer from '@/app/ui/home/extraordinary-container';
+import Portfolio from '@/app/ui/home/portfolio';
+import Pricing from '@/app/ui/pricing/selector';
+import Footer from '@/app/ui/layout/footer';
 import StickyBottomButton from '../ui/components/sticky-button-bottom';
 
 export default function Home() {
@@ -22,7 +24,7 @@ export default function Home() {
           <UniqueWebsites />
         </Suspense>
         <Suspense fallback={null}>
-          <ExtraordinaryConatiner />
+          <ExtraordinaryContainer />
         </Suspense>
         <Suspense fallback={null}>
           <Portfolio />

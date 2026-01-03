@@ -6,7 +6,12 @@ import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
 import AnimatedLottie from "../components/animations";
 import footerAnimation from "@/app/lib/assets/footer-animation.json";
+
 const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
+
+function getCurrentYear() {
+  return new Date().getFullYear();
+}
 
 export default function Footer( {bgGradientClass}: FooterProps ) {
 
@@ -217,7 +222,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           </div>
           <div className="flex items-center justify-center pb-12">
             <p className="font-roboto text-sm font-light text-white">
-              © 2024 All Rights Reserved
+              © {getCurrentYear()} All Rights Reserved
             </p>
           </div>
         </div>
@@ -242,7 +247,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
         </div>
         <div className="flex items-center justify-center">
           <p className="font-roboto text-[11px] font-light text-white">
-            © 2024 All Rights Reserved
+            © {getCurrentYear()} All Rights Reserved
           </p>
         </div>
       </div>
