@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import MetadataRoute from "next";
 const { SITE_NAME_VAR } = process.env;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -1,6 +1,6 @@
 import { Main } from '@/app/ui/terms/main';
 import Footer from '@/app/ui/layout/footer';
-import { Metadata } from 'next';
+import Metadata from 'next';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',

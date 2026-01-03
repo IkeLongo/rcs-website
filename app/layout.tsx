@@ -5,7 +5,7 @@ import Analytics from "./actions/analytics/analytics";
 import FadeOverlay from "./ui/components/fade-overlay";
 
 import { ReactNode } from "react";
-import type { Metadata } from 'next'
+import Metadata from 'next'
 import { ToastContainer, toast } from 'react-toastify';
 import './globals.css';
 import "react-toastify/dist/ReactToastify.css";

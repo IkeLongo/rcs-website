@@ -1,6 +1,6 @@
 // app/(site)/booking/page.tsx
 
-import { Metadata } from 'next';
+import Metadata from 'next';
 import { BookingWidget } from '@/app/ui/booking/booking';
 import Footer from '@/app/ui/layout/footer';
 
