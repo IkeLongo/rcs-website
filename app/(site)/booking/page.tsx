@@ -1,30 +1,26 @@
 // app/(site)/booking/page.tsx
 
-import Metadata from 'next';
+import type { Metadata } from "next";
 import { BookingWidget } from '@/app/ui/booking/booking';
 import Footer from '@/app/ui/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Book a Discovery Call',
-  description: "Schedule a free discovery call with River City Creatives. Let’s talk about your brand, website, and how we can bring your vision to life.",
-  twitter: {
-    card: 'summary_large_image',
-  },
+  title: "Book a Discovery Call",
+  description:
+    "Schedule a free discovery call with River City Creatives. Let’s talk about your brand, website, and how we can bring your vision to life.",
+  alternates: { canonical: "https://rivercitycreatives.com/booking" },
   openGraph: {
     images: [
       {
-        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the booking page
+        url: "https://rivercitycreatives.com/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: 'Book a Discovery Call with RiverCity Creatives Branding and Web Design',
-        type: 'website', // Specify the MIME type
+        alt: "Book a Discovery Call with RiverCity Creatives Branding and Web Design",
       },
     ],
   },
-  alternates: {
-    canonical: 'https://rivercitycreatives.com/booking', // Add your canonical URL here
-  },
-}
+  twitter: { card: "summary_large_image" },
+};
 
 export default function Booking() {
 
