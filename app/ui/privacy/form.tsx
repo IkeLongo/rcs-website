@@ -1,9 +1,8 @@
 "use client";
 
-import {Form, Input, Button, Textarea, Select, SelectItem} from "@heroui/react";
+import {Form, Input, Button, Textarea} from "@heroui/react";
 import React, { useState, useRef, FormEvent } from "react";
 import emailjs from '@emailjs/browser';
-import {toast} from 'react-toastify';
 import { PrivacyFormData } from "@/types/components";
 
 export const selections = [
@@ -16,39 +15,15 @@ export const selections = [
   {key: "profiling", label: "Profiling"},
 ];
 
+async function getToast() {
+  const mod = await import("react-toastify");
+  return mod.toast;
+}
+
 export default function PrivacyContactForm() {
   const [submitted, setSubmitted] = useState<PrivacyFormData | null>(null); // ✅ Ensure state matches form data type
   const formRef = useRef<HTMLFormElement>(null); // ✅ Correctly type useRef
   const [isOpen, setIsOpen] = React.useState(false);
-
-  // ✅ Type the Form Submission Handler
-  // const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   const formData = new FormData(e.currentTarget);
-  //   const data: PrivacyFormData = Object.fromEntries(formData) as PrivacyFormData; // ✅ Type cast as `PrivacyFormData`
-
-  //   setSubmitted(data);
-  //   console.log("Submitting data:", data);
-
-  //   try {
-  //     const response = await fetch("/api/dpoContact", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(data),
-  //     });
-
-  //     if (!response.ok) {
-  //       const errorData = await response.json();
-  //       throw new Error(`Network response was not ok: ${response.status} - ${errorData.message}`);
-  //     }
-
-  //     const result = await response.json();
-  //     console.log("Success:", result);
-  //   } catch (error) {
-  //     console.error("There was an error!", error);
-  //   }
-  // };
 
   // ✅ Type the Email Sending Handler
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
@@ -60,13 +35,13 @@ export default function PrivacyContactForm() {
       .sendForm("service_of79jpv", "template_rrjiba9", formRef.current, {
         publicKey: "aeIyCorze0snqKQe0",
       })
-      .then(
-        () => {
+      .then(async () => {
           console.log("SUCCESS!");
           // ✅ Reset the form using `formRef.current`
           if (formRef.current) {
             formRef.current.reset(); 
           }
+          const toast = await getToast();
           toast.success("Form submitted successfully!", {
             className: "bg-gray-900",
           });

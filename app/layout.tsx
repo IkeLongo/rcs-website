@@ -3,12 +3,11 @@
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import Analytics from "./actions/analytics/analytics";
 import FadeOverlay from "./ui/components/fade-overlay";
+import ToastProvider from "@/app/ui/providers/toast-provider";
 
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { ToastContainer, toast } from 'react-toastify';
 import './globals.css';
-import "react-toastify/dist/ReactToastify.css";
 
 // Add this line to access GTM_ID
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
@@ -67,7 +66,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </noscript>
         )}
         <CookieBanner />
-        <ToastContainer limit={1} theme="dark" />
+        {/* ✅ Global toast container mounted once, client-side */}
+        <ToastProvider />
         {children}
       </body>
     </html>
