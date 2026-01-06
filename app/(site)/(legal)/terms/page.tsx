@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Main } from '@/app/ui/terms/main';
 import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";

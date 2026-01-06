@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import { TeamMember } from "@/types/components";
