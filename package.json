@@ -48,6 +48,7 @@
     "next-auth": "5.0.0-beta.25",
     "next-video": "^2.1.0",
     "nodemailer": "^6.10.0",
+    "rcs-website": "link:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-lottie": "^1.2.9",

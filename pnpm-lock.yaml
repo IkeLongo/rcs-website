@@ -116,6 +116,9 @@ importers:
       nodemailer:
         specifier: ^6.10.0
         version: 6.10.0
+      rcs-website:
+        specifier: 'link:'
+        version: 'link:'
       react:
         specifier: ^19.0.0
         version: 19.0.0
