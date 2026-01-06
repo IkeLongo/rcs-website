@@ -1,4 +1,5 @@
 // app/(site)/booking/page.tsx
+export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
 import { BookingWidget } from '@/app/ui/booking/booking';
