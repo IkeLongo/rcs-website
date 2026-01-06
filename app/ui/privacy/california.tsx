@@ -1,7 +1,8 @@
-const { DBA_NAME } = process.env;
-const { BUSINESS_EMAIL } = process.env;
 
 export async function California() {
+  const { DBA_NAME } = process.env;
+  const { BUSINESS_EMAIL } = process.env;
+  
   return (
     <section id="do-california-residents-have-specific-privacy-rights" className="mt-8">
       <h4 className="text-navy-975">14. Do California Residents Have Specific Privacy Rights?</h4>

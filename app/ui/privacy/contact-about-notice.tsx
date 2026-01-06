@@ -1,9 +1,10 @@
-const { LEGAL_COMPANY_NAME } = process.env;
-const { DBA_NAME } = process.env;
-const { SITE_NAME_VAR } = process.env;
-const { BUSINESS_EMAIL } = process.env;
 
 export async function ContactAboutNotice() {
+  const { LEGAL_COMPANY_NAME } = process.env;
+  const { DBA_NAME } = process.env;
+  const { SITE_NAME_VAR } = process.env;
+  const { BUSINESS_EMAIL } = process.env;
+  
   return (
     <section id="how-can-you-contact-us-about-this-notice" className="mt-8">
       <h4 className="text-navy-975">17. How Can You Contact Us About This Notice?</h4>

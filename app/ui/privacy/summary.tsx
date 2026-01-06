@@ -1,7 +1,8 @@
-const { LEGAL_COMPANY_NAME } = process.env;
-const { BUSINESS_EMAIL } = process.env;
 
 export async function Summary() {
+  const { LEGAL_COMPANY_NAME } = process.env;
+  const { BUSINESS_EMAIL } = process.env;
+
   return (
     <section id="key-points" className="mt-8">
       <h4 className="text-navy-975">Summary of Key Points</h4>

@@ -8,6 +8,7 @@ interface TeamMemberCardProps {
   onClick: () => void;
   onViewProfile: () => void; // ✅ Modal handler
   isSmallScreen?: boolean; // ✅ Small screen flag
+  priority?: boolean;
 }
 
 export default function TeamMemberCard({
@@ -16,6 +17,7 @@ export default function TeamMemberCard({
   onClick,
   onViewProfile,
   isSmallScreen = false,
+  priority = true,
 }: TeamMemberCardProps) {
   return (
     <div
@@ -41,7 +43,19 @@ export default function TeamMemberCard({
           alt={member.imageDescription}
           className={`object-cover ${member.imagePosition || "object-center"}`}
           fill
-          //sizes="100vw"
+          priority={priority}
+          // Tells Next/Netlify the *actual* rendered size per breakpoint
+          sizes={
+            isSmallScreen
+              ? selected
+                ? "100vw"        // selected card on mobile is full width
+                : "33vw"         // 1/3 width thumbnails on mobile
+              : selected
+              ? "50vw"           // selected card is ~half width on desktop
+              : "17vw"           // 1/6 width cards
+          }
+          // Optional but helpful:
+          quality={70}
         />
         
         {/* Member Info Footer */}

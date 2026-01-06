@@ -7,13 +7,12 @@ import { FooterProps } from '@/types/components';
 import AnimatedLottie from "../components/animations";
 import footerAnimation from "@/app/lib/assets/footer-animation.json";
 
-const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
-
 function getCurrentYear() {
   return new Date().getFullYear();
 }
 
 export default function Footer( {bgGradientClass}: FooterProps ) {
+  const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
   return (
     (<div className="relative w-full h-auto shrink-0 px-8 pb-1 md:py-10 md:pb-14 z-0 lg:pt-10 bg-navy-500">

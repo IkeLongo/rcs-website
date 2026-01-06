@@ -46,7 +46,7 @@ const people: TeamMember[] = [
   {
     memberName: "Derek Prado",
     position: "Assistant Software Engineer",
-    imageRoute: "/Image 4.jpg",
+    imageRoute: "/derek-profile-image.jpg",
     imagePosition: "object-bottom",
     imageDescription: "Profile image of Derek Prado",
     bgImageClass: "bg-photo-4",
@@ -97,6 +97,7 @@ export default function Profiles() {
             key={index}
             member={member}
             selected={selectedTeamMember === index}
+            priority={selectedTeamMember === index}
             onClick={() => handleProfileClick(index)}
             onViewProfile={() => {
               setActiveProfile(member);
@@ -114,6 +115,7 @@ export default function Profiles() {
           selected={true}
           onClick={() => handleProfileClick(selectedTeamMember)}
           isSmallScreen={true}
+          priority={true}
           onViewProfile={() => {
             setActiveProfile(people[selectedTeamMember]);
             onOpen();
@@ -135,6 +137,7 @@ export default function Profiles() {
                 selected={false}
                 onClick={() => setSelectedTeamMember(index)} // ✅ Now setting the correct index
                 isSmallScreen={true}
+                priority={false}
                 onViewProfile={() => {
                   setActiveProfile(member);
                   onOpen();
