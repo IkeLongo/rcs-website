@@ -1,8 +1,7 @@
+const { DBA_NAME } = process.env;
+const { BUSINESS_EMAIL } = process.env;
 
 export async function Virginia() {
-  const { DBA_NAME } = process.env;
-  const { BUSINESS_EMAIL } = process.env;
-  
   return (
     <section id="do-virginia-residents-have-specific-privacy-rights" className="mt-8">
       <h4 className="text-navy-975">15. Do Virginia Residents Have Specific Privacy Rights?</h4>

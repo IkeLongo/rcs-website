@@ -1,6 +1,6 @@
+const { DBA_NAME } = process.env;
 
 export async function InfoTranIntl() {
-  const { DBA_NAME } = process.env;
   return (
     <section id="is-your-information-transferred-internationally" className="mt-8">
       <h4 className="text-navy-975">8. Is Your Information Transfered Internationaly?</h4>

@@ -1,6 +1,6 @@
+const { BUSINESS_EMAIL } = process.env;
 
 export async function MinorInfo() {
-  const { BUSINESS_EMAIL } = process.env;
   return (
     <section id="do-we-collect-information-from-minors" className="mt-8">
       <h4 className="text-navy-975">11. Do We Colect Information From Minors?</h4>

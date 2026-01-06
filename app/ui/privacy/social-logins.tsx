@@ -1,4 +1,4 @@
-export async function SocialLogins() {
+export async function SocailLogins() {
   return (
     <section id="how-do-we-handle-your-social-logins" className="mt-8">
       <h4 className="text-navy-975">7. How Do We Handle Your Social Logins?</h4>

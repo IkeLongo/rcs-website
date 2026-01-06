@@ -73,21 +73,11 @@ export default function MobileMenu () {
           onClick={toggleMenu}  // Close the menu when a link is clicked and toggle the menu state
         />
         <Button
-          onPress={() => {
-            setMenuOpen(false);
-            if (typeof window !== 'undefined') {
-              const action = window.confirm('Would you like to call or text 210-730-6232? Click OK to call, Cancel to text.');
-              if (action) {
-                window.location.href = 'tel:2107306232';
-              } else {
-                window.location.href = 'sms:2107306232';
-              }
-            }
-          }}
-          className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 lg:text-[16px]">
-          <span className="h-full flex items-center justify-center">
-            Call Now
-          </span>
+          onPress={toggleMenu}  // Close the menu when the button is clicked
+          className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4">
+          <Link href="/booking" className="w-full h-full flex items-center justify-center">
+            Book a Call
+          </Link>
         </Button>
       </div>
     </div>)

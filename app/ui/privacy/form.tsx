@@ -19,6 +19,36 @@ export const selections = [
 export default function PrivacyContactForm() {
   const [submitted, setSubmitted] = useState<PrivacyFormData | null>(null); // ✅ Ensure state matches form data type
   const formRef = useRef<HTMLFormElement>(null); // ✅ Correctly type useRef
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  // ✅ Type the Form Submission Handler
+  // const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget);
+  //   const data: PrivacyFormData = Object.fromEntries(formData) as PrivacyFormData; // ✅ Type cast as `PrivacyFormData`
+
+  //   setSubmitted(data);
+  //   console.log("Submitting data:", data);
+
+  //   try {
+  //     const response = await fetch("/api/dpoContact", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     if (!response.ok) {
+  //       const errorData = await response.json();
+  //       throw new Error(`Network response was not ok: ${response.status} - ${errorData.message}`);
+  //     }
+
+  //     const result = await response.json();
+  //     console.log("Success:", result);
+  //   } catch (error) {
+  //     console.error("There was an error!", error);
+  //   }
+  // };
 
   // ✅ Type the Email Sending Handler
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
@@ -172,6 +202,74 @@ export default function PrivacyContactForm() {
           }}
         />
       </div>
+      {/* <Select
+        isRequired
+        name="type"
+        errorMessage="Please select a request type"
+        className="text-blue-500/60"
+        placeholder="Choose Request Type"
+        variant="faded"
+        defaultOpen={true}
+        aria-label="Request Type"
+        isOpen={isOpen}
+        onOpenChange={(open) => setIsOpen(open)}
+        onChange={(value) => {
+          console.log("Selected value:", value);
+        }}
+        classNames={{
+          value: [
+            "text-blue-500/60",
+            "group-data-[has-value=true]:text-blue-500/60",
+          ],
+          trigger: [
+            "bg-white",
+            "border-navy-900",
+          ],
+          listbox: [
+            "bg-white",
+            "rounded-[14px]",
+            "text-navy-900",
+          ],
+          innerWrapper: "bg-white hover:bg-white",
+          // inputWrapper: [
+          //   "shadow-xl",
+          //   "bg-gray-900",
+          //   "border-gray-300",
+          //   "!cursor-text",
+          // ],
+          selectorIcon: [
+            "right-2",
+            "text-blue-500/60"
+          ]
+        }}
+        listboxProps={{
+          itemClasses: {
+            base: [
+              "bg-white",
+              "text-blue-500/60",
+              "transition-opacity",
+              "data-[hover=true]:text-navy-500",
+              "data-[hover=true]:bg-white",
+              "dark:data-[hover=true]:bg-default-50",
+              "data-[selectable=true]:focus:bg-default-50",
+              "data-[pressed=true]:opacity-70",
+              "data-[focus-visible=true]:ring-default-500",
+            ],
+          },
+        }}
+        popoverProps={{
+          classNames: {
+            base: "rounded-[14px]",
+            content: "bg-white p-0 border-medium border-navy-500 rounded-[14px]",
+          },
+        }}
+      >
+        {selections.map((selection) => (
+          <SelectItem key={selection.key} className="text-white bg-gray-900"
+          >
+            {selection.label}</SelectItem>
+        ))}
+      </Select> */}
       
       <Textarea
         isRequired

@@ -1,9 +1,9 @@
-export async function PrivacyNotice() {
-  const { LEGAL_COMPANY_NAME } = process.env;
-  const { DBA_NAME } = process.env;
-  const { SITE_NAME_VAR } = process.env;
-  const { BUSINESS_EMAIL } = process.env;
+const { LEGAL_COMPANY_NAME } = process.env;
+const { DBA_NAME } = process.env;
+const { SITE_NAME_VAR } = process.env;
+const { BUSINESS_EMAIL } = process.env;
 
+export async function PrivacyNotice() {
   return (
     <section id="privacy-notice">
       <h4 className="text-navy-975 font-semibold">Privacy Notice</h4>

@@ -1,6 +1,6 @@
+const { BUSINESS_EMAIL } = process.env;
 
 export async function PrivacyRights() {
-  const { BUSINESS_EMAIL } = process.env;
   return (
     <section id="what-are-your-privacy-rights" className="mt-8">
       <h4 className="text-navy-975">12. What Are Your Privacy Rights?</h4>

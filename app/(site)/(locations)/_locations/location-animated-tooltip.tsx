@@ -28,7 +28,7 @@ const people = [
     name: "Derek Prado",
     designation: "Assistant Software Engineer",
     image:
-      "/derek-profile-image.jpg",
+      "/Image 4.jpg",
   },
   // {
   //   id: 5,

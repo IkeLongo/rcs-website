@@ -33,16 +33,11 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
               />
               <Button
-                onPress={() => {
-                  setMenuOpen(false);
-                  if (typeof window !== 'undefined') {
-                    window.location.href = 'tel:2107306232';
-                  }
-                }}
+                onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked
                 className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 lg:text-[16px]">
-                <span className="h-full flex items-center justify-center">
-                  Call Now
-                </span>
+                <Link href="/booking" className="h-full flex items-center justify-center">
+                  Book a Call
+                </Link>
               </Button>
               <Button
                 onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked

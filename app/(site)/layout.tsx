@@ -8,7 +8,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <>
       <main className="fixed top-0 z-50 w-full">
         <Navbar />
-        {/* <Toaster /> */}
+        <Toaster />
       </main>
       <div>
         {children}
