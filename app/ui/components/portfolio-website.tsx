@@ -31,7 +31,7 @@ export default function PortfolioWebsite({ bg, web, name, link }: PortfolioWebsi
           />
         </div>
       </div>
-      <h4 className="text-navy-500 text-center mt-5 text-md" style={{ marginTop: 20 }}>
+      <h4 className="!text-navy-500 text-center mt-5 !text-md" style={{ marginTop: 20 }}>
         {name}
       </h4>
     </div>

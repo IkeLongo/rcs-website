@@ -50,8 +50,10 @@ export default function ExtraordinaryContainer() {
       {/* Main content */}
       <div className="flex z-10 p-6 pt-0 flex flex-col items-center justify-start h-full w-full gap-10">
         <div className="w-full flex flex-col justify-center items-center gap-6">
-          <h3 className="text-white text-center mb-0">
-            <FadeInUp>
+          <h3 className="">
+            <FadeInUp
+              className="text-white text-center mb-0"
+            >
               Forget Fitting In<br className="" /> Let's Create Something <span className="text-lime-500 italic">Extraordinary!</span>
             </FadeInUp>
           </h3>

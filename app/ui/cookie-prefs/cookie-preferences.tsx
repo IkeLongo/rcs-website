@@ -46,12 +46,12 @@ const updateCookiePreferences = (prefs?: { functional: boolean; statistical: boo
 
   return (
     <>
-      <Modal backdrop="blur" className="max-w-lg max-h-[600px] md:max-h-none" scrollBehavior="inside" isDismissable={false} isOpen={isOpen} onClose={onClose}>
+      <Modal backdrop="blur" className="max-w-lg max-h-[600px] md:max-h-none rounded-lg" scrollBehavior="inside" isDismissable={false} isOpen={isOpen} onClose={onClose}>
         <ModalContent className="bg-navy-900 flex justify-center items-center">
           {(onClose) => (
             <>
               <ModalHeader className="font-gentium-book-plus text-[24px] md:text-md2 font-semibold my-4 text-center text-white">Cookies & Your Privacy</ModalHeader>
-              <ModalBody className='font-avenir text-[16px]'>
+              <ModalBody className='font-avenir text-[16px] text-white'>
                 <p className='text-left'>We use cookies to gather information about your interactions with our website. This helps us:</p>
                 <ul className='list-decimal list-inside'>
                   <li className="text-white"><strong>Enhance your browsing experience</strong> (functional)</li>
@@ -139,7 +139,7 @@ const updateCookiePreferences = (prefs?: { functional: boolean; statistical: boo
               <ModalFooter>
                 <Button
                   variant="solid"
-                  className='bg-green-500 text-white font-bold'
+                  className='bg-green-500 text-white font-bold rounded-lg py-2'
                   onPress={() => {
                     updateCookiePreferences();
                     onClose();
@@ -149,7 +149,7 @@ const updateCookiePreferences = (prefs?: { functional: boolean; statistical: boo
                 </Button>
                 <Button
                   variant="bordered"
-                  className="border-green-500 text-white font-bold"
+                  className="border-green-500 text-white font-bold rounded-lg py-2"
                   onPress={() => {
                     updateCookiePreferences();
                     onClose();

@@ -58,9 +58,9 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
             height: "auto"
           }} />
         <h4
-          className={`font-maven-pro font-bold ease-in-out duration-500 md:pt-10 ${
-            isHalfway && !isLg ? 'text-[28px] md:text-[18px]' : 'text-[24px] md:text-[16px]'
-          } text-navy-500 ${isLg ? 'group-hover:text-[26px] lg:text-[22px]' : ''}`}
+          className={`!font-maven-pro !font-bold ease-in-out duration-500 md:pt-10 ${
+            isHalfway && !isLg ? '!text-[28px] !md:text-[18px]' : '!text-[24px] !md:text-[16px]'
+          } !text-navy-500 ${isLg ? 'group-hover:!text-[26px] lg:!text-[22px]' : ''}`}
           dangerouslySetInnerHTML={{ __html: title }}
         />
       </div>

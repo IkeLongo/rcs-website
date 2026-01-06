@@ -64,7 +64,7 @@ export default function TeamMemberCard({
             {/* View Profile Button next to the name */}
             {selected && (
               <Button
-                className="bg-green-500 text-white font-semibold rounded-lg ml-4"
+                className="bg-green-500 text-white font-semibold rounded-lg ml-4 min-h-8"
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent parent click event
                   onViewProfile();

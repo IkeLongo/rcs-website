@@ -55,7 +55,7 @@ export default function AccordionItem({ animation, iconDescription, title, descr
       </div>
       <div ref={contentRef} className={`accordion-content ${isOpen ? 'open' : ''}`}>
         <div className='flex flex-col p-[30px] gap-[30px] pt-0 justify-start border-b border-solid border-lime-500'>
-          <p className='text-left'>
+          <p className='!text-left'>
             {description}
           </p>
           <Link href="/#plan" passHref scroll={false}>

@@ -89,7 +89,7 @@ export default function Process() {
               Our Process is Simple<br className='md:hidden'/> & Effective
             </FadeInUp>
           </h3>
-          <p className="text-navy-500">
+          <p className="!text-navy-500">
             <FadeInUp>
               Achieving your vision is easy with our refined and effective approach.
             </FadeInUp>
@@ -111,7 +111,7 @@ export default function Process() {
         
       </div>
       <div className='flex flex-col gap-[16px] bg-alice-blue-500 px-[34px] py-[60px] md:relative'>
-        <p className="text-navy-500">
+        <p className="!text-navy-500">
           <FadeInUp>
             Click on any of the service boxes below to learn more about each option.
           </FadeInUp>

@@ -76,7 +76,7 @@ export default function CookieBanner() {
                 We Respect Your Privacy
               </DrawerHeader>
               <DrawerBody>
-                <p className='text-left'>
+                <p className='text-left text-white'>
                   We use cookies to tailor our website and services to your preferences, as well as
                   for analytics and performance tracking. By continuing to use our website and
                   products, you consent to our use of cookies.
@@ -85,14 +85,14 @@ export default function CookieBanner() {
               <DrawerFooter className='justify-start'>
                 <Button
                   variant="solid"
-                  className="bg-green-500 text-white font-bold"
+                  className="bg-green-500 text-white font-bold rounded-lg py-2"
                   onPress={acceptAllCookies}
                 >
                   Accept All
                 </Button>
                 <Button
                   variant="bordered"
-                  className="border-green-500 text-white font-bold"
+                  className="border-green-500 text-white font-bold rounded-lg py-2"
                   onPress={configureCookies}
                 >
                   Configure Cookies

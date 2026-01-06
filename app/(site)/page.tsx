@@ -14,7 +14,7 @@ import StickyBottomButton from '../ui/components/sticky-button-bottom';
 export default function Home() {
 
   return (
-    <div className='relative'>
+    <div className='base relative'>
       <div className="relative h-auto w-full bg-cover bg-top bg-navy-500 overflow-x-hidden">
         <HomeHero />
         <Suspense fallback={null}>

@@ -26,35 +26,84 @@ html, body {
 }
 
 @layer base {
-  h1 {
-    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center text-white;
+  .base h1 {
+    @apply font-gentium-book-plus font-bold text-lg lg:text-xl text-center;
   }
-  h2 {
+  .base h2 {
     @apply font-gentium-book-plus font-bold text-md2 lg:text-xl text-center text-white;
   }
-  h3 {
+  .base h3 {
     @apply font-gentium-book-plus drop-shadow-none text-lg md:text-xl font-semibold my-4 text-navy-500 drop-shadow-[2px_5px_4.6px_rgba(0,0,0,0.2)] text-center;
   }
-  h4 {
+  .base h4 {
     @apply font-gentium-book-plus text-md2 md:text-lg font-semibold my-6 text-center text-white;
   }
-  p {
+  .base p {
     @apply font-avenir text-base lg:text-base text-white text-center;
   }
-  li {
+  .base li {
     @apply font-avenir text-base lg:text-base text-navy-975 text-left;
   }
-  td {
+  .base td {
     @apply font-avenir text-base lg:text-base text-navy-975 text-left;
   }
-  .btn-primary {
+  .base .btn-primary {
     @apply w-[140px] h-[36px] font-maven-pro text-blue-700 text-sm font-bold rounded-[24px] bg-babyblue-300 lg:text-[16px] lg:w-[180px] lg:h-[48px];
   }
-  button {
+  .base button {
     @apply font-maven-pro py-2 rounded-[14px];
   }
-  input {
+  .base input {
     @apply py-2;
+  }
+
+  .locations {
+    /* optional: ensures consistent type rendering */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .locations h1 {
+    @apply font-gentium-book-plus font-bold tracking-tight leading-tight;
+  }
+  .locations h2 {
+    @apply font-gentium-book-plus font-semibold tracking-tight leading-snug;
+  }
+  .locations h3 {
+    @apply font-gentium-book-plus font-semibold leading-snug;
+  }
+  .locations h4 {
+    @apply font-gentium-book-plus font-semibold leading-snug;
+  }
+  .locations p {
+    @apply font-avenir leading-relaxed;
+  }
+  .locations li {
+    @apply font-avenir leading-relaxed;
+  }
+  .locations a {
+    @apply font-maven-pro;
+  }
+  /* Helpers (still no colors) */
+  .locations .loc-kicker {
+    @apply text-sm md:text-base opacity-80;
+  }
+  .locations .loc-lede {
+    @apply text-base md:text-lg leading-relaxed opacity-95;
+  }
+  .locations .loc-h1 {
+    @apply text-3xl md:text-5xl;
+  }
+  .locations .loc-h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  .locations .loc-h3 {
+    @apply text-xl md:text-2xl;
+  }
+  .locations .loc-card {
+    @apply rounded-2xl border p-5 md:p-6 shadow-sm;
+  }
+  .locations .loc-button {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-maven-pro font-semibold transition;
   }
 }
 
@@ -81,6 +130,21 @@ hls-video {
   border-radius: 20px;
   overflow: hidden;
   background: transparent !important;
+}
+
+/* Only hide UI on mux players inside .mux-bg */
+.mux-bg mux-player::part(controls),
+.mux-bg mux-player::part(center-play-button),
+.mux-bg mux-player::part(bottom-play-button),
+.mux-bg mux-player::part(time),
+.mux-bg mux-player::part(captions),
+.mux-bg mux-player::part(airplay),
+.mux-bg mux-player::part(pip),
+.mux-bg mux-player::part(fullscreen),
+.mux-bg mux-player::part(settings),
+.mux-bg mux-player::part(menu),
+.mux-bg mux-player::part(control-bar bottom) {
+  display: none !important;
 }
 
 @keyframes chipRain {

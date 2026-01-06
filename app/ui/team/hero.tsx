@@ -20,12 +20,14 @@ export async function Hero() {
       <div className="relative flex flex-col h-auto gap-10 mt-28 md:mt-40 md:z-5">
         {/* Heading and Description */}
         <div className="flex flex-col gap-1 max-w-96 self-center md:w-full md:max-w-[900px] md:px-16">
-          <h1 className="w-auto text-left font-bold drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] lg:text-[46px]">
-            <FadeInUp>
+          <h1 className="w-auto !text-blue-200 text-left !font-bold drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] lg:text-[46px]">
+            <FadeInUp
+              className="!font-gentium-book-plus"
+            >
               Our Team
             </FadeInUp>
           </h1>
-          <p className="font-avenir text-left leading-5">
+          <p className="font-avenir !text-white text-left leading-5">
             <FadeInUp>
               Meet our team of passionate professionals dedicated to delivering outstanding results for your business. With backgrounds in graphic design, web development, and tech solutions, we have the necessary experience to elevate your online presence.
             </FadeInUp>

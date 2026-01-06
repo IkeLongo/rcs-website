@@ -38,8 +38,10 @@ export default function UniqueWebsites() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
       <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">
-        <h3 className="text-white">
-          <FadeInUp>
+        <h3 className="">
+          <FadeInUp
+            className="text-white"
+          >
             Crafting Unique Websites
           </FadeInUp>
         </h3>

@@ -9,7 +9,7 @@ import Image from 'next/image';
 const people: TeamMember[] = [
   {
     memberName: "Isaac Longoria",
-    position: "Web Master",
+    position: "Software Engineer",
     imageRoute: "/isaac-profile-image.webp",
     imageAvatar: "/isaac-headshot-avatar.webp",
     imagePosition: "object-top",
@@ -23,7 +23,7 @@ const people: TeamMember[] = [
   },
   {
     memberName: "Barbara Longoria",
-    position: "Chief Creative Officer",
+    position: "UX Designer",
     imageRoute: "/barbara-profile-image.webp",
     imagePosition: "object-top",
     imageDescription: "Profile image of Barbara Longoria",
@@ -34,7 +34,7 @@ const people: TeamMember[] = [
   },
   {
     memberName: "Caitlyn Longoria",
-    position: "Assistant Designer",
+    position: "Branding Assistant",
     imageRoute: "/caitlyn-profile-image.webp",
     imagePosition: "object-top",
     imageDescription: "Profile image of Caitlyn Longoria",
@@ -186,7 +186,7 @@ export default function Profiles() {
                 <p className='text-white text-left'>{activeProfile?.description}</p>
               </ModalBody>
               <ModalFooter className='bg-navy-975'>
-                <Button className='bg-blue-900 text-white font-bold' variant="light" onPress={onClose}>
+                <Button className='bg-blue-900 text-white font-bold rounded-lg min-h-8' variant="light" onPress={onClose}>
                   Close
                 </Button>
               </ModalFooter>

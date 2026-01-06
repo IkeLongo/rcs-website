@@ -16,29 +16,29 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
           <div className='flex flex-col self-stretch grow'>
             <div className='-mt-12 lg:-mt-12'>
               <div className="flex flex gap-1 items-end transition-opacity duration-500 opacity-100">
-                <p className='font-maven-pro text-normal-card-dark-purple text-[20px] lg:text-md2 font-semibold'>
+                <div className='font-maven-pro text-normal-card-dark-purple text-[20px] lg:text-md2 font-semibold'>
                   ${monthlyPrice}
-                </p>
-                <p className='font-maven-pro text-normal-card-gray text-sm lg:text-sm pb-[2px]'>
+                </div>
+                <div className='font-maven-pro text-normal-card-gray text-sm lg:text-sm pb-[2px]'>
                   /month
-                </p>
+                </div>
               </div>
             </div>
             {totalPrice && (
               <div className='-mt-1 fade-text'>
-                <p className='font-maven-pro text-gray-500 text-sm lg:text-[12px] text-left'>
+                <div className='font-maven-pro text-gray-500 text-sm lg:text-[12px] text-left'>
                   ${totalPrice} Total
-                </p>
+                </div>
               </div>
             )}
             <div className='flex flex-col pt-0 md:pt-2 grow gap-4'>
               <div className="fade-text">
-                <p className='font-maven-pro self-stretch text-[20px] lg:text-md2 text-normal-card-dark-purple font-semibold my-2 md:mt-0 text-left leading-6'>
+                <div className='font-maven-pro self-stretch text-[20px] lg:text-md2 text-normal-card-dark-purple font-semibold my-2 md:mt-0 text-left leading-6'>
                   {planName}
-                </p>
-                <p className='text-normal-card-gray text-sm lg:text-sm pr-4 leading-4 text-left'>
+                </div>
+                <div className='text-normal-card-gray text-sm lg:text-sm pr-4 leading-4 text-left'>
                   {planDescription}
-                </p>
+                </div>
               </div>
               <SimpleBar autoHide={false} className="h-[150px] grow overflow-y-auto relative pr-2">                
                 {features.map((feature, index) => (
@@ -52,9 +52,9 @@ export default function NormalCard({ monthlyPrice, totalPrice, planName, planDes
                         maxWidth: "100%",
                         height: "auto"
                       }} />
-                    <p className="text-normal-card-gray text-sm lg:text-[14px] capitalize leading-4 text-left my-1">
+                    <div className="text-normal-card-gray text-sm lg:text-[14px] capitalize leading-4 text-left my-1">
                       {feature}
-                    </p>
+                    </div>
                   </div>
                 ))}
               </SimpleBar>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useSwipeable } from "react-swipeable";
 
 interface StackedCarouselItem {
   image: string;
@@ -17,172 +16,124 @@ interface StackedCarouselProps {
   showDots?: boolean;
 }
 
-type Direction = "left" | "right";
-
 export default function StackedCarousel({
   items,
-  interval = 3000,
+  interval = 4000,
   className = "",
   showDots = true,
 }: StackedCarouselProps) {
-  const [current, setCurrent] = useState(0);
-  const [next, setNext] = useState<number | null>(null);
-  const [direction, setDirection] = useState<Direction>("left");
-  const [animating, setAnimating] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Auto-advance logic
   useEffect(() => {
-    if (items.length <= 1 || animating) return;
+    if (items.length <= 1) return;
+    
     intervalRef.current = setInterval(() => {
-      handleChange((current + 1) % items.length, "left");
+      setCurrentIndex((prev) => (prev + 1) % items.length);
     }, interval);
+
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-    // eslint-disable-next-line
-  }, [items.length, interval, current, animating]);
+  }, [items.length, interval]);
 
-  // Swipe handlers
-  const handlers = useSwipeable({
-    onSwipedLeft: () => handleChange((current + 1) % items.length, "left"),
-    onSwipedRight: () => handleChange((current - 1 + items.length) % items.length, "right"),
-    trackMouse: true,
-  });
+  // Navigation functions
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
 
-  // Pause on touch/click and resume on release
-  const handlePointerDown = () => {
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+  };
+
+  // Pause auto-advance on hover
+  const handleMouseEnter = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
-  const handlePointerUp = () => {};
-  const handlePointerLeave = () => {};
 
-  // Transition logic
-  function handleChange(newIdx: number, dir: Direction) {
-    if (animating || newIdx === current) return;
-    setDirection(dir);
-    setNext(newIdx);
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrent(newIdx);
-      setNext(null);
-      setAnimating(false);
-    }, 400); // match transition duration
-  }
+  const handleMouseLeave = () => {
+    if (items.length > 1) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % items.length);
+      }, interval);
+    }
+  };
 
   if (!items || items.length === 0) return null;
 
-  const renderItem = (item: StackedCarouselItem, key: string, animClass: string) => (
-    <div
-      key={key}
-      className={`absolute top-0 left-0 w-full transition-transform duration-400 ease-in-out ${animClass} flex flex-col items-center justify-center`}
-      style={{ zIndex: 1 }}
-    >
-      <img
-        src={item.image}
-        alt={item.alt || item.title}
-        className="object-fit w-20 h-auto min-h-20 p-4 mb-2 rounded-[20px] shadow-md bg-navy-500 touch-none"
-        draggable={false}
-      />
-      <h4 className="text-navy-500 font-bold text-center my-2">{item.title}</h4>
-      <p className="text-center text-base text-gray-900 min-h-[84px] flex items-start justify-center">
-        {item.description}
-      </p>
-    </div>
-  );
-
-  // Animation classes
-  let currentAnim = "";
-  let nextAnim = "";
-  if (animating && next !== null) {
-    if (direction === "left") {
-      currentAnim = "translate-x-0 animate-slide-out-left";
-      nextAnim = "translate-x-full animate-slide-in-right";
-    } else {
-      currentAnim = "translate-x-0 animate-slide-out-right";
-      nextAnim = "-translate-x-full animate-slide-in-left";
-    }
-  } else {
-    currentAnim = "translate-x-0";
-    nextAnim = "hidden";
-  }
+  const currentItem = items[currentIndex];
 
   return (
-    <div className={`relative w-full flex flex-col items-center overflow-hidden ${className}`} style={{ minHeight: 220 }}>
-      <div
-        {...handlers}
-        className="relative w-full max-w-md mx-auto select-none min-h-[220px] h-full"
-        style={{ height: 220 }}
-        onPointerDown={handlePointerDown}
-        onPointerUp={handlePointerUp}
-        onPointerLeave={handlePointerLeave}
-        onTouchStart={handlePointerDown}
-        onTouchEnd={handlePointerUp}
-      >
-        {/* Current item */}
-        {renderItem(items[current], "current", animating ? currentAnim : "transition-none")}
-        {/* Next item (only during animation) */}
-        {animating && next !== null && renderItem(items[next], "next", nextAnim)}
+    <div 
+      className={`relative w-full flex flex-col items-center ${className}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Main content area */}
+      <div className="relative w-full max-w-md mx-auto min-h-[220px] flex flex-col items-center justify-center p-4">
+        <div className="flex flex-col items-center justify-center text-center transition-all duration-300 ease-in-out">
+          <img
+            src={currentItem.image}
+            alt={currentItem.alt || currentItem.title}
+            className="w-20 h-20 p-4 mb-4 rounded-[20px] shadow-md bg-navy-500 object-contain"
+            draggable={false}
+          />
+          <h4 className="!text-navy-500 font-bold text-lg mb-2">
+            {currentItem.title}
+          </h4>
+          <p className="!text-gray-900 text-base leading-relaxed min-h-[84px] flex items-start justify-center text-center max-w-xs">
+            {currentItem.description}
+          </p>
+        </div>
       </div>
+
+      {/* Navigation */}
       {showDots && (
-        <div className="flex gap-2 mt-4">
-          {items.map((_, idx) => (
-            <button
-              key={idx}
-              className={`w-2 h-2 py-0 rounded-full ${idx === current ? "bg-lime-500" : "bg-gray-300"} transition`}
-              onClick={() => handleChange(idx, idx > current ? "left" : "right")}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
+        <div className="flex items-center gap-4 mt-4">
+          {/* Left Arrow */}
+          <button
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors disabled:opacity-50"
+            onClick={goToPrevious}
+            aria-label="Previous slide"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M8.5 10.5L5.5 7L8.5 3.5" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          
+          {/* Dots */}
+          <div className="flex gap-2">
+            {items.map((_, idx) => (
+              <button
+                key={idx}
+                className={`w-3 h-3 rounded-full border-none transition-all duration-200 ${
+                  idx === currentIndex 
+                    ? "bg-lime-500 scale-110" 
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+          
+          {/* Right Arrow */}
+          <button
+            className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors disabled:opacity-50"
+            onClick={goToNext}
+            aria-label="Next slide"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M5.5 3.5L8.5 7L5.5 10.5" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       )}
-      {/* Tailwind custom animation styles */}
-      <style jsx>{`
-        .animate-slide-out-left {
-          animation: slideOutLeft 0.4s forwards;
-        }
-        .animate-slide-in-right {
-          animation: slideInRight 0.4s forwards;
-        }
-        .animate-slide-out-right {
-          animation: slideOutRight 0.4s forwards;
-        }
-        .animate-slide-in-left {
-          animation: slideInLeft 0.4s forwards;
-        }
-        @keyframes slideOutLeft {
-          to {
-            transform: translateX(-100%);
-            opacity: 0.7;
-          }
-        }
-        @keyframes slideInRight {
-          from {
-            transform: translateX(100%);
-            opacity: 0.7;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        @keyframes slideOutRight {
-          to {
-            transform: translateX(100%);
-            opacity: 0.7;
-          }
-        }
-        @keyframes slideInLeft {
-          from {
-            transform: translateX(-100%);
-            opacity: 0.7;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-      `}</style>
     </div>
   );
 }

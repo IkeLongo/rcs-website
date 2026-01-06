@@ -10,7 +10,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         <Navbar />
         <Toaster />
       </main>
-      <div>{children}</div>
+      <div>
+        {children}
+      </div>
     </>
   );
 }

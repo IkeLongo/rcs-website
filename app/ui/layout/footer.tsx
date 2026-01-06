@@ -47,7 +47,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
         />
         <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
-            <p className="text-left font-bold my-1">
+            <p className="text-left font-bold my-1 !text-white">
               Contact Us
             </p>
             <div className="flex flex-col justify-center gap-[10px] md:gap-6 md:justify-start lg:flex-row">
@@ -77,7 +77,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <p className="font-roboto text-sm lg:text-[14px]">
+                <p className="font-roboto text-sm lg:text-[14px] !text-white">
                   (210) 730-6232
                 </p>
               </div>
@@ -92,14 +92,14 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     maxWidth: "100%",
                     height: "auto"
                   }} />
-                <p className="font-roboto text-sm lg:text-[14px]">
+                <p className="font-roboto text-sm lg:text-[14px] !text-white">
                   San Antonio, Texas
                 </p>
               </div>
             </div>
           </div>
           <div className="flex flex-col justify-center gap-[15px] lg:gap-[40px] md:justify-start lg:flex-row lg:self-start lg:items-center">
-            <p className="text-left font-bold my-1">
+            <p className="text-left font-bold my-1 !text-white">
               Follow Us
             </p>
             <div className="flex items-center self-stretch gap-[32px] md:hidden lg:flex">
@@ -219,11 +219,14 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             <Link href="/sitemap.xml" className="block text-white text-sm">
               Site Map
             </Link>
-          </div>
-          <div className="flex items-center justify-center pb-12">
             <p className="font-roboto text-sm font-light text-white">
               © {getCurrentYear()} All Rights Reserved
             </p>
+          </div>
+          <div className="flex items-center justify-center pb-12">
+            {/* <p className="font-roboto text-sm font-light text-white">
+              © {getCurrentYear()} All Rights Reserved
+            </p> */}
           </div>
         </div>
       </div>
@@ -244,11 +247,14 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           <Link href="/sitemap.xml" className="block text-white">
             Site Map
           </Link>
-        </div>
-        <div className="flex items-center justify-center">
           <p className="font-roboto text-[11px] font-light text-white">
             © {getCurrentYear()} All Rights Reserved
           </p>
+        </div>
+        <div className="flex items-center justify-center">
+          {/* <p className="font-roboto text-[11px] font-light text-white">
+            © {getCurrentYear()} All Rights Reserved
+          </p> */}
         </div>
       </div>
       <ScrollToTopButton />

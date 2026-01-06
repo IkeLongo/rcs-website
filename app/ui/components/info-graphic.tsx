@@ -17,7 +17,7 @@ export default function InfoGraphic({ animation, title, description, link, class
             height: "auto",
           }}
         />
-        <h4 className='my-2 text-md2'>
+        <h4 className='my-2 !text-[22px]'>
           {title}
         </h4>
       </div>
