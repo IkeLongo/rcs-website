@@ -1,3 +1,5 @@
+// app/(site)/login/page.tsx
+
 import Footer from '@/app/ui/layout/footer';
 import { Login as LoginComponent } from '@/app/ui/login/login';
 

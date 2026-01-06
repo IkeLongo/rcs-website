@@ -1,3 +1,4 @@
+// app/ui/login/login.tsx
 "use client";
 
 import Image from 'next/image';
@@ -5,7 +6,11 @@ import { Form, Button } from "@heroui/react";
 import {Input} from "@heroui/input";
 import { signIn } from "next-auth/react"
 import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
+
+async function getToast() {
+  const mod = await import("react-toastify");
+  return mod.toast;
+}
 
 export function Login() {
   const router = useRouter();
@@ -20,6 +25,7 @@ export function Login() {
       });
 
       if (result?.error) {
+        const toast = await getToast();
         toast.error(result.error, {
           position: "top-right",
           autoClose: 5000,
@@ -31,6 +37,7 @@ export function Login() {
           className: "bg-gray-900",
         });
       } else {
+        const toast = await getToast();
         toast.success('Sign-in successful!', {
           position: "top-right",
           autoClose: 5000,
@@ -45,6 +52,7 @@ export function Login() {
       }
     } catch (error) {
       console.error('Error during sign-in:', error);
+      const toast = await getToast();
       toast.error('An unexpected error occurred.', {
         position: "top-right",
         autoClose: 5000,

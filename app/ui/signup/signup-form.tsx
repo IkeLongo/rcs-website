@@ -6,7 +6,11 @@ import { useActionState } from 'react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import { Form, Input, Button } from '@heroui/react'
-import { toast } from 'react-toastify';
+
+async function getToast() {
+  const mod = await import("react-toastify");
+  return mod.toast;
+}
 
 export function SignupForm() {
   const [state, action, pending] = useActionState(signup, undefined)
@@ -16,6 +20,7 @@ export function SignupForm() {
     const result = await signup(undefined, formData);
 
     if (result.status === 'success') {
+      const toast = await getToast();
       toast.success(result.message, {
         position: "top-right",
         autoClose: 5000,
@@ -28,6 +33,7 @@ export function SignupForm() {
       }); // In order for toast to display on routed page, the page must exist!
       router.push('/dashboard');
     } else {
+      const toast = await getToast();
       toast.error(result.message || 'An error occurred during signup.');
     }
   };
