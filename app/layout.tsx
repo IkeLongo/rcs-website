@@ -1,7 +1,7 @@
 // app/layout.tsx
 
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
-import Analytics from "./actions/analytics/analytics";
+import AnalyticsWrapper from "./actions/analytics/analytics-wrapper";
 import FadeOverlay from "./ui/components/fade-overlay";
 import ToastProvider from "@/app/ui/providers/toast-provider";
 
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
-        <Analytics />
+        <AnalyticsWrapper />
         <FadeOverlay />
         {/* GTM Noscript - MUST be immediately after opening body tag */}
         {GTM_ID && (
