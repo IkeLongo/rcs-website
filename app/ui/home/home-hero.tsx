@@ -98,6 +98,7 @@ export default function HomeHero() {
             height={800}
             className="-mt-[600px] select-none"
             style={{ userSelect: "none" }}
+            priority
           />
           {/* Blob */}
           <Image
@@ -107,6 +108,7 @@ export default function HomeHero() {
             height={650}
             className="-mt-[500px] select-none"
             style={{ userSelect: "none" }}
+            priority
           />
         </div>
 
