@@ -2,8 +2,6 @@
 import LocationTemplate from "../_locations/location-template";
 import { getLocationPage } from "../_locations/locations.data";
 
-export const dynamic = "force-static";
-
 export default function Page() {
   const page = getLocationPage("web-design-boerne-tx");
   return <LocationTemplate page={page} />;
