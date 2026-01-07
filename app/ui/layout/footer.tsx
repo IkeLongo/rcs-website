@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Image from "next/image";
-import ScrollToTopButton from './scroll-to-top';
+// import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
 // import AnimatedLottie from "../components/animations";
 // import footerAnimation from "@/app/lib/assets/footer-animation.json";
@@ -258,7 +258,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           </p> */}
         </div>
       </div>
-      <ScrollToTopButton />
+      {/* <ScrollToTopButton /> */}
     </div>)
   );
 }
