@@ -2,8 +2,6 @@ import { Main } from '@/app/ui/terms/main';
 import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
   description: "Review the terms and conditions for using River City Creatives' website and services.",
