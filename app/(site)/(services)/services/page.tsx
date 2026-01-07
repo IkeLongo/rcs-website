@@ -4,6 +4,8 @@ import { Metadata } from 'next';
 import StickyBottomButton from '../../../ui/components/sticky-button-bottom';
 import ServicesClient from '@/app/ui/services-page/services-client';
 
+export const dynamic = "force-dynamic";
+
 
 export const metadata: Metadata = {
   title: 'Branding & Web Design Services',
