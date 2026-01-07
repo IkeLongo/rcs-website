@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { pageview, gtmPageview } from '@/app/lib/gtag';
 
@@ -10,10 +10,17 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function Analytics() {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     // Google Analytics pageview
-    if (GA_ID) {
+    if (GA_ID && typeof window !== 'undefined') {
       window.gtag('config', GA_ID, {
         page_path: pathname,
       });
@@ -24,7 +31,9 @@ export default function Analytics() {
     if (GTM_ID) {
       gtmPageview(pathname);
     }
-  }, [pathname]);
+  }, [pathname, mounted]);
+
+  if (!mounted) return null;
 
   return (
     <>

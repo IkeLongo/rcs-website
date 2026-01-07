@@ -48,11 +48,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet" />
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
-        <Analytics />
       </head>
       <body
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
+        <Analytics />
         <FadeOverlay />
         {/* GTM Noscript - MUST be immediately after opening body tag */}
         {GTM_ID && (
