@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-export const dynamic = "force-dynamic";
-
 export default function TestAnalytics() {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(false);

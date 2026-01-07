@@ -1,5 +1,4 @@
 // app/(site)/(services)/services/page.tsx
-export const dynamic = "force-dynamic";
 
 import { Hero } from '@/app/ui/services-page/hero';
 // import Footer from '@/app/ui/layout/footer';

@@ -1,5 +1,4 @@
 // app/(site)/(legal)/terms/page.tsx
-export const dynamic = "force-dynamic";
 
 import { Main } from '@/app/ui/terms/main';
 // import Footer from '@/app/ui/layout/footer';
