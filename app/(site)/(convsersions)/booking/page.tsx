@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 import BookingClient from '@/app/ui/booking/booking-client';
-import Footer from '@/app/ui/layout/footer';
+// import Footer from '@/app/ui/layout/footer';
 
 export const dynamic = "force-dynamic";
 
@@ -29,9 +29,9 @@ export default function Booking() {
   return (
     <>
       <BookingClient />
-      <Footer 
+      {/* <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
-      />
+      /> */}
     </>
   );
 }

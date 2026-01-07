@@ -1,13 +1,13 @@
-import Footer from '@/app/ui/layout/footer';
-// import { SignUp as SignUpComponent } from '@/app/ui/signup/signup';
+// import Footer from '@/app/ui/layout/footer';
+import { SignUp as SignUpComponent } from '@/app/ui/signup/signup';
 
-export default function Login() {
+export default function SignUp() {
   return (
     <div className='flex flex-col overflow-x-hidden services'>
-      {/* <SignUpComponent /> */}
-      <Footer 
+      <SignUpComponent />
+      {/* <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
-      />
+      /> */}
     </div>
   );
 }
