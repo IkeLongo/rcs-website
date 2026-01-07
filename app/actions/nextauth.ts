@@ -33,7 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         // Call the getUserFromDb API endpoint
         try {
-          const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'; // Update this to your site URL
+          const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rivercitycreatives.com'; // Update this to your site URL
           const response = await fetch(`${baseUrl}/api/getUserFromDb`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

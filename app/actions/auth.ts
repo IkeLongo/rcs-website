@@ -32,7 +32,7 @@ export async function signup(state: FormState, formData: FormData) {
 
   // 3. Insert the user into the database
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'; // TO-DO: Update this to your site URL
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rivercitycreatives.com'; // TO-DO: Update this to your site URL
     const response = await fetch(`${baseUrl}/api/insert_user`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

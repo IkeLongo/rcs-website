@@ -1,11 +1,10 @@
 // app/ui/terms/main.tsx
 
-const LEGAL_COMPANY_NAME = process.env.LEGAL_COMPANY_NAME ?? "Incentive Collective LLC";
-const DBA_NAME = process.env.DBA_NAME ?? "RiverCity Creatives";
-const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
-const SITE_NAME_VAR = process.env.SITE_NAME_VAR ?? "https://rivercitycreatives.com";
-const BUSINESS_LOCATION = process.env.BUSINESS_LOCATION ?? "San Antonio, Texas, United States of America";
-
+const LEGAL_COMPANY_NAME = process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME ?? "Incentive Collective LLC";
+const DBA_NAME = process.env.NEXT_PUBLIC_DBA_NAME ?? "RiverCity Creatives";
+const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
+const SITE_NAME_VAR = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivercitycreatives.com";
+const BUSINESS_LOCATION = process.env.NEXT_PUBLIC_BUSINESS_LOCATION ?? "San Antonio, Texas, United States of America";
 
 export async function Main() {
   return (

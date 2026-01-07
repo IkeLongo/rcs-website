@@ -1,5 +1,5 @@
-const { DBA_NAME } = process.env;
-const { BUSINESS_EMAIL } = process.env;
+const DBA_NAME = process.env.NEXT_PUBLIC_DBA_NAME ?? "RiverCity Creatives";
+const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
 export async function California() {
   return (

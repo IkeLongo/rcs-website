@@ -1,4 +1,4 @@
-const { DBA_NAME } = process.env;
+const DBA_NAME = process.env.NEXT_PUBLIC_DBA_NAME ?? "RiverCity Creatives";
 
 export async function InfoTranIntl() {
   return (

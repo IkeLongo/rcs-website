@@ -1,4 +1,4 @@
-const { BUSINESS_EMAIL } = process.env;
+const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
 export async function MinorInfo() {
   return (

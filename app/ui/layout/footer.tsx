@@ -8,7 +8,7 @@ import { FooterProps } from '@/types/components';
 import AnimatedLottie from "../components/animations";
 import footerAnimation from "@/app/lib/assets/footer-animation.json";
 
-const BUSINESS_EMAIL = process.env.BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
+const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
 function getCurrentYear() {
   return new Date().getFullYear();
