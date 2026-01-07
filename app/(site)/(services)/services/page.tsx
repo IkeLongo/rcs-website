@@ -1,5 +1,5 @@
 import { Hero } from '@/app/ui/services-page/hero';
-import Footer from '@/app/ui/layout/footer';
+// import Footer from '@/app/ui/layout/footer';
 import { Metadata } from 'next';
 import StickyBottomButton from '../../../ui/components/sticky-button-bottom';
 import ServicesClient from '@/app/ui/services-page/services-client';
@@ -33,9 +33,9 @@ export default function Services() {
       <Hero />
       <ServicesClient />
       <StickyBottomButton />
-      <Footer 
+      {/* <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
-      />
+      /> */}
     </div>
   );
 }
