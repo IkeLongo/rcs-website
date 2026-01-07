@@ -3,7 +3,7 @@
 import * as React from "react";
 import "./location-why-choose-us.css";
 import Image from "next/image";
-import FadeInUp from "@/app/ui/components/fade-in-up";
+// import FadeInUp from "@/app/ui/components/fade-in-up";
 import type { WhyChooseUsCard } from "./locations.data";
 
 export default function LocationWhyChooseUs({
@@ -18,14 +18,14 @@ export default function LocationWhyChooseUs({
         <div className="rounded-[20px] md:rounded-[40px] border border-navy-100 bg-white backdrop-blur shadow-[0_40px_120px_rgba(12,34,68,0.15)] overflow-visible">
           {/* Header */}
           <div className="px-6 md:px-10 pt-12 pb-10 text-center">
-            <FadeInUp>
+            {/* <FadeInUp> */}
               <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-4">
                 Why Choose RiverCity Creatives
               </h2>
               <p className="text-md2 text-navy-600 max-w-3xl mx-auto">
                 We deliver exceptional results that drive your business forward
               </p>
-            </FadeInUp>
+            {/* </FadeInUp> */}
           </div>
 
           {/* Cards grid */}

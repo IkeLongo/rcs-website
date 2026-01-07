@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BlinkingLight } from "@/app/ui/animations/blinking-light";
-import FadeInUp from "@/app/ui/components/fade-in-up";
+// import FadeInUp from "@/app/ui/components/fade-in-up";
 import MitsurinHeroVideo from "@/app/ui/video/autoplay";
 import type { LocationPageConfig } from "./locations.data";
 
@@ -22,14 +22,14 @@ export default function LocationHero({ page }: { page: LocationPageConfig }) {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 					{/* Left */}
 					<div>
-						<FadeInUp>
+						{/* <FadeInUp> */}
 							<span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/10 backdrop-blur text-sm font-medium">
 								<BlinkingLight />
 								Serving {page.areaLabel ?? `${page.city}, ${page.state}`}
 							</span>
-						</FadeInUp>
+						{/* </FadeInUp> */}
 
-						<FadeInUp>
+						{/* <FadeInUp> */}
 							<h1 className="mt-6 text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
 								{page.heroTitle}{" — "}
 								<span className="relative inline-block">
@@ -37,18 +37,16 @@ export default function LocationHero({ page }: { page: LocationPageConfig }) {
 									<span className="relative text-lime-200">Built to Convert</span>
 								</span>
 							</h1>
-						</FadeInUp>
+						{/* </FadeInUp> */}
 
-						<FadeInUp>
+						{/* <FadeInUp> */}
 							<p className="mt-5 text-md text-alice-blue-100 leading-relaxed max-w-2xl">
 								{page.heroSubtitle}
 							</p>
-						</FadeInUp>
+						{/* </FadeInUp> */}
 
-						<FadeInUp
-              className="hidden lg:block"
-            >
-							<div className="mt-8 flex flex-col sm:flex-row gap-4">
+					{/* <FadeInUp className="hidden lg:block"> */}
+						<div className="mt-8 flex flex-col sm:flex-row gap-4 hidden lg:block">
 								<Link
 									href="/booking"
 									className="inline-flex items-center justify-center py-4 px-6 bg-lime-500 text-navy-500 rounded-xl font-bold text-md
@@ -60,12 +58,12 @@ export default function LocationHero({ page }: { page: LocationPageConfig }) {
 									</svg>
 								</Link>
 							</div>
-						</FadeInUp>
+						{/* </FadeInUp> */}
 					</div>
 
 					{/* Right: Preview + floating testimonials */}
 					<div className="mt-4 lg:mt-0">
-						<FadeInUp>
+						{/* <FadeInUp> */}
 							<div 
 								className="relative w-full flex flex-col items-center"
 								style={{ isolation: "isolate" }}
@@ -109,7 +107,7 @@ export default function LocationHero({ page }: { page: LocationPageConfig }) {
 									<div className="absolute bottom-0 left-8 h-56 w-56 rounded-full bg-babyblue-300/15 blur-[100px]" />
 								</div>
 							</div>
-						</FadeInUp>
+						{/* </FadeInUp> */}
 					</div>
 				</div>
 			</div>

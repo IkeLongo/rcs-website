@@ -3,7 +3,7 @@ import "@/app/globals.css";
 import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
 import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
-import FadeInUp from "../components/fade-in-up";
+// import FadeInUp from "../components/fade-in-up";
 
 export default function UniqueWebsites() {
  
@@ -38,12 +38,12 @@ export default function UniqueWebsites() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
       <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">
-        <h3 className="">
-          <FadeInUp
+        <h3 className="!text-white">
+          {/* <FadeInUp
             className="text-white"
-          >
+          > */}
             Crafting Unique Websites
-          </FadeInUp>
+          {/* </FadeInUp> */}
         </h3>
       </div>
 

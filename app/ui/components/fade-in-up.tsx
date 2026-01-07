@@ -60,13 +60,13 @@
 //   );
 // }
 
-import { ReactNode } from "react";
+// import { ReactNode } from "react";
 
-type FadeInUpProps = {
-  children: ReactNode;
-  [key: string]: any; // Accept any other props
-};
+// type FadeInUpProps = {
+//   children: ReactNode;
+//   [key: string]: any; // Accept any other props
+// };
 
-export default function FadeInUp({ children }: FadeInUpProps) {
-  return <>{children}</>;
-}
+// export default function FadeInUp({ children }: FadeInUpProps) {
+//   return <>{children}</>;
+// }

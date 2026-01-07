@@ -1,8 +1,13 @@
 // app/ui/components/animations.tsx
+"use client";
 
-'use client';
-import Lottie from "lottie-react";
-import { CSSProperties } from "react";
+import dynamic from "next/dynamic";
+import type { CSSProperties } from "react";
+
+const Lottie = dynamic(() => import("lottie-react"), {
+  ssr: false,
+  loading: () => null,
+});
 
 interface AnimatedLottieProps {
   animationData: object;

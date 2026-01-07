@@ -3,23 +3,23 @@
 import WebsiteWork from "./website-work";
 import BrandingWork from "./branding-work";
 import {Tabs, Tab} from "@heroui/react";
-import FadeInUp from "../components/fade-in-up";
+// import FadeInUp from "../components/fade-in-up";
 
 export default function Portfolio() {
 
   return (
     <div className="flex flex-col items-center bg-alice-blue-500">
       <h3 className="text-navy-500 pt-10">
-        <FadeInUp>
+        {/* <FadeInUp> */}
           Our Work
-        </FadeInUp>
+        {/* </FadeInUp> */}
       </h3>
-      <p className="text-navy-500 mt-2 mb-8 text-center max-w-3xl px-6 text-md2">
-        <FadeInUp
+      <p className="!text-navy-500 mt-2 mb-8 text-center max-w-3xl px-6 text-md2">
+        {/* <FadeInUp
           className="text-navy-500"
-        >
+        > */}
           A selection of websites and brands we've brought to life.
-        </FadeInUp>
+        {/* </FadeInUp> */}
       </p>
       <div className="flex w-full flex-col gap-6 md:px-20">
         <Tabs

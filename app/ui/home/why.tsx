@@ -1,7 +1,7 @@
 
 import Image from "../components/image";
 import MuxPlayer from '@mux/mux-player-react/lazy';
-import FadeInUp from "../components/fade-in-up";
+// import FadeInUp from "../components/fade-in-up";
 
 export default function HomeWhy() {
 
@@ -34,9 +34,9 @@ export default function HomeWhy() {
       </div>
       <div className="relative z-10 p-6 pt-0 flex flex-col gap-4 items-center justify-center h-full">
         <h3>
-          <FadeInUp>
+          {/* <FadeInUp> */}
             Why Choose Us?
-          </FadeInUp>
+          {/* </FadeInUp> */}
         </h3>
 
         <div className="w-full h-[230px] rounded-[20px] drop-shadow-[0_2.2px_2.2px_rgba(0,0,0,0.25)] mt-10 md:mt-0 md:w-auto max-w-[550px] md:max-w-[850px] md:h-[450px] md:aspect-video lg:h-[550px] lg:w-auto items-center justify-center flex">

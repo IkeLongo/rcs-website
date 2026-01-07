@@ -5,7 +5,7 @@ import "./location-services.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import FadeInUp from "@/app/ui/components/fade-in-up";
+// import FadeInUp from "@/app/ui/components/fade-in-up";
 
 type ServiceItem = {
   key: string;
@@ -69,7 +69,7 @@ export default function LocationServices({
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-          <FadeInUp>
+          {/* <FadeInUp> */}
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
@@ -84,9 +84,9 @@ export default function LocationServices({
                 Strategy-led design + modern development—built to look premium, load fast, and convert.
               </p>
             </div>
-          </FadeInUp>
+          {/* </FadeInUp> */}
 
-          <FadeInUp>
+          {/* <FadeInUp> */}
             <Link
               href="/services"
               className="group inline-flex items-center justify-center rounded-full bg-white text-navy-900 px-6 py-3 font-semibold shadow-lg hover:shadow-xl transition"
@@ -94,11 +94,11 @@ export default function LocationServices({
               Explore More
               <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
             </Link>
-          </FadeInUp>
+          {/* </FadeInUp> */}
         </div>
 
         {/* Tabs row */}
-        <FadeInUp>
+        {/* <FadeInUp> */}
           <div className="mt-10">
             <div className="flex gap-2 overflow-x-auto pb-2 tabs-scrollbar">
               {services.map((s) => {
@@ -131,7 +131,7 @@ export default function LocationServices({
               })}
             </div>
           </div>
-        </FadeInUp>
+        {/* </FadeInUp> */}
 
         {/* Active panel */}
         <div className="mt-8">

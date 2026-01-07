@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import FadeInUp from "@/app/ui/components/fade-in-up";
+// import FadeInUp from "@/app/ui/components/fade-in-up";
 import { AnimatedTooltipLocation } from "./location-animated-tooltip";
 
 type StatItem = {
@@ -140,7 +140,7 @@ export default function LocationFinalCTA({
 
       <div className="relative mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
-          <FadeInUp>
+          {/* <FadeInUp> */}
             <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 {heading ?? `Ready to Upgrade Your Website in ${city}?`}
@@ -194,7 +194,7 @@ export default function LocationFinalCTA({
               </div>
               {/* end stats */}
             </div>
-          </FadeInUp>
+          {/* </FadeInUp> */}
         </div>
       </div>
     </section>

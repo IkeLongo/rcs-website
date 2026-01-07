@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 // import Footer from "@/app/ui/layout/footer";
-import FadeInUp from "@/app/ui/components/fade-in-up";
+// import FadeInUp from "@/app/ui/components/fade-in-up";
 import { LocationSchema } from "./location-schema";
 import LocationHero from "./location-hero";
 import BentoOutcomeCard from "@/app/ui/components/bento/bento-outcome-card";
@@ -23,14 +23,14 @@ export default function LocationTemplate({ page }: { page: LocationPageConfig })
       <section className="locations w-full bg-alice-blue-500 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-14">
-            <FadeInUp>
+            {/* <FadeInUp> */}
               <h2 className="text-4xl lg:text-5xl font-bold text-navy-900 mb-5">
-                What You’ll Get
+                What You'll Get
               </h2>
               <p className="text-md2 text-navy-600 max-w-3xl mx-auto">
                 A premium website system built for speed, trust, and real leads — not just a prettier homepage.
               </p>
-            </FadeInUp>
+            {/* </FadeInUp> */}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
@@ -75,7 +75,7 @@ export default function LocationTemplate({ page }: { page: LocationPageConfig })
       {page.nearbyAreas?.length ? (
         <section className="locations w-full bg-alice-blue-200 py-16">
           <div className="mx-auto max-w-6xl px-6 text-center">
-            <FadeInUp>
+            {/* <FadeInUp> */}
               <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-6">
                 Nearby Areas We Serve
               </h2>
@@ -89,7 +89,7 @@ export default function LocationTemplate({ page }: { page: LocationPageConfig })
                   </span>
                 ))}
               </div>
-            </FadeInUp>
+            {/* </FadeInUp> */}
           </div>
         </section>
       ) : null}

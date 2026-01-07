@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "../components/image";
 import TransChip from "../components/trans-chip";
-import FadeInUp from "../components/fade-in-up";
+// import FadeInUp from "../components/fade-in-up";
 
 const leftChips = [
   { label: "Web Design", pos: "10%" },
@@ -197,11 +197,11 @@ export default function HomeHero() {
         <div className="relative flex h-full w-full flex-col items-center p-6 md:top-4 md:px-20">
           <div className="flex w-full flex-col pt-28 md:pt-36 self-center md:items-end md:justify-end">
             <h1 className="w-full max-w-lg text-navy-500 z-40 mx-auto text-center">
-              <FadeInUp>
+              {/* <FadeInUp> */}
                 Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and
                 <br className="hidden md:block"/>
                 <span className="italic text-neongreen-700"> Branding</span> for Your Business
-              </FadeInUp>
+              {/* </FadeInUp> */}
             </h1>
 
             {/* People (on top) */}
