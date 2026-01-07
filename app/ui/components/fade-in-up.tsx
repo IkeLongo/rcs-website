@@ -62,6 +62,11 @@
 
 import { ReactNode } from "react";
 
-export default function FadeInUp({ children }: { children: ReactNode }) {
+type FadeInUpProps = {
+  children: ReactNode;
+  [key: string]: any; // Accept any other props
+};
+
+export default function FadeInUp({ children }: FadeInUpProps) {
   return <>{children}</>;
 }
