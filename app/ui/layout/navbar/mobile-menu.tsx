@@ -88,12 +88,20 @@ export default function MobileMenu() {
         <NavLinks onClick={toggleMenu} />
 
         <Button
-          onPress={toggleMenu}
-          className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4"
+          onPress={() => {
+            toggleMenu();
+            if (typeof window !== 'undefined') {
+              const result = window.confirm('Would you like to call or text?\nPress OK to call, Cancel to text.');
+              if (result) {
+                window.location.href = 'tel:2107306232';
+              } else {
+                window.location.href = 'sms:2107306232';
+              }
+            }
+          }}
+          className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4 flex items-center justify-center"
         >
-          <Link href="/booking" className="w-full h-full flex items-center justify-center">
-            Book a Call
-          </Link>
+          Call or Text
         </Button>
       </div>
     </div>
