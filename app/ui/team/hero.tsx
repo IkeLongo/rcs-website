@@ -1,8 +1,6 @@
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import FadeInUp from "../components/fade-in-up";
-
-const Profiles = dynamic(() => import('./profiles'), { ssr: false });
+import ProfilesClient from './profiles-client';
 
 export async function Hero() {
   return (
@@ -37,7 +35,7 @@ export async function Hero() {
         </div>
 
         {/* Profiles Component */}
-        <Profiles />
+        <ProfilesClient />
       </div>
       {/* Decorative Image */}
       <Image

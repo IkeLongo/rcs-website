@@ -2,10 +2,7 @@ import { Hero } from '@/app/ui/services-page/hero';
 import Footer from '@/app/ui/layout/footer';
 import { Metadata } from 'next';
 import StickyBottomButton from '../../../ui/components/sticky-button-bottom';
-import dynamic from 'next/dynamic';
-
-const Process = dynamic(() => import('@/app/ui/services-page/process'), { ssr: false });
-const ServiceBlocks = dynamic(() => import('@/app/ui/services-page/service-blocks'), { ssr: false });
+import ServicesClient from '@/app/ui/services-page/services-client';
 
 
 export const metadata: Metadata = {
@@ -35,8 +32,7 @@ export default function Services() {
   return (
     <div className='base flex flex-col overflow-x-hidden services'>
       <Hero />
-      <Process />
-      <ServiceBlocks />
+      <ServicesClient />
       <StickyBottomButton />
       <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'

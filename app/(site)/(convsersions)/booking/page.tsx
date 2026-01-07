@@ -1,13 +1,8 @@
 // app/(site)/booking/page.tsx
 
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
+import BookingClient from '@/app/ui/booking/booking-client';
 import Footer from '@/app/ui/layout/footer';
-
-const BookingWidget = dynamic(
-  () => import('@/app/ui/booking/booking').then(mod => ({ default: mod.BookingWidget })),
-  { ssr: false }
-);
 
 export const metadata: Metadata = {
   title: "Book a Discovery Call",
@@ -31,7 +26,7 @@ export default function Booking() {
 
   return (
     <>
-      <BookingWidget />
+      <BookingClient />
       <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
       />
