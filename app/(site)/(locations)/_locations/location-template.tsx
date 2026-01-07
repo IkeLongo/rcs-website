@@ -1,4 +1,5 @@
 // app/(site)/(locations)/_locations/location-template.tsx
+export const dynamic = "force-dynamic";
 
 // import Footer from "@/app/ui/layout/footer";
 import FadeInUp from "@/app/ui/components/fade-in-up";

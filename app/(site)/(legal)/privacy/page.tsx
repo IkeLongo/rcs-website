@@ -1,5 +1,7 @@
 // app/(site)/(legal)/privacy/page.tsx
 
+export const dynamic = "force-dynamic";
+
 import { PrivacyNotice } from '@/app/ui/privacy/privacy-notice';
 import { Summary } from '@/app/ui/privacy/summary';
 import { TableOfContents } from '@/app/ui/privacy/table-of-contents';

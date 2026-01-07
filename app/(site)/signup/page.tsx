@@ -1,3 +1,6 @@
+// app/(site)/signup/page.tsx
+export const dynamic = "force-dynamic";
+
 // import Footer from '@/app/ui/layout/footer';
 import { SignUp as SignUpComponent } from '@/app/ui/signup/signup';
 

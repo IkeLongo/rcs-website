@@ -1,5 +1,7 @@
 // app/(site)/booking/page.tsx
 
+export const dynamic = "force-dynamic";
+
 import type { Metadata } from "next";
 import BookingClient from '@/app/ui/booking/booking-client';
 // import Footer from '@/app/ui/layout/footer';

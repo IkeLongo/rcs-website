@@ -1,4 +1,5 @@
 // app/(site)/login/page.tsx
+export const dynamic = "force-dynamic";
 
 // import Footer from '@/app/ui/layout/footer';
 import { Login as LoginComponent } from '@/app/ui/login/login';
