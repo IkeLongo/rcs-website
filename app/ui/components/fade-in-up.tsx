@@ -60,6 +60,8 @@
 //   );
 // }
 
-export default function FadeInUp() {
-  return null;
+import { ReactNode } from "react";
+
+export default function FadeInUp({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }
