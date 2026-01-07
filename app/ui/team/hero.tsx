@@ -1,6 +1,8 @@
 import Image from "next/image";
-import Profiles from './profiles';
+import dynamic from "next/dynamic";
 import FadeInUp from "../components/fade-in-up";
+
+const Profiles = dynamic(() => import('./profiles'), { ssr: false });
 
 export async function Hero() {
   return (

@@ -1,9 +1,13 @@
 // app/(site)/booking/page.tsx
-export const dynamic = "force-dynamic";
 
 import type { Metadata } from "next";
-import { BookingWidget } from '@/app/ui/booking/booking';
+import dynamic from "next/dynamic";
 import Footer from '@/app/ui/layout/footer';
+
+const BookingWidget = dynamic(
+  () => import('@/app/ui/booking/booking').then(mod => ({ default: mod.BookingWidget })),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: "Book a Discovery Call",

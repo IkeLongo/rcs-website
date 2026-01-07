@@ -1,5 +1,4 @@
 // app/layout.tsx
-export const dynamic = "force-dynamic";
 
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
 import Analytics from "./actions/analytics/analytics";

@@ -1,8 +1,8 @@
 // app/(site)/page.tsx
 
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
-import HomeHero from '@/app/ui/home/home-hero';
 import HomeWhy from '@/app/ui/home/why';
 import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
 import ExtraordinaryContainer from '@/app/ui/home/extraordinary-container';
@@ -10,6 +10,8 @@ import Portfolio from '@/app/ui/home/portfolio';
 import Pricing from '@/app/ui/pricing/selector';
 import Footer from '@/app/ui/layout/footer';
 import StickyBottomButton from '../ui/components/sticky-button-bottom';
+
+const HomeHero = dynamic(() => import('@/app/ui/home/home-hero'), { ssr: false });
 
 export default function Home() {
 
