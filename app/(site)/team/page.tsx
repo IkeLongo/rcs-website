@@ -3,6 +3,8 @@ import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
 import StickyBottomButton from '../../ui/components/sticky-button-bottom';
 
+export const dynamic = "force-dynamic";
+
 
 export const metadata: Metadata = {
   title: 'Meet the Team',
