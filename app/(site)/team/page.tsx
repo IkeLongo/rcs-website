@@ -3,9 +3,6 @@ import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
 import StickyBottomButton from '../../ui/components/sticky-button-bottom';
 
-export const dynamic = "force-dynamic";
-
-
 export const metadata: Metadata = {
   title: 'Meet the Team',
   description: 'Get to know the team behind River City Creatives. We’re a San Antonio-based crew of designers and developers passionate about branding and web design.',
