@@ -1,13 +1,8 @@
 // app/(site)/(locations)/_locations/location-template.tsx
 
-import Link from "next/link";
-import { BlinkingLight } from "@/app/ui/animations/blinking-light";
-import Image from "next/image";
-// import Footer from "@/app/ui/layout/footer";
+import Footer from "@/app/ui/layout/footer";
 import FadeInUp from "@/app/ui/components/fade-in-up";
-import AnimatedLottie from "@/app/ui/components/animations";
 import { LocationSchema } from "./location-schema";
-import MitsurinHeroVideo from "@/app/ui/video/autoplay";
 import LocationHero from "./location-hero";
 import BentoOutcomeCard from "@/app/ui/components/bento/bento-outcome-card";
 import LocationServices from "./location-services";
@@ -132,7 +127,7 @@ export default function LocationTemplate({ page }: { page: LocationPageConfig })
         ]}
       />
 
-      {/* <Footer bgGradientClass="bg-footer-bg-gradient-solid" /> */}
+      <Footer bgGradientClass="bg-footer-bg-gradient-solid" />
     </>
   );
 }
