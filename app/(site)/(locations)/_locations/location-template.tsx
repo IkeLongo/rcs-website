@@ -1,6 +1,6 @@
 // app/(site)/(locations)/_locations/location-template.tsx
 
-import Footer from "@/app/ui/layout/footer";
+// import Footer from "@/app/ui/layout/footer";
 import FadeInUp from "@/app/ui/components/fade-in-up";
 import { LocationSchema } from "./location-schema";
 import LocationHero from "./location-hero";
@@ -127,7 +127,7 @@ export default function LocationTemplate({ page }: { page: LocationPageConfig })
         ]}
       />
 
-      <Footer bgGradientClass="bg-footer-bg-gradient-solid" />
+      {/* <Footer bgGradientClass="bg-footer-bg-gradient-solid" /> */}
     </>
   );
 }
