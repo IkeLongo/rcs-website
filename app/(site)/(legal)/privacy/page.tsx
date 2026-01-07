@@ -3,7 +3,7 @@
 import { PrivacyNotice } from '@/app/ui/privacy/privacy-notice';
 import { Summary } from '@/app/ui/privacy/summary';
 import { TableOfContents } from '@/app/ui/privacy/table-of-contents';
-// import Footer from '@/app/ui/layout/footer';
+import Footer from '@/app/ui/layout/footer';
 import { InfoWeCollect } from '@/app/ui/privacy/info-we-collect';
 import { ProcessYourInfo } from '@/app/ui/privacy/process-your-info';
 import { LegalBasis } from '@/app/ui/privacy/legal-basis';
@@ -102,7 +102,7 @@ export default function Home() {
           <PrivacyContactForm />
         </section>
       </div>
-      {/* <Footer bgGradientClass='bg-footer-bg-gradient-solid'/> */}
+      <Footer bgGradientClass='bg-footer-bg-gradient-solid'/>
     </div>
   );
 }

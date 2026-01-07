@@ -148,23 +148,27 @@ export default function Pricing() {
                 touchAction: "pan-y", // allows horizontal swipe
               }}
             >
-              {plans.map((plan, idx) => (
-                <div
-                  key={plan.key}
-                  className="flex-shrink-0 flex justify-center items-end"
-                  style={{ width: "220px" }}
-                >
-                  {idx === 1 ? (
-                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
-                      <PremiumCard {...plan} />
-                    </div>
-                  ) : (
-                    <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
-                      <NormalCard {...plan} />
-                    </div>
-                  )}
-                </div>
-              ))}
+              {plans.map((plan, idx) => {
+                // Exclude key from props
+                const { key, ...planProps } = plan;
+                return (
+                  <div
+                    key={key}
+                    className="flex-shrink-0 flex justify-center items-end"
+                    style={{ width: "220px" }}
+                  >
+                    {idx === 1 ? (
+                      <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
+                        <PremiumCard key={key} {...planProps} />
+                      </div>
+                    ) : (
+                      <div className={selectedIndex === idx ? "scale-110 z-10" : "opacity-80 blur-[2px]"}>
+                        <NormalCard key={key} {...planProps} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

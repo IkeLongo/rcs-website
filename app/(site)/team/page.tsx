@@ -1,7 +1,7 @@
 // app/(site)/team/page.tsx
 
 import { Hero } from '@/app/ui/team/hero';
-// import Footer from '@/app/ui/layout/footer';
+import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
 import StickyBottomButton from '../../ui/components/sticky-button-bottom';
 
@@ -33,9 +33,9 @@ export default function Home() {
     <div className="relative h-auto w-full bg-cover bg-top bg-navy-500 overflow-x-hidden team">
       <Hero />
       <StickyBottomButton />
-      {/* <Footer 
+      <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
-      /> */}
+      />
     </div>
   );
 }

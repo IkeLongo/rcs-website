@@ -20,7 +20,7 @@ export async function Hero() {
       <div className="relative flex flex-col h-auto gap-10 mt-28 md:mt-40 md:z-5">
         {/* Heading and Description */}
         <div className="flex flex-col gap-1 max-w-96 self-center md:w-full md:max-w-[900px] md:px-16">
-          <h1 className="w-auto !text-blue-200 text-left !font-bold drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] lg:text-[46px] !font-gentium-book-plus">
+          <h1 className="w-auto !text-blue-200 text-left !font-bold drop-shadow-[2px_10px_4.6px_rgba(0,0,0,0.25)] text-lg lg:text-[46px] !font-gentium-book-plus">
             {/* <FadeInUp
               className="!font-gentium-book-plus"
             > */}

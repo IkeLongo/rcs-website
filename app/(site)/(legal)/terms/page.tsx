@@ -1,7 +1,7 @@
 // app/(site)/(legal)/terms/page.tsx
 
 import { Main } from '@/app/ui/terms/main';
-// import Footer from '@/app/ui/layout/footer';
+import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,9 +38,9 @@ export default function Home() {
       <Main />
 
       {/* Footer */}
-      {/* <Footer 
+      <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
-      /> */}
+      />
     </div>
   );
 }
