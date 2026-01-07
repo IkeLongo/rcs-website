@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     canonical: 'https://rivercitycreatives.com/team', // Add your canonical URL here
   },
 }
-  
 
 export default function Home() {
 
