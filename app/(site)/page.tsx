@@ -1,5 +1,5 @@
 // app/(site)/page.tsx
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 import { Suspense } from 'react';
 import HomeHeroClient from '@/app/ui/home/home-hero-client';
