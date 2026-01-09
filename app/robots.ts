@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        // No location routes are disallowed, so all are indexable
         disallow: [
           "/login",
           "/dashboard",
