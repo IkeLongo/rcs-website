@@ -1,3 +1,4 @@
+// app/admin/dashboard/page.tsx
 'use client';
 
 import { Card, CardHeader, CardBody, CardFooter, Tabs, Tab} from "@heroui/react";

@@ -1,3 +1,5 @@
+// app/admin/dashboard/layout.tsx
+
 import SideNav from "@/app/ui/user/sidenav";
 import '../globals.css'
  

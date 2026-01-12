@@ -1,3 +1,6 @@
+// app/admin/dashboard/websites/page.tsx
+export const dynamic = "force-dynamic";
+
 import {
   getWebsitesWithClientAndHost,
   getWebsiteStatusOptions,
