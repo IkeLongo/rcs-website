@@ -41,20 +41,19 @@ export function SignupForm() {
   return (
     <div className="grid grid-rows-3 md:grid-cols-2 md:grid-rows-1 w-full h-screen">
       <div className="row-span-1 md:col-span-1 flex flex-col justify-center items-center -mt-20">
-        <div className="w-full md:hidden">
+        <div className="relative w-full md:hidden overflow-hidden min-h-[410px]">
           <Image
-            src='/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg'
-            alt='design studio'
-            layout='cover'
-            width={480}
-            height={450}
-            className='w-full h-auto min-h-[410px] pt-40 md:pt-20'
+            src="/computer-screens-on-desk-in-empty-data-room.webp"
+            alt="design studio"
+            fill
+            priority
+            className="object-cover object-left pt-40 md:pt-20 -pr-20"
           />
         </div>
         <div className="hidden md:flex md:flex-col md:justify-center md:items-start w-full h-full">
           <div className="w-full h-full relative flex justify-start">
             <Image
-              src='/people-walking-in-office-2024-10-22-04-13-49-utc.jpg'
+              src='/people-walking-in-office.webp'
               alt='people walking in office'
               layout='fill'
               objectFit='cover'

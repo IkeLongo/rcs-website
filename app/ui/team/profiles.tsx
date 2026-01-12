@@ -46,7 +46,7 @@ const people: TeamMember[] = [
   {
     memberName: "Derek Prado",
     position: "Assistant Software Engineer",
-    imageRoute: "/Image 4.jpg",
+    imageRoute: "/derek-profile-image.webp",
     imagePosition: "object-bottom",
     imageDescription: "Profile image of Derek Prado",
     bgImageClass: "bg-photo-4",

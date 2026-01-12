@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import MuxPlayer from "@mux/mux-player-react";
+import MuxPlayer from '@mux/mux-player-react/lazy';
 
 export default function MitsurinHeroVideo() {
   const playerRef = useRef<any>(null);

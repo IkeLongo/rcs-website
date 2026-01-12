@@ -6,6 +6,8 @@ import FadeOverlay from "./ui/components/fade-overlay";
 import ToastProvider from "@/app/ui/providers/toast-provider";
 
 import { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next"
+
 import type { Metadata } from "next";
 import './globals.css';
 
@@ -66,6 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <CookieBanner />
         {/* ✅ Global toast container mounted once, client-side */}
         <ToastProvider />
+        <Analytics />
         {children}
       </body>
     </html>
