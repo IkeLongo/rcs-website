@@ -1,4 +1,4 @@
-import FreeSeoScanClient from "@/app/ui/home/client/FreeSeoScanClient";
+import FreeSeoScanClient from "@/app/ui/home/client/free-seo-scan-client";
 import Footer from "@/app/ui/layout/footer";
 
 export const metadata = {
