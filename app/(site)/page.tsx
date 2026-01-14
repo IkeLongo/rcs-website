@@ -17,9 +17,7 @@ export default function Home() {
     <div className='base relative'>
       <div className="relative h-auto w-full bg-cover bg-top bg-navy-500 overflow-x-hidden">
         <HomeHero />
-        <Suspense fallback={null}>
-          <HomeSeoScanTeaser />
-        </Suspense>
+        <HomeSeoScanTeaser />
         <Suspense fallback={null}>
           <HomeWhy />
         </Suspense>
