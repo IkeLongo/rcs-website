@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ScrollingChips from "./scrolling-chips"; // Adjust path based on your folder structure
+import ScrollingChips from "./ScrollingChips"; // Adjust path based on your folder structure
 // import FadeInUp from "../components/fade-in-up";
 
 export default function ExtraordinaryContainer() {

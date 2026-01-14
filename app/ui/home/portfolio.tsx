@@ -1,7 +1,7 @@
 "use client";
 
-import WebsiteWork from "./website-work";
-import BrandingWork from "./branding-work";
+import WebsiteWork from "./WebsiteWork";
+import BrandingWork from "./BrandingWork";
 import {Tabs, Tab} from "@heroui/react";
 // import FadeInUp from "../components/fade-in-up";
 
