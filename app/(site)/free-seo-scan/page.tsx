@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import FreeSeoScanClient from "@/app/ui/home/client/free-seo-scan-client";
 import Footer from "@/app/ui/layout/footer";
 
@@ -10,7 +11,9 @@ export default function FreeSeoScanPage() {
   return (
     <>
       <main className="base pt-28 md:pt-28 bg-blue-100">
-        <FreeSeoScanClient />
+        <Suspense fallback={null}>
+          <FreeSeoScanClient />
+        </Suspense>
       </main>
       <Footer 
         bgGradientClass='bg-footer-bg-gradient-solid'
