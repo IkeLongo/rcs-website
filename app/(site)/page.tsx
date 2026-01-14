@@ -1,12 +1,12 @@
 // app/(site)/page.tsx
 
 import { Suspense } from 'react';
-import HomeHero from '@/app/ui/home/HomeHero';
-import HomeSeoScanTeaser from '../ui/home/HomeSeoScanTeaser';
-import HomeWhy from '@/app/ui/home/Why';
-import UniqueWebsites from '@/app/ui/home/CraftingUniqueWebsites';
-import ExtraordinaryContainer from '@/app/ui/home/Extraordinary';
-import Portfolio from '@/app/ui/home/Portfolio';
+import HomeHero from '@/app/ui/home/home-hero';
+import HomeSeoScanTeaser from '../ui/home/home-seo-scan-teaser';
+import HomeWhy from '../ui/home/why';
+import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
+import ExtraordinaryContainer from '@/app/ui/home/extraordinary';
+import Portfolio from '@/app/ui/home/portfolio';
 import Pricing from '@/app/ui/pricing/selector';
 import Footer from '@/app/ui/layout/footer';
 import StickyBottomButton from '../ui/components/sticky-button-bottom';
