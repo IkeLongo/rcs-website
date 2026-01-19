@@ -17,6 +17,7 @@ type PortfolioItem = {
   icon?: React.ReactNode;
   featured?: boolean;
   accentClass?: string;
+  badgeColor?: "white" | "gray";
 
   /**
    * Optional per-item header override.
@@ -28,9 +29,11 @@ type PortfolioItem = {
 function PortfolioHeader({
   image,
   name,
+  badgeColor = "white",
 }: {
   image: string;
   name: string;
+  badgeColor?: "white" | "gray";
 }) {
   return (
     <div className="relative w-full h-[210px] rounded-xl overflow-hidden">
@@ -43,7 +46,12 @@ function PortfolioHeader({
         draggable={false}
       />
       <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute left-3 top-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 px-3 py-1 text-xs text-white">
+      <div
+        className={
+          `absolute left-3 top-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 px-3 py-1 text-xs ` +
+          (badgeColor === "gray" ? "text-neutral-800" : "text-white")
+        }
+      >
         Website
       </div>
     </div>
@@ -58,34 +66,39 @@ const portfolioItems: PortfolioItem[] = [
     description: "Fantasy tournament hub with live standings + team pages.",
     icon: <IconBolt className="h-4 w-4 text-neutral-500" />,
     featured: true,
+    badgeColor: "white",
   },
   {
     image: "/portfolio-maximstrong-image.webp",
     name: "Maximstrong",
     link: "https://maximstrong.com",
-    description: "Modern marketing site with strong conversion flow.",
+    description: "Gritty fitness landing page built to convert local gym leads.",
     icon: <IconBarbell className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "white",
   },
   {
     image: "/portfolio-mitsurin-wagyu-image.webp",
     name: "Mitsurin Wagyu",
     link: "https://mitsurinwagyu.com",
-    description: "Portfolio-forward brand site with clean layout.",
+    description: "Premium Wagyu beef brand focused on craftsmanship and quality.",
     icon: <IconChefHat  className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "white",
   },
   {
     image: "/portfolio-collenback-strength-image.webp",
     name: "Collenback Strength",
     link: "https://collenbackstrength.com",
-    description: "Portfolio-forward brand site with clean layout.",
+    description: "Personal training site centered on athlete development and coaching.",
     icon: <GiWeightLiftingUp className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "white",
   },
   {
     image: "/portfolio-oblate-academy-image.webp",
     name: "Oblate Academy",
     link: "https://oblateacademy.com",
-    description: "Portfolio-forward brand site with clean layout.",
+    description: "Catholic education platform designed for children, teachers and families.",
     icon: <IconCross className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "gray",
   },
 ];
 
@@ -136,7 +149,7 @@ export default function PortfolioBentoSection() {
           const headerNode =
             item.header ??
             (item.image ? (
-              <PortfolioHeader image={item.image} name={item.name} />
+              <PortfolioHeader image={item.image} name={item.name} badgeColor={item.badgeColor} />
             ) : null);
 
           return (
