@@ -53,7 +53,7 @@ export default function UniqueWebsites() {
           <div className="min-w-[20px] flex-shrink-0" aria-hidden="true" />
           {/* Map through the services array */}
           {services.map((service, index) => (
-            <div className="flex min-w-[250px]" key={index}>
+            <div className="flex min-w-[250px] mb-2" key={index}>
               <InfoGraphic
                 animation={service.animation}
                 title={service.title}
