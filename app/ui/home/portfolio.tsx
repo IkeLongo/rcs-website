@@ -3,13 +3,14 @@
 import WebsiteWork from "./website-work";
 import BrandingWork from "./branding-work";
 import {Tabs, Tab} from "@heroui/react";
+import PortfolioBentoSection from "../components/sections/portfolio-websites";
 // import FadeInUp from "../components/fade-in-up";
 
 export default function Portfolio() {
 
   return (
-    <div className="flex flex-col items-center bg-alice-blue-500">
-      <h3 className="text-navy-500 pt-10">
+    <div className="flex flex-col items-center bg-alice-blue-500 py-16 px-4 md:py-24">
+      <h3 className="text-navy-500">
         {/* <FadeInUp> */}
           Our Work
         {/* </FadeInUp> */}
@@ -27,13 +28,13 @@ export default function Portfolio() {
         variant="solid"
         radius="lg"
         classNames={{
-          base: "bg-navy-500 rounded-[14px] p-1 px-0 h-[40px] w-auto self-center",
+          base: "bg-navy-500 rounded-[7px] p-1 px-0 h-[40px] w-auto self-center",
           tabContent: "group-data-[selected=true]:text-navy-500 p-1 font-source-sans-pro text-sm font-semibold text-alice-blue-500 rounded-sm",
-          tab: "h-[30px] rounded-[10px] bg-transparent data-[selected=true]:bg-light-green-500",
+          tab: "h-[30px] !rounded-[5px] bg-transparent data-[selected=true]:bg-light-green-500",
           panel: "px-0"
         }}>
           <Tab key="websites" title="Websites">
-            <WebsiteWork />
+            <PortfolioBentoSection />
           </Tab>
           <Tab key="branding" title="Branding">
             <BrandingWork />

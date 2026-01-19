@@ -1,4 +1,4 @@
-import PortfolioWebsite from "../components/portfolio-website";
+import PortfolioWebsite from "../components/sections/portfolio-websites";
 
 const portfolioItems = [
   {
