@@ -89,16 +89,13 @@ export default function HomeHero() {
       <div className="absolute bottom-0 w-full h-full overflow-hidden bg-alice-blue-500">
 
         {/* 1) BACKGROUND SHAPES (moved out of hero content) */}
-        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 pointer-events-none z-10 flex w-[1220px] flex-col items-center">
-          {/* Ellipse */}
-          <Image
-            src="/hero-elipse_1.webp"
-            alt="Background elipse"
-            width={890}
-            height={800}
-            className="-mt-[600px] select-none"
-            style={{ userSelect: "none" }}
-            priority
+        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 pointer-events-none z-10 flex w-[1220px] max-w-full flex-col items-center">
+          {/* Ellipse - responsive gradient div */}
+          <div
+            className="w-[min(890px,80vw)] aspect-[890/800] -mt-[600px] rounded-[50%]"
+            style={{
+              background: 'radial-gradient(circle at center, rgba(132, 196, 65, 0.40) 0%, rgba(191, 238, 60, 0.35) 30%, rgba(191, 238, 60, 0.2) 50%, rgba(191, 238, 60, 0) 70%)',
+            }}
           />
           {/* Blob */}
           <Image
@@ -106,7 +103,7 @@ export default function HomeHero() {
             alt="Background blob"
             width={800}
             height={650}
-            className="-mt-[500px] select-none"
+            className="-mt-[200px] sm:-mt-[300px] md:-mt-[500px] select-none z-5"
             style={{ userSelect: "none" }}
             priority
           />
