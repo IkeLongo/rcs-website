@@ -1,78 +1,39 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { pageview, gtmPageview } from '@/app/lib/gtag';
+import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
-export default function Analytics() {
+export default function AnalyticsGA4() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (!GA_ID) return;
+    // Route change pageview
+    // @ ts-expect-error gtag injected by GA script
+    window.gtag?.("event", "page_view", { page_path: pathname });
+  }, [pathname]);
 
-  useEffect(() => {
-    if (!mounted) return;
-    
-    // Google Analytics pageview
-    if (GA_ID && typeof window !== 'undefined') {
-      window.gtag('config', GA_ID, {
-        page_path: pathname,
-      });
-      pageview(pathname);
-    }
-
-    // Google Tag Manager pageview
-    if (GTM_ID) {
-      gtmPageview(pathname);
-    }
-  }, [pathname, mounted]);
-
-  if (!mounted) return null;
+  if (!GA_ID) return null;
 
   return (
     <>
-      {/* Google Tag Manager - Head Script */}
-      {GTM_ID && (
-        <Script
-          id="gtm-head"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
-            `,
-          }}
-        />
-      )}
-
-      {/* Google Analytics Scripts */}
-      {GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga-init" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}', {
-                page_path: window.location.pathname,
-              });
-            `}
-          </Script>
-        </>
-      )}
+      {/* Load GA as late as possible */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="lazyOnload"
+      />
+      <Script id="ga-init" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}', { send_page_view: false });
+        `}
+      </Script>
     </>
   );
 }

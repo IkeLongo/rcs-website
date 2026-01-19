@@ -92,7 +92,7 @@ export default function HomeHero() {
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 pointer-events-none z-10 flex w-[1220px] flex-col items-center">
           {/* Ellipse */}
           <Image
-            src="/hero-elipse.webp"
+            src="/hero-elipse_1.webp"
             alt="Background elipse"
             width={890}
             height={800}

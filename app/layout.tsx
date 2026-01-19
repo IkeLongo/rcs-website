@@ -1,7 +1,7 @@
 // app/layout.tsx
 
 import CookieBanner from "@/app/ui/cookie-prefs/cookie-banner";
-import AnalyticsWrapper from "./actions/analytics/analytics-wrapper";
+import AnalyticsGA4 from "./actions/analytics/analytics";
 import FadeOverlay from "./ui/components/fade-overlay";
 import ToastProvider from "@/app/ui/providers/toast-provider";
 
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
-        <AnalyticsWrapper />
+        <AnalyticsGA4 />
         <FadeOverlay />
         {/* GTM Noscript - MUST be immediately after opening body tag */}
         {GTM_ID && (
@@ -74,14 +74,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
-// Minimal layout for debugging
-// export default function RootLayout({ children }: { children: ReactNode }) {
-//   return (
-//     <html lang="en">
-//       <body>
-//         {children}
-//       </body>
-//     </html>
-//   );
-// }

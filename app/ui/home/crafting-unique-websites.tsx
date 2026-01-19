@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
 import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
+import Image from "next/image";
 // import FadeInUp from "../components/fade-in-up";
 
 export default function UniqueWebsites() {
@@ -34,7 +35,18 @@ export default function UniqueWebsites() {
 
 
   return (
-    <div className="relative w-full min-h-[596px] bg-home-do-mountain-range bg-origin-padding bg-cover bg-top py-10 pb-20">
+    <div className="relative w-full min-h-[596px] py-10 pb-20">
+      {/* Background Image - lazy loaded and optimized */}
+      <Image
+        src="/home-landscape-bluegrad.webp"
+        alt=""
+        fill
+        loading="lazy"
+        quality={85}
+        sizes="100vw"
+        className="object-cover object-top"
+        style={{ zIndex: 0 }}
+      />
       {/* Overlay */}
       <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
       <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">

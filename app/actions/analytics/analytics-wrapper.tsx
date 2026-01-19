@@ -1,3 +1,4 @@
+// app/actions/analytics/analytics-wrapper.tsx
 "use client";
 
 import dynamic from "next/dynamic";

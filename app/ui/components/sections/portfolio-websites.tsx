@@ -44,6 +44,7 @@ function PortfolioHeader({
         sizes="352px"
         className="object-cover object-center"
         draggable={false}
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-black/55" />
       <div

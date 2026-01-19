@@ -19,7 +19,9 @@ export default function HomeWhy() {
             style={{
               maxWidth: "100%",
               height: "auto"
-            }} />
+            }}
+            loading="lazy"
+            />
           <Image
             src="/home-green-blob.svg"
             alt="Green blob background image"
@@ -29,7 +31,9 @@ export default function HomeWhy() {
             style={{
               maxWidth: "100%",
               height: "auto"
-            }} />
+            }}
+            loading="lazy"
+            />
         </div>
       </div>
       <div className="relative z-10 p-6 pt-0 flex flex-col gap-4 items-center justify-center h-full">
