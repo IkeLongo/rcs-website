@@ -2,7 +2,7 @@ import Image from "next/image";
 import ScrollingChips from "./scrolling-chips"; // Adjust path based on your folder structure
 // import FadeInUp from "../components/fade-in-up";
 
-export default function ExtraordinaryContainer() {
+export default function ForgetFittingInContainer() {
   return (
     <div className="relative flex justify-center w-full py-10 bg-transparent md:px-24">
       {/* Decorative background images */}
@@ -58,7 +58,7 @@ export default function ExtraordinaryContainer() {
             {/* </FadeInUp> */}
           </h3>
           <hr className="w-[50%] border-t-[0.35px] border-gray-400" />
-          <p className="text-white text-center md:px-20 text-md md:text-md2">
+          <p className="!max-w-3xl text-white text-center md:px-20 text-md md:text-md2">
             {/* <FadeInUp> */}
               We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
             {/* </FadeInUp> */}

@@ -5,7 +5,7 @@ import HomeHero from '@/app/ui/home/home-hero';
 import HomeSeoScanTeaser from '../ui/home/home-seo-scan-teaser';
 import HomeWhy from '../ui/home/why';
 import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
-import ExtraordinaryContainer from '../ui/home/Extraordinary';
+import ForgetFittingInContainer from '../ui/home/forget-fitting-in';
 import Portfolio from '@/app/ui/home/portfolio';
 import Pricing from '@/app/ui/pricing/selector';
 import Footer from '@/app/ui/layout/footer';
@@ -27,7 +27,7 @@ export default function Home() {
           <UniqueWebsites />
         </Suspense>
         <Suspense fallback={null}>
-          <ExtraordinaryContainer />
+          <ForgetFittingInContainer />
         </Suspense>
         <Suspense fallback={null}>
           <Portfolio />
