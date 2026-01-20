@@ -11,7 +11,7 @@ export default function HomeHero() {
   return (
     <section
       data-hero-section
-      className="relative w-full min-h-[900px]"
+      className="relative w-full min-h-[900px] h-[100svh]"
     >
       <div className="absolute bottom-0 w-full h-full overflow-hidden bg-alice-blue-500">
         {/* Background shapes (static) */}
@@ -52,17 +52,25 @@ export default function HomeHero() {
               Your Business
             </h1>
 
-            <div 
-              className="pointer-events-none w-fit h-[600px] absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10 overflow-hidden"
+            <div
+              className="
+                pointer-events-none
+                absolute left-1/2 bottom-0 -translate-x-1/2
+                z-30
+                overflow-hidden
+                w-[min(700px,100vw)]
+                h-[600px]
+              "
             >
               <Image
                 src="/barb.webp"
                 alt="Barb"
                 width={350}
                 height={450}
-                className="-mr-8 w-[350px] h-auto"
                 priority
                 fetchPriority="high"
+                sizes="350px"
+                className="absolute bottom-0 left-1/2 -translate-x-[90%] w-[350px] h-auto"
               />
 
               <Image
@@ -70,9 +78,10 @@ export default function HomeHero() {
                 alt="Isaac"
                 width={300}
                 height={400}
-                className="-ml-8 w-[300px] h-auto"
-                priority={false}
                 loading="lazy"
+                priority={false}
+                sizes="300px"
+                className="absolute bottom-0 left-1/2 -translate-x-[10%] md:-translate-x-[0%] w-[300px] h-auto"
               />
             </div>
           </div>
