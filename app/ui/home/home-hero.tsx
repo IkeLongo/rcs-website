@@ -1,5 +1,5 @@
 // app/ui/pages/home/HomeHero.tsx (SERVER)
-import Image from "../components/image";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 
 const HomeHeroEffects = dynamic(() => import("./client/home-hero-client"), {
@@ -11,8 +11,8 @@ export default function HomeHero() {
   return (
     <section
       data-hero-section
-      className="relative w-full min-h-[900px]"
-      style={{ height: "100vh", minHeight: "900px" }}
+      className="relative w-full min-h-[900px] h-[120vh]"
+      style={{ height: "120vh" }}
     >
       <div className="absolute bottom-0 w-full h-full overflow-hidden bg-alice-blue-500">
         {/* Background shapes (static) */}
@@ -24,14 +24,18 @@ export default function HomeHero() {
                 "radial-gradient(circle at center, rgba(132, 196, 65, 0.40) 0%, rgba(191, 238, 60, 0.35) 30%, rgba(191, 238, 60, 0.2) 50%, rgba(191, 238, 60, 0) 70%)",
             }}
           />
+          {/* Blob positioned behind people */}
           <Image
             src="/hero-blob.webp"
             alt="Background blob"
             width={800}
             height={650}
-            className="-mt-[200px] sm:-mt-[300px] md:-mt-[500px] select-none z-5"
-            style={{ userSelect: "none" }}
-            priority
+            className="absolute left-1/2 -translate-x-1/2 -translate-y-[250px] sm:-translate-y-[0px] select-none w-[90vw] min-w-[400px] md:w-[min(800px,70vw)]"
+            style={{
+              bottom: "clamp(15%, 20vh, 25%)",
+              height: "auto",
+            }}
+            priority={false}
           />
         </div>
 
@@ -49,24 +53,27 @@ export default function HomeHero() {
               Your Business
             </h1>
 
-            <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10">
+            <div 
+              className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10 overflow-hidden"
+            >
               <Image
                 src="/barb.webp"
                 alt="Barb"
                 width={350}
                 height={450}
-                className="-mr-8 min-w-[350px] min-h-[450px]"
+                className="-mr-8 w-[350px] h-auto"
                 priority
                 fetchPriority="high"
               />
+
               <Image
                 src="/isaac.webp"
                 alt="Isaac"
                 width={300}
                 height={400}
-                className="-ml-8 min-w-[300px] min-h-[400px]"
-                priority
-                fetchPriority="high"
+                className="-ml-8 w-[300px] h-auto"
+                priority={false}
+                loading="lazy"
               />
             </div>
           </div>

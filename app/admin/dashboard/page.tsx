@@ -1,10 +1,10 @@
 // app/admin/dashboard/page.tsx
 'use client';
 
-import { Card, CardHeader, CardBody, CardFooter, Tabs, Tab} from "@heroui/react";
+import { Card, CardBody, Tabs, Tab} from "@heroui/react";
 import { Button } from "@heroui/react";
-import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { LockClosedIcon } from "@heroicons/react/24/outline";
+import PieChartCard from "@/app/ui/charts/pie-chart-card";
 
 // Dummy data for pie chart
 const data = [
@@ -33,17 +33,7 @@ export default function Page() {
       <Card>
         <CardBody className="p-4">
           <h2 className="text-lg font-semibold mb-4">Website Analytics</h2>
-          <PieChart width={250} height={200}>
-            <Pie data={data} dataKey="value" outerRadius={80}>
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={["#8884d8", "#82ca9d", "#ffc658"][index]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
+          <PieChartCard />
         </CardBody>
       </Card>
 

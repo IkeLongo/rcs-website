@@ -1,7 +1,10 @@
 
 import Image from "../components/image";
-import MuxPlayer from '@mux/mux-player-react/lazy';
-// import FadeInUp from "../components/fade-in-up";
+import dynamic from "next/dynamic";
+
+const MuxPlayer = dynamic(() => import("@mux/mux-player-react/lazy"), {
+  loading: () => null,
+});
 
 export default function HomeWhy() {
 
