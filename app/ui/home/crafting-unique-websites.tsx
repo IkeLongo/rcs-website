@@ -1,5 +1,4 @@
 import InfoGraphic from "../components/info-graphic";
-import "@/app/globals.css";
 import webDesignAnimation from "@/app/lib/assets/home-web-design-animation.json";
 import brandingAnimation from "@/app/lib/assets/home-branding-animation.json";
 import hostingAnimation from "@/app/lib/assets/home-hosting-animation.json";
