@@ -151,7 +151,7 @@ export default function HomeHero() {
                     zIndex: 20,
                   }}
                 >
-                  <TransChip label={chip.label} />
+                  <TransChip label={chip.label} variant="mobile" />
                 </div>
               ))}
             </div>
@@ -168,7 +168,7 @@ export default function HomeHero() {
                     zIndex: 20,
                   }}
                 >
-                  <TransChip label={chip.label} />
+                  <TransChip label={chip.label} variant="mobile" />
                 </div>
               ))}
             </div>
