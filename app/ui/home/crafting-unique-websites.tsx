@@ -35,17 +35,15 @@ export default function UniqueWebsites() {
 
 
   return (
-    <div className="relative w-full min-h-[596px] py-10 pb-20">
-      {/* Background Image - lazy loaded and optimized */}
+    <div className="relative w-full min-h-[596px] py-10 pb-20 overflow-hidden">
       <Image
         src="/home-landscape-bluegrad.webp"
-        alt=""
+        alt=""                  // decorative is fine
         fill
         loading="lazy"
-        quality={85}
-        sizes="100vw"
+        quality={70}            // ✅ lower for backgrounds
+        sizes="(max-width: 768px) 100vw, 1200px"  // ✅ cap desktop
         className="object-cover object-top"
-        style={{ zIndex: 0 }}
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
