@@ -1,107 +1,52 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Cookies from "js-cookie";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  Button,
-} from "@heroui/react";
-import PreferencesModal from './cookie-preferences';
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+
+// This will split HeroUI Drawer/Button into its own chunk
+const CookieBannerUI = dynamic(() => import("./cookie-banner-ui"), {
+  loading: () => null,
+});
 
 export default function CookieBanner() {
-  const [showBanner, setShowBanner] = useState(false);
-  const [showPreferences, setShowPreferences] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const loadedRef = useRef(false);
 
   useEffect(() => {
-    const cookiePreferences = Cookies.get("cookiePreferences");
+    // If we've already decided to load, do nothing.
+    if (loadedRef.current) return;
 
-    if (!cookiePreferences) {
-      // ✅ Auto-set cookies when the banner opens
-      const defaultPreferences = {
-        functional: true,
-        statistical: true,
-        marketing: true,
-      };
-
-      Cookies.set("cookiePreferences", JSON.stringify(defaultPreferences), { expires: 365 });
-      setShowBanner(true);
-    }
-  }, []);
-
-  // ✅ Function to update cookie preferences
-  const acceptAllCookies = () => {
-    const preferences = {
-      functional: true,
-      statistical: true,
-      marketing: true,
+    const triggerLoad = () => {
+      if (loadedRef.current) return;
+      loadedRef.current = true;
+      setShouldLoad(true);
+      cleanup();
     };
 
-    Cookies.set("cookiePreferences", JSON.stringify(preferences), { expires: 365 });
-    setShowBanner(false);
-  };
+    // 1) Load after first interaction (fastest real-world win)
+    const onFirstInteraction = () => triggerLoad();
 
-  // ✅ Function to configure cookies
-  const configureCookies = () => {
-    setShowBanner(false);
-    setShowPreferences(true);
-  };
+    // 2) Fallback: load after a short delay (so it still appears)
+    const timeoutId = window.setTimeout(triggerLoad, 2500);
 
-  return (
-    <>
-      {showPreferences && (
-        <PreferencesModal
-          isOpen={showPreferences}
-          onClose={() => setShowPreferences(false)}
-        />
-      )}
+    const cleanup = () => {
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+      window.removeEventListener("touchstart", onFirstInteraction);
+      clearTimeout(timeoutId);
+    };
 
-      <Drawer
-        //backdrop="blur"
-        placement="bottom"
-        hideCloseButton={false}
-        isDismissable={false}
-        className="bg-blue-950"
-        isOpen={showBanner}
-        shouldBlockScroll={false}
-        onOpenChange={() => setShowBanner(false)}
-      >
-        <DrawerContent>
-          {(onClose) => (
-            <>
-              <DrawerHeader className="flex flex-col gap-1 font-gentium-book-plus text-[28px] text-white">
-                We Respect Your Privacy
-              </DrawerHeader>
-              <DrawerBody>
-                <p className='text-left text-white'>
-                  We use cookies to tailor our website and services to your preferences, as well as
-                  for analytics and performance tracking. By continuing to use our website and
-                  products, you consent to our use of cookies.
-                </p>
-              </DrawerBody>
-              <DrawerFooter className='justify-start'>
-                <Button
-                  variant="solid"
-                  className="bg-green-500 text-white font-bold rounded-lg py-2"
-                  onPress={acceptAllCookies}
-                >
-                  Accept All
-                </Button>
-                <Button
-                  variant="bordered"
-                  className="border-green-500 text-white font-bold rounded-lg py-2"
-                  onPress={configureCookies}
-                >
-                  Configure Cookies
-                </Button>
-              </DrawerFooter>
-            </>
-          )}
-        </DrawerContent>
-      </Drawer>
-    </>
-  );
+    window.addEventListener("pointerdown", onFirstInteraction, { passive: true });
+    window.addEventListener("keydown", onFirstInteraction);
+    window.addEventListener("scroll", onFirstInteraction, { passive: true });
+    window.addEventListener("touchstart", onFirstInteraction, { passive: true });
+
+    return cleanup;
+  }, []);
+
+  // Nothing loads until interaction or timeout fires
+  if (!shouldLoad) return null;
+
+  return <CookieBannerUI />;
 }
