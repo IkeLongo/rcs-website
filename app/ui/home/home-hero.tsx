@@ -1,129 +1,29 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
+// app/ui/pages/home/HomeHero.tsx (SERVER)
 import Image from "../components/image";
-import TransChip from "../components/trans-chip";
-// import FadeInUp from "../components/fade-in-up";
+import dynamic from "next/dynamic";
 
-const leftChips = [
-  { label: "Web Design", pos: "10%" },
-  { label: "Web Development", pos: "3%" },
-  { label: "Brand Strategy", pos: "18%" },
-  { label: "Visual Identity", pos: "5%" },
-  { label: "UI/UX Design", pos: "12%" },
-  { label: "Logo Design", pos: "22%" },
-  { label: "Creative Direction", pos: "15%" },
-  { label: "Responsive Design", pos: "7%" },
-];
-
-const rightChips = [
-  { label: "SEO Optimization", pos: "10%" },
-  { label: "Hosting", pos: "24%" },
-  { label: "Content Strategy", pos: "8%" },
-  { label: "Custom Code", pos: "20%" },
-  { label: "Storytelling", pos: "12%" },
-  { label: "Style Guides", pos: "20%" },
-  { label: "Conversion Strategy", pos: "2%" },
-  { label: "Pixel Precision", pos: "18%" },
-];
+const HomeHeroEffects = dynamic(() => import("./client/home-hero-client"), {
+  // keep initial layout stable (no shift)
+  loading: () => null,
+});
 
 export default function HomeHero() {
-  const [mounted, setMounted] = useState(false);
-  const PARALLAX_RATE = 0.6;
-
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [chipsY, setChipsY] = useState(0);
-
-  const CHIP_RAIN_DURATION = 12; // seconds
-  const CHIP_COUNT = leftChips.length; // 8
-
-  const CHIP_DELAY = CHIP_RAIN_DURATION / CHIP_COUNT; // 2s
-
-  const [enableRain, setEnableRain] = useState(false);
-
-  // Replace your useEffect with this version
-  useEffect(() => {
-    let raf = 0;
-    setMounted(true);
-
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const el = sectionRef.current;
-        if (!el) return;
-
-        const rect = el.getBoundingClientRect();
-        const sectionTopAbs = rect.top + window.scrollY; // absolute Y of section top
-        const sectionH = el.offsetHeight;
-
-        // How much we've scrolled inside this section in document space:
-        // 0 when section top hits viewport top, increases as we continue.
-        const scrolledInsideRaw = window.scrollY - sectionTopAbs;
-
-        // Keep it within the section's lifespan (prevents runaway values off-screen)
-        const scrolledInside = Math.max(0, Math.min(sectionH, scrolledInsideRaw));
-
-        // Constant-speed parallax for the whole time the section is in view
-        const y = -scrolledInside * PARALLAX_RATE;
-
-        setChipsY(y);
-      });
-    };
-
-    onScroll(); // init
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  // Delay the enabling of rain effect for performance
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    let idleId: number | undefined;
-
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-
-    if (typeof w.requestIdleCallback === "function") {
-      idleId = w.requestIdleCallback(() => setEnableRain(true), { timeout: 1200 });
-    } else {
-      timeoutId = setTimeout(() => setEnableRain(true), 600);
-    }
-
-    return () => {
-      if (idleId !== undefined && typeof w.cancelIdleCallback === "function") {
-        w.cancelIdleCallback(idleId);
-      }
-      if (timeoutId !== undefined) clearTimeout(timeoutId);
-    };
-  }, []);
-
   return (
-    // Section is taller than the viewport by PIN_DISTANCE so the hero can stay pinned
     <section
-      ref={sectionRef}
-      className="relative w-full min-h-[900px]" // set your desired min height here
-      style={{ height: "100vh", minHeight: "900px" }} // match the min-h value
+      data-hero-section
+      className="relative w-full min-h-[900px]"
+      style={{ height: "100vh", minHeight: "900px" }}
     >
-      {/* Sticky hero: stays pinned for the first PIN_DISTANCE px of scroll */}
       <div className="absolute bottom-0 w-full h-full overflow-hidden bg-alice-blue-500">
-
-        {/* 1) BACKGROUND SHAPES (moved out of hero content) */}
+        {/* Background shapes (static) */}
         <div className="absolute left-1/2 bottom-0 -translate-x-1/2 pointer-events-none z-10 flex w-[1220px] max-w-full flex-col items-center">
-          {/* Ellipse - responsive gradient div */}
           <div
             className="w-[min(890px,80vw)] aspect-[890/800] -mt-[600px] rounded-[50%]"
             style={{
-              background: 'radial-gradient(circle at center, rgba(132, 196, 65, 0.40) 0%, rgba(191, 238, 60, 0.35) 30%, rgba(191, 238, 60, 0.2) 50%, rgba(191, 238, 60, 0) 70%)',
+              background:
+                "radial-gradient(circle at center, rgba(132, 196, 65, 0.40) 0%, rgba(191, 238, 60, 0.35) 30%, rgba(191, 238, 60, 0.2) 50%, rgba(191, 238, 60, 0) 70%)",
             }}
           />
-          {/* Blob */}
           <Image
             src="/hero-blob.webp"
             alt="Background blob"
@@ -135,65 +35,20 @@ export default function HomeHero() {
           />
         </div>
 
-        {/* Mobile raining chips temporarily disabled for all devices */}
+        {/* ✅ Client-only effects (deferred) */}
+        <HomeHeroEffects />
 
-        {/* Chips layer: continues to move during pin AND after release */}
-        <div className="block">
-          <div
-            className="absolute inset-0 top-[950px] md:top-[800px] pointer-events-none mx-auto w-full max-w-[1120px] z-20"
-            style={{
-              transform: `translateY(${chipsY}px)`,
-              willChange: "transform",
-            }}
-          >
-            {/* Left chips */}
-            <div
-              className={`absolute right-0 top-0 flex h-full w-1/2 -translate-x-4 flex-col items-end justify-center gap-6
-                transition-all duration-700 ease-out
-                ${mounted ? "translate-y-0 opacity-100" : "translate-y-32 opacity-0"}
-              `}
-            >            
-              <TransChip label="Web Design" className="mb-20 relative left-4" />
-              <TransChip label="Web Development" className="mb-20 relative -left-10 z-10" />
-              <TransChip label="Brand Strategy" className="mb-20 relative left-0" />
-              <TransChip label="Visual Identity" className="mb-20 relative -left-6" />
-              <TransChip label="UI/UX Design" className="mb-20 relative left-10" />
-              <TransChip label="Logo Design" className="mb-20 relative left-1" />
-              <TransChip label="Creative Direction" className="mb-20 relative left-6" />
-              <TransChip label="Responsive Design" className="mb-20 relative left-3" />
-            </div>
-
-            {/* Right chips */}
-            <div
-              className={`absolute left-0 top-0 flex h-full w-1/2 translate-x-4 flex-col items-start justify-center gap-6
-                transition-all duration-700 ease-out
-                ${mounted ? "translate-y-0 opacity-100" : "translate-y-32 opacity-0"}
-              `}
-            >
-              <TransChip label="SEO Optimization" className="mb-20 relative right-4" />
-              <TransChip label="Hosting" className="mb-20 relative -right-4" />
-              <TransChip label="Content Strategy" className="mb-20 relative -right-12" />
-              <TransChip label="Custom Code" className="mb-20 relative right-2" />
-              <TransChip label="Storytelling" className="mb-20 relative right-10" />
-              <TransChip label="Style Guides" className="mb-20 relative right-1" />
-              <TransChip label="Conversion Strategy" className="mb-20 relative right-6" />
-              <TransChip label="Pixel Precision" className="mb-20 relative right-3" />
-            </div>
-          </div>
-        </div>
-
-        {/* Hero content (does not parallax) */}
+        {/* Hero content (static) */}
         <div className="relative flex h-full w-full flex-col items-center p-6 md:top-4 md:px-20">
           <div className="flex w-full flex-col pt-28 md:pt-36 self-center md:items-end md:justify-end">
             <h1 className="w-full max-w-lg text-navy-500 z-40 mx-auto text-center">
-              {/* <FadeInUp> */}
-                Crafting Powerful <span className="italic text-neongreen-700">Websites</span> and
-                <br className="hidden md:block"/>
-                <span className="italic text-neongreen-700"> Branding</span> for Your Business
-              {/* </FadeInUp> */}
+              Crafting Powerful{" "}
+              <span className="italic text-neongreen-700">Websites</span> and
+              <br className="hidden md:block" />
+              <span className="italic text-neongreen-700"> Branding</span> for
+              Your Business
             </h1>
 
-            {/* People (on top) */}
             <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10">
               <Image
                 src="/barb.webp"
