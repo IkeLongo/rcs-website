@@ -29,10 +29,10 @@ export default function HomeHero() {
             alt="Background blob"
             width={800}
             height={650}
-            className="absolute left-1/2 -translate-x-1/2 -translate-y-[250px] sm:-translate-y-[0px] select-none w-[90vw] min-w-[400px] md:w-[min(800px,70vw)]"
+            sizes="(max-width: 768px) 90vw, 800px"
+            className="absolute left-1/2 -translate-x-1/2 -translate-y-[250px] sm:translate-y-0 select-none w-[90vw] min-w-[400px] md:w-[min(800px,70vw)] h-auto"
             style={{
-              bottom: "clamp(15%, 20vh, 25%)",
-              height: "auto",
+              bottom: "clamp(15%, 20svh, 25%)",
             }}
             priority={false}
           />
