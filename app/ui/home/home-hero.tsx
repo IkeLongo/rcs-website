@@ -25,9 +25,8 @@ export default function HomeHero() {
           />
           {/* Blob wrapper reserves space deterministically */}
           <div
-            className="absolute left-1/2 z-10 pointer-events-none"
+            className="absolute left-1/2 z-10 pointer-events-none bottom-0 sm:-bottom-28 md:-bottom-60"
             style={{
-              bottom: "18%", // pick a stable value (we can tune)
               width: "min(800px, 90vw)",
               aspectRatio: "800 / 650",
               transform: "translate(-50%, -250px)", // stable across breakpoints
