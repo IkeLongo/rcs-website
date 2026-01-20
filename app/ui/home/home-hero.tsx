@@ -23,19 +23,25 @@ export default function HomeHero() {
                 "radial-gradient(circle at center, rgba(132, 196, 65, 0.40) 0%, rgba(191, 238, 60, 0.35) 30%, rgba(191, 238, 60, 0.2) 50%, rgba(191, 238, 60, 0) 70%)",
             }}
           />
-          {/* Blob positioned behind people */}
-          <Image
-            src="/hero-blob.webp"
-            alt="Background blob"
-            width={800}
-            height={650}
-            sizes="(max-width: 768px) 90vw, 800px"
-            className="absolute left-1/2 -translate-x-1/2 -translate-y-[250px] sm:translate-y-0 select-none w-[90vw] min-w-[400px] md:w-[min(800px,70vw)] h-auto"
+          {/* Blob wrapper reserves space deterministically */}
+          <div
+            className="absolute left-1/2 z-10 pointer-events-none"
             style={{
-              bottom: "clamp(15%, 20svh, 25%)",
+              bottom: "18%", // pick a stable value (we can tune)
+              width: "min(800px, 90vw)",
+              aspectRatio: "800 / 650",
+              transform: "translate(-50%, -250px)", // stable across breakpoints
             }}
-            priority={false}
-          />
+          >
+            <Image
+              src="/hero-blob.webp"
+              alt="Background blob"
+              fill
+              sizes="(max-width: 768px) 90vw, 800px"
+              className="select-none object-contain"
+              priority={false}
+            />
+          </div>
         </div>
 
         {/* ✅ Client-only effects (deferred) */}
