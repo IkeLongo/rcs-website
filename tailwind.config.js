@@ -218,6 +218,5 @@ module.exports = {
     heroui({
       addCommonColors: true,
     }),
-    // require('tailwind-scrollbar'),
   ],
 };
