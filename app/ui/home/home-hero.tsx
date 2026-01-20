@@ -39,6 +39,8 @@ export default function HomeHero() {
 
   const CHIP_DELAY = CHIP_RAIN_DURATION / CHIP_COUNT; // 2s
 
+  const [enableRain, setEnableRain] = useState(false);
+
   // Replace your useEffect with this version
   useEffect(() => {
     let raf = 0;
@@ -78,6 +80,30 @@ export default function HomeHero() {
     };
   }, []);
 
+  // Delay the enabling of rain effect for performance
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    let idleId: number | undefined;
+
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+
+    if (typeof w.requestIdleCallback === "function") {
+      idleId = w.requestIdleCallback(() => setEnableRain(true), { timeout: 1200 });
+    } else {
+      timeoutId = setTimeout(() => setEnableRain(true), 600);
+    }
+
+    return () => {
+      if (idleId !== undefined && typeof w.cancelIdleCallback === "function") {
+        w.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     // Section is taller than the viewport by PIN_DISTANCE so the hero can stay pinned
     <section
@@ -110,42 +136,44 @@ export default function HomeHero() {
         </div>
 
         {/* Mobile raining chips */}
-        <div className="absolute inset-0 -top-20 z-20 flex flex-row justify-between md:hidden pointer-events-none w-full">
-          {/* Left column */}
-          <div className="relative w-1/2 h-full flex flex-col items-center">
-            {leftChips.map((chip, i) => (
-              <div
-                key={chip.label}
-                style={{
-                  animation: `chipRain ${CHIP_RAIN_DURATION}s linear ${i * CHIP_DELAY}s infinite`,
-                  position: "absolute",
-                  left: chip.pos,
-                  top: 0,
-                  zIndex: 20,
-                }}
-              >
-                <TransChip label={chip.label} />
-              </div>
-            ))}
+        {enableRain && (
+          <div className="absolute inset-0 -top-20 z-20 flex flex-row justify-between md:hidden pointer-events-none w-full">
+            {/* Left column */}
+            <div className="relative w-1/2 h-full flex flex-col items-center">
+              {leftChips.map((chip, i) => (
+                <div
+                  key={chip.label}
+                  style={{
+                    animation: `chipRain ${CHIP_RAIN_DURATION}s linear ${i * CHIP_DELAY}s infinite`,
+                    position: "absolute",
+                    left: chip.pos,
+                    top: 0,
+                    zIndex: 20,
+                  }}
+                >
+                  <TransChip label={chip.label} />
+                </div>
+              ))}
+            </div>
+            {/* Right column */}
+            <div className="relative w-1/2 h-full flex flex-col items-center">
+              {rightChips.map((chip, i) => (
+                <div
+                  key={chip.label}
+                  style={{
+                    animation: `chipRain ${CHIP_RAIN_DURATION}s linear ${(i * CHIP_DELAY) + (CHIP_DELAY / 2)}s infinite`,
+                    position: "absolute",
+                    right: chip.pos,
+                    top: 0,
+                    zIndex: 20,
+                  }}
+                >
+                  <TransChip label={chip.label} />
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Right column */}
-          <div className="relative w-1/2 h-full flex flex-col items-center">
-            {rightChips.map((chip, i) => (
-              <div
-                key={chip.label}
-                style={{
-                  animation: `chipRain ${CHIP_RAIN_DURATION}s linear ${(i * CHIP_DELAY) + (CHIP_DELAY / 2)}s infinite`,
-                  position: "absolute",
-                  right: chip.pos,
-                  top: 0,
-                  zIndex: 20,
-                }}
-              >
-                <TransChip label={chip.label} />
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
 
         {/* Chips layer: continues to move during pin AND after release */}
         <div className="hidden md:block">
