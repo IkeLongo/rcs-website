@@ -3,7 +3,6 @@ import Image from "../components/image";
 import dynamic from "next/dynamic";
 
 const MuxPlayer = dynamic(() => import("@mux/mux-player-react/lazy"), {
-  ssr: false,
   loading: () => null,
 });
 

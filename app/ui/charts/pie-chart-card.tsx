@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import { Card, CardBody } from "@heroui/react";
 
 const RechartsPie = dynamic(() => import("./recharts-pie"), {
-  ssr: false,
   loading: () => (
     <div className="h-[200px] w-[250px] flex items-center justify-center text-sm opacity-70">
       Loading chart…
