@@ -11,8 +11,7 @@ export default function HomeHero() {
   return (
     <section
       data-hero-section
-      className="relative w-full min-h-[900px] h-[120vh]"
-      style={{ height: "120vh" }}
+      className="relative w-full min-h-[900px]"
     >
       <div className="absolute bottom-0 w-full h-full overflow-hidden bg-alice-blue-500">
         {/* Background shapes (static) */}
@@ -54,7 +53,7 @@ export default function HomeHero() {
             </h1>
 
             <div 
-              className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10 overflow-hidden"
+              className="pointer-events-none w-fit h-[600px] absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10 overflow-hidden"
             >
               <Image
                 src="/barb.webp"
