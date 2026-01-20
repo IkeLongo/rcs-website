@@ -5,7 +5,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/app/ui/components/bento/bento-grid";
 import { IconChefHat, IconCross, IconBolt, IconBarbell, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { GiWeightLiftingUp } from "react-icons/gi";
+import { BicepsFlexed } from 'lucide-react';
 
 // import { CountdownStandingsHeader } from "../../portfolios/headers/countdown-standings-header";
 
@@ -90,7 +90,7 @@ const portfolioItems: PortfolioItem[] = [
     name: "Collenback Strength",
     link: "https://collenbackstrength.com",
     description: "Personal training site centered on athlete development and coaching.",
-    icon: <GiWeightLiftingUp className="h-4 w-4 text-neutral-500" />,
+    icon: <BicepsFlexed className="h-4 w-4 text-neutral-500" />,
     badgeColor: "white",
   },
   {
