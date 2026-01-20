@@ -1,6 +1,6 @@
 import Image from "next/image";
 // import FadeInUp from "../components/fade-in-up";
-import ProfilesClient from './profiles-client';
+import Profiles from './profiles';
 
 export async function Hero() {
   return (
@@ -35,7 +35,7 @@ export async function Hero() {
         </div>
 
         {/* Profiles Component */}
-        <ProfilesClient />
+        <Profiles />
       </div>
       {/* Decorative Image */}
       <Image

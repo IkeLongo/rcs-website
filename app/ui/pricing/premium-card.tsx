@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CardProps } from '@/types/components';
+import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 
 export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDescription, features }: CardProps) {

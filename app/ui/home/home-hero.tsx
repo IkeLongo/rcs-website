@@ -205,8 +205,24 @@ export default function HomeHero() {
 
             {/* People (on top) */}
             <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 z-30 flex w-full items-end justify-center -gap-10">
-              <Image src="/barb.webp" alt="Barb" width={350} height={450} className="-mr-8 min-w-[350px] min-h-[450px]" />
-              <Image src="/isaac.webp" alt="Isaac" width={300} height={400} className="-ml-8 min-w-[300px] min-h-[400px]" />
+              <Image
+                src="/barb.webp"
+                alt="Barb"
+                width={350}
+                height={450}
+                className="-mr-8 min-w-[350px] min-h-[450px]"
+                priority
+                fetchPriority="high"
+              />
+              <Image
+                src="/isaac.webp"
+                alt="Isaac"
+                width={300}
+                height={400}
+                className="-ml-8 min-w-[300px] min-h-[400px]"
+                priority
+                fetchPriority="high"
+              />
             </div>
           </div>
         </div>

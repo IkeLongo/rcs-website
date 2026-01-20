@@ -1,7 +1,6 @@
 import Image from "next/image";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import Link from 'next/link';
 import { CardProps } from '@/types/components';
+import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 
 export default function NormalCard({ monthlyPrice, totalPrice, planName, planDescription, features }: CardProps) {

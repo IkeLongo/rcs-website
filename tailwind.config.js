@@ -26,7 +26,6 @@ module.exports = {
         'service-block-branding-bg-image': "url('/website-design-tools.webp')",
         'service-block-hosting-bg-image': "url('/computer-networking.webp')",
         'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
-        'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
         'service-hero-bg-blob': "url('/service-hero-bg-blob.webp')",
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
@@ -46,12 +45,6 @@ module.exports = {
         bluegradient: 'var(--Blue-Gradient, linear-gradient(169deg, #90A6E2 -26.67%, #0096C0 127.92%))',
         'normal-card-dark-purple': '#231D4F',
         'normal-card-gray': '#848199',
-        green: {
-          200: '#D5FEEE',
-          300: '#65EDB7',
-          500: '#00CF7D',
-          700: '#179865',
-        },
         neongreen: {
           200: '#EFF88E',
           300: '#BFEE3C',
@@ -87,27 +80,8 @@ module.exports = {
           500: '#FFE993',
           700: '#CCBD82',
         },
-        gray: {
-          100: '#',
-          200: '#E3EBED',
-          300: '#A4A1AE',
-          400: '#928F9F',
-          500: '#605E67',
-          600: '#',
-          700: '#4B4952',
-          800: '#37363F',
-          900: '#292732',
-          950: '#28272A',
-        },
         black: {
-          100: '#',
-          200: '#',
-          300: '#',
-          400: '#',
           500: '#181818',
-          600: '#',
-          700: '#',
-          800: '#',
           900: '#000000',
         },
         blue: {
@@ -137,16 +111,7 @@ module.exports = {
           975: '#525558', // Darker
         },
         'royal-blue': {
-          50: '',  // Light  
-          100: '', // Light:hover
-          200: '', // Light:active
-          500: '#3A88EE', // Normal
-          600: '', // Normal:hover
-          700: '', // Normal:active
-          800: '', // Dark
-          900: '', // Dark:hover
-          950: '', // Dark:active
-          975: '', // Darker
+          500: '#3A88EE',
         },
         green: {
           50: '#f3f9ec',  // Light
@@ -204,7 +169,7 @@ module.exports = {
         'source-sans-pro': ['"Source Sans Pro"', 'sans-serif'],
         'roboto': ['"Roboto"', 'sans-serif'],
         'abhaya-libre': ['"Abhaya Libre"', 'serif'],
-        'passero-one': ['"Passero One"', 'sans-serif'],
+        "passero-one": ["var(--font-passero-one)", "sans-serif"],
       },
       fontWeight: {
         thin: 100,
@@ -253,6 +218,6 @@ module.exports = {
     heroui({
       addCommonColors: true,
     }),
-    require('tailwind-scrollbar'),
+    // require('tailwind-scrollbar'),
   ],
 };

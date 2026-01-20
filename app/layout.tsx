@@ -9,9 +9,11 @@ import { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
 
 import type { Metadata } from "next";
+
+import { passeroOne } from "@/app/ui/fonts/passero-one";
 import './globals.css';
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+// const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -41,12 +43,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={passeroOne.variable}>
       <head>
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet" /> */}
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
       </head>
       <body
@@ -55,7 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AnalyticsGA4 />
         <FadeOverlay />
         {/* GTM Noscript - MUST be immediately after opening body tag */}
-        {GTM_ID && (
+        {/* {GTM_ID && (
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -64,7 +66,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               style={{ display: 'none', visibility: 'hidden' }}
             />
           </noscript>
-        )}
+        )} */}
         <CookieBanner />
         {/* ✅ Global toast container mounted once, client-side */}
         <ToastProvider />
