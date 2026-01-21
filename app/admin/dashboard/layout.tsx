@@ -1,7 +1,7 @@
 // app/admin/dashboard/layout.tsx
 
 import SideNav from "@/app/ui/user/sidenav";
-import '../globals.css'
+// import '../globals.css'
  
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
