@@ -7,12 +7,18 @@ export default function PremiumCard({ monthlyPrice, totalPrice, planName, planDe
 
 	return (
       (<div className="flex h-auto items-center gap-[40px] justify-center">
-        <div className="flex flex-col w-[212px] lg:w-[315px] h-[530px] lg:h-[625px] justify-start bg-mobile-premium-bg bg-center bg-cover">
+        <div className="relative flex flex-col w-[212px] lg:w-[315px] h-[530px] lg:h-[625px] justify-start">
+          <Image
+            src="/mobile-premium-bg.svg"
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
           <div className="relative z-10 flex items-center justify-center self-end uppercase w-[99px] lg:w-[115px] h-[22px] lg:h-[22px] bg-white rounded-[20px] mx-10 mr-6 lg:mr-12 my-7">
             <div className="uppercase !font-maven-pro !font-semibold !text-center !text-[8px] !lg:text-[10px] !text-blue-500 py-2">Most Popular</div>
           </div>
 
-          <div className='flex flex-col items-stretch h-[447px] lg:h-[525px] pb-10 lg:pb-14 ml-6 lg:ml-14 mr-1 lg:mr-12 box-border'>
+          <div className='relative z-10 flex flex-col items-stretch h-[447px] lg:h-[525px] pb-10 lg:pb-14 ml-6 lg:ml-14 mr-1 lg:mr-12 box-border'>
             <div className='flex flex-col self-stretch grow'>
 
               <div className='w-auto flex gap-1 items-end -mt-6'>

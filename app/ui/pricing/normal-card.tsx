@@ -6,12 +6,18 @@ import SimpleBar from 'simplebar-react';
 export default function NormalCard({ monthlyPrice, totalPrice, planName, planDescription, features }: CardProps) {
   return (
     (<div className="flex h-auto items-center gap-[40px] justify-center">
-      <div className="flex flex-col w-[220px] lg:w-[300px] h-[530px] lg:h-[575px] justify-start bg-mobile-normal-bg bg-center bg-cover">
-        <div className="relative invisible z-10 flex items-center justify-center self-end uppercase w-[99px] h-[22px] bg-white rounded-[20px] mx-10 my-7">
+      <div className="relative flex flex-col w-[220px] lg:w-[300px] h-[530px] lg:h-[575px] justify-start">
+        <Image
+          src="/mobile-normal-bg.svg"
+          alt=""
+          fill
+          className="object-cover object-center"
+        />
+        <div className="relative z-10 flex items-center justify-center self-end uppercase w-[99px] h-[22px] bg-white rounded-[20px] mx-10 my-7">
           <p className="hidden">Most Popular</p>
         </div>
 
-        <div className='flex flex-col items-stretch h-[447px] lg:h-[525px] pb-16 md:-top-10 lg:top-4 ml-6 lg:ml-14 mr-1 lg:mr-12 box-border'>
+        <div className='relative z-10 flex flex-col items-stretch h-[447px] lg:h-[525px] pb-16 md:top-0 ml-6 lg:ml-14 mr-1 lg:mr-12 box-border'>
           <div className='flex flex-col self-stretch grow'>
             <div className='-mt-12 lg:-mt-12'>
               <div className="flex flex gap-1 items-end transition-opacity duration-500 opacity-100">

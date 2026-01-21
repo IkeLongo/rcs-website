@@ -5,6 +5,7 @@ import { useState } from "react";
 import {Tab, Tabs} from "@heroui/react";
 import PremiumCard from "./premium-card";
 import NormalCard from "./normal-card";
+import Image from "next/image";
 // import FadeInUp from "../components/fade-in-up";
 
 const plans = [
@@ -103,7 +104,13 @@ export default function Pricing() {
   });
 
 	return (
-    <div id='pricing' className="relative w-full min-h-[450px] bg-home-pricing-bg bg-cover bg-top">
+    <div id='pricing' className="relative w-full min-h-[450px]">
+      <Image
+        src="/home-pricing-bg.webp"
+        alt=""
+        fill
+        className="object-cover object-top"
+      />
       <div className="relative z-10 p-6 pt-10 flex flex-col items-center justify-start h-full gap-4">
         <h3>
           {/* <FadeInUp> */}
