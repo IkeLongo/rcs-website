@@ -1,12 +1,12 @@
-const {heroui} = require('@heroui/theme');
+// const {heroui} = require('@heroui/theme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "./ui/**/*.{js,ts,jsx,tsx}", // ✅ include your custom folder
+    // "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    // "./ui/**/*.{js,ts,jsx,tsx}", // ✅ include your custom folder
   ],
   theme: {
     extend: {
@@ -208,10 +208,10 @@ module.exports = {
       },
     },
   },
-  darkMode: "class",
-  plugins: [
-    heroui({
-      addCommonColors: true,
-    }),
-  ],
+  // darkMode: "class",
+  // plugins: [
+  //   heroui({
+  //     addCommonColors: true,
+  //   }),
+  // ],
 };
