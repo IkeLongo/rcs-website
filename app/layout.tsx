@@ -4,6 +4,7 @@ import AnalyticsGA4 from "./actions/analytics/analytics";
 import FadeOverlay from "./ui/components/fade-overlay";
 import { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
+import ClientProviders from "@/app/ui/providers/client-providers";
 
 import type { Metadata } from "next";
 
@@ -12,7 +13,6 @@ import './globals.css';
 import dynamic from "next/dynamic";
 
 const CookieBanner = dynamic(() => import("@/app/ui/cookie-prefs/cookie-banner"), { loading: () => null });
-const ToastProvider = dynamic(() => import("@/app/ui/providers/toast-provider"), { loading: () => null });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AnalyticsGA4 />
         {/* <FadeOverlay /> */}
         <CookieBanner />
-        <ToastProvider />
+        <ClientProviders />
         <Analytics />
         {children}
       </body>
