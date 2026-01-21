@@ -38,7 +38,7 @@ export interface BlockProps {
   iconDescription: string;
   iconWidth: string;
   title: string;
-  bgImageClass: string;
+  imageSrc: string;
   blockId: string;
   onClick: () => void;
   top: string;

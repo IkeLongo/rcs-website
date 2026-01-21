@@ -44,7 +44,7 @@ export default function ServiceBlocks() {
             iconDescription="Computer icon"
             iconWidth="70"
             title="Website Design & <br />Development"
-            bgImageClass="bg-service-block-design-bg-image bg-no-repeat bg-cover"
+            imageSrc="/website-engineer.webp"
             blockId="block-1"
             onClick={() => handleBlockClick('block-1')}
             top="top-[25%]"
@@ -54,7 +54,7 @@ export default function ServiceBlocks() {
             iconDescription="Lightbulb icon"
             iconWidth="60"
             title="Visual & Identity<br />Systems"
-            bgImageClass="bg-service-block-branding-bg-image bg-no-repeat bg-cover"
+            imageSrc="/website-design-tools.webp"
             blockId="block-2"
             onClick={() => handleBlockClick('block-2')}
             top="top-[22%]"
@@ -64,7 +64,7 @@ export default function ServiceBlocks() {
             iconDescription="Servers icon"
             iconWidth="52"
             title="Hosting, Maintenance & <br />Security"
-            bgImageClass="bg-service-block-hosting-bg-image bg-no-repeat bg-cover"
+            imageSrc="/computer-networking.webp"
             blockId="block-3"
             onClick={() => handleBlockClick('block-3')}
             top="top-[25%]"

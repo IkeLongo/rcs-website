@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { BlockProps } from '@/types/components';
 
-export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, title, bgImageClass, blockId, onClick, top }: BlockProps) {
+export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, title, imageSrc, blockId, onClick, top }: BlockProps) {
   const [isHalfway, setIsHalfway] = useState(false);
   const [isLg, setIsLg] = useState(false);
 
@@ -39,7 +39,13 @@ export default function DarkBlueBlock({ iconRoute, iconDescription, iconWidth, t
   }, [blockId, isLg]);
 
   return (
-    (<div className={`group flex flex-col w-full aspect-square items-center justify-center gap-[10px] ${bgImageClass} bg-center bg-cover cursor-pointer`} onClick={onClick}>
+    (<div className="group relative flex flex-col w-full aspect-square items-center justify-center gap-[10px] cursor-pointer" onClick={onClick}>
+      <Image
+        src={imageSrc}
+        alt=""
+        fill
+        className="object-cover object-center"
+      />
       <div
         id={blockId}
         className={`relative flex flex-col w-full h-full aspect-square items-center justify-center gap-[10px] ease-in-out duration-500 ${
