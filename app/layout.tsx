@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
         <AnalyticsGA4 />
-        <FadeOverlay />
+        {/* <FadeOverlay /> */}
         <CookieBanner />
         <ToastProvider />
         <Analytics />
