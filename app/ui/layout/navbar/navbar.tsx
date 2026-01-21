@@ -27,7 +27,10 @@ export default function Navbar() {
                   src="/logo-rivercity-creatives-horizontal-green-blue.png"
                   alt="Logo"
                   width={125}
-                  height={100}/>
+                  height={100}
+                  priority
+                  fetchPriority="high"
+                />
               </Link>
               <NavLinks 
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
