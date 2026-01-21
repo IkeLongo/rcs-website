@@ -34,7 +34,7 @@ export default function UniqueWebsites() {
 
 
   return (
-    <div className="relative w-full min-h-[596px] py-10 pb-20 overflow-hidden">
+    <div className="relative w-full min-h-[835px] py-20 overflow-hidden">
       <Image
         src="/home-landscape-bluegrad.webp"
         alt=""                  // decorative is fine
@@ -45,15 +45,23 @@ export default function UniqueWebsites() {
         className="object-cover object-top"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/25 mix-blend-lighten pointer-events-none z-0" />
-      <div className="relative z-10 p-6 pt-0 flex flex-col items-center justify-start h-full gap-10">
-        <h3 className="!text-white">
+      <div
+        className="absolute inset-0 mix-blend-lighten pointer-events-none z-0"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, rgba(240, 241, 245, 1) 0%, rgba(255,255,255,0.4) 30%, transparent 100%)"
+        }}
+      />
+      <div className="relative z-10 px-6 mb-16 flex flex-col items-center justify-start h-full">
+        <h3 className="!text-blue-900">
           {/* <FadeInUp
             className="text-white"
           > */}
             Crafting Unique Websites
           {/* </FadeInUp> */}
         </h3>
+        <p className="max-w-3xl text-center !text-navy-500 !text-md">
+          We specialize in creating custom websites that not only look stunning but also deliver exceptional performance and user experience. Our team combines creativity with technical expertise to build websites that truly represent your brand and engage your audience.
+        </p>
       </div>
 
       <div className="relative z-10 flex justify-center overflow-x-auto overflow-y-hidden md:mx-[80px]">

@@ -30,7 +30,7 @@ module.exports = {
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',
         'signup-mobile-bg': "url('/computer-screens-on-desk-in-empty-data-room-and-co-2025-02-20-07-31-16-utc.jpg')",
-        'home-why': 'linear-gradient(90deg, #E4E7ED 21.76%, #F0F1F5 78.24%);',
+        'home-why': 'linear-gradient(180deg, #E4E7ED 21.76%, #F0F1F5 78.24%);',
         'home-pricing-bg': 'url("/home-pricing-bg.webp")',
         'light-blue-radial-gradient': 'var(--Light-Blue-Radial-Gradient, radial-gradient(50% 50% at 50% 50%, #E9F2F8 0%, #C6DDEA 100%))',
         'dark-blue-radial-gradient': 'var(--Dark-Blue-Light-Blue-Radial-Gradient, radial-gradient(62.99% 62.99% at 50% 37.01%, #0052AB 0%, #002145 100%))',
