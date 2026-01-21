@@ -11,15 +11,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'home-pattern': "url('/Backgrounds.svg')",
-        'team-pattern': "url('/team-pattern.svg')",
-        'footer-texture': "url('/img/footer-texture.png')",
         'do-custom-gradient': 'linear-gradient(170deg, #06407F 50.24%, #002145 153.54%)',
         'footer-bg-gradient': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 0.50) 0%, rgba(41, 39, 50, 0.50) 100%)',
         'footer-bg-gradient-solid': 'radial-gradient(127.87% 50% at 50% 50%, rgba(125, 118, 152, 1) 0%, rgba(41, 39, 50, 1) 100%)',
         'services-hero-bg': 'radial-gradient(74.54% 51.35% at 2.82% -13.69%, #AFA8A8 0%, #292732 100%)',
-        'service-hero-blob-desktop-svg': "url('/service-hero-blob-desktop.svg')",
-        'service-hero-blob-svg': "url('/service-hero-background-blob.svg')",
         'team-blend': "linear-gradient(rgba(211, 211, 211), rgba(211, 211, 211))",
         'login-mobile-bg': 'radial-gradient(118.02% 115.75% at 50% 50%, #C6DDEA 0%, #FFF 100%)',
         'login-button': 'linear-gradient(180deg, #333C4D 0%, #0B0E14 100%)',

@@ -44,7 +44,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={passeroOne.variable}>
       <head>
-        <link rel="preconnect" href="https://www.google-analytics.com" />
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
       </head>
       <body
