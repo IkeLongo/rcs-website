@@ -38,7 +38,8 @@ export default function HomeHero() {
               fill
               sizes="(max-width: 768px) 90vw, 800px"
               className="select-none object-contain"
-              priority={false}
+              priority
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -83,8 +84,8 @@ export default function HomeHero() {
                 alt="Isaac"
                 width={300}
                 height={400}
-                loading="lazy"
-                priority={false}
+                priority
+                fetchPriority="high"
                 sizes="300px"
                 className="absolute bottom-0 left-1/2 -translate-x-[10%] md:-translate-x-[0%] w-[300px] h-auto"
               />
