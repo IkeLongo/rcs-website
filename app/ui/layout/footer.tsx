@@ -1,18 +1,14 @@
 // app/ui/layout/footer.tsx
-"use client";
 
 import Link from 'next/link';
 import Image from "next/image";
 // import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
-import AnimatedLottie from "../components/animations";
-import footerAnimation from "@/app/lib/assets/footer-animation.json";
+import FooterLottie from '../components/animations/footer-lottie';
 
 const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
-function getCurrentYear() {
-  return new Date().getFullYear();
-}
+const year = new Date().getFullYear();
 
 export default function Footer( {bgGradientClass}: FooterProps ) {
 
@@ -28,23 +24,13 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             className="cursor-pointer w-[150px] lg:w-[200px] h-auto md:pb-6"
           />
         </Link>
-        <AnimatedLottie
-          animationData={footerAnimation}
-          className="-mr-4 md:hidden w-[152px] h-[142px]"
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }}
+        <FooterLottie
+          className="-mr-4 md:hidden w-[152px] max-w-[100%] h-[142px]"
         />
       </div>
       <div className="flex flex-col gap-[46px] md:flex-row md:justify-between md:pb-10 md:pt-0 lg:items-center lg:justify-center">
-        <AnimatedLottie
-          animationData={footerAnimation}
+        <FooterLottie
           className="hidden md:block w-[152px] h-[142px] lg:w-[200px] lg:h-[186px]"
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }}
         />
         <div className='flex flex-col md:flex-row lg:flex-col md:grow justify-center gap-[24px] lg:gap-10 md:justify-around lg:justify-center lg:flex-row lg:grow-0'>
           <div className="flex flex-col justify-center gap-[15px] md:justify-start lg:flex-row lg:self-start lg:items-center lg:gap-[30px]">
@@ -221,13 +207,10 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               Site Map
             </Link>
             <p className="font-roboto !text-sm !text-left font-light text-white">
-              © {getCurrentYear()} All Rights Reserved
+              © {year} All Rights Reserved
             </p>
           </div>
           <div className="flex items-center justify-center pb-12">
-            {/* <p className="font-roboto text-sm font-light text-white">
-              © {getCurrentYear()} All Rights Reserved
-            </p> */}
           </div>
         </div>
       </div>
@@ -249,13 +232,10 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             Site Map
           </Link>
           <p className="font-roboto !text-[12px] font-light !text-white self-end">
-            © {getCurrentYear()} All Rights Reserved
+            © {year} All Rights Reserved
           </p>
         </div>
         <div className="flex items-center justify-center">
-          {/* <p className="font-roboto text-[11px] font-light text-white">
-            © {getCurrentYear()} All Rights Reserved
-          </p> */}
         </div>
       </div>
       {/* <ScrollToTopButton /> */}

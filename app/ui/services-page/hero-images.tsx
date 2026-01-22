@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AnimatedLottie from "../components/animations";
+import AnimatedLottie from "../components/animations/lottie-animation-template";
 import cloudAnimation from "@/app/lib/assets/cloud-animation.json";
 
 export default function HeroImages() {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from 'next/link';
-import AnimatedLottie from "./animations";
+import AnimatedLottie from "./animations/lottie-animation-template";
 import { DoProps } from "@/types/components";
 // import FadeInUp from "./fade-in-up";
 

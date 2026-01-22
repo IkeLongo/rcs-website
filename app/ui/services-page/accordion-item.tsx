@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import Link from 'next/link';
 import { AccordionItemProps } from '@/types/components';
-import AnimatedLottie from "../components/animations";
+import AnimatedLottie from "../components/animations/lottie-animation-template";
 import '/app/styles.css';
 
 export default function AccordionItem({ animation, iconDescription, title, description, className }: AccordionItemProps) {

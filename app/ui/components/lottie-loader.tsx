@@ -11,7 +11,7 @@ interface LottieIdleLoaderProps {
   alt?: string;
 }
 
-const LazyLottie = dynamic(() => import("./animations"), {
+const LazyLottie = dynamic(() => import("./animations/lottie-animation-template"), {
   ssr: false,
   loading: () => null,
 });
