@@ -80,7 +80,7 @@ export default function HomeHero() {
               />
 
               <Image
-                src="/isaac.webp"
+                src="/isaac_1.webp"
                 alt="Isaac"
                 width={300}
                 height={400}
