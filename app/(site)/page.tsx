@@ -7,7 +7,7 @@ import HomeWhy from '../ui/home/why';
 import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
 import ForgetFittingInContainer from '../ui/home/forget-fitting-in';
 import Portfolio from '@/app/ui/home/portfolio';
-import Pricing from '@/app/ui/pricing/selector';
+import ClientPricing from '../ui/home/client/pricing-client';
 import Footer from '@/app/ui/layout/footer';
 import StickyBottomButton from '../ui/components/sticky-button-bottom';
 
@@ -33,7 +33,7 @@ export default function Home() {
           <Portfolio />
         </Suspense>
         <Suspense fallback={null}>
-          <Pricing />
+          <ClientPricing />
         </Suspense>
         <Suspense fallback={null}>
           <Footer bgGradientClass="bg-footer-bg-gradient" />

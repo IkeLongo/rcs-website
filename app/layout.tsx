@@ -8,7 +8,6 @@ import ClientProviders from "@/app/ui/providers/client-providers";
 
 import type { Metadata } from "next";
 
-import { passeroOne } from "@/app/ui/fonts/passero-one";
 import './globals.css';
 import dynamic from "next/dynamic";
 
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={passeroOne.variable}>
+    <html lang="en">
       <head>
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
       </head>

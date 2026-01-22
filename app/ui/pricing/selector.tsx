@@ -6,6 +6,7 @@ import {Tab, Tabs} from "@heroui/react";
 import PremiumCard from "./premium-card";
 import NormalCard from "./normal-card";
 import Image from "next/image";
+import { passeroOne } from "@/app/ui/fonts/passero-one";
 // import FadeInUp from "../components/fade-in-up";
 
 const plans = [
@@ -43,7 +44,7 @@ const plans = [
     totalPrice: "5,400",
     planName: (
       <>
-        Web Design <span className="font-passero-one text-lime-500 font-normal text-md2">PLUS</span> Branding
+        Web Design <span className={`${passeroOne.className} text-lime-500 font-normal text-md2`}>PLUS</span> Branding
       </>
     ),
     planDescription: `Bring your brand to life with a complete identity and a high-quality website. 
@@ -179,8 +180,8 @@ export default function Pricing() {
             </div>
           </div>
         </div>
-        <div className="`flex flex-col items-center justify-center px-8">
-          <p className="w-fyll max-w-[500px] mx-auto text-navy-500">
+        <div className="flex flex-col items-center justify-center px-8">
+          <p className="w-full max-w-[500px] mx-auto text-navy-500">
             {/* <FadeInUp> */}
               Need something a little different? Every package is customizable to match your goals. Listed prices are starting points and may vary based on your project's needs.
             {/* </FadeInUp> */}
