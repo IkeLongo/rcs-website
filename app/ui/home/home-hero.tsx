@@ -69,7 +69,7 @@ export default function HomeHero() {
               "
             >
               <Image
-                src="/barb_1.webp"
+                src="/barb.webp"
                 alt="Barb"
                 width={350}
                 height={450}
@@ -80,7 +80,7 @@ export default function HomeHero() {
               />
 
               <Image
-                src="/isaac_1.webp"
+                src="/isaac.webp"
                 alt="Isaac"
                 width={300}
                 height={400}
