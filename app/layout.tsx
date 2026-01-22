@@ -4,7 +4,7 @@ import AnalyticsGA4 from "./actions/analytics/analytics";
 import FadeOverlay from "./ui/components/fade-overlay";
 import { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
-// import ClientProviders from "@/app/ui/providers/client-providers";
+import ClientProviders from "@/app/ui/providers/client-providers";
 
 import type { Metadata } from "next";
 
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AnalyticsGA4 />
         {/* <FadeOverlay /> */}
         <CookieBanner />
-        {/* <ClientProviders /> */}
+        <ClientProviders />
         <Analytics />
         {children}
       </body>
