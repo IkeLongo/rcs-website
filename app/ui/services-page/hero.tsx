@@ -30,7 +30,7 @@ export async function Hero() {
 
         <div className="absolute top-28 right-6 h-auto flex flex-col self-end gap-4 md:left-[15%] md:right-auto md:top-60 md:gap-10 lg:left-[10%] lg:top-44 lg:w-[482px] xl:left-[25%]">
           <div className="flex flex-col align-self-end w-68 gap-4">
-            <h1 className='!font-bold !text-left leading-9 !md:text-left !md:text-2xl !lg:text-[64px] !lg:leading-[3.5rem] !text-navy-500'>
+            <h1 className='!font-bold !text-right md:!text-left leading-9 !md:text-2xl !lg:text-[64px] !lg:leading-[3.5rem] !text-navy-500'>
               {/* <FadeInUp> */}
                 Turn Your <span className='italic text-white md:text-green-500'>Website</span><br/>& <span className='italic text-white md:text-green-500'>Brand</span> into Your<br/>Top Sales Tools
               {/* </FadeInUp> */}
@@ -38,9 +38,10 @@ export async function Hero() {
             <h2 className='!font-maven-pro !font-normal !text-base !text-left leading-5 !md:text-left !lg:text-md2 !lg:leading-[1.5rem] !lg:w-[300px] !xl:w-[336px]'>
               {/* <FadeInUp> */}
                 <span className="w-60 block text-navy-500 text-right md:text-left">
-                  Our brands and websites strategically <span className='lg:hidden'/> 
-                  connect your services to the right <span className='lg:hidden'/>
-                  clients, enabling you to raise prices <span className='lg:hidden'/>
+                  Our brands and websites <br className='lg:hidden'/> 
+                  strategically connect your <br className='lg:hidden'/>
+                  services to the right clients, <br className='lg:hidden'/>
+                  enabling you to raise prices <br className='lg:hidden'/>
                   and sell with confidence.
                 </span>
               {/* </FadeInUp> */}

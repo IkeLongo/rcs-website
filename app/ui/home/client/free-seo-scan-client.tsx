@@ -108,11 +108,24 @@ export default function FreeSeoScanClient() {
   const [emailTouched, setEmailTouched] = useState(false);
   const [sending, setSending] = useState(false);
   const [sentOk, setSentOk] = useState(false);
+  const [expandedIssues, setExpandedIssues] = useState<Set<number>>(new Set());
 
   const emailOk = useMemo(
     () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()),
     [email]
   );
+
+  const toggleIssue = (idx: number) => {
+    setExpandedIssues(prev => {
+      const next = new Set(prev);
+      if (next.has(idx)) {
+        next.delete(idx);
+      } else {
+        next.add(idx);
+      }
+      return next;
+    });
+  };
 
   const steps = [
     "Checking title, meta tags, and headings…",
@@ -316,7 +329,7 @@ export default function FreeSeoScanClient() {
                 </p>
               </div>
 
-              <div className="flex flex-col items-start md:items-end justify-end self-start lg:self-end">
+              <div className="flex flex-col items-start lg:items-end justify-end self-start lg:self-end">
                 <p className="!text-sm !text-gray-950">Scanned</p>
                 <p className="font-semibold !text-sm !text-gray-950 break-all">{scan.url}</p>
               </div>
@@ -371,7 +384,7 @@ export default function FreeSeoScanClient() {
           ) : null}
 
           {/* Issues */}
-          <div className="rounded-3xl border border-gray-200 bg-white shadow-sm p-6">
+          <div className="rounded-3xl border border-gray-200 bg-white shadow-sm p-4 md:p-6">
             <div className="flex items-end justify-between gap-4">
               <div className="flex flex-col items-start justify-start">
                 <h3 className="!my-0 text-xl !text-left font-extrabold text-navy-700 !drop-shadow-none">
@@ -384,25 +397,61 @@ export default function FreeSeoScanClient() {
             </div>
 
             <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {scan.issues.map((i, idx) => (
-                <div
-                  key={`${i.title}-${idx}`}
-                  className="flex flex-col items-start justify-start rounded-2xl border border-gray-200 bg-gray-50 p-4"
-                >
-                  <div className="w-full flex items-start justify-between gap-3">
-                    <p className="font-semibold !text-left !text-navy-700">{i.title}</p>
-                    <span
-                      className={[
-                        "shrink-0 rounded-full border px-2 py-1 text-[11px] font-semibold",
-                        badgeForSeverity(i.severity),
-                      ].join(" ")}
+              {scan.issues.map((i, idx) => {
+                const isExpanded = expandedIssues.has(idx);
+                return (
+                  <div
+                    key={`${i.key || i.title}-${idx}`}
+                    className={`flex flex-col items-start justify-start -ml-2 md:ml-0 px-2 md:px-0 rounded-2xl border-none md:border-1-solid border-gray-200 overflow-hidden ${
+                      isExpanded ? 'bg-gray-100' : 'bg-none md:bg-gray-50'
+                    }`}
+                  >
+                    <div 
+                      className={`w-full flex items-center justify-between gap-3 p-0 md:pr-4 md:py-2 md:pl-0 cursor-pointer transition-colors ${
+                        isExpanded ? '' : 'hover:bg-gray-100'
+                      }`}
+                      onClick={() => toggleIssue(idx)}
                     >
-                      {i.severity.toUpperCase()}
-                    </span>
+                      <div className="flex items-center gap-2 flex-1 p-2">
+                        <svg
+                          className={`w-5 h-5 shrink-0 text-navy-700 transition-transform ${
+                            isExpanded ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                        <p className="font-semibold !text-left !text-navy-700 !text-[14px] md:!text-base">
+                          {i.title}
+                          <span
+                            className={[
+                              "shrink-0 rounded-full border ml-2 px-[4px] py-[2px] text-[11px] font-semibold md:hidden",
+                              badgeForSeverity(i.severity),
+                            ].join(" ")}
+                          >
+                            {i.severity.toUpperCase()}
+                          </span>
+                        </p>
+                      </div>
+                      <span
+                        className={[
+                          "shrink-0 rounded-full border px-2 py-1 text-[11px] font-semibold hidden md:inline-block",
+                          badgeForSeverity(i.severity),
+                        ].join(" ")}
+                      >
+                        {i.severity.toUpperCase()}
+                      </span>
+                    </div>
+                    {isExpanded && i.why && (
+                      <div className="px-1 pb-2 md:px-4 md:pb-4">
+                        <p className="mt-2 text-sm !text-left !text-gray-950 !text-[14px] md:!text-base">{i.why}</p>
+                      </div>
+                    )}
                   </div>
-                  <p className="mt-2 text-sm !text-left !text-gray-950">{i.fix}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

@@ -1,3 +1,5 @@
+// app/api/seo/scan/route.ts
+
 import { NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 
@@ -322,6 +324,7 @@ function makePsiIssue(a: any, severity: Severity): Issue {
 }
 
 export async function POST(req: Request) {
+  console.log("🔍 [SEO Scan] ============ POST HANDLER INVOKED ============");
   try {
     console.log("[SEO Scan] Starting new scan request");
     
@@ -473,8 +476,16 @@ export async function POST(req: Request) {
       source: "hygiene" as const,
     }));
 
-    // PSI first, hygiene last
-    const issues = [...psiOpportunities, ...psiFailed, ...hygiene].slice(0, 8);
+    // PSI first, hygiene last - deduplicate by key
+    const allIssues = [...psiOpportunities, ...psiFailed, ...hygiene];
+    const seenKeys = new Set<string>();
+    const issues = allIssues
+      .filter((issue) => {
+        if (seenKeys.has(issue.key)) return false;
+        seenKeys.add(issue.key);
+        return true;
+      })
+      .slice(0, 8);
 
     const grade =
       (scores.seo ?? 0) >= 90 && (scores.performance ?? 0) >= 80
