@@ -188,6 +188,25 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               </div>
             </div>
           </div>
+          <div className="md:hidden lg:flex lg:flex-col justify-center md:justify-start lg:self-start lg:items-start">
+            <p className="!text-left font-bold my-1 !text-white pb-[10px]">
+              🚀 Free SEO Scan{" "}
+              <span className="font-roboto font-medium !text-sm !lg:text-[14px] !text-white">
+                — Get a free audit of your website's speed, SEO, and visibility.
+              </span>
+            </p>
+            <Link
+              href="/free-seo-scan"
+              className={[
+                "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
+                "bg-lime-500 text-navy-800 shadow-sm",
+                "hover:bg-green-500 hover:text-navy-800",
+                "inline-flex items-center justify-center",
+              ].join(" ")}
+            >
+              Scan My Site
+            </Link>
+          </div>
         </div>
         <div className="flex flex-col gap-4 md:hidden">
           <div className="font-roboto text-[12px] flex flex-col gap-[10px] self-stretch">
@@ -212,6 +231,28 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           </div>
           <div className="flex items-center justify-center pb-12">
           </div>
+        </div>
+      </div>
+      <div>
+        <div className="hidden lg:hidden md:flex md:flex-col justify-center pb-10 gap-[10px] md:justify-start lg:self-start lg:items-start lg:gap-[10px]">
+          <p className="!text-left font-bold my-1 !text-white">
+            🚀 Free SEO Scan{" "}
+            <span className="font-roboto font-medium !text-sm !lg:text-[14px] !text-white">
+              — Get a free audit of your website's speed, SEO, and visibility.
+            </span>
+          </p>
+          <Link
+            href="/free-seo-scan"
+            className={[
+              "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
+              "bg-lime-500 text-navy-800 shadow-sm",
+              "hover:bg-green-500 hover:text-navy-800",
+              "inline-flex items-center justify-center",
+              "max-w-[200px]"
+            ].join(" ")}
+          >
+            Scan My Site
+          </Link>
         </div>
       </div>
       <div className="hidden md:block md:flex md:flex-col md:gap-4">
