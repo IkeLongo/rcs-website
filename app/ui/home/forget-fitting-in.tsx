@@ -39,11 +39,11 @@ export default function ForgetFittingInContainer() {
         aria-hidden="true"
       />
       <Image
-        src="/home-spiral.webp"
+        src="/home-spiral-1.png"
         alt=""
         width={564.87}
         height={339.26}
-        className="absolute -bottom-20 md:-top-8 z-0 pointer-events-none select-none min-w-[120vw]"
+        className="absolute -bottom-24 lg:-top-20 xl:-top-84 z-0 pointer-events-none select-none min-w-[120vw] opacity-50 md:opacity-20 md:scale-y-75 lg:scale-y-40"
         aria-hidden="true"
       />
 
@@ -58,7 +58,7 @@ export default function ForgetFittingInContainer() {
             {/* </FadeInUp> */}
           </h3>
           <hr className="w-[50%] border-t-[0.35px] border-gray-400" />
-          <p className="!max-w-3xl text-white text-center md:px-20 text-md md:text-md2">
+          <p className="!max-w-3xl text-white text-center lg:px-20 text-md md:text-md2">
             {/* <FadeInUp> */}
               We are a creative agency that specializes in crafting unique websites and memorable brands that draws in dream clients and elevates your business.
             {/* </FadeInUp> */}

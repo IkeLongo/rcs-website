@@ -36,7 +36,7 @@ export default function UniqueWebsites() {
   return (
     <div className="relative w-full min-h-[835px] py-20 overflow-hidden">
       <Image
-        src="/home-landscape-bluegrad.webp"
+        src="/home-landscape-bluegrad_1.webp"
         alt=""                  // decorative is fine
         fill
         loading="lazy"
