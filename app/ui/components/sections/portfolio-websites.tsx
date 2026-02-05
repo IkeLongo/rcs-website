@@ -4,7 +4,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/app/ui/components/bento/bento-grid";
-import { IconChefHat, IconCross, IconBolt, IconBarbell, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { IconChefHat, IconCross, IconBolt, IconBarbell, IconChevronLeft, IconChevronRight, IconBallBaseball, IconShirt } from "@tabler/icons-react";
 import { BicepsFlexed } from 'lucide-react';
 
 // import { CountdownStandingsHeader } from "../../portfolios/headers/countdown-standings-header";
@@ -70,6 +70,22 @@ const portfolioItems: PortfolioItem[] = [
     badgeColor: "white",
   },
   {
+    image: "/portfolio-mitsurin-wagyu-image.webp",
+    name: "Mitsurin Wagyu",
+    link: "https://mitsurinwagyu.com",
+    description: "Premium Wagyu beef brand focused on craftsmanship and quality.",
+    icon: <IconChefHat  className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "white",
+  },
+  {
+    image: "/portfolio-teddygear-image.webp",
+    name: "Teddy Gear",
+    link: "https://teddygear.com",
+    description: "Relaxed, modern apparel designed for everyday comfort while still looking sharp.",
+    icon: <IconShirt  className="h-4 w-4 text-neutral-500" />,
+    badgeColor: "white",
+  },
+  {
     image: "/portfolio-maximstrong-image.webp",
     name: "Maximstrong",
     link: "https://maximstrong.com",
@@ -78,11 +94,11 @@ const portfolioItems: PortfolioItem[] = [
     badgeColor: "white",
   },
   {
-    image: "/portfolio-mitsurin-wagyu-image.webp",
-    name: "Mitsurin Wagyu",
-    link: "https://mitsurinwagyu.com",
-    description: "Premium Wagyu beef brand focused on craftsmanship and quality.",
-    icon: <IconChefHat  className="h-4 w-4 text-neutral-500" />,
+    image: "/portfolio-clubhouse-baseball-image.webp",
+    name: "Clubhouse Baseball",
+    link: "https://clubhousebaseball.com",
+    description: "Connecting select baseball organizations with families searching for the right team fit.",
+    icon: <IconBallBaseball className="h-4 w-4 text-neutral-500" />,
     badgeColor: "white",
   },
   {
