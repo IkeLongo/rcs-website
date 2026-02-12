@@ -32,7 +32,7 @@ html, body {
     @apply font-gentium-book-plus font-bold text-md2 lg:text-xl text-center text-white;
   }
   .base h3 {
-    @apply font-gentium-book-plus drop-shadow-none text-lg md:text-xl font-semibold my-4 text-navy-500 drop-shadow-[2px_5px_4.6px_rgba(0,0,0,0.2)] text-center;
+    @apply font-gentium-book-plus drop-shadow-none text-lg md:text-xl font-semibold my-4 text-navy-500 text-center;
   }
   .base h4 {
     @apply font-gentium-book-plus text-md2 md:text-lg font-semibold my-6 text-center text-white;
@@ -55,6 +55,7 @@ html, body {
   .base input {
     @apply py-2;
   }
+  /* drop-shadow-[2px_5px_4.6px_rgba(0,0,0,0.2)] */
 
   .locations {
     /* optional: ensures consistent type rendering */

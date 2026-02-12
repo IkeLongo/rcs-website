@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/app/lib/utils";
 import { forwardRef } from "react";
 
@@ -74,6 +72,28 @@ export const BentoGridItem = ({
           {description}
         </div>
       </div>
+    </div>
+  );
+};
+
+export const BentoGridItemImage = ({
+  className,
+  header,
+}: {
+  className?: string;
+  header?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        // responsive card size - fills parent container
+        "w-full h-full",
+        // your existing styles
+        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl",
+        className,
+      )}
+    >
+      {header}
     </div>
   );
 };

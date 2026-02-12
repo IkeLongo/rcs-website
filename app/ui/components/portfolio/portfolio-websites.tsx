@@ -119,7 +119,7 @@ const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-export default function PortfolioBentoSection() {
+export default function WebsitePortfolioBentoSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);

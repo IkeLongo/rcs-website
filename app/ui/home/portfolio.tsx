@@ -1,9 +1,8 @@
 "use client";
 
-import WebsiteWork from "./website-work";
-import BrandingWork from "./branding-work";
 import {Tabs, Tab} from "@heroui/react";
-import PortfolioBentoSection from "../components/sections/portfolio-websites";
+import WebsitePortfolioBentoSection from "../components/portfolio/portfolio-websites";
+import BrandingPortfolioBentoSection from "../components/portfolio/branding/branding";
 // import FadeInUp from "../components/fade-in-up";
 
 export default function Portfolio() {
@@ -34,10 +33,10 @@ export default function Portfolio() {
           panel: "px-0"
         }}>
           <Tab key="websites" title="Websites">
-            <PortfolioBentoSection />
+            <WebsitePortfolioBentoSection />
           </Tab>
           <Tab key="branding" title="Branding">
-            <BrandingWork />
+            <BrandingPortfolioBentoSection />
           </Tab>
         </Tabs>
       </div>
