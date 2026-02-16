@@ -14,7 +14,7 @@ export default function HomeSeoScanTeaser() {
                 Run a free SEO scan on your website
               </h3>
               <p className="mt-3 text-sm md:text-base text-grey-600 max-w-2xl mx-auto">
-                Instantly find SEO issues, missed opportunities, and what’s holding your site back from growth.
+                Instantly find SEO issues, missed opportunities, and what’s holding your site back from free, organic traffic.
               </p>
             </div>
 
