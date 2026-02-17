@@ -2,7 +2,7 @@ export const runtime = "nodejs";
 
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { renderToBuffer, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { renderToBuffer } from "@react-pdf/renderer";
 import { ovhPool } from "@/app/lib/mysql";
 import { enrichIssues } from "@/app/lib/seo/fixLibrary";
 import crypto from "crypto";

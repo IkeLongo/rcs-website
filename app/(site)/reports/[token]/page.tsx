@@ -67,7 +67,7 @@ export default async function ReportPage({ params }: { params: Params }) {
         {/* Actions */}
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            className="rounded-2xl border px-5 py-3 font-semibold hover:bg-white transition-colors"
+            className="rounded-2xl border px-5 py-3 font-semibold bg-white hover:bg-[#bfee3c] transition-colors"
             href={`/api/seo/report.pdf?token=${token}`}
           >
             Download My SEO Report PDF
@@ -77,25 +77,25 @@ export default async function ReportPage({ params }: { params: Params }) {
 
       {/* About RiverCity Creatives */}
       <section className="mx-auto max-w-6xl px-6 py-12">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-left">
           <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight !text-navy-500">
-            Turn These SEO Insights Into Revenue Growth
+            Turn These SEO Insights <br />Into Revenue Growth
           </h2>
 
-          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed !text-left">
             At <span className="font-semibold text-navy-500">RiverCity Creatives</span>, 
             we don’t just run audits — we build high-performing websites designed to 
             increase visibility, generate qualified leads, and convert traffic into revenue.
           </p>
 
-          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed !text-left">
             Your report highlights the highest-impact improvements on your site. 
             But execution is where most businesses stall. Technical SEO fixes, 
             performance optimization, structured metadata, and conversion strategy 
             require proper implementation to actually move the needle.
           </p>
 
-          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed !text-left">
             We specialize in transforming underperforming websites into 
             streamlined growth engines — combining technical SEO, performance 
             optimization, UX strategy, and clean modern design.
@@ -105,7 +105,7 @@ export default async function ReportPage({ params }: { params: Params }) {
 
             <BookingModal triggerText="Book My Free SEO Strategy Call" />
 
-            <p className="mt-6 text-sm !text-gray-950">
+            <p className="mt-6 text-sm !text-gray-950 !text-left">
               We’ll review your results, explain what matters most, and outline a clear action plan for your business.
             </p>
           </div>

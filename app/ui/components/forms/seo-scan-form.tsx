@@ -77,7 +77,7 @@ export default function SeoScanForm() {
               className={[
                 "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
                 "bg-lime-500 text-navy-800 shadow-sm",
-                "hover:bg-green-500 hover:text-navy-800",
+                "hover:bg-[#bfee3c] hover:text-navy-800",
                 "disabled:opacity-60 disabled:cursor-not-allowed",
               ].join(" ")}
             >

@@ -12,7 +12,7 @@ export default function BookingModal({ triggerText = "Book My Free SEO Strategy 
   return (
     <>
       <button
-        className="rounded-2xl bg-[#d9e64e] px-5 py-4 font-bold text-[#091a33] shadow-sm hover:bg-[#bfee3c] transition-colors"
+        className="rounded-2xl bg-[#d9e64e] px-5 !py-3 font-bold text-[#091a33] shadow-sm hover:bg-[#bfee3c] transition-colors"
         onClick={() => setOpen(true)}
       >
         {triggerText}

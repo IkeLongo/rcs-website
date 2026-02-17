@@ -38,7 +38,7 @@ export function getSeoReportEmailHtml({
                       <div style="font-family: Arial, sans-serif; color:#111827; line-height:1.6;">
 
                         <h2 style="margin:0 0 10px 0; font-size:22px; color:#091a33; line-height:1.25;">
-                          Your SEO Fix Report for ${scan.url}
+                          Your SEO Fix Report is ready!
                         </h2>
 
                         <p style="margin: 0 0 12px 0; font-size: 15px;">
@@ -75,10 +75,6 @@ export function getSeoReportEmailHtml({
 
                               <div style="font-family: Arial, sans-serif; margin-top:6px; font-size:20px; font-weight:800; color:#091a33;">
                                 ${scan.grade}
-                              </div>
-
-                              <div style="font-family: Arial, sans-serif; margin-top:6px; font-size:12px; color:#111827;">
-                                Scanned: <span style="font-weight:700;">${scan.url}</span>
                               </div>
 
                               <!-- Score “cards” (2x2 table) -->
