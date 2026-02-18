@@ -5,7 +5,7 @@ import Script from "next/script";
 
 export function BookingWidget() {
   return (
-    <div className="flex flex-col w-full justify-center items-center">
+    <div className="flex flex-col w-full justify-center items-center pt-20 md:pt-32">
       {/* Loads Calendly script safely */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"

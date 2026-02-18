@@ -340,17 +340,23 @@ const styles = StyleSheet.create({
   },
   ctaButton: {
     marginTop: 12,
-    marginBottom: 0,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 12,
+    paddingRight: 12,
     borderRadius: 10,
     backgroundColor: BRAND.navy,
     alignSelf: "flex-start",
+    textDecoration: "none", // Remove underline from Link
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
   },
   ctaButtonText: {
     fontSize: 11,
     color: "#ffffff",
     fontWeight: "bold",
+    textDecoration: "none", // Remove underline from Text
   },
   ctaHint: {
     fontSize: 9,
@@ -417,7 +423,7 @@ export function SeoReportPdf({
   const resolvedPortrait =
     portraitSrc || toPublicAssetUrl(site, "isaac-headshot-avatar.png");
 
-  const CALL_URL = callUrl || "https://YOUR-CALL-LINK-HERE";
+  const CALL_URL = callUrl || (site ? `${site}/booking` : "/booking");
 
   const issues = Array.isArray(scan.issues) ? scan.issues.slice(0, maxIssues) : [];
 
