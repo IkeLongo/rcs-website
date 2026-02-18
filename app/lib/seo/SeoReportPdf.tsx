@@ -351,12 +351,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center", // Center content horizontally
+    minWidth: 180, // Ensures button is wide enough for centering
   },
   ctaButtonText: {
     fontSize: 11,
     color: "#ffffff",
     fontWeight: "bold",
     textDecoration: "none", // Remove underline from Text
+    textAlign: "center", // Center text inside the button
+    width: "100%",
   },
   ctaHint: {
     fontSize: 9,
@@ -808,7 +812,6 @@ export function SeoReportPdf({
           <Link src={CALL_URL} style={styles.ctaButton}>
             <Text style={styles.ctaButtonText}>Book a Free Strategy Call</Text>
           </Link>
-          <Text style={styles.ctaHint}>Link placeholder: replace with your scheduling URL when ready.</Text>
 
           <View style={styles.portraitRow}>
             <View>
