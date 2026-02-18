@@ -1,4 +1,6 @@
 export const runtime = "nodejs";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
@@ -31,6 +33,23 @@ function scoreBg(score: number | null) {
 
 function makeToken() {
   return crypto.randomBytes(32).toString("hex"); // 64 chars
+}
+
+async function publicFileToDataUri(publicRelativePath: string) {
+  // publicRelativePath example: "logo-rivercity-creatives-horizontal-green-blue.png"
+  const filePath = path.join(process.cwd(), "public", publicRelativePath);
+
+  const buf = await fs.readFile(filePath);
+
+  // minimal mime mapping
+  const ext = path.extname(publicRelativePath).toLowerCase();
+  const mime =
+    ext === ".png" ? "image/png" :
+    ext === ".jpg" || ext === ".jpeg" ? "image/jpeg" :
+    ext === ".webp" ? "image/webp" :
+    "application/octet-stream";
+
+  return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
 export async function POST(req: Request) {
@@ -109,7 +128,22 @@ export async function POST(req: Request) {
       issues: enrichIssues(scan.issues),
     };
 
-    const pdfBuffer = await renderToBuffer(<SeoReportPdf scan={enrichedScan} />);
+    const logoDataUri = await publicFileToDataUri(
+      "logo-rivercity-creatives-horizontal-green-blue.png"
+    );
+
+    const portraitDataUri = await publicFileToDataUri(
+      "isaac-headshot-avatar.webp"
+    );
+
+    const pdfBuffer = await renderToBuffer(
+      <SeoReportPdf
+        scan={enrichedScan}
+        logoSrc={logoDataUri}
+        portraitSrc={portraitDataUri}
+        callUrl={"https://YOUR-CALL-LINK-HERE"} // placeholder for now
+      />
+    );
     console.log("[SEO Lead] PDF generated successfully");
 
     // 3) Send email with PDF attachment

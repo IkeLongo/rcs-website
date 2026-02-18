@@ -310,4 +310,3 @@ export function enrichIssues(issues: Issue[]): Issue[] {
     };
   });
 }
-
