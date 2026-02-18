@@ -361,6 +361,7 @@ const styles = StyleSheet.create({
     textDecoration: "none", // Remove underline from Text
     textAlign: "center", // Center text inside the button
     width: "100%",
+    marginTop: 10,
   },
   ctaHint: {
     fontSize: 9,

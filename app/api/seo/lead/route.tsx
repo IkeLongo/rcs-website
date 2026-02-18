@@ -133,7 +133,7 @@ export async function POST(req: Request) {
     );
 
     const portraitDataUri = await publicFileToDataUri(
-      "isaac-headshot-avatar.webp"
+      "isaac-headshot-avatar.png"
     );
 
     const pdfBuffer = await renderToBuffer(
@@ -141,7 +141,7 @@ export async function POST(req: Request) {
         scan={enrichedScan}
         logoSrc={logoDataUri}
         portraitSrc={portraitDataUri}
-        callUrl={"https://YOUR-CALL-LINK-HERE"} // placeholder for now
+        callUrl={"https://rivercitycreatives.com/booking"}
       />
     );
     console.log("[SEO Lead] PDF generated successfully");
