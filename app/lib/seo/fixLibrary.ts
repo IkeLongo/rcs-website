@@ -14,132 +14,117 @@ type FixTemplate = {
  */
 
 export const FIX_LIBRARY: Record<string, FixTemplate> = {
+
   /* ================================
-     PERFORMANCE / CORE WEB VITALS
+     PERFORMANCE
      ================================ */
 
   "largest-contentful-paint": {
     fix: [
-      "Identify the Largest Contentful Paint (LCP) element (usually a hero image or headline).",
-      "Optimize the LCP asset (compress images, serve modern formats, reduce file size).",
-      "Ensure the LCP element is not delayed by render-blocking scripts or styles.",
-      "Avoid lazy-loading the LCP image.",
+      "Make sure the main content at the top of your page (usually a large image or headline) loads quickly.",
+      "Compress large images so they don’t slow down the first impression.",
+      "Remove scripts that delay your page from showing important content.",
+      "Avoid delaying your main image from loading immediately.",
     ],
     verify: [
-      "Re-run PageSpeed Insights and confirm LCP is under 2.5s.",
-      "Check Chrome DevTools → Performance to confirm earlier paint timing.",
+      "Re-run your speed test and confirm the main content appears in under 2–3 seconds.",
+      "Open your site on your phone and confirm the top section loads almost instantly.",
     ],
   },
 
   "first-contentful-paint": {
     fix: [
-      "Reduce render-blocking CSS and JavaScript.",
-      "Minimize critical CSS and defer non-essential scripts.",
-      "Ensure the server responds quickly so rendering can begin sooner.",
+      "Reduce anything that delays your page from appearing on screen.",
+      "Load non-essential features after the main content becomes visible.",
+      "Improve server speed so the page begins loading right away.",
     ],
     verify: [
-      "Confirm FCP improves in PSI.",
-      "Use DevTools → Performance to observe earlier first paint.",
+      "Re-run your speed test and confirm your page starts loading faster.",
+      "Refresh your site and confirm it feels quicker to appear.",
     ],
   },
 
   "cumulative-layout-shift": {
     fix: [
-      "Set explicit width and height for images and embedded elements.",
-      "Reserve space for ads, banners, and dynamic content.",
-      "Avoid injecting content above existing content during page load.",
+      "Make sure images and sections have reserved space so the page doesn’t jump while loading.",
+      "Avoid popups or banners that push content down unexpectedly.",
+      "Keep your layout stable so visitors can interact comfortably.",
     ],
     verify: [
-      "Confirm CLS score is below 0.1 in PSI.",
-      "Visually inspect page load for layout jumping.",
+      "Reload your site and confirm nothing shifts or jumps during load.",
+      "Re-run your speed test and confirm layout stability improves.",
     ],
   },
 
   "total-blocking-time": {
     fix: [
-      "Reduce JavaScript execution during initial page load.",
-      "Split large JavaScript bundles and defer non-critical code.",
-      "Limit heavy third-party scripts that block the main thread.",
+      "Reduce heavy scripts that slow down your site in the first few seconds.",
+      "Load non-essential tools after the page becomes usable.",
+      "Remove third-party tools that are not actively helping your business.",
     ],
     verify: [
-      "Confirm Total Blocking Time drops in PSI.",
-      "Check DevTools → Performance for reduced long tasks.",
+      "Re-run your speed test and confirm your site responds faster.",
+      "Click around your site and confirm it feels smoother.",
     ],
   },
 
   "render-blocking-resources": {
     fix: [
-      "Inline or preload critical CSS needed for above-the-fold content.",
-      "Defer or async non-critical JavaScript files.",
-      "Remove unused CSS and JS from initial load.",
+      "Make sure your page shows important content before loading extra styling or features.",
+      "Delay scripts that are not required immediately.",
+      "Remove unused code that slows down the first view.",
     ],
     verify: [
-      "Confirm render-blocking resources audit passes.",
-      "Check Network waterfall for fewer blocking requests.",
+      "Re-run your speed test and confirm loading time improves.",
+      "Confirm your page appears quickly without delay.",
     ],
   },
 
   /* ================================
-     JAVASCRIPT / CSS OPTIMIZATION
+     CODE CLEANUP
      ================================ */
 
   "unused-javascript": {
     fix: [
-      "Remove unused libraries and scripts that are not required for the page.",
-      "Defer non-critical scripts so they load after initial render.",
-      "Split JavaScript bundles so only necessary code loads per page.",
+      "Remove plugins, tools, or scripts your website isn’t actively using.",
+      "Only load features on pages where they’re needed.",
+      "Simplify your site’s code so it runs more efficiently.",
     ],
     verify: [
-      "Re-run PSI and confirm unused JavaScript savings decrease.",
-      "Check Chrome Coverage tab for reduced unused code.",
+      "Re-run your speed test and confirm improvement.",
+      "Check that your site loads faster, especially on mobile.",
     ],
-    platformHints: {
-      "WordPress": [
-        "Disable or remove unnecessary plugins.",
-        "Use a performance plugin to defer or delay scripts.",
-      ],
-      "Shopify": [
-        "Remove unused apps and theme scripts.",
-        "Limit third-party tracking scripts.",
-      ],
-      "Custom / Next.js": [
-        "Use dynamic imports and route-based code splitting.",
-        "Audit third-party scripts and remove unused dependencies.",
-      ],
-    },
   },
 
   "unused-css-rules": {
     fix: [
-      "Remove unused CSS rules from stylesheets.",
-      "Use a build tool or purge process to strip unused styles.",
-      "Avoid loading large global styles when only a subset is needed.",
+      "Remove styling rules that aren’t being used.",
+      "Clean up old design elements that are no longer needed.",
+      "Avoid loading large styling files when only part of them is used.",
     ],
     verify: [
-      "Confirm CSS file sizes are smaller in DevTools.",
-      "Re-run PSI and confirm unused CSS warnings are reduced.",
+      "Re-run your speed test and confirm file size decreases.",
+      "Confirm your site loads faster after cleanup.",
     ],
   },
 
   "unminified-css": {
     fix: [
-      "Enable CSS minification in your build or hosting settings.",
-      "Remove unnecessary whitespace and comments from CSS files.",
+      "Compress your styling files so they load faster.",
+      "Remove extra spaces or unnecessary code from styles.",
     ],
     verify: [
-      "Confirm CSS file size decreases.",
-      "Re-run PSI and ensure 'Minify CSS' passes.",
+      "Re-run your speed test and confirm improvement.",
     ],
   },
 
   "unminified-javascript": {
     fix: [
-      "Enable JavaScript minification in your build pipeline.",
-      "Remove unnecessary comments and whitespace from JS files.",
+      "Compress your scripts so they load more efficiently.",
+      "Remove unnecessary comments or extra code.",
     ],
     verify: [
-      "Confirm JS bundle size decreases.",
-      "Re-run PSI and ensure 'Minify JavaScript' passes.",
+      "Re-run your speed test and confirm faster loading.",
     ],
   },
 
@@ -149,46 +134,45 @@ export const FIX_LIBRARY: Record<string, FixTemplate> = {
 
   "uses-optimized-images": {
     fix: [
-      "Compress large images to reduce file size.",
-      "Resize images to match their display dimensions.",
-      "Avoid serving oversized images for small viewports.",
+      "Compress large images so they don’t slow down your site.",
+      "Resize images so they match how they appear on screen.",
+      "Avoid uploading oversized images.",
     ],
     verify: [
-      "Confirm image transfer size decreases.",
-      "Re-run PSI and ensure image optimization warnings are reduced.",
+      "Re-run your speed test and confirm image-related improvements.",
+      "Confirm your pages load faster on mobile.",
     ],
   },
 
   "modern-image-formats": {
     fix: [
-      "Serve images in modern formats like WebP or AVIF.",
-      "Ensure fallback formats are available for unsupported browsers.",
+      "Use newer image formats that load faster while keeping quality high.",
+      "Ensure images are optimized for both speed and clarity.",
     ],
     verify: [
-      "Check image requests in DevTools to confirm modern formats are used.",
-      "Re-run PSI and ensure this audit passes.",
+      "Re-run your speed test and confirm improvement.",
     ],
   },
 
   "uses-responsive-images": {
     fix: [
-      "Use responsive image techniques (srcset / sizes).",
-      "Serve different image sizes based on viewport width.",
+      "Serve smaller images on mobile devices and larger ones on desktop.",
+      "Ensure images adjust properly to different screen sizes.",
     ],
     verify: [
-      "Inspect image requests at different screen sizes.",
-      "Re-run PSI and confirm responsive image warnings are resolved.",
+      "Open your site on desktop and mobile to confirm images load appropriately.",
+      "Re-run your speed test and confirm improvements.",
     ],
   },
 
   "efficient-animated-content": {
     fix: [
-      "Replace large GIFs with video formats (MP4/WebM) when possible.",
-      "Reduce animation size and duration.",
+      "Replace large animated images with lightweight video formats when possible.",
+      "Reduce the size or duration of animations.",
     ],
     verify: [
-      "Confirm animated assets are smaller and load faster.",
-      "Re-run PSI and ensure animation-related audits improve.",
+      "Confirm pages load faster after changes.",
+      "Re-run your speed test and confirm improvement.",
     ],
   },
 
@@ -198,25 +182,24 @@ export const FIX_LIBRARY: Record<string, FixTemplate> = {
 
   "server-response-time": {
     fix: [
-      "Enable server-side caching to reduce Time to First Byte (TTFB).",
-      "Optimize backend logic and database queries.",
-      "Use a CDN to reduce latency and improve delivery speed.",
+      "Improve how quickly your hosting responds when someone visits your site.",
+      "Use caching so returning visitors load pages faster.",
+      "Consider upgrading hosting if performance is consistently slow.",
     ],
     verify: [
-      "Check TTFB in DevTools → Network → Timing.",
-      "Re-run PSI and confirm server response time improves.",
+      "Re-run your speed test and confirm faster initial response time.",
+      "Confirm pages begin loading quickly after clicking a link.",
     ],
   },
 
   "redirects": {
     fix: [
-      "Remove unnecessary redirect chains.",
-      "Update internal links to point directly to the final URL.",
-      "Ensure only one redirect is used when required.",
+      "Remove unnecessary redirect steps before a page loads.",
+      "Link directly to the final version of each page.",
     ],
     verify: [
-      "Check Network tab to confirm fewer redirects.",
-      "Re-run PSI and ensure redirect warnings are resolved.",
+      "Click links across your site and confirm pages open immediately.",
+      "Re-run your speed test and confirm redirect warnings are gone.",
     ],
   },
 
@@ -226,59 +209,52 @@ export const FIX_LIBRARY: Record<string, FixTemplate> = {
 
   "document-title": {
     fix: [
-      "Add a unique and descriptive title tag for the page.",
-      "Keep title length between 50–60 characters.",
-      "Include primary keyword and brand name where relevant.",
+      "Write a clear page title that explains exactly what the page offers.",
+      "Include your main service and location if relevant.",
+      "Keep it concise so it displays properly in search results.",
     ],
     verify: [
-      "View page source to confirm updated title tag.",
-      "Re-run PSI or inspect page with SEO tools.",
+      "Search your page title and confirm it appears correctly in search results.",
     ],
   },
 
   "meta-description": {
     fix: [
-      "Add a clear, compelling meta description.",
-      "Keep description between 140–160 characters.",
-      "Align description with page intent and content.",
+      "Add a short summary that encourages people to click your listing in search results.",
+      "Clearly describe who you help and what you offer.",
     ],
     verify: [
-      "View page source to confirm meta description.",
-      "Check search snippets once indexed.",
+      "Search your page and confirm the description appears properly.",
     ],
   },
 
   "robots-txt": {
     fix: [
-      "Create a valid robots.txt file if one does not exist.",
-      "Ensure important pages are not blocked from crawling.",
-      "Reference your sitemap within robots.txt.",
+      "Make sure search engines are allowed to access important pages on your site.",
+      "Ensure your sitemap is referenced correctly.",
     ],
     verify: [
-      "Visit /robots.txt to confirm accessibility.",
-      "Use Google Search Console robots testing tools.",
+      "Visit /robots.txt and confirm it loads properly.",
     ],
   },
 
   "canonical": {
     fix: [
-      "Add a canonical link tag to specify the preferred URL.",
-      "Ensure canonical URLs are consistent across pages.",
+      "Make sure each page clearly indicates its preferred version.",
+      "Avoid duplicate versions of the same content.",
     ],
     verify: [
-      "View page source to confirm canonical tag.",
-      "Check Search Console for duplicate URL signals.",
+      "Confirm search engines are indexing the correct page version.",
     ],
   },
 
   "is-crawlable": {
     fix: [
-      "Ensure the page is not blocked by robots.txt or meta noindex.",
-      "Verify that the page returns a 200 HTTP status code.",
+      "Ensure your page is accessible and not blocked from search engines.",
+      "Confirm the page loads properly without errors.",
     ],
     verify: [
-      "Use URL Inspection in Google Search Console.",
-      "Confirm page is accessible to crawlers.",
+      "Use Google Search Console to confirm the page is indexable.",
     ],
   },
 };
