@@ -43,7 +43,7 @@ export default async function ReportPage({ params }: { params: Params }) {
   const issues = safeJson(lead.issues_json, []);
 
   return (
-    <main className="base pt-28 md:pt-28 bg-blue-100 min-h-screen">
+    <main className="base bg-blue-100 min-h-screen">
       <section className="mx-auto max-w-6xl px-6 py-12">
         {/* Header */}
         <div className="text-center">
@@ -89,17 +89,17 @@ export default async function ReportPage({ params }: { params: Params }) {
           </p>
 
           <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed !text-left">
-            Your report highlights the highest-impact improvements on your site. 
-            But execution is where most businesses stall. Technical SEO fixes, 
-            performance optimization, structured metadata, and conversion strategy 
-            require proper implementation to actually move the needle.
+            Your report highlights the biggest technical wins available on your site. That foundation matters —
+            it improves how search engines and users experience your pages. But rankings don’t come from speed alone.
+            They come from combining strong technical SEO with research, strategy, and content built around what people are actually searching for.
           </p>
 
           <p className="mt-6 text-base md:text-lg !text-gray-950 leading-relaxed !text-left">
-            We specialize in transforming underperforming websites into 
-            streamlined growth engines — combining technical SEO, performance 
-            optimization, UX strategy, and clean modern design.
+            We specialize in building websites that perform beyond design — 
+            combining technical SEO, performance optimization, in-depth search research, 
+            and strategic content development to create measurable, compounding growth over time.
           </p>
+
 
           <div className="mt-10">
 

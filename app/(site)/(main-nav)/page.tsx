@@ -2,14 +2,14 @@
 
 import { Suspense } from 'react';
 import HomeHero from '@/app/ui/home/home-hero';
-import HomeSeoScanTeaser from '../ui/home/home-seo-scan-teaser';
-import HomeWhy from '../ui/home/why';
+import HomeSeoScanTeaser from '@/app/ui/home/home-seo-scan-teaser';
+import HomeWhy from '@/app/ui/home/why';
 import UniqueWebsites from '@/app/ui/home/crafting-unique-websites';
-import ForgetFittingInContainer from '../ui/home/forget-fitting-in';
+import ForgetFittingInContainer from '@/app/ui/home/forget-fitting-in';
 import Portfolio from '@/app/ui/home/portfolio';
-import ClientPricing from '../ui/home/client/pricing-client';
+import PricingClient from '@/app/ui/home/client/pricing-client';
 import Footer from '@/app/ui/layout/footer';
-import StickyBottomButton from '../ui/components/sticky-button-bottom';
+import StickyBottomButton from '@/app/ui/components/sticky-button-bottom';
 
 export default function Home() {
 
@@ -33,7 +33,7 @@ export default function Home() {
           <Portfolio />
         </Suspense>
         <Suspense fallback={null}>
-          <ClientPricing />
+          <PricingClient />
         </Suspense>
         <Suspense fallback={null}>
           <Footer bgGradientClass="bg-footer-bg-gradient" />

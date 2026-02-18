@@ -3,7 +3,7 @@
 import { Hero } from '@/app/ui/team/hero';
 import Footer from '@/app/ui/layout/footer';
 import type { Metadata } from "next";
-import StickyBottomButton from '../../ui/components/sticky-button-bottom';
+import StickyBottomButton from '@/app/ui/components/sticky-button-bottom';
 
 export const metadata: Metadata = {
   title: 'Meet the Team',
