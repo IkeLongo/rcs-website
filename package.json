@@ -39,6 +39,7 @@
     "alpinejs": "^3.14.6",
     "babel-runtime": "^6.26.0",
     "bcryptjs": "^3.0.2",
+    "canvas-confetti": "^1.9.4",
     "cheerio": "^1.1.2",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
@@ -73,6 +74,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.3.1",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "22.12.0",
     "@types/nodemailer": "^7.0.5",

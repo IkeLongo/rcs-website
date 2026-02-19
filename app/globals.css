@@ -105,6 +105,13 @@ html, body {
   .locations .loc-button {
     @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-maven-pro font-semibold transition;
   }
+  /* simple footer */
+  .sim-footer p {
+    @apply text-white text-base md:text-md font-avenir text-center;
+  }
+  .sim-footer a {
+    @apply text-lime-500 text-base md:text-md font-avenir text-center hover:cursor-pointer hover:no-underline;
+  }
 }
 
 .chip-anim {

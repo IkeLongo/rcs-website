@@ -89,6 +89,9 @@ importers:
       bcryptjs:
         specifier: ^3.0.2
         version: 3.0.2
+      canvas-confetti:
+        specifier: ^1.9.4
+        version: 1.9.4
       cheerio:
         specifier: ^1.1.2
         version: 1.1.2
@@ -186,6 +189,9 @@ importers:
       '@next/bundle-analyzer':
         specifier: ^15.3.1
         version: 15.3.1
+      '@types/canvas-confetti':
+        specifier: ^1.9.0
+        version: 1.9.0
       '@types/js-cookie':
         specifier: ^3.0.6
         version: 3.0.6
@@ -3473,6 +3479,9 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
 
+  '@types/canvas-confetti@1.9.0':
+    resolution: {integrity: sha512-aBGj/dULrimR1XDZLtG9JwxX1b4HPRF6CX9Yfwh3NvstZEm1ZL7RBnel4keCPSqs1ANRu1u2Aoz9R+VmtjYuTg==}
+
   '@types/caseless@0.12.5':
     resolution: {integrity: sha512-hWtVTC2q7hc7xZ/RLbxapMvDMgUnDvKvMOpKal4DrMyfGBUfB1oKaZlIRr6mJL+If3bAP6sV/QneGzF6tJjZDg==}
 
@@ -3777,6 +3786,9 @@ packages:
 
   caniuse-lite@1.0.30001705:
     resolution: {integrity: sha512-S0uyMMiYvA7CxNgomYBwwwPUnWzFD83f3B1ce5jHUfHTH//QL6hHsreI8RVC5606R4ssqravelYO5TU6t8sEyg==}
+
+  canvas-confetti@1.9.4:
+    resolution: {integrity: sha512-yxQbJkAVrFXWNbTUjPqjF7G+g6pDotOUHGbkZq2NELZUMDpiJ85rIEazVb8GTaAptNW2miJAXbs1BtioA251Pw==}
 
   castable-video@1.1.11:
     resolution: {integrity: sha512-LCRTK6oe7SB1SiUQFzZCo6D6gcEzijqBTVIuj3smKpQdesXM18QTbCVqWgh9MfOeQgTx/i9ji5jGcdqNPeWg2g==}
@@ -11206,6 +11218,8 @@ snapshots:
 
   '@tootallnate/once@2.0.0': {}
 
+  '@types/canvas-confetti@1.9.0': {}
+
   '@types/caseless@0.12.5': {}
 
   '@types/cookie@0.6.0': {}
@@ -11474,6 +11488,8 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   caniuse-lite@1.0.30001705: {}
+
+  canvas-confetti@1.9.4: {}
 
   castable-video@1.1.11:
     dependencies:
