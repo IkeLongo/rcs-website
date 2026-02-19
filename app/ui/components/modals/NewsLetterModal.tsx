@@ -53,7 +53,7 @@ export function NewsLetterModal({ open, onClose, initialEmail, onSubmit }: {
 				onClick={onClose}
 			/>
 			{/* Modal content */}
-			<div className="relative z-10 bg-white rounded-2xl shadow-2xl p-8 pt-12 max-w-3xl w-full min-h-[400px] flex items-center">
+			<div className="relative z-10 bg-white rounded-2xl shadow-2xl mx-2 p-4 md:p-8 md:pt-12 md:pb-12 max-w-3xl w-full min-h-[200px] md:min-h-[400px] flex items-center">
 				{/* Exit icon button */}
 				<button
 					type="button"
@@ -78,15 +78,15 @@ export function NewsLetterModal({ open, onClose, initialEmail, onSubmit }: {
             Back
           </button>
         )}
-				<div className="flex flex-1 items-stretch overflow-x-hidden">
-					<div className="flex flex-col justify-center flex-grow min-w-0 relative min-h-[300px]">
+				<div className="flex flex-col md:flex-row flex-1 items-stretch overflow-x-hidden">
+					<div className="flex flex-col justify-center md:flex-grow min-w-0 relative min-h-[300px]">
 						<div className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out overflow-y-auto ${
 							step === 1 ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0 pointer-events-none'
 						}`}>
 							<form className="flex flex-col items-center w-full px-2" onSubmit={e => { 
-							e.preventDefault();
-							setStep(2); 
-						}}>
+                e.preventDefault();
+                setStep(2); 
+              }}>
 								<label htmlFor="modal-email" className="font-semibold text-navy-700 text-md2 font-maven-pro mb-4 text-left leading-tight">
 									What's the best email address to send this checklist to?
 								</label>
