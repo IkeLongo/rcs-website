@@ -46,25 +46,9 @@ export function getWebsiteRevenueChecklistEmailHtml({
                         </p>
 
                         <p style="margin: 0 0 14px 0; font-size: 15px;">
-                          Thanks for joining the newsletter. Here’s your <strong>Founder Website Revenue Checklist</strong> for
-                          <strong>${websiteUrl}</strong>.
+                          Thanks for joining the newsletter.<br />
                           It’s a simple, non-technical guide to spot the most common website leaks that quietly reduce inquiries.
                         </p>
-
-                        <!-- CTA: View checklist -->
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 16px 0 10px 0;">
-                          <tr>
-                            <td style="background:#d9e64e; border-radius:14px;">
-                              <a href="${checklistUrl}" style="display:inline-block; padding:12px 16px; font-family: Arial, sans-serif; font-weight:700; color:#091a33; font-size:14px; text-decoration:none;">
-                                View the Checklist
-                              </a>
-                            </td>
-                          </tr>
-                        </table>
-
-                        <div style="font-size:11px; color:#6b7280; margin-top:2px; font-family: Arial, sans-serif;">
-                          <em>If the button doesn’t open, check your email attachments or copy/paste the link into your browser.</em>
-                        </div>
 
                         <!-- What’s inside -->
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
@@ -76,7 +60,7 @@ export function getWebsiteRevenueChecklistEmailHtml({
                               </div>
 
                               <ul style="margin: 10px 0 0 18px; padding:0; color:#111827; font-family: Arial, sans-serif; font-size:15px;">
-                                <li style="margin-bottom:6px;">A quick clarity test (so visitors instantly “get it”)</li>
+                                <li style="margin-bottom:6px;">A quick clarity test (so your value is immediately clear)</li>
                                 <li style="margin-bottom:6px;">The most common places inquiries get lost (and how to fix them)</li>
                                 <li style="margin-bottom:6px;">Trust builders that increase conversions without a redesign</li>
                                 <li style="margin-bottom:0;">Quick wins you can implement in ~30 minutes</li>
@@ -116,8 +100,8 @@ export function getWebsiteRevenueChecklistEmailHtml({
 
                               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 14px 0 0 0;">
                                 <tr>
-                                  <td style="background:#091a33; border-radius:14px;">
-                                    <a href="${bookingUrl}" style="display:inline-block; padding:12px 16px; font-family: Arial, sans-serif; font-weight:700; color:#ffffff; font-size:14px; text-decoration:none;">
+                                  <td style="background:#d9e64e; border-radius:14px;">
+                                    <a href="${bookingUrl}" style="display:inline-block; padding:12px 16px; font-family: Arial, sans-serif; font-weight:700; color:#091a33; font-size:14px; text-decoration:none;">
                                       Book a Free Strategy Call
                                     </a>
                                   </td>
@@ -141,7 +125,7 @@ export function getWebsiteRevenueChecklistEmailHtml({
 
                         <!-- Footer -->
                         <div style="margin-top: 22px; font-family: Arial, sans-serif; font-size:11px; color:#6b7280;">
-                          You’re receiving this email because you opted into the RiverCity Creatives newsletter and requested the Website Revenue Checklist for ${websiteUrl}.
+                          You’re receiving this email because you opted into the RiverCity Creatives newsletter and requested the Website Revenue Checklist.
                         </div>
 
                       </div>

@@ -241,12 +241,6 @@ export async function POST(req: Request) {
           },
         ],
       });
-
-      // Optional: store delivery success
-      await ovhPool.execute(
-        `UPDATE newsletter_signups SET last_checklist_sent_at=UTC_TIMESTAMP(), updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
-        [email]
-      );
     } catch (mailErr: any) {
       console.error("Checklist email send error:", mailErr);
 
