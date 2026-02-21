@@ -105,10 +105,14 @@ export default function FreeSeoScanClient() {
 
   // Email gate
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [emailTouched, setEmailTouched] = useState(false);
   const [sending, setSending] = useState(false);
   const [sentOk, setSentOk] = useState(false);
   const [expandedIssues, setExpandedIssues] = useState<Set<number>>(new Set());
+  const [consentChecked, setConsentChecked] = useState(false);
+  const [showConsentError, setShowConsentError] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const emailOk = useMemo(
     () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()),
@@ -194,9 +198,21 @@ export default function FreeSeoScanClient() {
 
   async function sendReport() {
     setEmailTouched(true);
+    setError(null);
+
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanFirstName = firstName.trim();
+
     if (!emailOk) return;
     if (!scan) return;
 
+    // 🔒 Require consent (mandatory)
+    if (!consentChecked) {
+      setShowConsentError(true);
+      return;
+    }
+
+    setShowConsentError(false);
     setSending(true);
     setSentOk(false);
 
@@ -204,14 +220,26 @@ export default function FreeSeoScanClient() {
       const res = await fetch("/api/seo/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), scan }),
+        body: JSON.stringify({
+          email: cleanEmail,
+          firstName: cleanFirstName ?? null, // optional but good
+          consent: true,
+          source: "seo-report",
+          pageUrl: typeof window !== "undefined" ? window.location.href : null,
+          scan,
+        }),
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json?.error || "Failed to send report");
+
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(json?.error || "Failed to send report");
+      }
 
       setSentOk(true);
       setEmail("");
       setEmailTouched(false);
+      setConsentChecked(false);
     } catch (e: any) {
       setError(e?.message || "Could not send report.");
     } finally {
@@ -470,9 +498,23 @@ export default function FreeSeoScanClient() {
 
             <div className="mt-5 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 items-center">
               <div>
+                <label className="sr-only" htmlFor="report-firstname">
+                  First name
+                </label>
+                <input
+                  id="report-firstname"
+                  type="text"
+                  autoComplete="given-name"
+                  placeholder="First name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="w-full rounded-2xl border bg-white px-4 py-3 h-12 md:h-[52px] text-sm md:text-base !text-gray-950 outline-none focus:ring-2 focus:ring-navy-300 border-gray-200 mb-3"
+                />
+
                 <label className="sr-only" htmlFor="report-email">
                   Email address
                 </label>
+
                 <input
                   id="report-email"
                   type="email"
@@ -483,20 +525,57 @@ export default function FreeSeoScanClient() {
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setEmailTouched(true)}
                   className={[
-                    "w-full rounded-2xl border border-gray-200 bg-white px-4 py-3 h-12 md:h-[52px]",
+                    "w-full rounded-2xl border bg-white px-4 py-3 h-12 md:h-[52px]",
                     "text-sm md:text-base !text-gray-950 outline-none focus:ring-2 focus:ring-navy-300",
                     emailTouched && !emailOk ? "border-red-400" : "border-gray-200",
                   ].join(" ")}
                 />
-                {emailTouched && email.trim() === "" ? (
-                  <p className="mt-2 ml-2 !text-left !text-xs !text-red-600">Enter a valid email.</p>
-                ) : emailTouched && !emailOk && email.trim() !== "" ? (
-                  <p className="mt-2 ml-2 !text-left !text-xs !text-red-600">Enter a valid email.</p>
+
+                {emailTouched && (!emailOk || email.trim() === "") ? (
+                  <p className="mt-2 ml-2 !text-left !text-xs !text-red-600">
+                    Enter a valid email.
+                  </p>
                 ) : (
                   <p className="mt-2 ml-2 !text-left !text-xs !text-gray-950">
-                    No spam. Just your report + next steps.
+                    We’ll email your report + occasional SEO tips. Unsubscribe anytime.
                   </p>
                 )}
+
+                {/* ✅ REQUIRED CONSENT (gates the report) */}
+                <div className="mt-3 w-full max-w-md self-start">
+                  <div className="flex items-start w-full font-avenir">
+                    <input
+                      id="report-consent"
+                      type="checkbox"
+                      checked={consentChecked}
+                      onChange={(e) => {
+                        setConsentChecked(e.target.checked);
+                        if (e.target.checked) setShowConsentError(false);
+                      }}
+                      className="mt-1 mr-2 accent-lime-500"
+                      required
+                    />
+                    <label htmlFor="report-consent" className="text-sm text-gray-700 leading-tight">
+                      Send me my SEO report and subscribe me to RiverCity Creatives emails (tips + updates).
+                      Unsubscribe anytime. By submitting, you agree to our{" "}
+                      <a href="/privacy" className="underline hover:text-navy-700">Privacy Policy</a>{" "}
+                      and{" "}
+                      <a href="/terms" className="underline hover:text-navy-700">Terms of Service</a>.
+                    </label>
+                  </div>
+
+                  {showConsentError && (
+                    <div className="text-xs text-red-600 mt-2 w-full text-left">
+                      Please check the box to receive your report.
+                    </div>
+                  )}
+
+                  {submitError && (
+                    <div className="text-xs text-red-600 mt-2 w-full text-left">
+                      {submitError}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="flex flex-col items-start justify-start h-full">
@@ -505,7 +584,21 @@ export default function FreeSeoScanClient() {
                   variant="contained"
                   disableElevation
                   disabled={sending}
-                  onClick={sendReport}
+                  onClick={(e) => {
+                    // ✅ enforce consent + valid email before sending
+                    e.preventDefault();
+                    setEmailTouched(true);
+
+                    if (!emailOk) return;
+
+                    if (!consentChecked) {
+                      setShowConsentError(true);
+                      return;
+                    }
+
+                    setShowConsentError(false);
+                    sendReport();
+                  }}
                   sx={{
                     height: { xs: 48, md: 52 },
                     px: 3,
@@ -521,14 +614,18 @@ export default function FreeSeoScanClient() {
                       color: "#091a33",
                     },
                     "&.Mui-disabled": {
-                      backgroundColor: "#d9e64e", // your desired disabled background
-                      color: "#091a33",           // your desired disabled text color
-                      opacity: 0.7,                 // override default opacity if needed
+                      backgroundColor: "#d9e64e",
+                      color: "#091a33",
+                      opacity: 0.7,
                       cursor: "not-allowed",
                     },
                   }}
                 >
-                  {sending ? <AnimatedDotsText text="Sending" className="text-navy-700" /> : "Send My Report"}
+                  {sending ? (
+                    <AnimatedDotsText text="Sending" className="text-navy-700" />
+                  ) : (
+                    "Send My Report"
+                  )}
                 </Button>
               </div>
             </div>

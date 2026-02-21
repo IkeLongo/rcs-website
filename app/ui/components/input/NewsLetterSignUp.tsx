@@ -64,7 +64,13 @@ export function NewsLetterSignUp() {
           const res = await fetch("/api/newsletter", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, firstName, consent: true }),
+            body: JSON.stringify({
+              email,
+              firstName,
+              consent: true,
+              source: "newsletter-modal",
+              pageUrl: window.location.href,
+            }),
           });
 
           if (!res.ok) {

@@ -13,6 +13,15 @@ import { SeoReportPdf } from "@/app/lib/seo/SeoReportPdf";
 
 import type { ResultSetHeader } from "mysql2";
 
+type SeoLeadBody = {
+  email?: string;
+  firstName?: string;
+  consent?: boolean;   // REQUIRED now
+  source?: string;
+  pageUrl?: string;
+  scan?: any;
+};
+
 function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || "").trim());
 }
@@ -52,21 +61,178 @@ async function publicFileToDataUri(publicRelativePath: string) {
   return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
+async function upsertNewsletterPending(opts: {
+  email: string;
+  firstName: string | null;
+  consent: boolean;
+  source: string | null;
+  pageUrl: string | null;
+}) {
+  const { email, firstName, consent, source, pageUrl } = opts;
+
+  // check unsub status
+  const [rows] = await ovhPool.execute(
+    `SELECT is_unsubscribed FROM newsletter_signups WHERE email = ? LIMIT 1`,
+    [email]
+  );
+  const existing = (rows as any[])[0];
+  const wasUnsubscribed = existing?.is_unsubscribed === 1;
+
+  // upsert base record as pending
+  await ovhPool.execute(
+    `
+    INSERT INTO newsletter_signups
+      (email, first_name, consent_marketing, consent_at, source, page_url, brevo_status, brevo_error)
+    VALUES
+      (?, ?, ?, UTC_TIMESTAMP(), ?, ?, 'pending', NULL)
+    ON DUPLICATE KEY UPDATE
+      first_name = COALESCE(VALUES(first_name), first_name),
+      consent_marketing = VALUES(consent_marketing),
+      consent_at = UTC_TIMESTAMP(),
+      source = COALESCE(VALUES(source), source),
+      page_url = COALESCE(VALUES(page_url), page_url),
+      brevo_status = 'pending',
+      brevo_error = NULL,
+      updated_at = CURRENT_TIMESTAMP()
+    `,
+    [email, firstName, consent ? 1 : 0, source, pageUrl]
+  );
+
+  // If they were unsubscribed and they are explicitly opting in again -> resubscribe locally
+  if (wasUnsubscribed && consent) {
+    await ovhPool.execute(
+      `
+      UPDATE newsletter_signups
+      SET is_unsubscribed = 0,
+          unsubscribed_at = NULL,
+          unsubscribe_reason = NULL,
+          resubscribed_at = UTC_TIMESTAMP(),
+          resubscribe_source = COALESCE(?, resubscribe_source),
+          updated_at = CURRENT_TIMESTAMP()
+      WHERE email = ?
+      `,
+      [source ?? "seo-report-form", email]
+    );
+  }
+
+  return { wasUnsubscribed };
+}
+
+async function subscribeToBrevo(opts: {
+  email: string;
+  firstName: string | null;
+  listId: number;
+  apiKey: string;
+  wasUnsubscribed: boolean;
+}) {
+  const { email, firstName, listId, apiKey, wasUnsubscribed } = opts;
+
+  // Use SOURCE attribute if you want segmentation (create in Brevo contact attributes)
+  const attributes: Record<string, any> = {
+    ...(firstName ? { FIRSTNAME: firstName } : {}),
+    SOURCE: "seo-report",
+  };
+
+  const brevoRes = wasUnsubscribed
+    ? await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "api-key": apiKey },
+        body: JSON.stringify({
+          attributes,
+          emailBlacklisted: false,
+          listIds: [listId],
+        }),
+      })
+    : await fetch("https://api.brevo.com/v3/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "api-key": apiKey },
+        body: JSON.stringify({
+          email,
+          attributes,
+          listIds: [listId],
+          updateEnabled: true,
+        }),
+      });
+
+  const brevoData = await brevoRes.json().catch(() => ({}));
+
+  if (!brevoRes.ok) {
+    const errorMsg =
+      brevoData?.message ||
+      brevoData?.error ||
+      JSON.stringify(brevoData) ||
+      "Brevo request failed";
+
+    return { ok: false as const, errorMsg };
+  }
+
+  const brevoId = brevoData?.id != null ? String(brevoData.id) : null;
+  return { ok: true as const, brevoId };
+}
+
 export async function POST(req: Request) {
   try {
     console.log("[SEO Lead] Processing new report request");
 
     // Validate request payload
-    const { email, scan } = await req.json();
+    const body = (await req.json()) as SeoLeadBody;
+
+    const email = (body.email ?? "").trim().toLowerCase();
+    const firstName = (body.firstName ?? "").trim() || null;
+    const consent = Boolean(body.consent);
+    const source = body.source ?? "seo-report-form";
+    const pageUrl = body.pageUrl ?? null;
+    const scan = body.scan;
 
     if (!isEmail(email)) {
       console.error("[SEO Lead] Invalid email provided");
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
+    if (!consent) {
+      return NextResponse.json({ error: "Consent is required" }, { status: 400 });
+    }
     if (!scan?.url || !scan?.scores || !Array.isArray(scan?.issues)) {
       console.error("[SEO Lead] Invalid scan data");
       return NextResponse.json({ error: "Missing scan payload" }, { status: 400 });
     }
+
+    const apiKey = process.env.BREVO_API_KEY;
+    const listId = Number(process.env.BREVO_LIST_ID);
+
+    if (!apiKey || !listId) {
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
+    const { wasUnsubscribed } = await upsertNewsletterPending({
+      email,
+      firstName,
+      consent,
+      source,
+      pageUrl,
+    });
+
+    const brevo = await subscribeToBrevo({
+      email,
+      firstName,
+      listId,
+      apiKey,
+      wasUnsubscribed,
+    });
+
+    if (!brevo.ok) {
+      await ovhPool.execute(
+        `UPDATE newsletter_signups SET brevo_status='failed', brevo_error=? WHERE email=?`,
+        [brevo.errorMsg, email]
+      );
+      return NextResponse.json({ error: "Failed to subscribe. Please try again." }, { status: 502 });
+    }
+
+    await ovhPool.execute(
+      `UPDATE newsletter_signups
+       SET brevo_status='success', brevo_error=NULL, brevo_contact_id=COALESCE(?, brevo_contact_id)
+       WHERE email=?`,
+      [brevo.brevoId, email]
+    );
 
     const trimmedEmail = email.trim();
     console.log("[SEO Lead] Processing for:", trimmedEmail, "| URL:", scan.url);
@@ -96,11 +262,7 @@ export async function POST(req: Request) {
       );
 
       const insertId = result.insertId;
-
-      // Generate secure 64-char token
       reportToken = makeToken();
-
-      // 14-day expiration
       const expiresAt = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
 
       // Update row with token + expiration
@@ -123,18 +285,10 @@ export async function POST(req: Request) {
 
     // 2) Generate PDF report
     console.log("[SEO Lead] Generating PDF report");
-    const enrichedScan = {
-      ...scan,
-      issues: enrichIssues(scan.issues),
-    };
+    const enrichedScan = { ...scan, issues: enrichIssues(scan.issues) };
 
-    const logoDataUri = await publicFileToDataUri(
-      "logo-rivercity-creatives-horizontal-green-blue.png"
-    );
-
-    const portraitDataUri = await publicFileToDataUri(
-      "isaac-headshot-avatar.png"
-    );
+    const logoDataUri = await publicFileToDataUri("logo-rivercity-creatives-horizontal-green-blue.png");
+    const portraitDataUri = await publicFileToDataUri("isaac-headshot-avatar.png");
 
     const pdfBuffer = await renderToBuffer(
       <SeoReportPdf

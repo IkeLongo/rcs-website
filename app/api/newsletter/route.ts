@@ -10,18 +10,25 @@ type NewsletterBody = {
   pageUrl?: string;
 };
 
+function isEmail(v: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || "").trim());
+}
+
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as NewsletterBody;
 
     const email = (body.email ?? "").trim().toLowerCase();
-    const firstName = (body.firstName ?? "").trim();
+    const firstName = (body.firstName ?? "").trim() || null;
     const consent = Boolean(body.consent);
     const source = body.source ?? null;
     const pageUrl = body.pageUrl ?? null;
 
-    if (!email || !firstName) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    if (!isEmail(email) || !firstName) {
+      return NextResponse.json(
+        { error: "Valid email and first name are required" },
+        { status: 400 }
+      );
     }
 
     if (!consent) {
@@ -56,24 +63,7 @@ export async function POST(req: Request) {
       [email, firstName, source, pageUrl]
     );
 
-    // 2) If previously unsubscribed, explicitly resubscribe locally (fresh consent action)
-    if (wasUnsubscribed) {
-      await ovhPool.execute(
-        `
-        UPDATE newsletter_signups
-        SET is_unsubscribed = 0,
-            unsubscribed_at = NULL,
-            unsubscribe_reason = NULL,
-            resubscribed_at = UTC_TIMESTAMP(),
-            resubscribe_source = COALESCE(?, resubscribe_source),
-            updated_at = CURRENT_TIMESTAMP()
-        WHERE email = ?
-        `,
-        [source ?? "modal", email]
-      );
-    }
-
-    // 3) Brevo config
+    // 2) Brevo config
     const apiKey = process.env.BREVO_API_KEY;
     const listId = Number(process.env.BREVO_LIST_ID);
 
@@ -85,42 +75,29 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
-    // 4) Brevo call
-    let brevoRes: Response;
+    // 3) Brevo call
+    const attributes = { FIRSTNAME: firstName, SOURCE: source ?? "unknown" };
 
-    if (wasUnsubscribed) {
-      // Resubscribe: un-blacklist + re-add to list
-      brevoRes = await fetch(
-        `https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`,
-        {
+    const brevoRes = wasUnsubscribed
+      ? await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
           method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "api-key": apiKey,
-          },
+          headers: { "Content-Type": "application/json", "api-key": apiKey },
           body: JSON.stringify({
-            attributes: { FIRSTNAME: firstName },
+            attributes,
             emailBlacklisted: false,
             listIds: [listId],
           }),
-        }
-      );
-    } else {
-      // Normal signup: create contact (or update if exists)
-      brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": apiKey,
-        },
-        body: JSON.stringify({
-          email,
-          attributes: { FIRSTNAME: firstName },
-          listIds: [listId],
-          updateEnabled: true,
-        }),
-      });
-    }
+        })
+      : await fetch("https://api.brevo.com/v3/contacts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "api-key": apiKey },
+          body: JSON.stringify({
+            email,
+            attributes,
+            listIds: [listId],
+            updateEnabled: true,
+          }),
+        });
 
     const brevoData = await brevoRes.json().catch(() => ({}));
 
@@ -139,6 +116,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Failed to subscribe" }, { status: 502 });
     }
 
+    // 4) If previously unsubscribed, flip local flags ONLY after Brevo success
+    if (wasUnsubscribed) {
+      await ovhPool.execute(
+        `
+        UPDATE newsletter_signups
+        SET is_unsubscribed = 0,
+            unsubscribed_at = NULL,
+            unsubscribe_reason = NULL,
+            resubscribed_at = UTC_TIMESTAMP(),
+            resubscribe_source = COALESCE(?, resubscribe_source),
+            updated_at = CURRENT_TIMESTAMP()
+        WHERE email = ?
+        `,
+        [source ?? "modal", email]
+      );
+    }
+
     // 5) Store contact id if returned (create endpoint often returns it)
     const brevoId = brevoData?.id != null ? String(brevoData.id) : null;
 
@@ -154,10 +148,7 @@ export async function POST(req: Request) {
       [brevoId, email]
     );
 
-    return NextResponse.json(
-      { success: true, resubscribed: wasUnsubscribed },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true, resubscribed: wasUnsubscribed }, { status: 200 });
   } catch (err) {
     console.error("Newsletter API error:", err);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
