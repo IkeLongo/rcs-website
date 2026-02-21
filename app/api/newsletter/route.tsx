@@ -1,4 +1,12 @@
 // /app/api/newsletter/route.ts
+export const runtime = "nodejs";
+import fs from "node:fs/promises";
+import path from "node:path";
+
+import nodemailer from "nodemailer";
+import { renderToBuffer } from "@react-pdf/renderer";
+import { WebsiteRevenueChecklistPdf } from "@/app/lib/pdfs/WebsiteRevenueChecklistPdf";
+import { getWebsiteRevenueChecklistEmailHtml } from "@/app/lib/email/getWebsiteRevenueChecklistEmailHtml";
 import { NextResponse } from "next/server";
 import { ovhPool } from "@/app/lib/mysql";
 
@@ -12,6 +20,23 @@ type NewsletterBody = {
 
 function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || "").trim());
+}
+
+async function publicFileToDataUri(publicRelativePath: string) {
+  // publicRelativePath example: "logo-rivercity-creatives-horizontal-green-blue.png"
+  const filePath = path.join(process.cwd(), "public", publicRelativePath);
+
+  const buf = await fs.readFile(filePath);
+
+  // minimal mime mapping
+  const ext = path.extname(publicRelativePath).toLowerCase();
+  const mime =
+    ext === ".png" ? "image/png" :
+    ext === ".jpg" || ext === ".jpeg" ? "image/jpeg" :
+    ext === ".webp" ? "image/webp" :
+    "application/octet-stream";
+
+  return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
 export async function POST(req: Request) {
@@ -147,6 +172,90 @@ export async function POST(req: Request) {
       `,
       [brevoId, email]
     );
+
+    // 6) Send checklist email + attach PDF (after Brevo success)
+    try {
+      const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://rivercitycreatives.com";
+
+      // If you don’t collect websiteUrl yet, you can use pageUrl or default to your domain.
+      // Strong recommendation: add `websiteUrl` to the body later (but you said don’t alter current code).
+      const websiteUrl = pageUrl || SITE;
+
+      // Create a hosted URL to the checklist (optional) AND attach the PDF
+      const checklistUrl = `${SITE}/founder-website-revenue-checklist`; // or wherever you host it
+      const bookingUrl = `${SITE}/booking`;
+
+      // Build assets as data URIs (safe for react-pdf render on server)
+      const logoDataUri = await publicFileToDataUri(
+        "logo-rivercity-creatives-horizontal-green-blue.png"
+      );
+      const portraitDataUri = await publicFileToDataUri("isaac-headshot-avatar.png");
+
+      // Generate PDF buffer
+      const pdfBuffer = await renderToBuffer(
+        <WebsiteRevenueChecklistPdf
+          websiteUrl={websiteUrl}
+          siteUrl={SITE}
+          callUrl={bookingUrl}
+          logoSrc={logoDataUri}
+          portraitSrc={portraitDataUri}
+        />
+      );
+
+      // Create transporter (same config as SEO route)
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST!,
+        port: Number(process.env.SMTP_PORT || 587),
+        secure: Number(process.env.SMTP_PORT) === 465,
+        auth: {
+          user: process.env.SMTP_USER!,
+          pass: process.env.SMTP_PASS!,
+        },
+        logger: true,
+        debug: true,
+        connectionTimeout: 20_000,
+        greetingTimeout: 20_000,
+        socketTimeout: 20_000,
+      });
+
+      await transporter.verify();
+
+      const emailHtml = getWebsiteRevenueChecklistEmailHtml({
+        websiteUrl,
+        checklistUrl,
+        bookingUrl,
+        firstName: firstName || undefined,
+      });
+
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM!,
+        to: email,
+        subject: "Your Founder Website Revenue Checklist (PDF)",
+        text: `Here’s your Website Revenue Checklist for ${websiteUrl}. (PDF attached)`,
+        html: emailHtml,
+        attachments: [
+          {
+            filename: "founder-website-revenue-checklist.pdf",
+            content: pdfBuffer,
+            contentType: "application/pdf",
+          },
+        ],
+      });
+
+      // Optional: store delivery success
+      await ovhPool.execute(
+        `UPDATE newsletter_signups SET last_checklist_sent_at=UTC_TIMESTAMP(), updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
+        [email]
+      );
+    } catch (mailErr: any) {
+      console.error("Checklist email send error:", mailErr);
+
+      // Optional: store delivery failure (does NOT block signup)
+      await ovhPool.execute(
+        `UPDATE newsletter_signups SET last_checklist_error=?, updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
+        [mailErr?.message || "Checklist email failed", email]
+      );
+    }
 
     return NextResponse.json({ success: true, resubscribed: wasUnsubscribed }, { status: 200 });
   } catch (err) {
