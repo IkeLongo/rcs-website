@@ -110,10 +110,10 @@ export function NewsLetterModal({ open, onClose, initialEmail, onSubmit }: {
 								</div>
 							</form>
 						</div>
-						<div className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out overflow-y-auto ${
+						<div className={`absolute inset-0 flex flex-col justify-end transition-all duration-500 ease-in-out overflow-y-auto ${
 							step === 2 ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
 						}`}>
-							<form className="flex flex-col items-center w-full px-2"
+							<form className="flex flex-col items-start w-full px-2"
 								onSubmit={async (e) => {
                   e.preventDefault();
 
