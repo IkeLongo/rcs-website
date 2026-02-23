@@ -286,7 +286,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
 
           {/* Content */}
           <motion.div 
-            className="min-w-0 mt-auto relative z-20"
+            className="w-full max-w-full min-w-0 mt-auto relative z-20"
             animate={{
               opacity: isScrolled ? 0.9 : 1
             }}
@@ -296,7 +296,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           >
             <motion.h2
               id="portfolio-modal-title"
-              className="!text-xl md:!text-2xl !font-normal !text-left truncate"
+              className="!text-xl md:!text-2xl !font-normal !text-left truncate max-w-full overflow-hidden"
               animate={{
                 fontSize: isScrolled ? "1.25rem" : "1.5rem"
               }}
@@ -307,7 +307,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               {project.name}
             </motion.h2>
             <motion.p 
-              className="!text-sm md:!text-base !font-maven-pro !font-normal !text-left !text-gray-100"
+              className="!text-sm md:!text-base !font-maven-pro !font-normal !text-left !text-gray-100 max-w-full"
               animate={{
                 opacity: isScrolled ? 0 : 1,
                 height: isScrolled ? 0 : "auto",
