@@ -6,7 +6,7 @@ import Image from "next/image";
 import { BentoGrid } from "@/app/ui/components/bento/bento-grid";
 import { ScrollableBentoGrid } from "@/app/ui/components/bento/scrollable-bento-grid";
 import { BentoGridItemAnimation } from "@/app/ui/components/bento/bento-grid-client";
-import { IconChefHat, IconCross, IconBolt, IconBarbell, IconChevronLeft, IconChevronRight, IconBallBaseball, IconShirt } from "@tabler/icons-react";
+import { IconChefHat, IconCross, IconBolt, IconBarbell, IconBallBaseball, IconShirt, IconDiamond, IconBuildingStore } from "@tabler/icons-react";
 import { BicepsFlexed } from 'lucide-react';
 import PortfolioModal from ".././portfolio-modal";
 
@@ -28,6 +28,10 @@ function iconFor(key: BrandingPortfolioItem["iconKey"]) {
       return <BicepsFlexed className="h-4 w-4 text-neutral-500" />;
     case "cross":
       return <IconCross className="h-4 w-4 text-neutral-500" />;
+    case "diamond":
+      return <IconDiamond className="h-4 w-4 text-neutral-500" />;
+    case "store":
+      return <IconBuildingStore className="h-4 w-4 text-neutral-500" />;
     default:
       return null;
   }

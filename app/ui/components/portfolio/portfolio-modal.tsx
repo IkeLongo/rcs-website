@@ -8,6 +8,7 @@ import { PortfolioHeader } from "./branding/branding-client";
 import { ScrollableBentoGrid } from "../bento/scrollable-bento-grid";
 import { BentoGridItemImage } from "../bento/bento-grid";
 import { BrandInAction } from "./branding/brand-in-action";
+import { LogosSection } from "./branding/logos";
 
 import type { BrandingPortfolioItem } from "@/app/lib/portfolio/branding";
 
@@ -60,15 +61,38 @@ function SectionHeading({
 function InfoCard({
   title,
   body,
+  variant = "default",
 }: {
   title: string;
   body: string;
+  variant?: "default" | "variant1" | "variant2";
 }) {
+  const bgClass = 
+    variant === "variant1" 
+      ? "bg-gradient-to-br from-[#F7F9EE] to-[#E8EBE0]"
+      : variant === "variant2"
+      ? "bg-gradient-to-br from-[#BFEE3C]/20 to-[#BFEE3C]/5"
+      : "bg-lime-100/80";
+  
+  const borderClass = 
+    variant === "variant1"
+      ? "border-[#E8EBE0]/60"
+      : variant === "variant2"
+      ? "border-[#BFEE3C]/40"
+      : "border-lime-200/40";
+
+  const lineClass = 
+    variant === "variant1"
+      ? "bg-lime-400/80"
+      : variant === "variant2"
+      ? "bg-slate-800/30"
+      : "bg-lime-400/80";
+
   return (
-    <div className="rounded-xl bg-lime-100/80 border border-lime-200/40 shadow-sm p-5">
-      <div className="text-base font-gentium-book-plus font-semibold text-navy-500">{title}</div>
-      <p className="mt-2 !text-sm !text-neutral-500 !text-left leading-relaxed">{body}</p>
-      <div className="mt-3 h-[2px] w-6 rounded bg-lime-400/80" />
+    <div className={`rounded-xl ${bgClass} border ${borderClass} shadow-sm p-5`}>
+      <div className="text-md font-gentium-book-plus font-semibold text-navy-500">{title}</div>
+      <p className="mt-2 !text-sm md:!text-base !text-neutral-800 !font-maven-pro !text-left leading-relaxed">{body}</p>
+      <div className={`mt-3 h-[2px] w-6 rounded ${lineClass}`} />
     </div>
   );
 }
@@ -88,9 +112,9 @@ function ColorCard({
     <div className="overflow-hidden rounded-xl shadow-sm border border-neutral-200">
       <div className="h-24 w-full" style={{ backgroundColor: swatchColor }} />
       <div className="p-2 md:p-2 bg-white border-t-1 border-neutral-200">
-        <div className="text-xs font-semibold text-navy-500">{name}</div>
-        <div className="text-[11px] text-neutral-700 font-maven-pro">{hex}</div>
-        <div className="text-[11px] text-neutral-700 font-maven-pro">{rgb}</div>
+        <div className="text-xs md:text-sm font-maven-pro font-semibold text-navy-500">{name}</div>
+        <div className="text-[11px] md:text-[12px] text-neutral-700 font-maven-pro">{hex}</div>
+        <div className="text-[11px] md:text-[12px] text-neutral-700 font-maven-pro">{rgb}</div>
       </div>
     </div>
   );
@@ -160,7 +184,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
 
   // You can later move these into project.caseStudy
   const overviewSubtitle =
-    project.cardDescription ||
+    project.overview ||
     "A modern brand identity designed to communicate clarity, trust, and momentum.";
 
   return (
@@ -230,7 +254,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
 
         {/* Top bar (sticky) */}
         <motion.div 
-          className="relative flex flex-col items-start justify-between px-6 py-4 shrink-0 overflow-hidden border-b-1 border-white/10 header-responsive"
+          className="relative flex flex-col items-start justify-between px-6 py-4 shrink-0 overflow-hidden border-b-2 border-white/10 header-responsive"
           animate={{ 
             height: isScrolled ? 'var(--header-collapsed)' : 'var(--header-expanded)'
           }}
@@ -345,26 +369,14 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           <div className="mt-6">
             <SectionHeading>Logo Design</SectionHeading>
 
-            <div className="mt-4 rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
-              <div className="relative bg-gradient-to-r from-[#0b1b34] to-[#0c2a47] p-6">
-                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {project.logos && project.logos.length > 0 ? (
-                    project.logos.map((logo, idx) => (
-                      <LogoCard
-                        key={logo}
-                        name={project.name + ' Logo ' + (idx + 1)}
-                        image={logo}
-                      />
-                    ))
-                  ) : (
-                    <div className="text-neutral-400 text-center py-8 w-full col-span-4">No logos available.</div>
-                  )}
-                </div>
-                <p className="mt-4 text-center !text-xs !text-neutral-300">
-                  {project.logoDescription || "A bold, energetic logo was crafted to capture the competitive spirit of fantasy sports. The dynamic typography and lightning bolt icon evoke excitement and movement, while the vibrant electric blue color palette reinforces the brand's modern, tech-forward identity."}
-                </p>
-              </div>
-            </div>
+            {/* LogosSection replaces logo grid and description */}
+            <LogosSection
+              logos={project.logos}
+              projectName={project.name}
+              description={project.logoDescription}
+              bgA={project.logoBackgrounds?.[0]}
+              bgB={project.logoBackgrounds?.[1]}
+            />
           </div>
 
           {/* Color Palette */}
@@ -399,7 +411,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               </h3>
             </div>
 
-            <p className="!text-sm !text-neutral-500 !text-left max-w-2xl leading-relaxed">
+            <p className="!text-sm md:!text-base !text-neutral-800 !text-left !font-maven-pro leading-relaxed">
               {overviewSubtitle}
             </p>
 
@@ -407,10 +419,12 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               <InfoCard
                 title="The Challenge"
                 body={project.challenge || "Create a premium brand that appeals to discerning diners while maintaining approachability."}
+                variant="variant1"
               />
               <InfoCard
                 title="The Solution"
                 body={project.solution || "Developed a refined visual language with classic typography and a warm color palette."}
+                variant="variant2"
               />
             </div>
           </div>
@@ -435,18 +449,18 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           {/* CTA */}
           <div className="mt-12">
             <div className="rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
-              <div className="bg-gradient-to-r from-[#0b1b34] to-[#0c2a47] px-6 py-8 text-center">
+              <div className="bg-gradient-to-b from-[#002145] via-[#003366] to-[#002145] px-6 py-8 text-center">
                 <div className="text-lg font-gentium-book-plus font-semibold text-white">
                   Interested in Similar Work?
                 </div>
-                <div className="mt-2 text-sm text-white/70">
+                <div className="mt-2 text-sm lg:text-base text-white/70 font-maven-pro">
                   Let’s discuss how we can create an impactful brand for your business.
                 </div>
 
                 <div className="mt-5 flex justify-center">
                   <a
-                    href="/contact"
-                    className="inline-flex items-center justify-center rounded-lg bg-lime-300 px-5 py-3 text-sm font-semibold text-navy-500 hover:bg-lime-200 transition shadow"
+                    href="/booking"
+                    className="inline-flex items-center justify-center rounded-lg bg-gradient-to-b from-[#BFEE3C] to-[#E2EAED] px-5 py-3 text-sm md:text-base font-semibold text-navy-500 hover:bg-lime-200 transition shadow"
                   >
                     Get in Touch
                   </a>
