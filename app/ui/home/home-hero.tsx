@@ -94,6 +94,13 @@ export default function HomeHero() {
               />
             </div>
           </div>
+          {/* Absolutely positioned h2 at bottom, centered */}
+          <div className="w-full z-40 mx-auto text-center absolute left-1/2 bottom-0 md:bottom-4 -translate-x-1/2 bg-gradient-to-b from-transparent via-navy-500/75 to-navy-500">
+            <h2 className="w-full max-w-xl !font-maven-pro !text-md2 !font-normal z-40 mx-auto text-center pt-10 pb-2 md:pb-4">
+              We partner with growth-minded businesses to transform their brands and 
+              websites into predictable client acquisition engines.
+            </h2>
+          </div>
         </div>
       </div>
     </section>
