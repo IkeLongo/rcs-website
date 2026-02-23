@@ -116,7 +116,7 @@ export default function HomeHeroEffects() {
 
       {/* Mobile raining chips (deferred) */}
       {enableRain && (
-        <div className="absolute inset-0 top-5 z-20 flex flex-row justify-between md:hidden pointer-events-none w-full">
+        <div className="absolute inset-0 z-20 flex flex-row justify-between md:hidden pointer-events-none w-full">
           <div className="relative w-1/2 h-full flex flex-col items-center">
             {leftChips.map((chip, i) => (
               <div

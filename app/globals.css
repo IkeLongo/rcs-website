@@ -164,10 +164,10 @@ hls-video {
     transform: translateY(-60px);
     opacity: 0;
   }
-  35% {
+  30% {
     opacity: 0;
   }
-  50% {
+  40% {
     opacity: 1;
   }
   100% {
