@@ -49,13 +49,16 @@ export default function HomeHero() {
 
         {/* Hero content (static) */}
         <div className="relative flex h-full w-full flex-col items-center p-6 md:top-4 md:px-20">
-          <div className="flex w-full flex-col pt-28 md:pt-36 self-center md:items-end md:justify-end">
+          <div className="flex w-full flex-col pt-20 md:pt-28 self-center md:items-end md:justify-end">
             <h1 className="w-full max-w-lg text-navy-500 z-40 mx-auto text-center">
-              Crafting Powerful{" "}
-              <span className="italic text-neongreen-700">Websites</span> and
-              <br className="hidden md:block" />
-              <span className="italic text-neongreen-700"> Branding</span> for
-              Your Business
+              Strategic <span className="italic text-neongreen-700">Websites</span> and{" "}
+              <span className="italic text-neongreen-700">Branding</span>{" "}
+              <br className="hidden sm:block" />
+              Built to Drive{" "}
+              <span className="italic text-neongreen-700">Revenue</span>{" "}
+              <br className="hidden sm:block" />
+              {/* <span className="italic text-neongreen-700"> Branding</span> for */}
+              for Your Business
             </h1>
 
             <div
