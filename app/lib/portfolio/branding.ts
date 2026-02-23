@@ -40,10 +40,10 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
     badgeColor: "white",
     projectUrl: "https://mitsurinwagyu.com",
     mockups: [
-      "/mockups/countdown-1.webp",
-      "/mockups/countdown-2.webp",
-      "/mockups/countdown-3.webp",
-      "/mockups/countdown-4.webp"
+      "/brands/mitsurin/mockup-mitsurin-1-delicious-steak-dinner.webp",
+      "/brands/mitsurin/mockup-mitsurin-2-raw-steak-in-butchershop.webp",
+      "/brands/mitsurin/mockup-mitsurin-3-cowboy-polo.webp",
+      "/brands/mitsurin/mockup-mitsurin-4-wagyu-burger-packaging.webp"
     ],
     logos: [
       "/portfolio-countdown-fantasy-logo-1.webp",

@@ -7,6 +7,7 @@ import { IconX, IconSparkles, IconPhoto, IconPalette } from "@tabler/icons-react
 import { PortfolioHeader } from "./branding/branding-client";
 import { ScrollableBentoGrid } from "../bento/scrollable-bento-grid";
 import { BentoGridItemImage } from "../bento/bento-grid";
+import { BrandInAction } from "./branding/brand-in-action";
 
 import type { BrandingPortfolioItem } from "@/app/lib/portfolio/branding";
 
@@ -51,7 +52,7 @@ function SectionHeading({
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime-200/60 text-green-500">
         {icon || <IconSparkles className="h-5 w-5" />}
       </span>
-      <h3 className="!text-md2 font-semibold text-navy-500">{children}</h3>
+      <h3 className="!text-md2 font-semibold text-navy-500 !my-2">{children}</h3>
     </div>
   );
 }
@@ -172,7 +173,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
       {/* Backdrop */}
       <button
         aria-label="Close modal"
-        className="absolute inset-0 bg-black/55 backdrop-blur-[2px]"
+        className="absolute inset-0 bg-slate-800/75 backdrop-blur-[2px] !rounded-none"
         onClick={onClose}
       />
 
@@ -205,11 +206,33 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           }}
         />
 
+        {/* Responsive CSS variables for header heights */}
+        <style dangerouslySetInnerHTML={{__html: `
+          .header-responsive {
+            --header-expanded: 240px;
+            --header-collapsed: 120px;
+          }
+          
+          @media (min-width: 640px) {
+            .header-responsive {
+              --header-expanded: 320px;
+              --header-collapsed: 128px;
+            }
+          }
+          
+          @media (min-width: 1024px) {
+            .header-responsive {
+              --header-expanded: 384px;
+              --header-collapsed: 160px;
+            }
+          }
+        `}} />
+
         {/* Top bar (sticky) */}
         <motion.div 
-          className="relative flex items-start justify-between px-6 py-4 shrink-0 overflow-hidden"
+          className="relative flex flex-col items-start justify-between px-6 py-4 shrink-0 overflow-hidden border-b-1 border-white/10 header-responsive"
           animate={{ 
-            height: isScrolled ? 160 : 384  // h-40 = 160px, h-96 = 384px
+            height: isScrolled ? 'var(--header-collapsed)' : 'var(--header-expanded)'
           }}
           transition={{ 
             duration: 0.3,
@@ -229,6 +252,14 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           )}
           {/* Gradient overlay */}
           <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-navy-500/80 to-transparent" />
+          <button
+            onClick={onClose}
+            className="inline-flex h-10 !w-10 items-center justify-center self-end rounded-full bg-white/80 hover:bg-white shadow-sm border border-neutral-200 transition relative z-20"
+            aria-label="Close"
+          >
+            <IconX className="h-5 w-5 text-navy-500" />
+          </button>
+
           {/* Content */}
           <motion.div 
             className="min-w-0 mt-auto relative z-20"
@@ -241,7 +272,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           >
             <motion.h2
               id="portfolio-modal-title"
-              className="!text-2xl !font-normal !text-left truncate"
+              className="!text-xl md:!text-2xl !font-normal !text-left truncate"
               animate={{
                 fontSize: isScrolled ? "1.25rem" : "1.5rem"
               }}
@@ -252,7 +283,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               {project.name}
             </motion.h2>
             <motion.p 
-              className="!text-base !font-maven-pro !font-normal !text-gray-100"
+              className="!text-sm md:!text-base !font-maven-pro !font-normal !text-left !text-gray-100"
               animate={{
                 opacity: isScrolled ? 0 : 1,
                 height: isScrolled ? 0 : "auto",
@@ -265,25 +296,17 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               {project.headerDescription || overviewSubtitle}
             </motion.p>
           </motion.div>
-
-          <button
-            onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-sm border border-neutral-200 transition relative z-20"
-            aria-label="Close"
-          >
-            <IconX className="h-5 w-5 text-navy-500" />
-          </button>
         </motion.div>
 
         {/* Scrollable content */}
-        <div ref={scrollableRef} className="relative px-6 pb-6 overflow-y-auto flex-1 min-h-0">
+        <div ref={scrollableRef} className="relative pt-4 px-2 md:px-6 pb-6 overflow-y-auto flex-1 min-h-0">
           {/* Brand Mockups */}
           <div className="mt-2">
             <SectionHeading icon={<IconPhoto className="h-5 w-5" />}>
-              Brand Mockups
+              Brand in Action
             </SectionHeading>
 
-            <ScrollableBentoGrid>
+            {/* <ScrollableBentoGrid>
               {project.mockups && project.mockups.length > 0 ? (
                 project.mockups.map((mockup, idx) => (
                   <div
@@ -311,7 +334,11 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               ) : (
                 <div className="text-neutral-400 text-center py-8 w-full">No mockups available.</div>
               )}
-            </ScrollableBentoGrid>
+            </ScrollableBentoGrid> */}
+          </div>
+
+          <div className="mt-2">
+            <BrandInAction projectName={project.name} mockups={project.mockups} />
           </div>
 
           {/* Logo Design */}
