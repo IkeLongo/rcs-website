@@ -128,8 +128,8 @@ export default function BrandingPortfolioBentoSectionClient({
     <div className="max-w-6xl mx-auto">
       <ScrollableBentoGrid>
         {items.map((item) => {
-          const headerNode = item.header ? (
-            <PortfolioHeader image={item.header} name={item.name} badgeColor={item.badgeColor} />
+          const headerNode = item.cardImage ? (
+            <PortfolioHeader image={item.cardImage} name={item.name} badgeColor={item.badgeColor} />
           ) : null;
 
           return (
@@ -139,7 +139,7 @@ export default function BrandingPortfolioBentoSectionClient({
             >
               <BentoGridItemAnimation
                 title={item.name}
-                description={item.description ?? "View project"}
+                description={item.cardDescription ?? "View project"}
                 header={headerNode}
                 icon={iconFor(item.iconKey)}
                 className={item.featured ? "md:col-span-2" : ""}

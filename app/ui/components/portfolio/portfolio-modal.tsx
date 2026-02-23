@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { IconX, IconSparkles, IconPhoto, IconPalette } from "@tabler/icons-react";
 import { PortfolioHeader } from "./branding/branding-client";
 import { ScrollableBentoGrid } from "../bento/scrollable-bento-grid";
@@ -118,6 +119,8 @@ function LogoCard({
 
 export default function PortfolioModal({ open, project, onClose }: PortfolioModalProps) {
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const scrollableRef = useRef<HTMLDivElement | null>(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   useLockBodyScroll(open);
 
@@ -139,11 +142,24 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
     setTimeout(() => panelRef.current?.focus(), 0);
   }, [open]);
 
+  // Track scroll position to shrink top bar
+  useEffect(() => {
+    const scrollableEl = scrollableRef.current;
+    if (!scrollableEl) return;
+
+    const handleScroll = () => {
+      setIsScrolled(scrollableEl.scrollTop > 0);
+    };
+
+    scrollableEl.addEventListener('scroll', handleScroll);
+    return () => scrollableEl.removeEventListener('scroll', handleScroll);
+  }, [open]);
+
   if (!open || !project) return null;
 
   // You can later move these into project.caseStudy
   const overviewSubtitle =
-    project.description ||
+    project.cardDescription ||
     "A modern brand identity designed to communicate clarity, trust, and momentum.";
 
   return (
@@ -175,6 +191,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
           outline-none
           overflow-hidden
           animate-in fade-in zoom-in-95 duration-200
+          flex flex-col
         "
         onClick={(e) => e.stopPropagation()}
       >
@@ -189,28 +206,77 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
         />
 
         {/* Top bar (sticky) */}
-        <div className="relative flex items-center justify-between px-6 py-4 bg-gradient-to-t from-navy-500/80 to-transparent">
-          <div className="min-w-0">
-            <div className="text-sm font-maven-pro font-semibold text-navy-500">Branding Project</div>
-            <h2
+        <motion.div 
+          className="relative flex items-start justify-between px-6 py-4 shrink-0 overflow-hidden"
+          animate={{ 
+            height: isScrolled ? 160 : 384  // h-40 = 160px, h-96 = 384px
+          }}
+          transition={{ 
+            duration: 0.3,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Background image */}
+          {project.headerImage && (
+            <Image
+              src={project.headerImage}
+              alt={project.name + ' header'}
+              fill
+              className="object-cover object-top z-0"
+              priority
+              sizes="100vw"
+            />
+          )}
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-navy-500/80 to-transparent" />
+          {/* Content */}
+          <motion.div 
+            className="min-w-0 mt-auto relative z-20"
+            animate={{
+              opacity: isScrolled ? 0.9 : 1
+            }}
+            transition={{
+              duration: 0.3
+            }}
+          >
+            <motion.h2
               id="portfolio-modal-title"
-              className="!text-md2 font-semibold text-navy-500 truncate"
+              className="!text-2xl !font-normal !text-left truncate"
+              animate={{
+                fontSize: isScrolled ? "1.25rem" : "1.5rem"
+              }}
+              transition={{
+                duration: 0.3
+              }}
             >
               {project.name}
-            </h2>
-          </div>
+            </motion.h2>
+            <motion.p 
+              className="!text-base !font-maven-pro !font-normal !text-gray-100"
+              animate={{
+                opacity: isScrolled ? 0 : 1,
+                height: isScrolled ? 0 : "auto",
+                marginTop: isScrolled ? 0 : "0.25rem"
+              }}
+              transition={{
+                duration: 0.3
+              }}
+            >
+              {project.headerDescription || overviewSubtitle}
+            </motion.p>
+          </motion.div>
 
           <button
             onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-sm border border-neutral-200 transition"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-sm border border-neutral-200 transition relative z-20"
             aria-label="Close"
           >
             <IconX className="h-5 w-5 text-navy-500" />
           </button>
-        </div>
+        </motion.div>
 
         {/* Scrollable content */}
-        <div className="relative px-6 pb-6 overflow-y-auto max-h-[calc(min(90vh,860px)-72px)]">
+        <div ref={scrollableRef} className="relative px-6 pb-6 overflow-y-auto flex-1 min-h-0">
           {/* Brand Mockups */}
           <div className="mt-2">
             <SectionHeading icon={<IconPhoto className="h-5 w-5" />}>

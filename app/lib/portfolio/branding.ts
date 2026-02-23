@@ -2,9 +2,11 @@ export type PortfolioBadgeColor = "white" | "gray";
 
 export type BrandingPortfolioItem = {
   id: string;
-  header: string;
+  cardImage: string;
   name: string;
-  description: string;
+  cardDescription: string;
+  headerImage?: string;
+  headerDescription?: string;
   iconKey:
     | "bolt"
     | "chef"
@@ -28,10 +30,43 @@ export type BrandingPortfolioItem = {
 
 export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   {
+    id: "mitsurin-wagyu",
+    cardImage: "/portfolio-mitsurin-wagyu-image.webp",
+    name: "Mitsurin Wagyu",
+    cardDescription: "Premium Wagyu beef brand focused on craftsmanship and quality.",
+    headerImage: "/mitsurin-branding-header.webp",
+    headerDescription: "Mitsurin Wagyu is a refined, heritage-driven brand rooted in craftsmanship, precision and understated luxury.",
+    iconKey: "chef",
+    badgeColor: "white",
+    projectUrl: "https://mitsurinwagyu.com",
+    mockups: [
+      "/mockups/countdown-1.webp",
+      "/mockups/countdown-2.webp",
+      "/mockups/countdown-3.webp",
+      "/mockups/countdown-4.webp"
+    ],
+    logos: [
+      "/portfolio-countdown-fantasy-logo-1.webp",
+      "/portfolio-countdown-fantasy-logo-2.webp",
+      "/portfolio-countdown-fantasy-logo-3.webp",
+      "/portfolio-countdown-fantasy-logo-4.webp"
+    ],
+    colors: [
+      { name: "Electric Blue", hex: "#0b66ff", rgb: "RGB(11, 102, 255)" },
+      { name: "Cyber Purple", hex: "#6b5ce7", rgb: "RGB(107, 92, 231)" },
+      { name: "Pure White", hex: "#ffffff", rgb: "RGB(255, 255, 255)" },
+      { name: "Carbon Black", hex: "#0a0a0a", rgb: "RGB(10, 10, 10)" }
+    ],
+    challenge:
+      "Create a premium brand that appeals to discerning diners while maintaining approachability.",
+    solution:
+      "Developed a refined visual language with classic typography and a warm color palette."
+  },
+  {
     id: "countdown-fantasy",
-    header: "/portfolio-countdown-fantasy-image.webp",
+    cardImage: "/portfolio-countdown-fantasy-image.webp",
     name: "Countdown Fantasy Sports",
-    description: "Fantasy tournament hub with live standings + team pages.",
+    cardDescription: "Fantasy tournament hub with live standings + team pages.",
     iconKey: "bolt",
     featured: true,
     badgeColor: "white",
@@ -62,41 +97,10 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
       "Developed a refined visual language with classic typography and a warm color palette."
   },
   {
-    id: "mitsurin-wagyu",
-    header: "/portfolio-mitsurin-wagyu-image.webp",
-    name: "Mitsurin Wagyu",
-    description: "Premium Wagyu beef brand focused on craftsmanship and quality.",
-    iconKey: "chef",
-    badgeColor: "white",
-    projectUrl: "https://mitsurinwagyu.com",
-    mockups: [
-      "/mockups/countdown-1.webp",
-      "/mockups/countdown-2.webp",
-      "/mockups/countdown-3.webp",
-      "/mockups/countdown-4.webp"
-    ],
-    logos: [
-      "/portfolio-countdown-fantasy-logo-1.webp",
-      "/portfolio-countdown-fantasy-logo-2.webp",
-      "/portfolio-countdown-fantasy-logo-3.webp",
-      "/portfolio-countdown-fantasy-logo-4.webp"
-    ],
-    colors: [
-      { name: "Electric Blue", hex: "#0b66ff", rgb: "RGB(11, 102, 255)" },
-      { name: "Cyber Purple", hex: "#6b5ce7", rgb: "RGB(107, 92, 231)" },
-      { name: "Pure White", hex: "#ffffff", rgb: "RGB(255, 255, 255)" },
-      { name: "Carbon Black", hex: "#0a0a0a", rgb: "RGB(10, 10, 10)" }
-    ],
-    challenge:
-      "Create a premium brand that appeals to discerning diners while maintaining approachability.",
-    solution:
-      "Developed a refined visual language with classic typography and a warm color palette."
-  },
-  {
     id: "teddy-gear",
-    header: "/portfolio-teddygear-image.webp",
+    cardImage: "/portfolio-teddygear-image.webp",
     name: "Teddy Gear",
-    description:
+    cardDescription:
       "Relaxed, modern apparel designed for everyday comfort while still looking sharp.",
     iconKey: "shirt",
     badgeColor: "white",
@@ -125,9 +129,9 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "maximstrong",
-    header: "/portfolio-maximstrong-image.webp",
+    cardImage: "/portfolio-maximstrong-image.webp",
     name: "Maximstrong",
-    description: "Gritty fitness landing page built to convert local gym leads.",
+    cardDescription: "Gritty fitness landing page built to convert local gym leads.",
     iconKey: "barbell",
     badgeColor: "white",
     projectUrl: "https://maximstrong.com",
@@ -156,9 +160,9 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "clubhouse-baseball",
-    header: "/portfolio-clubhouse-baseball-image.webp",
+    cardImage: "/portfolio-clubhouse-baseball-image.webp",
     name: "Clubhouse Baseball",
-    description:
+    cardDescription:
       "Connecting select baseball organizations with families searching for the right team fit.",
     iconKey: "baseball",
     badgeColor: "white",
@@ -187,9 +191,9 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "collenback-strength",
-    header: "/portfolio-collenback-strength-image.webp",
+    cardImage: "/portfolio-collenback-strength-image.webp",
     name: "Collenback Strength",
-    description: "Personal training site centered on athlete development and coaching.",
+    cardDescription: "Personal training site centered on athlete development and coaching.",
     iconKey: "biceps",
     badgeColor: "white",
     projectUrl: "https://collenbackstrength.com",
@@ -218,9 +222,9 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "oblate-academy",
-    header: "/portfolio-oblate-academy-image.webp",
+    cardImage: "/portfolio-oblate-academy-image.webp",
     name: "Oblate Academy",
-    description: "Catholic education platform designed for children, teachers and families.",
+    cardDescription: "Catholic education platform designed for children, teachers and families.",
     iconKey: "cross",
     badgeColor: "gray",
     mockups: [
