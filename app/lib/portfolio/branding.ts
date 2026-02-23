@@ -52,10 +52,11 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
       "/portfolio-countdown-fantasy-logo-4.webp"
     ],
     colors: [
-      { name: "Electric Blue", hex: "#0b66ff", rgb: "RGB(11, 102, 255)" },
-      { name: "Cyber Purple", hex: "#6b5ce7", rgb: "RGB(107, 92, 231)" },
-      { name: "Pure White", hex: "#ffffff", rgb: "RGB(255, 255, 255)" },
-      { name: "Carbon Black", hex: "#0a0a0a", rgb: "RGB(10, 10, 10)" }
+      { name: "Black Cherry", hex: "#630811", rgb: "RGB(99, 08, 17)" },
+      { name: "Deep Crimson", hex: "#8A101B", rgb: "RGB(138, 16, 27)" },
+      { name: "Bronze", hex: "#BE8035", rgb: "RGB(190, 128, 53)" },
+      { name: "Parchment", hex: "#F2EFEA", rgb: "RGB(242, 239, 234)" },
+      { name: "Carbon Black", hex: "#1D1D1D", rgb: "RGB(29, 29, 29)" }
     ],
     challenge:
       "Create a premium brand that appeals to discerning diners while maintaining approachability.",

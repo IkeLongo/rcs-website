@@ -77,17 +77,17 @@ function ColorCard({
   name,
   hex,
   rgb,
-  swatchClass,
+  swatchColor,
 }: {
   name: string;
   hex: string;
   rgb: string;
-  swatchClass: string;
+  swatchColor: string;
 }) {
   return (
-    <div className="overflow-hidden rounded-xl bg-white shadow-sm border border-neutral-200">
-      <div className={`h-24 ${swatchClass}`} />
-      <div className="p-2 md:p-4">
+    <div className="overflow-hidden rounded-xl shadow-sm border border-neutral-200">
+      <div className="h-24 w-full" style={{ backgroundColor: swatchColor }} />
+      <div className="p-2 md:p-2 bg-white border-t-1 border-neutral-200">
         <div className="text-xs font-semibold text-navy-500">{name}</div>
         <div className="text-[11px] text-neutral-700 font-maven-pro">{hex}</div>
         <div className="text-[11px] text-neutral-700 font-maven-pro">{rgb}</div>
@@ -373,7 +373,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
               Color Palette
             </SectionHeading>
 
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {project.colors && project.colors.length > 0 ? (
                 project.colors.map((color) => (
                   <ColorCard
@@ -381,7 +381,7 @@ export default function PortfolioModal({ open, project, onClose }: PortfolioModa
                     name={color.name}
                     hex={color.hex}
                     rgb={color.rgb}
-                    swatchClass={`bg-[${color.hex}]`}
+                    swatchColor={color.hex}
                   />
                 ))
               ) : (
