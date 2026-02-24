@@ -33,7 +33,7 @@ export type BrandingPortfolioItem = {
 export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   {
     id: "mitsurin-wagyu",
-    cardImage: "/portfolio-mitsurin-wagyu-image.webp",
+    cardImage: "/brands/mitsurin/mitsurin-wagyu-card-cover-photo.webp",
     name: "Mitsurin Wagyu",
     cardDescription: "Premium Wagyu beef brand focused on craftsmanship and quality.",
     headerImage: "/brands/mitsurin/mitsurin-branding-header.webp",
@@ -74,14 +74,14 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "wali",
-    cardImage: "/",
+    cardImage: "/brands/wa'li/wali-card-cover-photo.webp",
     name: "WA'LI",
     cardDescription: "Refined apparel brand focused on quality, fit, and understated design.",
     headerImage: "/brands/wa'li/wali-branding-header.webp",
     headerDescription: "WA’LI is a refined apparel brand focused on quality, fit, and understated design.",
     iconKey: "shirt",
     featured: true,
-    badgeColor: "white",
+    badgeColor: "gray",
     projectUrl: "",
     mockups: [
       "/brands/wa'li/mockup-wali-1-business-card.webp",
@@ -117,7 +117,7 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "on-point-outfitters",
-    cardImage: "/",
+    cardImage: "/brands/on-point/onpoint-card-cover-photo.webp",
     name: "On Point Outfitters & Boutique",
     cardDescription:
       "Relaxed, modern apparel designed for everyday comfort while still looking sharp.",
@@ -159,7 +159,7 @@ export const brandingPortfolioItems: BrandingPortfolioItem[] = [
   },
   {
     id: "marissa-arriaga-jewelry",
-    cardImage: "/",
+    cardImage: "/brands/marissa-arriaga/marissa-arriaga-card-cover-photo.webp",
     name: "Marissa Arriaga Jewelry",
     cardDescription: "Elegant jewelry brand with a focus on craftsmanship and timeless design.",
     headerImage: "/brands/marissa-arriaga/marissa-arriaga-branding-header.webp",

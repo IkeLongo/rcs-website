@@ -19,7 +19,7 @@ export function LogosSection({ logos = [], projectName, description, bgA, bgB }:
         {description || "A collection of logos representing the project's brand identity."}
       </p>
 			<div className="relative mt-4">
-				<div className="grid grid-cols-2 grid-rows-2 gap-2">
+				<div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-2">
 					{/* Top left */}
 				  <div style={{ backgroundColor: bgA }} className="rounded-[10px] flex items-center justify-center aspect-square p-8">
 						{a ? (

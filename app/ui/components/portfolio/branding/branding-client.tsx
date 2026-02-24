@@ -64,7 +64,7 @@ export function PortfolioHeader({
           (badgeColor === "gray" ? "text-neutral-800" : "text-white")
         }
       >
-        Website
+        Brand
       </div>
     </div>
   );
