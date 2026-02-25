@@ -38,8 +38,6 @@
     "@sanity/image-url": "1",
     "@sanity/vision": "^4.22.0",
     "@tabler/icons-react": "^3.36.1",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.21",
     "@vercel/analytics": "^1.6.1",
     "alpinejs": "^3.14.6",
     "babel-runtime": "^6.26.0",
