@@ -1,12 +1,12 @@
 
 import { format } from "date-fns";
-import { sanityFetch } from "@/sanity/lib/live";
-import { POST_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanityStudio/lib/live";
+import { POST_QUERY } from "@/sanityStudio/lib/queries";
 import { notFound } from "next/navigation";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
-import { components } from "@/sanity/portableTextComponents";
+import { urlFor } from "@/sanityStudio/lib/image";
+import { components } from "@/sanityStudio/portableTextComponents";
 
 import type { Post } from "@/types/blogTypes";
 
@@ -25,7 +25,7 @@ export default async function BlogContentCentered({ params,
   }
 
   return (
-    <div className="w-full bg-navy-500 pt-40 pb-20">
+    <div className="w-full bg-navy-500 pt-28 md:pt-40 pb-20">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <img
           src={urlFor(post.mainImage).width(1024).height(720).url()}

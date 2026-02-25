@@ -11,6 +11,7 @@ const links = [
   { name: 'Pricing', href: '/#pricing' },
   { name: 'Services', href: '/services' },
   { name: 'Team', href: '/team' },
+  { name: 'Learn', href: '/learn' },
 ];
 
 export default function NavLinks({ onClick }: {onClick: () => void}) {

@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "@/sanityStudio/lib/image";
 
 import type { Post } from "@/types/blogTypes";
 

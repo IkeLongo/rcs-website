@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="z-60">
         <MobileMenu />
         <div className="flex items-center justify-center">
-          <div className='hidden md:w-[800px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>
+          <div className='hidden md:w-[900px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>
             <div className='flex py-[13px] px-[20px] justify-between items-center self-stretch rounded-[30px] border-[1px] bg-alice-blue-200/75 backdrop-blur-[3.5px]'>
               <Link href="/" onClick={handleLogoClick}>
                 <Image

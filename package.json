@@ -36,7 +36,7 @@
     "@react-pdf/renderer": "^4.3.2",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "1",
-    "@sanity/vision": "4",
+    "@sanity/vision": "^4.22.0",
     "@tabler/icons-react": "^3.36.1",
     "@vercel/analytics": "^1.6.1",
     "alpinejs": "^3.14.6",
@@ -62,7 +62,6 @@
     "next-sanity": "11",
     "next-video": "^2.1.0",
     "nodemailer": "^6.10.0",
-    "rcs-website": "link:",
     "react": "^19.0.0",
     "react-circle": "^1.1.1",
     "react-dom": "^19.0.0",
@@ -72,7 +71,7 @@
     "react-toastify": "^11.0.3",
     "react-transition-group": "^4.4.5",
     "recharts": "^2.15.1",
-    "sanity": "4",
+    "sanity": "4.22.0",
     "simplebar": "^6.3.0",
     "simplebar-react": "^3.3.0",
     "styled-components": "6",
@@ -98,7 +97,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "bcrypt"
-    ]
+    ],
+    "overrides": {
+      "sanity": "4.22.0"
+    }
   },
   "browser": {
     "tls": false,
