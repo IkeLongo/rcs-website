@@ -45,7 +45,7 @@ export const BlogCard = async ({ post }: { post: Post }) => {
       <div className="bg-white p-4 md:p-8 dark:bg-neutral-900">
         <div className="mb-2 flex items-center space-x-2">
           <img
-            src={post.authorAvatar}
+            src={urlFor(post.authorAvatar).width(20).height(20).url()}
             alt={post.author}
             width={20}
             height={20}

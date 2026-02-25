@@ -142,6 +142,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.role_name = user.role_name; // Attach role_name to the token
       } else if (profile && account) {
         try {
+          if (!profile.email) {
+            throw new Error('Profile email is missing.');
+          }
           // Fetch the user from the database
           const [rows] = await pool.execute(getUserWithRoleQuery, [profile.email]);
 

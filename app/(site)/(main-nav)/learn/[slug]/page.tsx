@@ -34,7 +34,7 @@ export default async function BlogContentCentered({ params,
           height={720}
           width={1024}
         />
-        <h2 className="mt-6 mb-2 !text-2xl !font-bold tracking-tight !text-alice-blue-500 !font-maven-pro">
+        <h2 className="mt-6 mb-2 !text-lg md:!text-2xl !font-bold tracking-tight !text-alice-blue-500 !font-maven-pro">
           {post.title}
         </h2>
         <div className="flex items-center">
