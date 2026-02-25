@@ -24,10 +24,10 @@ export default function Home() {
           <HomeWhy />
         </Suspense>
         <Suspense fallback={null}>
-          <Portfolio />
+          <UniqueWebsites />
         </Suspense>
         <Suspense fallback={null}>
-          <UniqueWebsites />
+          <Portfolio />
         </Suspense>
         <Suspense fallback={null}>
           <ForgetFittingInContainer />
