@@ -23,7 +23,12 @@ const nextConfig = {
 
     // If you only serve local images, this is fine.
     // If you use remote images later, add remotePatterns.
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
 
     // Helps prevent Next from generating huge variants
     // (tune based on your design breakpoints)
