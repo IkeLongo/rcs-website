@@ -8,7 +8,7 @@ import BrandingPortfolioBentoSection from "../components/portfolio/branding/bran
 export default function Portfolio() {
 
   return (
-    <div className="flex flex-col items-center bg-alice-blue-500 py-16 px-4 md:py-24">
+    <div id='portfolio' className="flex flex-col items-center bg-alice-blue-500 py-16 px-4 md:py-24">
       <h3 className="text-navy-500">
         {/* <FadeInUp> */}
           Our Work

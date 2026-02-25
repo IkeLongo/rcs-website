@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Why Choose Us?', href: '/#why' },
+  { name: 'Portfolio', href: '/#portfolio' },
   { name: 'Pricing', href: '/#pricing' },
   { name: 'Services', href: '/services' },
   { name: 'Team', href: '/team' },
