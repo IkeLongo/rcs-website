@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AnimatedLottie from "@/app/ui/components/animations/lottie-animation-template";
+import AnimatedLottie from "@/ui/components/animations/lottie-animation-template";
 
 export default function HandshakeLottie({ className = "" }: { className?: string }) {
   const [animationData, setAnimationData] = useState<any>(null);

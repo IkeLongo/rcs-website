@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import pool from '@/app/lib/mysql';
+import pool from '@/lib/mysql';
 import { User } from '@/types/types';
 import { RowDataPacket } from 'mysql2';
 
