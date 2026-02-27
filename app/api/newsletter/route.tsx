@@ -5,10 +5,10 @@ import path from "node:path";
 
 import nodemailer from "nodemailer";
 import { renderToBuffer } from "@react-pdf/renderer";
-import { WebsiteRevenueChecklistPdf } from "@/app/lib/pdfs/WebsiteRevenueChecklistPdf";
-import { getWebsiteRevenueChecklistEmailHtml } from "@/app/lib/email/getWebsiteRevenueChecklistEmailHtml";
+import { WebsiteRevenueChecklistPdf } from "@/lib/pdfs/WebsiteRevenueChecklistPdf";
+import { getWebsiteRevenueChecklistEmailHtml } from "@/lib/email/getWebsiteRevenueChecklistEmailHtml";
 import { NextResponse } from "next/server";
-import { ovhPool } from "@/app/lib/mysql";
+import { ovhPool } from "@/lib/mysql";
 
 type NewsletterBody = {
   email?: string;

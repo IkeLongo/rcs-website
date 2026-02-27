@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ovhPool } from "@/app/lib/mysql";
+import { ovhPool } from "@/lib/mysql";
 
 export async function GET() {
   const email = "healthcheck@rivercity.local";

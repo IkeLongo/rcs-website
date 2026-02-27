@@ -1,5 +1,5 @@
 import {defineType, defineArrayMember} from 'sanity'
-import {ImageIcon} from '@sanity/icons'
+import { ImageIcon, CodeBlockIcon } from "@sanity/icons";
 
 /**
  * This is the schema type for block content used in the post document type
@@ -29,7 +29,7 @@ export const blockContentType = defineType({
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'},
+        { title: "Quote", value: "blockquote" },
       ],
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the Portable Text Editor
@@ -39,6 +39,7 @@ export const blockContentType = defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Code', value: 'code'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -60,6 +61,24 @@ export const blockContentType = defineType({
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
+    defineArrayMember({
+      name: "codeBlock",
+      title: "Code Block",
+      type: "code",
+      icon: CodeBlockIcon,
+      options: {
+        withFilename: true,
+        languageAlternatives: [
+          { title: "TypeScript", value: "ts" },
+          { title: "JavaScript", value: "js" },
+          { title: "TSX", value: "tsx" },
+          { title: "JSON", value: "json" },
+          { title: "HTML", value: "html" },
+          { title: "CSS", value: "css" },
+          { title: "Bash", value: "bash" },
+        ],
+      },
+    }),
     defineArrayMember({
       type: 'image',
       icon: ImageIcon,

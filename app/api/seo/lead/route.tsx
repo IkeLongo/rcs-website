@@ -5,11 +5,11 @@ import path from "node:path";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { renderToBuffer } from "@react-pdf/renderer";
-import { ovhPool } from "@/app/lib/mysql";
-import { enrichIssues } from "@/app/lib/seo/fixLibrary";
+import { ovhPool } from "@/lib/mysql";
+import { enrichIssues } from "@/lib/seo/fixLibrary";
 import crypto from "crypto";
-import { getSeoReportEmailHtml } from "@/app/lib/email/getSeoReportHtml";
-import { SeoReportPdf } from "@/app/lib/seo/SeoReportPdf";
+import { getSeoReportEmailHtml } from "@/lib/email/getSeoReportHtml";
+import { SeoReportPdf } from "@/lib/seo/SeoReportPdf";
 
 import type { ResultSetHeader } from "mysql2";
 

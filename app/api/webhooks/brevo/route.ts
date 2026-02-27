@@ -1,6 +1,6 @@
 // /app/api/webhooks/brevo/route.ts
 import { NextResponse } from "next/server";
-import { ovhPool } from "@/app/lib/mysql"; // adjust if your path differs
+import { ovhPool } from "@/lib/mysql"; // adjust if your path differs
 
 type BrevoMarketingUnsubEvent = {
   event?: string;          // "unsubscribe"

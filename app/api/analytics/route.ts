@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getOverviewStats, getPageViews } from '@/app/lib/analytics-api';
+import { getOverviewStats, getPageViews } from '@/lib/analytics-api';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

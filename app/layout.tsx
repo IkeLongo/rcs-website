@@ -1,17 +1,17 @@
 // app/layout.tsx
 
-import AnalyticsGA4 from "./actions/analytics/analytics";
-import FadeOverlay from "./ui/components/fade-overlay";
+import AnalyticsGA4 from "@/actions/analytics/analytics";
+import FadeOverlay from "@/ui/components/fade-overlay";
 import { ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/next"
-import ClientProviders from "@/app/ui/providers/client-providers";
+import ClientProviders from "@/ui/providers/client-providers";
 
 import type { Metadata } from "next";
 
 import './globals.css';
 import dynamic from "next/dynamic";
 
-const CookieBanner = dynamic(() => import("@/app/ui/cookie-prefs/cookie-banner"), { loading: () => null });
+const CookieBanner = dynamic(() => import("@/ui/cookie-prefs/cookie-banner"), { loading: () => null });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
