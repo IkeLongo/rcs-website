@@ -1,12 +1,12 @@
-import { signInSchema } from '@/app/lib/definitions'
+import { signInSchema } from '@/lib/definitions'
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import Google from "next-auth/providers/google"
 import Facebook from "next-auth/providers/facebook"
-import { comparePassword } from '@/app/utils/password'
+import { comparePassword } from '@/utils/password'
 import { User } from '@/types/types';
-import pool from '@/app/lib/mysql';
-import { getUserWithRoleQuery, getUserByEmailQuery, insertNewUser } from '@/app/lib/queries';
+import pool from '@/lib/mysql';
+import { getUserWithRoleQuery, getUserByEmailQuery, insertNewUser } from '@/lib/queries';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [

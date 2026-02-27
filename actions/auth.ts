@@ -1,10 +1,10 @@
 //"use server";
 
-import { SignupFormSchema, FormState } from '@/app/lib/definitions'
+import { SignupFormSchema, FormState } from '@/lib/definitions'
 // import { createSession } from '@/app/libs/session'
 // import { redirect } from 'next/navigation';
 // import { deleteSession } from '@/app/libs/session'
-import { saltAndHashPassword } from '@/app/utils/password'
+import { saltAndHashPassword } from '@/utils/password'
 import { signIn } from 'next-auth/react';
 
 export async function signup(state: FormState, formData: FormData) {
