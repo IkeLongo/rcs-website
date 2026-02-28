@@ -9,7 +9,7 @@ export const POSTS_QUERY = defineQuery(`*[_type == "post" && defined(slug.curren
   "author": author->name,
   "authorAvatar": author->image.asset->url,
   mainImage,
-  "description": body[0].children[0].text
+  "description": pt::text(body[0...2])
 }`)
 
 export const POST_QUERY = defineQuery(`*[_type == "post" && slug.current == $slug][0]{

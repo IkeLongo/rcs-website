@@ -19,11 +19,20 @@ const Logo = () => {
 };
 
 export const BlogCard = async ({ post }: { post: Post }) => {
-  const truncate = (text: string | undefined, length: number) => {
-    if (!text) return "";
-    return text.length > length ? text.slice(0, length) + "..." : text;
+  console.log("📝 Post title:", post.title);
+  console.log("📝 Post description:", post.description);
+  console.log("📝 Description type:", typeof post.description);
+  console.log("📝 Description length:", post.description?.length);
+  
+  // Ensure description always has ellipsis if it seems truncated
+  const formatDescription = (desc: string | undefined) => {
+    if (!desc) return "";
+    const trimmed = desc.trim();
+    // If description ends with incomplete sentence indicators or is long enough, add ellipsis
+    const needsEllipsis = trimmed.length > 150 || /[:;,]$/.test(trimmed);
+    return needsEllipsis && !trimmed.endsWith('...') ? `${trimmed}...` : trimmed;
   };
-
+  
   return (
     <Link
       className="shadow-derek w-full overflow-hidden rounded-3xl border bg-white transition duration-200 hover:scale-[1.02] dark:border-neutral-800 dark:bg-neutral-900"
@@ -55,11 +64,11 @@ export const BlogCard = async ({ post }: { post: Post }) => {
             {post.author}
           </p>
         </div>
-        <p className="mb-4 !text-left !text-md !font-maven-pro !font-bold !text-neutral-800">
+        <p className="mb-4 line-clamp-2 !text-left !text-md !font-maven-pro !font-bold !text-neutral-800">
           {post.title}
         </p>
-        <p className="mt-2 !text-left !text-sm !font-maven-pro !text-neutral-600">
-          {truncate(post.description, 100)}
+        <p className="mt-2 line-clamp-3 !text-left !text-sm !font-maven-pro !text-neutral-600">
+          {formatDescription(post.description)}
         </p>
       </div>
     </Link>
