@@ -2,6 +2,7 @@ import { GridPatternContainer } from "@/ui/components/blogs/blogTemplate";
 import { BlogCard } from "@/ui/components/blogs/blogTemplate";
 import { sanityFetch } from "@/sanityStudio/lib/live";
 import { POSTS_QUERY } from "@/sanityStudio/lib/queries";
+import Footer from "@/ui/layout/footer";
 
 import type { Post } from "@/types/blogTypes";
 
@@ -36,6 +37,7 @@ export default async function SimpleBlogWithGrid() {
           ))}
         </div>
       </div>
+      <Footer bgGradientClass="bg-footer-bg-gradient" />
     </div>
   );
 }

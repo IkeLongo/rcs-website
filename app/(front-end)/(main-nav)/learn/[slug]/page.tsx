@@ -7,6 +7,7 @@ import { PortableText } from "next-sanity";
 import Link from "next/link";
 import { urlFor } from "@/sanityStudio/lib/image";
 import { components } from "@/sanityStudio/portableTextComponents";
+import Footer from "@/ui/layout/footer";
 
 import type { Post } from "@/types/blogTypes";
 
@@ -25,42 +26,45 @@ export default async function BlogContentCentered({ params,
   }
 
   return (
-    <div className="w-full bg-alice-blue-500 pt-28 md:pt-40 pb-20">
-      <div className="mx-auto max-w-3xl px-4 md:px-8">
-        <img
-          src={urlFor(post.mainImage).width(1024).height(720).url()}
-          alt={post.title}
-          className="h-60 w-full rounded-3xl object-cover md:h-[30rem]"
-          height={720}
-          width={1024}
-        />
-        <h1 className="mt-6 mb-2 !text-lg md:!text-2xl !font-bold tracking-tight !text-neutral-950 font-gentium-book-plus">
-          {post.title}
-        </h1>
-        <div className="flex items-center">
+    <>
+      <div className="w-full bg-alice-blue-500 pt-28 md:pt-40 pb-20">
+        <div className="mx-auto max-w-3xl px-4 md:px-8">
           <img
-            src={urlFor(post.authorAvatar).width(20).height(20).url()}
-            alt={post.author}
-            className="h-5 w-5 rounded-full"
-            height={20}
-            width={20}
+            src={urlFor(post.mainImage).width(1024).height(720).url()}
+            alt={post.title}
+            className="h-60 w-full rounded-3xl object-cover md:h-[30rem]"
+            height={720}
+            width={1024}
           />
-          <p className="pl-2 !text-sm !text-neutral-800 !font-avenir">
-            {post.author}
-          </p>
-          <div className="mx-2 h-1 w-1 rounded-full bg-neutral-800" />
-          <p className="!text-sm !text-neutral-800 !font-avenir">
-            {format(new Date(post.publishedAt), "LLLL d, yyyy")}
-          </p>
-        </div>
-        <div className="prose-sm mt-10 sm:mt-20">
-          {post?.body ? (
-            <div className="!text-neutral-800 font-avenir">
-              <PortableText value={post.body} components={components} />
-            </div>
-          ) : null}
+          <h1 className="mt-6 mb-2 !text-lg md:!text-2xl !font-bold tracking-tight !text-neutral-950 font-gentium-book-plus">
+            {post.title}
+          </h1>
+          <div className="flex items-center">
+            <img
+              src={urlFor(post.authorAvatar).width(20).height(20).url()}
+              alt={post.author}
+              className="h-5 w-5 rounded-full"
+              height={20}
+              width={20}
+            />
+            <p className="pl-2 !text-sm !text-neutral-800 !font-avenir">
+              {post.author}
+            </p>
+            <div className="mx-2 h-1 w-1 rounded-full bg-neutral-800" />
+            <p className="!text-sm !text-neutral-800 !font-avenir">
+              {format(new Date(post.publishedAt), "LLLL d, yyyy")}
+            </p>
+          </div>
+          <div className="prose-sm mt-10 sm:mt-20">
+            {post?.body ? (
+              <div className="!text-neutral-800 font-avenir">
+                <PortableText value={post.body} components={components} />
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer bgGradientClass="bg-footer-bg-gradient" />
+    </>
   );
 }
