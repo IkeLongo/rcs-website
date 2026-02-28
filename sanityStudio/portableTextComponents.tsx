@@ -66,7 +66,7 @@ export const components: PortableTextComponents = {
     link: ({ children, value }) => (
       <Link
         href={value?.href || "#"}
-        className="text-alice-blue-500 hover:text-alice-blue-300 underline"
+        className="text-neutral-900 underline"
         target={value?.href?.startsWith("http") ? "_blank" : undefined}
         rel={value?.href?.startsWith("http") ? "noopener noreferrer" : undefined}
       >
