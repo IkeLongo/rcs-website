@@ -90,6 +90,7 @@
     "@types/nodemailer": "^7.0.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "critters-webpack-plugin": "^3.0.2",
     "postcss": "^8",
     "source-map-explorer": "^2.5.3",

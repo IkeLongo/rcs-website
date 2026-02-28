@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableTextComponents } from "next-sanity";
 import { urlFor } from "@/sanityStudio/lib/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 export const components: PortableTextComponents = {
   block: {
@@ -72,24 +74,63 @@ export const components: PortableTextComponents = {
     ),
   },
   types: {
-    code: ({ value }) => {
+    codeBlock: ({ value }) => {
       const filename = value?.filename as string | undefined;
       const language = value?.language as string | undefined;
       const code = (value?.code as string | undefined) ?? "";
 
       return (
-        <div className="my-6 rounded-2xl overflow-hidden border border-neutral-200/20 shadow-sm">
-          {/* top bar */}
-          <div className="flex items-center justify-between px-4 py-2 bg-neutral-900 text-neutral-300 text-xs font-mono">
+        <div className="my-6 rounded-lg overflow-hidden border border-neutral-700/50 shadow-lg">
+          {/* Header bar with filename and language */}
+          <div 
+            className="flex items-center justify-between px-4 py-2.5 border-b border-neutral-700/50"
+            style={{ 
+              backgroundColor: '#1e1e1e',
+              paddingTop: '0.625rem',
+              paddingBottom: '0.625rem',
+            }}
+          >
             <div className="flex items-center gap-2">
-              <span className="opacity-90">{filename || "Code"}</span>
-              {language ? <span className="opacity-60">· {language}</span> : null}
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+              </div>
+              {filename && (
+                <span className="ml-2 text-sm text-neutral-300 font-mono">
+                  {filename}
+                </span>
+              )}
             </div>
+            {language && (
+              <span className="text-xs text-neutral-400 font-mono uppercase">
+                {language}
+              </span>
+            )}
           </div>
 
-          <pre className="bg-neutral-950 text-neutral-100 p-4 md:p-5 overflow-x-auto text-sm leading-6">
-            <code className="font-mono whitespace-pre">{code}</code>
-          </pre>
+          {/* Code block with syntax highlighting */}
+          <SyntaxHighlighter
+            language={language || "typescript"}
+            style={vscDarkPlus}
+            customStyle={{
+              margin: 0,
+              padding: "1.25rem",
+              fontSize: "0.875rem",
+              lineHeight: "1.6",
+              background: "#1e1e1e",
+            }}
+            showLineNumbers={true}
+            wrapLines={true}
+            lineNumberStyle={{
+              minWidth: "2.5em",
+              paddingRight: "1em",
+              color: "#858585",
+              userSelect: "none",
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
         </div>
       );
     },
