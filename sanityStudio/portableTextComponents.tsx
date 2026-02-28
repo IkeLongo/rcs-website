@@ -6,6 +6,7 @@ import { PortableTextComponents } from "next-sanity";
 import { urlFor } from "@/sanityStudio/lib/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import MuxPlayer from "@mux/mux-player-react";
 
 export const components: PortableTextComponents = {
   block: {
@@ -149,5 +150,22 @@ export const components: PortableTextComponents = {
           height="400"
         />
       ) : null,
+    video: ({ value }) => {
+      if (!value?.asset) return null;
+      
+      return (
+        <div className="my-6 rounded-lg overflow-hidden shadow-lg">
+          <MuxPlayer
+            playbackId={value.asset.playbackId}
+            metadata={{
+              video_title: value.asset.filename || "Video",
+            }}
+            streamType="on-demand"
+            className="w-full"
+            style={{ aspectRatio: '16/9' }}
+          />
+        </div>
+      );
+    },
   },
 };
