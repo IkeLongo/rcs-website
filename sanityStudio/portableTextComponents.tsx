@@ -6,7 +6,7 @@ import { PortableTextComponents } from "next-sanity";
 import { urlFor } from "@/sanityStudio/lib/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import MuxPlayer from "@mux/mux-player-react";
+import AutoplayMuxVideo from "@/ui/components/AutoplayMuxVideo";
 
 export const components: PortableTextComponents = {
   block: {
@@ -151,20 +151,26 @@ export const components: PortableTextComponents = {
         />
       ) : null,
     video: ({ value }) => {
-      if (!value?.asset) return null;
+      
+      if (!value?.asset) {
+        return null;
+      }
+      
+      const playbackId = value.asset.playbackId || value.asset.data?.playback_ids?.[0]?.id;
+      
+      if (!playbackId) {
+        return (
+          <div className="my-6 p-4 bg-red-100 border border-red-400 rounded-lg">
+            <p className="text-red-700">Video playback ID not found. Check console for details.</p>
+          </div>
+        );
+      }
       
       return (
-        <div className="my-6 rounded-lg overflow-hidden shadow-lg">
-          <MuxPlayer
-            playbackId={value.asset.playbackId}
-            metadata={{
-              video_title: value.asset.filename || "Video",
-            }}
-            streamType="on-demand"
-            className="w-full"
-            style={{ aspectRatio: '16/9' }}
-          />
-        </div>
+        <AutoplayMuxVideo 
+          playbackId={playbackId}
+          caption={value.asset.filename}
+        />
       );
     },
   },

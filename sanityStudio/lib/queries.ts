@@ -16,7 +16,13 @@ export const POST_QUERY = defineQuery(`*[_type == "post" && slug.current == $slu
   _id,
   title, 
   slug,
-  body,
+  body[]{
+    ...,
+    _type == "video" => {
+      ...,
+      asset->
+    }
+  },
   mainImage,
   publishedAt,
   "author": author->name,

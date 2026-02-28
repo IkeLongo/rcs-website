@@ -144,7 +144,7 @@ hls-video {
   background: transparent !important;
 }
 
-/* Only hide UI on mux players inside .mux-bg */
+/* Original: Hide UI on mux players inside .mux-bg (for existing background videos) */
 .mux-bg mux-player::part(controls),
 .mux-bg mux-player::part(center-play-button),
 .mux-bg mux-player::part(bottom-play-button),
@@ -157,6 +157,56 @@ hls-video {
 .mux-bg mux-player::part(menu),
 .mux-bg mux-player::part(control-bar bottom) {
   display: none !important;
+}
+
+/* Enhanced: Hide all UI controls on mux players with .mux-bg class */
+.mux-bg::part(bottom),
+.mux-bg::part(center),
+.mux-bg::part(top),
+.mux-bg::part(play),
+.mux-bg::part(button),
+.mux-bg::part(seek-backward),
+.mux-bg::part(seek-forward),
+.mux-bg::part(mute),
+.mux-bg::part(captions),
+.mux-bg::part(airplay),
+.mux-bg::part(pip),
+.mux-bg::part(fullscreen),
+.mux-bg::part(cast),
+.mux-bg::part(playback-rate),
+.mux-bg::part(volume),
+.mux-bg::part(time),
+.mux-bg::part(duration),
+.mux-bg::part(progress),
+.mux-bg::part(live),
+.mux-bg::part(control-bar),
+.mux-bg::part(poster),
+.mux-bg::part(loading-indicator) {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Target the internal media elements directly */
+.mux-bg media-controller,
+.mux-bg media-control-bar,
+.mux-bg media-play-button,
+.mux-bg media-seek-backward-button,
+.mux-bg media-seek-forward-button,
+.mux-bg media-mute-button,
+.mux-bg media-volume-range,
+.mux-bg media-time-range,
+.mux-bg media-time-display,
+.mux-bg media-duration-display,
+.mux-bg media-playback-rate-button,
+.mux-bg media-fullscreen-button,
+.mux-bg media-pip-button,
+.mux-bg media-captions-button,
+.mux-bg media-loading-indicator,
+.mux-bg media-poster-image {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 @keyframes chipRain {
