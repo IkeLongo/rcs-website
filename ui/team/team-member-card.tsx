@@ -66,7 +66,7 @@ export default function TeamMemberCard({
             {/* View Profile Button next to the name */}
             {selected && (
               <Button
-                className="bg-green-500 text-white font-semibold rounded-lg ml-4 min-h-8"
+                className="bg-lime-500 hover:bg-light-green-500 text-navy-500 font-semibold rounded-lg ml-4 min-h-8"
                   onPress={() => {
                     onViewProfile();
                   }}

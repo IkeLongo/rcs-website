@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
 import { useRouter } from "next/navigation";
 
 function normalizeUrlInput(value: string) {
@@ -71,18 +72,28 @@ export default function SeoScanForm() {
           </div>
 
           <div className="flex flex-col items-start justify-start h-full">
-            <button
-              type="submit"
-              disabled={touched && !urlOk}
+            <TrackedCTA
+              href="#"
+              cta_id="seo-scan-form-submit"
+              location="home-seo-scan-form"
               className={[
                 "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
                 "bg-lime-500 text-navy-800 shadow-sm",
-                "hover:bg-[#bfee3c] hover:text-navy-800",
+                "hover:bg-light-green-500 hover:text-navy-800",
                 "disabled:opacity-60 disabled:cursor-not-allowed",
+                "flex items-center justify-center"
               ].join(" ")}
+              onClick={e => {
+                e.preventDefault();
+                setTouched(true);
+                if (!urlOk) return;
+                const normalized = normalizeUrlInput(url);
+                // mimic form submit
+                router.push(`/free-seo-scan?url=${encodeURIComponent(normalized)}`);
+              }}
             >
               Scan My Site
-            </button>
+            </TrackedCTA>
           </div>
         </div>
       </div>

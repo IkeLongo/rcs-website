@@ -1,11 +1,11 @@
-
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Button from "@mui/material/Button";
 import { AnimatedDotsText } from "../../components/animations/animated-dots";
-
+import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
+import { track } from "@/lib/analytics/track";
 import { AnimatedCircle } from "@/ui/components/animations/animated-circle";
 import { SeoMetricsCard } from "@/ui/components/cards/seo-metrics-card";
 
@@ -236,6 +236,15 @@ export default function FreeSeoScanClient() {
         throw new Error(json?.error || "Failed to send report");
       }
 
+      track("cta_click", {
+        cta_id: "send-my-report-submit",
+        label: "Send My Report",
+        location: "seo-report-page",
+        email,
+        firstName,
+        pageUrl: window.location.href,
+      });
+
       setSentOk(true);
       setEmail("");
       setEmailTouched(false);
@@ -284,36 +293,47 @@ export default function FreeSeoScanClient() {
           </div>
 
           <div className="flex flex-col items-start justify-start h-full">
-            <Button
-              type="submit"
-              variant="contained"
-              disableElevation
-              disabled={scanning}
-              onClick={() => runScan(urlInput)}
-              sx={{
-                height: { xs: 48, md: 52 },
-                px: 3,
-                borderRadius: 2,
-                fontWeight: 600,
-                textTransform: "none",
-                fontSize: { xs: "1rem", md: "1.125rem" },
-                backgroundColor: "#d9e64e",
-                color: "#091a33",
-                boxShadow: 1,
-                "&:hover": {
-                  backgroundColor: "#bfee3c",
-                  color: "#091a33",
-                },
-                "&.Mui-disabled": {
-                  backgroundColor: "#d9e64e", // your desired disabled background
-                  color: "#091a33",           // your desired disabled text color
-                  opacity: 0.7,                 // override default opacity if needed
-                  cursor: "not-allowed",
-                },
+            <TrackedCTA
+              href="#"
+              cta_id="seo-scan-my-site-button"
+              location="seo-scan-client"
+              label="Scan My Site"
+              className="w-full flex justify-center"
+              onClick={e => {
+                e.preventDefault();
+                if (!scanning) runScan(urlInput);
               }}
             >
-              {scanning ? <AnimatedDotsText text="Scanning" className="text-navy-700" /> : "Scan My Site"}
-            </Button>
+              <Button
+                type="button"
+                variant="contained"
+                disableElevation
+                disabled={scanning}
+                sx={{
+                  height: { xs: 48, md: 52 },
+                  px: 3,
+                  borderRadius: 2,
+                  fontWeight: 600,
+                  textTransform: "none",
+                  fontSize: { xs: "1rem", md: "1.125rem" },
+                  backgroundColor: "#d9e64e",
+                  color: "#091a33",
+                  boxShadow: 1,
+                  "&:hover": {
+                    backgroundColor: "#bfee3c",
+                    color: "#091a33",
+                  },
+                  "&.Mui-disabled": {
+                    backgroundColor: "#d9e64e",
+                    color: "#091a33",
+                    opacity: 0.7,
+                    cursor: "not-allowed",
+                  },
+                }}
+              >
+                {scanning ? <AnimatedDotsText text="Scanning" className="text-navy-700" /> : "Scan My Site"}
+              </Button>
+            </TrackedCTA>
           </div>
         </div>
 

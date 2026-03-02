@@ -1,6 +1,6 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
 
-const propertyId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY_ID;
+const propertyId = process.env.GA_PROPERTY_ID;
 
 // Initialize client with Application Default Credentials
 const analyticsDataClient = new BetaAnalyticsDataClient();

@@ -123,9 +123,10 @@ export default function CookieBanner() {
 
               <DrawerBody>
                 <p className="text-left text-white">
-                  We use cookies to improve site functionality and, with your permission, to
-                  measure performance and marketing effectiveness. You can accept all, reject
-                  non-essential cookies, or customize your preferences.
+                  We use cookies to improve site functionality and, with your 
+                  permission, to store analytics and marketing cookies. We may 
+                  use limited, privacy-respecting measurement without cookies 
+                  to understand general site performance.
                 </p>
               </DrawerBody>
 

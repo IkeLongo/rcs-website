@@ -1,10 +1,11 @@
 // app/layout.tsx
 
-import AnalyticsGA4 from "@/actions/analytics/analytics";
-import FadeOverlay from "@/ui/components/fade-overlay";
+import AnalyticsGA4 from "@/ui/components/analytics/AnalyticsGA4";
+// import FadeOverlay from "@/ui/components/fade-overlay";
 import { ReactNode } from "react";
-import { Analytics } from "@vercel/analytics/next"
-import ClientProviders from "@/ui/providers/client-providers";
+// import { Analytics } from "@vercel/analytics/next"
+// import ClientProviders from "@/ui/providers/client-providers";
+import { AnalyticsProvider } from "@/ui/components/analytics/AnalyticsProvider";
 
 import type { Metadata } from "next";
 
@@ -49,11 +50,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`antialiased overflow-x-hidden bg-navy-500`}
       >
         <AnalyticsGA4 />
-        {/* <FadeOverlay /> */}
         <CookieBanner />
-        <ClientProviders />
-        <Analytics />
-        {children}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
       </body>
     </html>
   );

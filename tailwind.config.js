@@ -115,7 +115,7 @@ module.exports = {
           50: '#f9fdec',  // Light
           100: '#f5fce2', // Light:hover
           200: '#ebfac3', // Light:active
-          500: '#bfee3c', // Normal
+          500: '#bfee3c', // Normal, Button:hover
           600: '#acd636', // Normal:hover
           700: '#99be30', // Normal:active
           800: '#8fb32d', // Dark
@@ -127,7 +127,7 @@ module.exports = {
           50: '#fbfded',  // Light
           100: '#f9fbe4', // Light:hover
           200: '#f3f7c8', // Light:active
-          500: '#d9e64e', // Normal
+          500: '#d9e64e', // Normal, Button
           600: '#c3cf46', // Normal:hover
           700: '#aeb83e', // Normal:active
           800: '#a3ad3b', // Dark

@@ -6,6 +6,7 @@ import {Button } from "@heroui/button";
 import Link from 'next/link';
 import NavLinks from './nav-links';
 import MobileMenu from './mobile-menu';
+import { TrackedCTA } from '@/ui/components/analytics/TrackedCTA';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,8 +36,13 @@ export default function Navbar() {
               <NavLinks 
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
               />
-              <Button
-                onPress={() => {
+              <TrackedCTA
+                href="#"
+                cta_id="desktop-navbar-call-now"
+                location="navbar-desktop"
+                className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 px-4 lg:text-[16px] flex items-center justify-center"
+                onClick={(e) => {
+                  e.preventDefault();
                   setMenuOpen(false);
                   if (typeof window !== 'undefined') {
                     const result = window.confirm('Would you like to call (210) 730-6232?');
@@ -45,9 +51,9 @@ export default function Navbar() {
                     }
                   }
                 }}
-                className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 lg:text-[16px] flex items-center justify-center">
+              >
                 Call Now
-              </Button>
+              </TrackedCTA>
               <Button
                 onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked
                 className="hidden font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-gray-500 py-2 lg:text-[16px]">

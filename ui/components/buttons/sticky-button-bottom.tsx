@@ -1,5 +1,5 @@
 // app/ui/components/sticky-button-bottom.tsx
-import Link from "next/link";
+import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
 
 export default function StickyBottomButton() {
   return (
@@ -12,10 +12,16 @@ export default function StickyBottomButton() {
           height: "48px", // half of the button's height
         }}
       >
-        <Link href="/booking" className="w-full flex justify-center">
+        <TrackedCTA
+          href="/booking"
+          cta_id="sticky-bottom-connect"
+          location="sticky-button-bottom"
+          label="Let's Connect"
+          className="w-full flex justify-center"
+        >
           <button
-            className="w-40 h-[96px] bg-navy-500 text-alice-blue-500 font-bold text-base flex items-start justify-center !pt-4
-              rounded-t-full rounded-b-full shadow-lg hover:bg-navy-700 transition"
+            className="w-40 h-[96px] bg-lime-500 hover:bg-light-green-500 text-navy-500 font-bold text-base flex items-start justify-center !pt-4
+              rounded-t-full rounded-b-full shadow-lg transition"
             style={{
               boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
               borderBottomLeftRadius: "9999px",
@@ -26,7 +32,7 @@ export default function StickyBottomButton() {
           >
             Let's Connect
           </button>
-        </Link>
+        </TrackedCTA>
       </div>
     </div>
   );

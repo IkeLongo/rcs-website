@@ -2,8 +2,10 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
 import confetti from "canvas-confetti";
 import { NewsLetterModal } from "@/ui/components/modals/NewsLetterModal";
+import { track } from "@/lib/analytics/track";
 
 function fireConfetti(durationMs = 1200) {
   const end = Date.now() + durationMs;
@@ -45,12 +47,20 @@ export function NewsLetterSignUp() {
             placeholder="Enter your email"
             className="w-full rounded-xl border-2 border-navy-500 bg-transparent h-12 pl-4 pr-[140px] text-navy-800 text-base focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent"
           />
-          <button
-            type="submit"
+          <TrackedCTA
+            href="#"
+            cta_id="newsletter-signup-start"
+            location="newsletter-signup"
+            label="Get it"
             className="absolute top-1/2 right-[6px] -translate-y-1/2 bg-lime-500 text-navy-900 font-semibold !rounded-lg px-5 h-9 shadow-sm hover:bg-lime-400 transition-colors flex items-center"
+            onClick={e => {
+              e.preventDefault();
+              setSubmitted(false);
+              setModalOpen(true);
+            }}
           >
             Get it
-          </button>
+          </TrackedCTA>
         </div>
 
         <p className="!text-sm !text-left !text-gray-950">No spam. Unsubscribe anytime.</p>
@@ -77,6 +87,15 @@ export function NewsLetterSignUp() {
             // Let modal show an error (if you added submitError in the modal)
             throw new Error("Newsletter signup failed");
           }
+
+          track("cta_click", {
+            cta_id: "newsletter-modal-submit",
+            label: "Get My Checklist",
+            location: "newsletter-modal",
+            email,
+            firstName,
+            pageUrl: window.location.href,
+          });
 
           // Only do “outside” side-effects after success:
           setSubmitted(true);

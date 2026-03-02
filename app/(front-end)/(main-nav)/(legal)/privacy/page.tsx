@@ -24,7 +24,7 @@ import { ContactAboutNotice } from '@/ui/privacy/contact-about-notice';
 import Cookies from '@/ui/privacy/cookies';
 import PrivacyContactForm from '@/ui/privacy/form';
 import type { Metadata } from "next";
-import StickyBottomButton from '@/ui/components/sticky-button-bottom';
+import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',

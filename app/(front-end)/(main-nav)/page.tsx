@@ -9,7 +9,7 @@ import ForgetFittingInContainer from '@/ui/home/forget-fitting-in';
 import Portfolio from '@/ui/home/portfolio';
 import PricingClient from '@/ui/home/client/pricing-client';
 import Footer from '@/ui/layout/footer';
-import StickyBottomButton from '@/ui/components/sticky-button-bottom';
+import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
 
 export default function Home() {
 

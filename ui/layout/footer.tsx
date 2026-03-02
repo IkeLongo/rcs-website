@@ -5,6 +5,7 @@ import Image from "next/image";
 // import ScrollToTopButton from './scroll-to-top';
 import { FooterProps } from '@/types/components';
 import FooterLottie from '../components/animations/footer-lottie';
+import { TrackedCTA } from '../components/analytics/TrackedCTA';
 
 const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
@@ -195,17 +196,19 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                 — Get a free audit of your website's speed, SEO, and visibility.
               </span>
             </p>
-            <Link
+            <TrackedCTA
               href="/free-seo-scan"
+              cta_id="seo-scan-footer"
+              location="desktop-footer-seo-scan-button"
               className={[
                 "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
                 "bg-lime-500 text-navy-800 shadow-sm",
-                "hover:bg-green-500 hover:text-navy-800",
-                "inline-flex items-center justify-center",
+                "hover:bg-light-green-500 hover:text-navy-800",
+                "flex items-center justify-center"
               ].join(" ")}
             >
               Scan My Site
-            </Link>
+            </TrackedCTA>
           </div>
         </div>
         <div className="flex flex-col gap-4 md:hidden">
@@ -241,18 +244,20 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               — Get a free audit of your website's speed, SEO, and visibility.
             </span>
           </p>
-          <Link
+          <TrackedCTA
             href="/free-seo-scan"
+            cta_id="seo-scan-footer"
+            location="mobile-footer-seo-scan-button"
             className={[
               "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
               "bg-lime-500 text-navy-800 shadow-sm",
-              "hover:bg-green-500 hover:text-navy-800",
-              "inline-flex items-center justify-center",
+              "hover:bg-light-green-500 hover:text-navy-800",
+              "flex items-center justify-center",
               "max-w-[200px]"
             ].join(" ")}
           >
             Scan My Site
-          </Link>
+          </TrackedCTA>
         </div>
       </div>
       <div className="hidden md:block md:flex md:flex-col md:gap-4">

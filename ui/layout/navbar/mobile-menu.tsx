@@ -5,7 +5,7 @@ import Image from "next/image";
 import menuAnimationData from "public/Menu.json";
 import { useEffect, useRef, useState } from "react";
 import NavLinks from "./nav-links";
-import { Button } from "@nextui-org/button";
+import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
 import type { AnimationItem } from "lottie-web";
 
 export default function MobileMenu() {
@@ -87,8 +87,13 @@ export default function MobileMenu() {
       >
         <NavLinks onClick={toggleMenu} />
 
-        <Button
-          onPress={() => {
+        <TrackedCTA
+          href="#"
+          cta_id="mobile-menu-call-or-text"
+          location="mobile-menu"
+          className="w-full h-[45px] font-maven-pro text-navy-500 text-[14px] font-bold rounded-[20px] bg-lime-500 mt-4 flex items-center justify-center"
+          onClick={(e) => {
+            e.preventDefault();
             toggleMenu();
             if (typeof window !== 'undefined') {
               const result = window.confirm('Would you like to call or text?\nPress OK to call, Cancel to text.');
@@ -99,10 +104,9 @@ export default function MobileMenu() {
               }
             }
           }}
-          className="w-full h-[45px] font-maven-pro text-white text-[14px] font-bold rounded-[20px] bg-green-500 mt-4 flex items-center justify-center"
         >
           Call or Text
-        </Button>
+        </TrackedCTA>
       </div>
     </div>
   );
