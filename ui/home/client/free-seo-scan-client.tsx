@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Button from "@mui/material/Button";
 import { AnimatedDotsText } from "../../components/animations/animated-dots";
 import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
-import { track } from "@/lib/analytics/track";
+import { trackFormAttempt, trackFormSuccess } from "@/lib/analytics/events";
 import { AnimatedCircle } from "@/ui/components/animations/animated-circle";
 import { SeoMetricsCard } from "@/ui/components/cards/seo-metrics-card";
 
@@ -200,6 +200,11 @@ export default function FreeSeoScanClient() {
     setEmailTouched(true);
     setError(null);
 
+    trackFormAttempt({
+      form_id: "seo-report",
+      location: "free-seo-report-page"
+    });
+
     const cleanEmail = email.trim().toLowerCase();
     const cleanFirstName = firstName.trim();
 
@@ -236,13 +241,9 @@ export default function FreeSeoScanClient() {
         throw new Error(json?.error || "Failed to send report");
       }
 
-      track("cta_click", {
-        cta_id: "send-my-report-submit",
-        label: "Send My Report",
-        location: "seo-report-page",
-        email,
-        firstName,
-        pageUrl: window.location.href,
+      trackFormSuccess({
+        form_id: "seo-report",
+        location: "free-seo-report-page"
       });
 
       setSentOk(true);
@@ -354,7 +355,7 @@ export default function FreeSeoScanClient() {
 
         {error ? (
           <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 p-4">
-            <p className="text-sm text-red-700">{error}</p>
+            <p className="text-sm !text-red-700">{error}</p>
           </div>
         ) : null}
       </div>

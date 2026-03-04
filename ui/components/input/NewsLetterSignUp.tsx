@@ -6,6 +6,7 @@ import { TrackedCTA } from "@/ui/components/analytics/TrackedCTA";
 import confetti from "canvas-confetti";
 import { NewsLetterModal } from "@/ui/components/modals/NewsLetterModal";
 import { track } from "@/lib/analytics/track";
+import { trackFormAttempt, trackFormSuccess } from "@/lib/analytics/events";
 
 function fireConfetti(durationMs = 1200) {
   const end = Date.now() + durationMs;
@@ -71,6 +72,11 @@ export function NewsLetterSignUp() {
         onClose={closeModal}
         initialEmail={email}
         onSubmit={async ({ email, firstName }) => {
+          trackFormAttempt({
+            form_id: "newsletter",
+            location: "newsletter-modal",
+          });
+
           const res = await fetch("/api/newsletter", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -84,17 +90,12 @@ export function NewsLetterSignUp() {
           });
 
           if (!res.ok) {
-            // Let modal show an error (if you added submitError in the modal)
             throw new Error("Newsletter signup failed");
           }
 
-          track("cta_click", {
-            cta_id: "newsletter-modal-submit",
-            label: "Get My Checklist",
+          trackFormSuccess({
+            form_id: "newsletter",
             location: "newsletter-modal",
-            email,
-            firstName,
-            pageUrl: window.location.href,
           });
 
           // Only do “outside” side-effects after success:

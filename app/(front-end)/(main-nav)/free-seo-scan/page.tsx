@@ -10,7 +10,7 @@ export const metadata = {
 export default function FreeSeoScanPage() {
   return (
     <>
-      <main className="base pt-28 md:pt-28 bg-blue-100">
+      <main className="base pt-28 md:pt-28 bg-blue-100 min-h-screen">
         <Suspense fallback={null}>
           <FreeSeoScanClient />
         </Suspense>
