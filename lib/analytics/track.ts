@@ -1,3 +1,4 @@
+// /lib/analytics/track.ts
 "use client";
 
 type TrackParams = Record<string, any>;

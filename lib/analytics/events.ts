@@ -1,3 +1,4 @@
+// /lib/analytics/events.ts
 "use client";
 
 import { track } from "@/lib/analytics/track";

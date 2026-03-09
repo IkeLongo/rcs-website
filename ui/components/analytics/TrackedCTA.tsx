@@ -1,3 +1,5 @@
+// /app/components/analytics/TrackedCTA.tsx
+
 "use client";
 
 import Link from "next/link";

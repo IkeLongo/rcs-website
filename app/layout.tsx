@@ -1,6 +1,7 @@
 // app/layout.tsx
 
 import AnalyticsGA4 from "@/ui/components/analytics/AnalyticsGA4";
+import ClarityScript from "@/ui/components/analytics/ClarityScript";
 // import FadeOverlay from "@/ui/components/fade-overlay";
 import { ReactNode } from "react";
 // import { Analytics } from "@vercel/analytics/next"
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
+          <ClarityScript />
       </head>
       <body
         className={`antialiased overflow-x-hidden bg-navy-500`}

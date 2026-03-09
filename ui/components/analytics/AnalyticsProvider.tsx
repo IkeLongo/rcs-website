@@ -1,3 +1,5 @@
+// /app/components/analytics/AnalyticsProvider.tsx
+
 "use client";
 
 import React, { createContext, useCallback, useContext, useMemo } from "react";

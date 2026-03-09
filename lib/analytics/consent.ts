@@ -1,3 +1,5 @@
+// /lib/analytics/consent.ts
+
 export const COOKIE_KEY = "cookiePreferences";
 export const CONSENT_EVENT = "cookie_consent_update";
 
