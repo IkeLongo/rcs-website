@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 import {
   getWebsitesWithClientAndHost,
   getWebsiteStatusOptions,
- } from '@/utils/mysql_actions'; // adjust to your setup
+ } from '@/lib/db/mysql-actions'; // adjust to your setup
 import WebsitesTable from './websitestables';
 
 export default async function Page() {

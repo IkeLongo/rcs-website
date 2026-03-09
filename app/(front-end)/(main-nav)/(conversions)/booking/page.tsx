@@ -1,8 +1,8 @@
 // app/(site)/booking/page.tsx
 
 import type { Metadata } from "next";
-import BookingClient from '@/ui/booking/booking-client';
-import Footer from '@/ui/layout/footer';
+import BookingClient from '@/app/components/booking/booking-client';
+import Footer from '@/app/components/layouts/footer/footer';
 
 export const metadata: Metadata = {
   title: "Book a Discovery Call",

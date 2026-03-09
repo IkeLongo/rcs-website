@@ -1,13 +1,13 @@
 
 import { format } from "date-fns";
-import { sanityFetch } from "@/sanityStudio/lib/live";
-import { POST_QUERY } from "@/sanityStudio/lib/queries";
+import { sanityFetch } from "@/sanity-studio/lib/live";
+import { POST_QUERY } from "@/sanity-studio/lib/queries";
 import { notFound } from "next/navigation";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
-import { urlFor } from "@/sanityStudio/lib/image";
-import { components } from "@/sanityStudio/portableTextComponents";
-import Footer from "@/ui/layout/footer";
+import { urlFor } from "@/sanity-studio/lib/image";
+import { components } from "@/sanity-studio/portableTextComponents";
+import Footer from "@/app/components/layouts/footer/footer";
 
 import type { Post } from "@/types/blogTypes";
 

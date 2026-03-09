@@ -3,7 +3,7 @@
 import { PrivacyNotice } from '@/ui/privacy/privacy-notice';
 import { Summary } from '@/ui/privacy/summary';
 import { TableOfContents } from '@/ui/privacy/table-of-contents';
-import Footer from '@/ui/layout/footer';
+import Footer from '@/app/components/layouts/footer/footer';
 import { InfoWeCollect } from '@/ui/privacy/info-we-collect';
 import { ProcessYourInfo } from '@/ui/privacy/process-your-info';
 import { LegalBasis } from '@/ui/privacy/legal-basis';
@@ -24,7 +24,7 @@ import { ContactAboutNotice } from '@/ui/privacy/contact-about-notice';
 import Cookies from '@/ui/privacy/cookies';
 import PrivacyContactForm from '@/ui/privacy/form';
 import type { Metadata } from "next";
-import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
+import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',

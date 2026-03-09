@@ -1,8 +1,8 @@
 
-import { BlinkingLight } from "@/ui/animations/blinking-light";
-import { TestimonialsWithCarousel } from "@/ui/components/testimonials/TestimonialsWithCarousel";
+import { BlinkingLight } from "@/app/components/ui/animations/blinking-light";
+import { TestimonialsWithCarousel } from "@/app/components/ui/carousels/testimonials-with-carousel";
 import Image from "next/image";
-import { NewsLetterSignUp } from "@/ui/components/input/NewsLetterSignUp";
+import { NewsLetterSignUp } from "@/app/components/layouts/newsletter/NewsLetterSignUp";
 
 export default function NewsletterPage() {
   return (

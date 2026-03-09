@@ -5,7 +5,7 @@
 import { Card, CardBody, Tabs, Tab} from "@heroui/react";
 import { Button } from "@heroui/react";
 import { LockClosedIcon } from "@heroicons/react/24/outline";
-import PieChartCard from "@/ui/charts/pie-chart-card";
+import PieChartCard from "@/app/components/ui/charts/pie-chart-card";
 
 // Dummy data for pie chart
 const data = [

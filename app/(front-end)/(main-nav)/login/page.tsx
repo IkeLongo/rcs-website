@@ -1,7 +1,7 @@
 // app/(site)/login/page.tsx
 
-import Footer from '@/ui/layout/footer';
-import { Login as LoginComponent } from '@/ui/login/login';
+import Footer from '@/app/components/layouts/footer/footer';
+import { Login as LoginComponent } from '@/app/components/layouts/login/login';
 
 export default function Login() {
   return (

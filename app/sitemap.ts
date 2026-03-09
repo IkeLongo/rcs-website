@@ -3,7 +3,7 @@
 import { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
-import { client } from "../sanityStudio/lib/client";
+import { client } from "../sanity-studio/lib/client";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivercitycreatives.com";
 

@@ -1,15 +1,15 @@
 // app/(site)/page.tsx
 
 import { Suspense } from 'react';
-import HomeHero from '@/ui/home/home-hero';
-import HomeSeoScanTeaser from '@/ui/home/home-seo-scan-teaser';
-import HomeWhy from '@/ui/home/why';
-import UniqueWebsites from '@/ui/home/crafting-unique-websites';
-import ForgetFittingInContainer from '@/ui/home/forget-fitting-in';
-import Portfolio from '@/ui/home/portfolio';
-import PricingClient from '@/ui/home/client/pricing-client';
-import Footer from '@/ui/layout/footer';
-import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
+import HomeHero from '@/app/components/layouts/home/home-hero';
+import HomeSeoScanTeaser from '@/app/components/layouts/home/home-seo-scan-teaser';
+import HomeWhy from '@/app/components/layouts/home/why';
+import UniqueWebsites from '@/app/components/layouts/home/crafting-unique-websites';
+import ForgetFittingInContainer from '@/app/components/layouts/home/forget-fitting-in';
+import Portfolio from '@/app/components/layouts/home/portfolio';
+import PricingClient from '@/app/components/layouts/home/client/pricing-client';
+import Footer from '@/app/components/layouts/footer/footer';
+import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
 
 export default function Home() {
 

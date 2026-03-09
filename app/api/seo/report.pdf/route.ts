@@ -3,9 +3,9 @@ export const runtime = "nodejs";
 import React from "react";
 import { NextResponse } from "next/server";
 import { renderToBuffer } from "@react-pdf/renderer";
-import { ovhPool } from "@/lib/mysql";
-import { enrichIssues } from "@/lib/seo/fixLibrary";
-import { SeoReportPdf } from "@/lib/seo/SeoReportPdf";
+import { ovhPool } from "@/lib/db/mysql";
+import { enrichIssues } from "@/lib/seo/seo-fix-library";
+import { SeoReportPdf } from "@/lib/pdfs/seo-report-pdf";
 
 type LeadRow = {
   url: string;

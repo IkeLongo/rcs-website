@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import FreeSeoScanClient from "@/ui/home/client/free-seo-scan-client";
-import SimpleFooter from "@/ui/layout/footer/simple-footer";
+import FreeSeoScanClient from "@/app/components/layouts/home/client/free-seo-scan-client";
+import SimpleFooter from "@/app/components/layouts/footer/simple-footer";
 
 export const metadata = {
   title: "Free SEO Scan | RiverCity Creatives",

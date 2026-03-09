@@ -1,0 +1,21 @@
+.cookie-drawer h2 {
+  color: white;
+  font-family: archivo, sans-serif;
+}
+
+.cookie-drawer p {
+  color: white;
+  font-family: archivo, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.cookie-modal h2 {
+  color: white;
+  font-family: archivo, sans-serif;
+}
+
+.cookie-modal p {
+  color: white;
+  font-family: archivo, sans-serif;
+  letter-spacing: 0.02em;
+}

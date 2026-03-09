@@ -1,7 +1,7 @@
 // app/(site)/(legal)/terms/page.tsx
 
 import { Main } from '@/ui/terms/main';
-import Footer from '@/ui/layout/footer';
+import Footer from '@/app/components/layouts/footer/footer';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

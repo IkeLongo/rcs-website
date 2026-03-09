@@ -1,7 +1,7 @@
 // app/(site)/signup/page.tsx
 
-import Footer from '@/ui/layout/footer';
-import { SignUp as SignUpComponent } from '@/ui/signup/signup';
+import Footer from '@/app/components/layouts/footer/footer';
+import { SignUp as SignUpComponent } from '@/app/components/layouts/signup/signup';
 
 export default function SignUp() {
   return (

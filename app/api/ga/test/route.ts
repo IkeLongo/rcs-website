@@ -1,4 +1,4 @@
-import { getMonthlyReportData, getPreviousMonthRange, getYesterdayRange } from "@/lib/ga";
+import { getMonthlyReportData, getPreviousMonthRange, getYesterdayRange } from "@/lib/analytics/ga";
 
 export async function GET() {
   const propertyId = process.env.GA_PROPERTY_ID!;

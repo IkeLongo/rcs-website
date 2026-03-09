@@ -1,8 +1,8 @@
-import { GridPatternContainer } from "@/ui/components/blogs/blogTemplate";
-import { BlogCard } from "@/ui/components/blogs/blogTemplate";
-import { sanityFetch } from "@/sanityStudio/lib/live";
-import { POSTS_QUERY } from "@/sanityStudio/lib/queries";
-import Footer from "@/ui/layout/footer";
+import { GridPatternContainer } from "@/app/components/layouts/learn/learn-template";
+import { LearnCard } from "@/app/components/layouts/learn/learn-template";
+import { sanityFetch } from "@/sanity-studio/lib/live";
+import { POSTS_QUERY } from "@/sanity-studio/lib/queries";
+import Footer from "@/app/components/layouts/footer/footer";
 
 import type { Post } from "@/types/blogTypes";
 
@@ -33,7 +33,7 @@ export default async function SimpleBlogWithGrid() {
       <div className="w-full mx-auto flex flex-col items-center justify-between px-4 pb-20 md:px-8 bg-navy-500">
         <div className="relative max-w-7xl z-20 grid w-full grid-cols-1 gap-10 md:grid-cols-3">
           {posts.map((post, index) => (
-            <BlogCard post={post} key={post.title + index} />
+            <LearnCard post={post} key={post.title + index} />
           ))}
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatedTooltip } from "@/ui/animations/animated-tooltip";
+import { AnimatedTooltip } from "@/app/components/ui/animations/animated-tooltip";
 const people = [
   {
     id: 1,

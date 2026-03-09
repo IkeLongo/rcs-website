@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { BlinkingLight } from "@/ui/animations/blinking-light";
+import { BlinkingLight } from "@/app/components/ui/animations/blinking-light";
 // import FadeInUp from "@/app/ui/components/fade-in-up";
-import MitsurinHeroVideo from "@/ui/video/autoplay";
+import MitsurinHeroVideo from "@/app/components/video/autoplay";
 import type { LocationPageConfig } from "./locations.data";
 
 export default function LocationHero({ page }: { page: LocationPageConfig }) {

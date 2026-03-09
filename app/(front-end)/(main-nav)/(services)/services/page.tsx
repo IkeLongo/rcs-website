@@ -1,11 +1,11 @@
 // app/(site)/(services)/services/page.tsx
 
-import { Hero } from '@/ui/services-page/hero';
-import Footer from '@/ui/layout/footer';
+import { Hero } from '@/app/components/layouts/services/hero';
+import Footer from '@/app/components/layouts/footer/footer';
 import { Metadata } from 'next';
-import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
-import ServiceBlocks from '@/ui/services-page/service-blocks';
-import Process from '@/ui/services-page/process';
+import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
+import ServiceBlocks from '@/app/components/layouts/services/service-blocks';
+import Process from '@/app/components/layouts/services/process';
 
 export const metadata: Metadata = {
   title: 'Branding & Web Design Services',

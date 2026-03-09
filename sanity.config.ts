@@ -11,9 +11,9 @@ import { codeInput } from "@sanity/code-input";
 import { muxInput } from 'sanity-plugin-mux-input'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import {apiVersion, dataset, projectId} from './sanityStudio/env'
-import {schema} from './sanityStudio/schemaTypes'
-import {structure} from './sanityStudio/structure'
+import {apiVersion, dataset, projectId} from './sanity-studio/env'
+import {schema} from './sanity-studio/schemaTypes'
+import {structure} from './sanity-studio/structure'
 
 export default defineConfig({
   basePath: '/studio',

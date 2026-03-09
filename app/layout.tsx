@@ -1,12 +1,12 @@
 // app/layout.tsx
 
-import AnalyticsGA4 from "@/ui/components/analytics/AnalyticsGA4";
-import ClarityScript from "@/ui/components/analytics/ClarityScript";
+import AnalyticsGA4 from "@/app/components/analytics/analytics-ga4";
+import ClarityScript from "@/app/components/analytics/microsoft-clarity";
 // import FadeOverlay from "@/ui/components/fade-overlay";
 import { ReactNode } from "react";
 // import { Analytics } from "@vercel/analytics/next"
 // import ClientProviders from "@/ui/providers/client-providers";
-import { AnalyticsProvider } from "@/ui/components/analytics/AnalyticsProvider";
+import { AnalyticsProvider } from "@/app/components/analytics/analytics-provider";
 
 import type { Metadata } from "next";
 

@@ -1,13 +1,13 @@
 // app/(site)/(locations)/_locations/location-template.tsx
 
-import Footer from "@/ui/layout/footer";
+import Footer from "@/app/components/layouts/footer/footer";
 // import FadeInUp from "@/app/ui/components/fade-in-up";
 import { LocationSchema } from "./location-schema";
 import LocationHero from "./location-hero";
-import BentoOutcomeCard from "@/ui/components/bento/bento-outcome-card";
+import BentoOutcomeCard from "@/app/components/ui/bento/bento-outcome-card";
 import LocationServices from "./location-services";
 import LocationWhyChooseUs from "./location-why-choose-us";
-import FAQs from "@/ui/components/classic-faq";
+import FAQs from "@/app/components/ui/faqs/classic-faq";
 import type { LocationPageConfig } from "./locations.data";
 import LocationFinalCTA from "./location-cta";
 

@@ -1,7 +1,7 @@
 // app/(site)/(logo-nav)/layout.tsx
 
-import LogoNavbar from "@/ui/layout/navbar/logo-navbar";
-import SimpleFooter from "@/ui/layout/footer/simple-footer";
+import LogoNavbar from "@/app/components/layouts/navbar/logo-navbar";
+import SimpleFooter from "@/app/components/layouts/footer/simple-footer";
 
 export default function LogoNavLayout({ children }: { children: React.ReactNode }) {
   return (

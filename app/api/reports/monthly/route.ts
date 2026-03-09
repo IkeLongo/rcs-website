@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { clients } from "@/lib/clients";
-import { getMonthlyReportData, getPreviousMonthRange } from "@/lib/ga";
-import { renderMonthlyReportEmailHtml } from "@/lib/email/getMonthlyReportEmailHtml";
+import { clients } from "@/lib/analytics/clients";
+import { getMonthlyReportData, getPreviousMonthRange } from "@/lib/analytics/ga";
+import { renderMonthlyReportEmailHtml } from "@/lib/email/get-monthly-report-email-html";
 
 function slugify(s: string) {
   return s

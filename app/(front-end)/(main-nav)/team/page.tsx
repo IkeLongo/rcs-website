@@ -1,9 +1,9 @@
 // app/(site)/team/page.tsx
 
-import { Hero } from '@/ui/team/hero';
-import Footer from '@/ui/layout/footer';
+import { Hero } from '@/app/components/layouts/team/hero';
+import Footer from '@/app/components/layouts/footer/footer';
 import type { Metadata } from "next";
-import StickyBottomButton from '@/ui/components/buttons/sticky-button-bottom';
+import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
 
 export const metadata: Metadata = {
   title: 'Meet the Team',

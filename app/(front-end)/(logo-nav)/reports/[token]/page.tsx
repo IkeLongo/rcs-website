@@ -1,11 +1,11 @@
 // app/reports/[token]/page.tsx
 import { notFound } from "next/navigation";
-import { ovhPool } from "@/lib/mysql";
+import { ovhPool } from "@/lib/db/mysql";
 
-import { SeoScoreCard } from "@/ui/components/cards/seo-score-card";
+import { SeoScoreCard } from "@/app/components/ui/cards/seo-score-card";
 import dynamic from "next/dynamic";
 
-const BookingModal = dynamic(() => import("@/ui/booking/booking-modal"), { ssr: true });
+const BookingModal = dynamic(() => import("@/app/components/booking/booking-modal"), { ssr: true });
 
 type Params = Promise<{ token: string }>;
 
