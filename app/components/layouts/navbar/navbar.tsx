@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     (<div className='relative w-full'>
-      <div className="z-60">
+      <div className="z-35">
         <MobileMenu />
         <div className="flex items-center justify-center">
           <div className='hidden md:w-[900px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>

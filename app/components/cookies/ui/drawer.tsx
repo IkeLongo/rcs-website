@@ -38,7 +38,7 @@ export function Drawer({
         <Dialog.Content
           className={cn(
             "fixed inset-x-0 bottom-0 z-50",
-            "rounded-t-2xl bg-slate-950 text-white shadow-2xl border-t border-white/10",
+            "rounded-t-2xl bg-navy-800 text-white shadow-2xl border-t border-white/10",
             "focus:outline-none cookie-drawer",
             className
           )}

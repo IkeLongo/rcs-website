@@ -1,8 +1,10 @@
 // app/(site)/(legal)/terms/page.tsx
 
-import { Main } from '@/ui/terms/main';
-import Footer from '@/app/components/layouts/footer/footer';
 import type { Metadata } from "next";
+import TermsContent from '@/app/components/legal/content/terms-content';
+import LegalPage from '@/app/components/legal/components/LegalPage';
+import LegalToc from '@/app/components/legal/components/LegalToc';
+import SimpleFooter from "@/app/components/layouts/footer/simple-footer";
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
@@ -30,17 +32,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
-
+export default function TermsPage() {
   return (
-    <div className="flex flex-col justify-center items-center h-auto w-full bg-white bg-cover bg-top overflow-x-hidden pt-24">
-      {/* Hero Section */}
-      <Main />
-
-      {/* Footer */}
-      <Footer 
-        bgGradientClass='bg-footer-bg-gradient-solid'
-      />
-    </div>
+    <>
+      <LegalPage
+        title="Terms & Conditions"
+        lastUpdated="March 5, 2026"
+        toc={<LegalToc />}
+      >
+        <TermsContent />
+      </LegalPage>
+      <SimpleFooter />
+    </>
   );
 }

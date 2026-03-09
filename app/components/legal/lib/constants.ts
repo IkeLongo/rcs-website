@@ -1,8 +1,8 @@
 export const LEGAL = {
-  companyLegalName: process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME ?? "Maximstrong LLC",
-  dbaName: process.env.NEXT_PUBLIC_DBA_NAME ?? "Maximstrong",
-  businessEmail: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "treygray@maximstrong.com",
-  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "210-385-6254",
+  companyLegalName: process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME ?? "Inventive Collective LLC",
+  dbaName: process.env.NEXT_PUBLIC_DBA_NAME ?? "RiverCity Creatives",
+  businessEmail: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "210-730-6232",
 
   address: {
     line1: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS_LINE1 ?? "1203 W Blanco Road",

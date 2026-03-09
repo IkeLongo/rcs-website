@@ -1,7 +1,7 @@
 // /app/api/reports/preview/route.ts
 import { NextResponse } from "next/server";
 import { clients } from "@/lib/analytics/clients";
-import { getMonthlyReportData, getPreviousMonthRange, getYesterdayRange } from "@/lib/analytics/ga";
+import { getMonthlyReportData, getPreviousMonthRange, getYesterdayRange } from "@/lib/analytics/ga-functions";
 
 function slugify(s: string) {
   return s

@@ -68,7 +68,7 @@ export default function PrivacyContent() {
       </p>
 
       <p>
-        If analytics is enabled with your consent, we may use tools like Google Analytics. You can learn more here:
+        If analytics is enabled with your consent, we may use tools like Google Analytics and Microsoft Clarity. You can learn more here:
       </p>
       <ul>
         <li>
@@ -83,6 +83,15 @@ export default function PrivacyContent() {
             rel="noopener noreferrer"
           >
             https://marketingplatform.google.com/about/analytics/terms/us/
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.microsoft.com/en-us/privacy/privacystatement"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.microsoft.com/en-us/privacy/privacystatement
           </a>
         </li>
       </ul>

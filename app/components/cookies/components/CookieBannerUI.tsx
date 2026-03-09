@@ -58,10 +58,11 @@ export default function CookieBannerUI() {
         }
       >
         <p className="text-left">
-          We use cookies to ensure the website functions properly and, with your permission,
-          to measure site performance using Google Analytics. This helps us understand how
-          visitors use the site so we can improve the experience. We do not use advertising
-          or tracking cookies.
+          We use cookies to ensure the website functions properly and, with 
+          your permission, to analyze how visitors use the site using tools 
+          like Google Analytics and Microsoft Clarity. This helps us understand 
+          site performance and improve the user experience. We do not use cookies 
+          for advertising or marketing purposes, and we do not sell visitor data.
         </p>
       </Drawer>
     </>

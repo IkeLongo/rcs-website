@@ -6,7 +6,7 @@ import {Tab, Tabs} from "@heroui/react";
 import PremiumCard from "./premium-card";
 import NormalCard from "./normal-card";
 import Image from "next/image";
-import { passeroOne } from "@/ui/fonts/passero-one";
+import { passeroOne } from "@/app/components/ui/fonts/passero-one";
 // import FadeInUp from "../components/fade-in-up";
 
 const plans = [

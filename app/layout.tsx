@@ -2,18 +2,27 @@
 
 import AnalyticsGA4 from "@/app/components/analytics/analytics-ga4";
 import ClarityScript from "@/app/components/analytics/microsoft-clarity";
-// import FadeOverlay from "@/ui/components/fade-overlay";
 import { ReactNode } from "react";
-// import { Analytics } from "@vercel/analytics/next"
-// import ClientProviders from "@/ui/providers/client-providers";
 import { AnalyticsProvider } from "@/app/components/analytics/analytics-provider";
+import CookieBanner from "@/app/components/cookies/components/CookieBannerUI";
+import { Maven_Pro, Source_Sans_3 } from "next/font/google";
+import './globals.css';
 
 import type { Metadata } from "next";
 
-import './globals.css';
-import dynamic from "next/dynamic";
+const mavenPro = Maven_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-maven-pro",
+  display: "swap",
+});
 
-const CookieBanner = dynamic(() => import("@/ui/cookie-prefs/cookie-banner"), { loading: () => null });
+const sourceSans3 = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-source-sans-3",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rivercitycreatives.com'),
@@ -49,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ClarityScript />
       </head>
       <body
-        className={`antialiased overflow-x-hidden bg-navy-500`}
+        className={`${mavenPro.className} ${sourceSans3.className} antialiased overflow-x-hidden bg-navy-500`}
       >
         <AnalyticsGA4 />
         <CookieBanner />
