@@ -83,7 +83,7 @@ export const LOCATION_PAGES: Record<LocationPageKey, LocationPageConfig> = {
     areaLabel: "Leon Springs & Northwest San Antonio",
     nearbyAreas: ["The Dominion", "Boerne", "Helotes", "La Cantera"],
 
-    title: "Web Design in Leon Springs, TX | RiverCity Creatives",
+    title: "Web Design in Leon Springs, TX",
     description:
       "Custom web design for Leon Springs small businesses — fast, modern websites built to convert and rank locally.",
 
@@ -248,7 +248,7 @@ export const LOCATION_PAGES: Record<LocationPageKey, LocationPageConfig> = {
     areaLabel: "Boerne & The Hill Country",
     nearbyAreas: ["Fair Oaks Ranch", "Leon Springs", "Comfort", "Sisterdale"],
 
-    title: "Web Design in Boerne, TX | RiverCity Creatives",
+    title: "Web Design in Boerne, TX",
     description:
       "Custom web design for Boerne businesses — modern websites built for speed, trust, and local visibility.",
 
