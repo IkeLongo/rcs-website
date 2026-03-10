@@ -20,7 +20,8 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const { slug } = params;
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   const { data: post } = await sanityFetch({
     query: POST_QUERY,
     params: { slug },
