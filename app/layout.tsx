@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://rivercitycreatives.com', // Add your canonical URL here
+    canonical: 'https://rivercitycreatives.com',
   },
 };
 

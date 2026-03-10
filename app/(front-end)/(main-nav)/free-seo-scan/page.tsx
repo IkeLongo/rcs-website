@@ -3,7 +3,7 @@ import FreeSeoScanClient from "@/app/components/layouts/home/client/free-seo-sca
 import SimpleFooter from "@/app/components/layouts/footer/simple-footer";
 
 export const metadata = {
-  title: "Free SEO Scan | RiverCity Creatives",
+  title: "Free SEO Scan",
   description: "Run a free SEO scan and get a step-by-step fix report.",
 };
 
