@@ -15,9 +15,9 @@ import type { Post } from "@/types/blogTypes";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const { data: post } = await sanityFetch({
     query: POST_QUERY,
     params: { slug },
@@ -52,12 +52,12 @@ export async function generateMetadata({
 
 export default async function BlogContentCentered({ params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
 
   const { data: post } = await sanityFetch({
     query: POST_QUERY,
-    params,
+    params: await params,
   });
 
   if (!post) {

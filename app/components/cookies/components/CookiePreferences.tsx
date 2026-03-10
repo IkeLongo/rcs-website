@@ -70,7 +70,7 @@ export default function CookiePreferences({ isOpen, onClose }: PreferencesModalP
             <strong>Ensure core site functionality</strong> (preferences cookies)
           </li>
           <li>
-            <strong>Measure website usage and performance</strong> using Google Analytics (analytics cookies)
+            <strong>Measure website usage and performance</strong> using Google Analytics and Microsoft Clarity (analytics cookies)
           </li>
         </ol>
 
