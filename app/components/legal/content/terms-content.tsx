@@ -57,16 +57,6 @@ export default function TermsContent({
         and program details.
       </p>
 
-      <h2 id="fitness-medical-disclaimer">Fitness and Medical Disclaimer</h2>
-      <p>
-        The Site may include fitness, training, or wellness information.
-        This information is not medical advice and is not a substitute
-        for professional medical guidance, diagnosis, or treatment.
-        Always consult a qualified health professional before starting
-        any new exercise program, especially if you have a medical
-        condition or injury.
-      </p>
-
       <h2 id="user-conduct">User Conduct</h2>
       <p>
         You agree not to misuse the Site, attempt to gain unauthorized
