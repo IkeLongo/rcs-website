@@ -11,17 +11,13 @@ import Footer from "@/app/components/layouts/footer/footer";
 import type { Metadata } from "next";
 
 import type { Post } from "@/types/blogTypes";
-type Params = {
-  slug: string;
-};
 
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: { slug: string };
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const { slug } = resolvedParams;
+  const { slug } = params;
   const { data: post } = await sanityFetch({
     query: POST_QUERY,
     params: { slug },
@@ -56,12 +52,12 @@ export async function generateMetadata({
 
 export default async function BlogContentCentered({ params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
 
   const { data: post } = await sanityFetch({
     query: POST_QUERY,
-    params: await params,
+    params,
   });
 
   if (!post) {
