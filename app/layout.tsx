@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="YvtVvAh3G5ErmXjBQTesMQ" async></script>
-          <ClarityScript />
+        <ClarityScript />
       </head>
       <body
         className={`${mavenPro.className} ${sourceSans3.className} antialiased overflow-x-hidden bg-navy-500`}

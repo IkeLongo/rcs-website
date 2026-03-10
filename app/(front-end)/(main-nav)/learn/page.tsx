@@ -3,10 +3,33 @@ import { LearnCard } from "@/app/components/layouts/learn/learn-template";
 import { sanityFetch } from "@/sanity-studio/lib/live";
 import { POSTS_QUERY } from "@/sanity-studio/lib/queries";
 import Footer from "@/app/components/layouts/footer/footer";
+import { cn } from "@/lib/utils";
 
+import type { Metadata } from "next";
 import type { Post } from "@/types/blogTypes";
 
-import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: 'Learn',
+  description: 'Discover insightful resources and expert advice from our seasoned team to elevate your knowledge.',
+  twitter: {
+    card: 'summary_large_image',
+  },
+  openGraph: {
+    images: [
+      {
+        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the learn page
+        width: 1200,
+        height: 630,
+        alt: 'Learn | RiverCity Creatives Web Design & Branding',
+        type: 'website', // Specify the MIME type
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://rivercitycreatives.com/learn', // Add your canonical URL here
+  },
+}
 
 export default async function SimpleBlogWithGrid() {
   const { data: posts } : { data: Post[] } = await sanityFetch({ query: POSTS_QUERY });

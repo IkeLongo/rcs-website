@@ -4,6 +4,30 @@ import { TestimonialsWithCarousel } from "@/app/components/ui/carousels/testimon
 import Image from "next/image";
 import { NewsLetterSignUp } from "@/app/components/layouts/newsletter/NewsLetterSignUp";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Newsletter',
+  description: 'Fix the most common website leaks that stop founders from getting qualified leads. Get the checklist instantly — plus weekly, no-fluff revenue notes.',
+  twitter: {
+    card: 'summary_large_image',
+  },
+  openGraph: {
+    images: [
+      {
+        url: 'https://rivercitycreatives.com/opengraph-image.png', // Custom OpenGraph image for the newsletter page
+        width: 1200,
+        height: 630,
+        alt: 'Newsletter | RiverCity Creatives Web Design & Branding',
+        type: 'website', // Specify the MIME type
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://rivercitycreatives.com/newsletter', // Add your canonical URL here
+  },
+}
+
 export default function NewsletterPage() {
   return (
     <div className="bg-blue-50">

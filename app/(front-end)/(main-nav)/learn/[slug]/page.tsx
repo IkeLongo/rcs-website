@@ -8,8 +8,50 @@ import Link from "next/link";
 import { urlFor } from "@/sanity-studio/lib/image";
 import { components } from "@/sanity-studio/portableTextComponents";
 import Footer from "@/app/components/layouts/footer/footer";
+import type { Metadata } from "next";
 
 import type { Post } from "@/types/blogTypes";
+type Params = {
+  slug: string;
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug } = params;
+  const { data: post } = await sanityFetch({
+    query: POST_QUERY,
+    params: { slug },
+  });
+
+  if (!post) {
+    return {
+      title: "Not Found",
+      description: "This post does not exist.",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      images: [
+        {
+          url: post.ogImage || "https://rivercitycreatives.com/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `https://rivercitycreatives.com/learn/${slug}`,
+    },
+    // Add other fields as needed
+  };
+}
 
 export default async function BlogContentCentered({ params,
 }: {
