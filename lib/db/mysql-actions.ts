@@ -1,5 +1,5 @@
 import { RowDataPacket } from 'mysql2';
-import pool from '@/lib/db/mysql';
+import { ovhPool } from '@/lib/db/mysql';
 import {
   getWebsitesWithClientAndHostQuery,
   getWebsiteStatusOptionsQuery,
@@ -7,7 +7,7 @@ import {
 import { color } from 'framer-motion';
 
 export async function getWebsitesWithClientAndHost() {
-  const [rows] = await pool.query<RowDataPacket[]>(getWebsitesWithClientAndHostQuery);
+  const [rows] = await ovhPool.query<RowDataPacket[]>(getWebsitesWithClientAndHostQuery);
 
   return rows.map((row) => ({
     id: row.id,
@@ -20,7 +20,7 @@ export async function getWebsitesWithClientAndHost() {
 }
 
 export async function getWebsiteStatusOptions() {
-  const [rows] = await pool.query<RowDataPacket[]>(getWebsiteStatusOptionsQuery);
+  const [rows] = await ovhPool.query<RowDataPacket[]>(getWebsiteStatusOptionsQuery);
   return rows.map((row) => ({
     id: row.id,
     name: row.name,

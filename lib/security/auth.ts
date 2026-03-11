@@ -7,7 +7,7 @@ import { SignupFormSchema, FormState } from '@/lib/security/definitions'
 import { saltAndHashPassword } from '@/lib/security/password'
 import { signIn } from 'next-auth/react';
 
-export async function signup(state: FormState, formData: FormData) {
+export async function signUp(state: FormState, formData: FormData) {
   // 1. Validate form fields
   const validatedFields = SignupFormSchema.safeParse({
     firstName: formData.get('firstName'),
@@ -32,19 +32,16 @@ export async function signup(state: FormState, formData: FormData) {
 
   // 3. Insert the user into the database
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rivercitycreatives.com'; // TO-DO: Update this to your site URL
-    const response = await fetch(`${baseUrl}/api/insert_user`, {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://rivercitycreatives.com';
+    const response = await fetch(`${baseUrl}/api/users/insert`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName, lastName, email, hashedPassword }),
     });
-
     const result = await response.json();
-
     if (!response.ok || !result.userId) {
-      return { status: 'error', message: 'An error occurred while creating your account.' };
+      return { status: 'error', message: result.message || 'An error occurred while creating your account.' };
     }
-
     userId = result.userId;
   } catch (err) {
     console.error('Database Error during insert:', err);

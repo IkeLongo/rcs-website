@@ -1,3 +1,5 @@
+// This file is no longer used
+
 import { SignJWT, jwtVerify } from 'jose'
 import { cookies } from 'next/headers'
 import { SessionPayload } from '@/lib/security/definitions'

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db/mysql';
+import { ovhPool } from '@/lib/db/mysql';
 import { User } from '@/types/types';
 import { RowDataPacket } from 'mysql2';
 
@@ -18,19 +18,18 @@ export async function POST(request: Request) {
 
   try {
     // Query the database for the user by email
-    const [rows] = await pool.execute<RowDataPacket[]>(
+    const [rows] = await ovhPool.execute<RowDataPacket[]>(
       `
       SELECT 
-        User.id, 
-        User.email, 
-        User.first_name, 
-        User.last_name, 
-        User.role_id,
-        User.password_hash,
-        Role.name AS role_name
-      FROM User
-      JOIN Role ON User.role_id = Role.id
-      WHERE User.email = ?
+        id,
+        email, 
+        first_name, 
+        last_name, 
+        role_id,
+        role_name,
+        password_hash
+      FROM users
+      WHERE email = ?
       `,
       [email]
     );

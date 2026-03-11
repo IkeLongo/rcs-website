@@ -1,49 +1,47 @@
-import pool from '@/lib/db/mysql';
+import { ovhPool } from '@/lib/db/mysql';
 
 export const getUserWithRoleQuery = `
   SELECT 
-    User.id, 
-    User.role_id, 
-    Role.name AS role_name 
-  FROM User
-  JOIN Role ON User.role_id = Role.id
-  WHERE User.email = ?
+    id, 
+    role_id, 
+    role_name
+  FROM users
+  WHERE email = ?
 `;
 
 export const getUserByEmailQuery = `
   SELECT
     id,
     email
-  FROM User
+  FROM users
   WHERE email = ?
 `;
 
 export const insertNewUser = `
-  INSERT
-  INTO User
+  INSERT INTO users
     (email, first_name, last_name)
   VALUES (?, ?, ?)
 `;
 
 export const getWebsitesWithClientAndHostQuery = `
   SELECT 
-    Website.id,
-    Website.domain,
-    Website.display_name,
-    Website.hosting_cost,
-    Website.homepage_screenshot_url,
-    Website.last_edited_at,
-    Website.created_at,
-    Website.updated_at,
+    website.id,
+    website.domain,
+    website.display_name,
+    website.hosting_cost,
+    website.homepage_screenshot_url,
+    website.last_edited_at,
+    website.created_at,
+    website.updated_at,
     
-    CONCAT(User.first_name, ' ', User.last_name) AS clientName,
-    WebsiteHost.name AS hostName,
-    WebsiteStatus.name AS statusName
-  FROM Website
-  JOIN User ON Website.client_id = User.id
-  JOIN WebsiteHost ON Website.host_id = WebsiteHost.id
-  JOIN WebsiteStatus ON Website.status_id = WebsiteStatus.id
-  ORDER BY Website.created_at DESC
+    CONCAT(users.first_name, ' ', users.last_name) AS clientName,
+    websiteHost.name AS hostName,
+    websiteStatus.name AS statusName
+  FROM website
+  JOIN users ON website.client_id = users.id
+  JOIN websiteHost ON website.host_id = websiteHost.id
+  JOIN websiteStatus ON website.status_id = websiteStatus.id
+  ORDER BY website.created_at DESC
 `;
 
 export const getWebsiteStatusOptionsQuery = `
@@ -52,6 +50,6 @@ export const getWebsiteStatusOptionsQuery = `
     name, 
     display_name, 
     color 
-  FROM WebsiteStatus
+  FROM websiteStatus
   ORDER BY display_name ASC;
 `;

@@ -5,7 +5,7 @@ import Google from "next-auth/providers/google"
 import Facebook from "next-auth/providers/facebook"
 import { comparePassword } from '@/lib/security/password'
 import { User } from '@/types/types';
-import pool from '@/lib/db/mysql';
+import { ovhPool } from '@/lib/db/mysql';
 import { getUserWithRoleQuery, getUserByEmailQuery, insertNewUser } from '@/lib/db/queries';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -112,13 +112,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     
       try {
         // Check if the user exists in the database
-        const [rows] = await pool.execute(getUserByEmailQuery, [profile.email]);
+        const [rows] = await ovhPool.execute(getUserByEmailQuery, [profile.email]);
     
         const users = rows as User[];
     
         if (users.length === 0) {
           // If the user does not exist, create a new user
-          await pool.execute(insertNewUser,
+          await ovhPool.execute(insertNewUser,
             [
               profile.email,
               profile.first_name || profile.name || '',
@@ -146,7 +146,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error('Profile email is missing.');
           }
           // Fetch the user from the database
-          const [rows] = await pool.execute(getUserWithRoleQuery, [profile.email]);
+          const [rows] = await ovhPool.execute(getUserWithRoleQuery, [profile.email]);
 
           const users = rows as User[];
 

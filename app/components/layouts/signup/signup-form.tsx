@@ -1,8 +1,8 @@
 'use client'
 
-import { signup } from '@/lib/security/auth'
+import { signUp } from '@/lib/security/auth'
 import { signIn } from "next-auth/react";
-import { useActionState } from 'react'
+import React, { useActionState } from 'react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 import { Form, Input, Button } from '@heroui/react'
@@ -13,13 +13,15 @@ async function getToast() {
 }
 
 export function SignupForm() {
-  const [state, action, pending] = useActionState(signup, undefined)
+  const [state, action, pending] = useActionState(signUp, undefined);
+  const [formError, setFormError] = React.useState<string | null>(null);
   const router = useRouter();
 
   const handleSubmit = async (formData: FormData) => {
-    const result = await signup(undefined, formData);
+    const result = await signUp(undefined, formData);
 
     if (result.status === 'success') {
+      setFormError(null);
       const toast = await getToast();
       toast.success(result.message, {
         position: "top-right",
@@ -30,9 +32,10 @@ export function SignupForm() {
         draggable: true,
         progress: undefined,
         className: "bg-gray-900",
-      }); // In order for toast to display on routed page, the page must exist!
+      });
       router.push('/dashboard');
     } else {
+      setFormError(result.message || 'An error occurred during signup.');
       const toast = await getToast();
       toast.error(result.message || 'An error occurred during signup.');
     }
@@ -86,7 +89,10 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -95,9 +101,13 @@ export function SignupForm() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
@@ -113,7 +123,10 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -122,9 +135,13 @@ export function SignupForm() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
@@ -140,7 +157,10 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -149,9 +169,13 @@ export function SignupForm() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
@@ -167,7 +191,10 @@ export function SignupForm() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -176,9 +203,13 @@ export function SignupForm() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
@@ -196,10 +227,15 @@ export function SignupForm() {
               type="submit"
               disabled={pending}
               variant="solid"
-              className="w-full mt-4 bg-login-button text-white"
+              className="w-full mt-4 bg-blue-500 text-white rounded-[13px] hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               Sign Up
             </Button>
+            {formError && (
+              <div className="mt-4 text-red-600 text-center font-semibold">
+                {formError}
+              </div>
+            )}
           </Form>
           <p className="text-gray-500 pt-4">
             or sign up with
@@ -238,7 +274,7 @@ export function SignupForm() {
             </div>
           </div>
           <p className="text-gray-500 pt-4">
-            Already have an account? <a href="/login" className="text-green-500">Login</a>
+            Already have an account? <a href="/login" className="text-green-500 underline font-bold">Login</a>
           </p>
         </div>
       </div>

@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db/mysql';
+import { ovhPool } from '@/lib/db/mysql';
 import { ResultSetHeader } from 'mysql2';
 
 export async function POST(request: Request) {
   const { firstName, lastName, email, hashedPassword } = await request.json();
 
   try {
-    const [result] = await pool.execute<ResultSetHeader>(
+    const [result] = await ovhPool.execute<ResultSetHeader>(
       `INSERT INTO users (first_name, last_name, email, password_hash) VALUES (?, ?, ?, ?)`,
       [firstName, lastName, email, hashedPassword]
     );
@@ -28,6 +28,17 @@ export async function POST(request: Request) {
     });
   } catch (error: any) {
     console.error('Database Error:', error);
+    // Log error details
+    if (error) {
+      console.log('Error details:', {
+        code: error.code,
+        errno: error.errno,
+        sql: error.sql,
+        sqlState: error.sqlState,
+        sqlMessage: error.sqlMessage,
+        message: error.message,
+      });
+    }
   
     // Check for duplicate entry error (either by code or message)
     if (
