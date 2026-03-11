@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from 'next/server';
 import { ovhPool } from '@/lib/db/mysql';
-import { renderToStaticMarkup } from "react-dom/server";
+import { render } from "@react-email/render";
 import React from "react";
 import { ContactFormConfirmationEmail } from '@/lib/email/contact/contact-form-confirmation';
 
-export const runtime = 'nodejs';
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
 	try {
@@ -29,9 +29,9 @@ export async function POST(request: Request) {
     });
 
 		// Compose email HTML
-		const html = renderToStaticMarkup(
-			React.createElement(ContactFormConfirmationEmail, { name, company })
-		);
+		const html = await render(
+      <ContactFormConfirmationEmail name={name} company={company} />
+    );
 
 		// Send email
 		await transporter.sendMail({
