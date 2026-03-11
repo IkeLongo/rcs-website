@@ -1,8 +1,7 @@
 import React from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import { EmailFooter } from "@/lib/email/layout/footer";
 
-function ContactFormConfirmationEmail({ name, company }: { name: string; company?: string }) {
+export function ContactFormConfirmationEmail({ name, company }: { name: string; company?: string }) {
 	return (
 		<div style={{ margin: 0, padding: 0, background: '#f6f7fb' }}>
 			<table role="presentation" cellPadding={0} cellSpacing={0} border={0} width="100%" style={{ background: '#f6f7fb', padding: '28px 0' }}>
@@ -50,14 +49,4 @@ function ContactFormConfirmationEmail({ name, company }: { name: string; company
 			</table>
 		</div>
 	);
-}
-
-export function getContactFormConfirmationHtml({
-  name,
-  company,
-}: {
-  name: string;
-  company?: string;
-}) {
-  return renderToStaticMarkup(<ContactFormConfirmationEmail name={name} company={company} />);
 }
