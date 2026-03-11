@@ -11,6 +11,10 @@ const nextConfig = {
   // Next serves compressed responses when the platform supports it
   compress: true,
 
+  experimental: {
+    serverComponentsExternalPackages: ['react-dom/server'],
+  },
+
   // If you’re using styled-components/emotion/etc. leave this alone
   compiler: {
     // removeConsole reduces JS slightly (only in prod) — optional but helpful
