@@ -1,4 +1,4 @@
-import React from "react";
+
 import { EmailFooter } from "@/lib/email/layout/footer";
 
 export function ContactFormConfirmationEmail({ name, company }: { name: string; company?: string }) {

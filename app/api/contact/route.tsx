@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { getContactFormSubmissionHtml } from "@/lib/email/contact/contact-form-submission";
+import { ContactFormSubmissionEmail } from "@/lib/email/contact/contact-form-submission";
+import { render } from "@react-email/render";
 
 export async function POST(req: Request) {
 	try {
@@ -21,13 +22,15 @@ export async function POST(req: Request) {
 		});
 
 		// Compose email HTML
-		const html = getContactFormSubmissionHtml({
-			name,
-			email,
-			company,
-			message,
-			submittedAt: new Date().toLocaleString(),
-		});
+		const html = await render(
+			<ContactFormSubmissionEmail
+				name={name}
+				email={email}
+				company={company}
+				message={message}
+				submittedAt={new Date().toLocaleString()}
+			/>
+		);
 
 		// Send email
 		await transporter.sendMail({

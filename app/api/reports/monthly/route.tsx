@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { clients } from "@/lib/analytics/clients";
 import { getMonthlyReportData, getPreviousMonthRange } from "@/lib/analytics/ga-functions";
-import { renderMonthlyReportEmailHtml } from "@/lib/email/get-monthly-report-email-html";
+import { MonthlyReportEmail } from "@/lib/email/reports/get-monthly-report-email-html";
+import { render } from "@react-email/render";
 
 function slugify(s: string) {
   return s
@@ -96,12 +97,14 @@ export async function GET(req: Request) {
         });
 
         // Generate email HTML
-        const emailHtml = renderMonthlyReportEmailHtml({
-          clientName: client.name,
-          report,
-          bookingUrl,
-          websiteUrl: SITE, // optional; replace with client.websiteUrl later when you add it to clients[]
-        });
+        const emailHtml = await render (
+          <MonthlyReportEmail
+            clientName={client.name}
+            report={report}
+            bookingUrl={bookingUrl}
+            websiteUrl={SITE} // optional; replace with client.websiteUrl later when you add it to clients[]
+          />
+        );
 
         // Send email to all recipients
         await transporter.sendMail({

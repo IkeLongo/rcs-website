@@ -2,7 +2,6 @@ import nodemailer from "nodemailer";
 import { NextResponse } from 'next/server';
 import { ovhPool } from '@/lib/db/mysql';
 import { render } from "@react-email/render";
-import React from "react";
 import { ContactFormConfirmationEmail } from '@/lib/email/contact/contact-form-confirmation';
 
 export const runtime = "nodejs";

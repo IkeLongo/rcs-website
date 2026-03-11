@@ -6,7 +6,8 @@ import path from "node:path";
 import nodemailer from "nodemailer";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { WebsiteRevenueChecklistPdf } from "@/lib/pdfs/website-revenue-checklist-pdf";
-import { getWebsiteRevenueChecklistEmailHtml } from "@/lib/email/get website-revenue-checklist-html";
+import { WebsiteRevenueChecklistEmail } from "@/lib/email/leads/get website-revenue-checklist-html";
+import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import { ovhPool } from "@/lib/db/mysql";
 
@@ -220,12 +221,14 @@ export async function POST(req: Request) {
 
       await transporter.verify();
 
-      const emailHtml = getWebsiteRevenueChecklistEmailHtml({
-        websiteUrl,
-        checklistUrl,
-        bookingUrl,
-        firstName: firstName || undefined,
-      });
+      const emailHtml = await render (
+        <WebsiteRevenueChecklistEmail
+          websiteUrl={websiteUrl}
+          checklistUrl={checklistUrl}
+          bookingUrl={bookingUrl}
+          firstName={firstName || undefined}
+        />
+      );
 
       await transporter.sendMail({
         from: process.env.SMTP_FROM!,

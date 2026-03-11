@@ -8,7 +8,8 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import { ovhPool } from "@/lib/db/mysql";
 import { enrichIssues } from "@/lib/seo/seo-fix-library";
 import crypto from "crypto";
-import { getSeoReportEmailHtml } from "@/lib/email/get-seo-report-html";
+import { render } from "@react-email/render";
+import { SeoReportEmail } from "@/lib/email/leads/get-seo-report-html";
 import { SeoReportPdf } from "@/lib/pdfs/seo-report-pdf";
 
 import type { ResultSetHeader } from "mysql2";
@@ -332,18 +333,20 @@ export async function POST(req: Request) {
     const a11yBorder = scoreBorder(scan.scores?.accessibility ?? null);
     const a11yBg = scoreBg(scan.scores?.accessibility ?? null);
 
-    const emailHtml = getSeoReportEmailHtml({
-      scan,
-      reportUrl,
-      seoBorder,
-      seoBg,
-      perfBorder,
-      perfBg,
-      bpBorder,
-      bpBg,
-      a11yBorder,
-      a11yBg,
-    });
+    const emailHtml = await render (
+      <SeoReportEmail
+        scan={enrichedScan}
+        reportUrl={reportUrl}
+        seoBorder={seoBorder}
+        seoBg={seoBg}
+        perfBorder={perfBorder}
+        perfBg={perfBg}
+        bpBorder={bpBorder}
+        bpBg={bpBg}
+        a11yBorder={a11yBorder}
+        a11yBg={a11yBg}
+      />
+    )
 
     await transporter.sendMail({
       from: process.env.SMTP_FROM!,

@@ -11,8 +11,8 @@ export function EmailFooter() {
           <div style={{ color: '#374151', marginTop: 2 }}>
             Founder | RiverCity Creatives
           </div>
-          <div style={{ marginTop: 6, color: '#374151' }}>
-            <div style={{ marginBottom: 4 }}>
+          <div style={{ marginTop: 2, color: '#374151' }}>
+            <div style={{ marginBottom: 2 }}>
               🌐
               <a href="https://rivercitycreatives.com" style={{ color: '#2563eb', textDecoration: 'none' }}>
                 rivercitycreatives.com
@@ -26,7 +26,7 @@ export function EmailFooter() {
             <img
               src="https://rivercitycreatives.com/logo-rivercity-creatives-horizontal-green-gradient.png"
               alt="RiverCity Creatives Logo"
-              style={{ maxWidth: 100, height: 'auto', display: 'block' }}
+              style={{ maxWidth: 120, height: 'auto', display: 'block' }}
             />
           </div>
         </td>
