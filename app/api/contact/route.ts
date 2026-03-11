@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-import { getContactFormSubmissionHtml } from "@/lib/email/contact-form-submission";
+import { getContactFormSubmissionHtml } from "@/lib/email/contact/contact-form-submission";
 
 export async function POST(req: Request) {
 	try {
