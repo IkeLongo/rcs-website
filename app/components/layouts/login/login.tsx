@@ -70,13 +70,13 @@ export function Login() {
     <div className='flex flex-col items-center overflow-x-hidden min-h-screen bg-login-mobile-bg'>
       <div className="grid grid-rows-3 md:grid-cols-2 md:grid-rows-1 w-full max-w-[1040px] h-screen md:my-20">
         <div className="row-span-1 md:col-span-1 flex flex-col justify-center items-center -mt-20">
-          <Image
+          {/* <Image
             src='/river-rat-head-logo.svg'
             alt='logo'
             width={42}
             height={45}
             className='pt-40 md:pt-20'
-          />
+          /> */}
           <div className="hidden md:flex md:flex-col md:justify-center md:items-start gap-4 pt-6 w-80">
             <div className="flex items-start gap-2">
               <Image
@@ -86,10 +86,10 @@ export function Login() {
                 height={24}
               />
               <div>
-                <p className='text-gray-800 font-bold text-left'>
+                <p className='text-navy-800 font-bold text-left'>
                   Adaptable performance
                 </p>
-                <p className='text-gray-500 text-left'>
+                <p className='text-gray-700 text-left'>
                   Our websites are fast, scalable, and designed to adapt seamlessly to your growing needs.
                 </p>
               </div>
@@ -102,10 +102,10 @@ export function Login() {
                 height={24}
               />
               <div>
-                <p className='text-gray-800 font-bold text-left'>
+                <p className='text-navy-800 font-bold text-left'>
                   Built to last
                 </p>
-                <p className='text-gray-500 text-left'>
+                <p className='text-gray-700 text-left'>
                   We build secure, high-quality websites with clean code that ensures long-term stability.
                 </p>
               </div>
@@ -118,10 +118,10 @@ export function Login() {
                 height={24}
               />
               <div>
-                <p className='text-gray-800 font-bold text-left'>
+                <p className='text-navy-800 font-bold text-left'>
                   Great user experience
                 </p>
-                <p className='text-gray-500 text-left'>
+                <p className='text-gray-700 text-left'>
                   Every website we create is intuitive, visually engaging, and optimized for seamless user interaction.
                 </p>
               </div>
@@ -134,10 +134,10 @@ export function Login() {
                 height={24}
               />
               <div>
-                <p className='text-gray-800 font-bold text-left'>
+                <p className='text-navy-800 font-bold text-left'>
                   Innovative functionality
                 </p>
-                <p className='text-gray-500 text-left'>
+                <p className='text-gray-700 text-left'>
                   We develop custom features and smart automation to make your website a powerful business tool.
                 </p>
               </div>
@@ -163,7 +163,10 @@ export function Login() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -172,9 +175,13 @@ export function Login() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
@@ -189,7 +196,10 @@ export function Login() {
                 input: [
                   "placeholder:text-gray-700",
                   "text-black-500",
-                  "focus:rounded-[13px]",
+                  "!focus:outline-none",
+                  "!focus-visible:outline-none",
+                  "!focus-visible:ring-0",
+                  "!outline-none",
                 ],
                 innerWrapper: [
                   "bg-white",
@@ -198,17 +208,21 @@ export function Login() {
                 inputWrapper: [
                   "shadow-xl",
                   "bg-white",
-                  //"border-gray-300",
                   "!cursor-text",
                   "rounded-[13px]",
+                  "focus:ring-2",
+                  "focus:ring-blue-500",
+                  "border-2",
+                  "border-gray-300",
+                  "!focus:border-blue-500",
                 ],
               }}
             />
-            <a href="#" className="text-black-500 text-sm">Forgot password?</a>
+            <a href="#" className="text-black-500 text-sm hover:text-green-500">Forgot password?</a>
             <Button
               type="submit"
               variant="solid"
-              className="w-full mt-4 bg-login-button text-white"
+              className="w-full mt-4 bg-blue-500 text-white rounded-[13px] hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               Sign In
             </Button>
@@ -249,7 +263,7 @@ export function Login() {
             </div>
           </div>
           <p className="text-gray-500 pt-4">
-            Don't have an account? <a href="/signup" className="text-green-500">Sign up</a>
+            Don't have an account? <a href="/signup" className="text-green-500 underline font-bold">Sign up</a>
           </p>
         </div>
       </div>
