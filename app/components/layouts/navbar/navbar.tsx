@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     (<div className='relative w-full'>
-      <div className="z-35">
+      <div className="z-50">
         <MobileMenu />
         <div className="flex items-center justify-center">
           <div className='hidden md:w-[900px] md:flex md:flex-col md:pt-[30px] md:justify-center md:gap-[10px]'>
@@ -37,22 +37,12 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
               />
               <TrackedCTA
-                href="#"
-                cta_id="desktop-navbar-call-now"
+                href="/contact"
+                cta_id="desktop-navbar-contact"
                 location="navbar-desktop"
                 className="font-maven-pro text-white text-[14px] font-bold lg:font-normal rounded-[13px] bg-nav-bar-button py-2 px-4 lg:text-[16px] flex items-center justify-center"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  if (typeof window !== 'undefined') {
-                    const result = window.confirm('Would you like to call (210) 730-6232?');
-                    if (result) {
-                      window.location.href = 'tel:2107306232';
-                    }
-                  }
-                }}
               >
-                Call Now
+                Contact
               </TrackedCTA>
               <Button
                 onPress={() => setMenuOpen(false)} // Close the menu when the button is clicked

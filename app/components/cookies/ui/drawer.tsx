@@ -29,7 +29,7 @@ export function Drawer({
       <Dialog.Portal>
         {/* Optional overlay; keep it for focus/a11y, but prevent dismissal if needed */}
         <Dialog.Overlay
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
           onPointerDown={(e) => {
             if (!dismissable) e.preventDefault();
           }}
@@ -37,7 +37,7 @@ export function Drawer({
 
         <Dialog.Content
           className={cn(
-            "fixed inset-x-0 bottom-0 z-50",
+            "fixed inset-x-0 bottom-0 z-[70]",
             "rounded-t-2xl bg-navy-800 text-white shadow-2xl border-t border-white/10",
             "focus:outline-none cookie-drawer",
             className
