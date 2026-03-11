@@ -91,101 +91,91 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               Follow Us
             </p>
             <div className="flex items-center self-stretch gap-[32px] md:hidden lg:flex">
-              <Image
-                src="/facebook.svg"
-                alt="Facebook Icon"
-                width={30}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-              <Image
-                src="/twitter.svg"
-                alt="Twitter Icon"
-                width={30}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-              <Image
-                src="/instagram.svg"
-                alt="Instagram Icon"
-                width={30}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-              <Image
-                src="/messenger.svg"
-                alt="Messenger Icon"
-                width={30}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-              <Image
-                src="/figma.svg"
-                alt="Figma Icon"
-                width={30}
-                height={30}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto"
-                }} />
-            </div>
-            <div className="hidden md:flex lg:hidden md:items-center md:self-stretch md:gap-[32px] md:flex-col md:justify-start">
-              <div className='flex gap-8 justify-start'>
+              <Link href="https://www.facebook.com/people/RiverCity-Creatives/61587679842778/" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/facebook.svg"
                   alt="Facebook Icon"
                   width={30}
                   height={30}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                  style={{ maxWidth: "100%", height: "auto" }} />
+              </Link>
+              <Link href="https://www.linkedin.com/company/rivercity-creatives/" target="_blank" rel="noopener noreferrer">
                 <Image
-                  src="/twitter.svg"
-                  alt="Twitter Icon"
+                  src="/linked-in.svg"
+                  alt="LinkedIn Icon"
                   width={30}
                   height={30}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                  style={{ maxWidth: "100%", height: "auto" }} />
+              </Link>
+              <Link href="https://www.instagram.com/rivercity.creatives/" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/instagram.svg"
                   alt="Instagram Icon"
                   width={30}
                   height={30}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
-              </div>
-              <div className='flex gap-8 justify-start'>
+                  style={{ maxWidth: "100%", height: "auto" }} />
+              </Link>
+              {/* <Link href="https://messenger.com" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/messenger.svg"
                   alt="Messenger Icon"
                   width={30}
                   height={30}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                  style={{ maxWidth: "100%", height: "auto" }} />
+              </Link>
+              <Link href="https://figma.com" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/figma.svg"
                   alt="Figma Icon"
                   width={30}
                   height={30}
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                  style={{ maxWidth: "100%", height: "auto" }} />
+              </Link> */}
+            </div>
+            <div className="hidden md:flex lg:hidden md:items-center md:self-stretch md:gap-[32px] md:flex-col md:justify-start">
+              <div className='flex gap-8 justify-start'>
+                <Link href="https://www.facebook.com/people/RiverCity-Creatives/61587679842778/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/facebook.svg"
+                    alt="Facebook Icon"
+                    width={30}
+                    height={30}
+                    style={{ maxWidth: "100%", height: "auto" }} />
+                </Link>
+                <Link href="https://www.linkedin.com/company/rivercity-creatives/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/linked-in.svg"
+                    alt="LinkedIn Icon"
+                    width={30}
+                    height={30}
+                    style={{ maxWidth: "100%", height: "auto" }} />
+                </Link>
+                <Link href="https://www.instagram.com/rivercity.creatives/" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/instagram.svg"
+                    alt="Instagram Icon"
+                    width={30}
+                    height={30}
+                    style={{ maxWidth: "100%", height: "auto" }} />
+                </Link>
+              </div>
+              <div className='flex gap-8 justify-start'>
+                {/* <Link href="https://messenger.com" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/messenger.svg"
+                    alt="Messenger Icon"
+                    width={30}
+                    height={30}
+                    style={{ maxWidth: "100%", height: "auto" }} />
+                </Link>
+                <Link href="https://figma.com" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/figma.svg"
+                    alt="Figma Icon"
+                    width={30}
+                    height={30}
+                    style={{ maxWidth: "100%", height: "auto" }} />
+                </Link> */}
               </div>
             </div>
           </div>
