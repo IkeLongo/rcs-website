@@ -5,6 +5,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import React from "react";
 import { ContactFormConfirmationEmail } from '@/lib/email/contact/contact-form-confirmation';
 
+export const runtime = 'nodejs';
+
 export async function POST(request: Request) {
 	try {
 		const { name, email, company, source, status } = await request.json();
