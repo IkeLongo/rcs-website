@@ -5,23 +5,20 @@ import Script from "next/script";
 
 export function BookingWidget() {
   return (
-    <div className="flex flex-col w-full justify-center items-center pt-20 md:pt-32">
-      {/* Loads Calendly script safely */}
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
-      />
-
+    <div className="bg-alice-blue-500 flex flex-col w-full justify-center items-center pt-20">
+      {/* GoHighLevel booking widget */}
       <div className="w-full h-full gap-8 justify-between align-center self-center p-4">
-        <div className="flex flex-col w-full bg-white py-4 rounded-lg max-w-screen md:max-w-[700px] lg:max-w-[1000px] mx-auto">
-          {/* <h1 className="text-center text-navy-500 font-maven-pro tracking-tight pt-2 pb-2 text-[22px] font-bold mx-8">
-            Want to discuss our service options? Book a meeting with our team!
-          </h1> */}
-
-          <div
-            className="calendly-inline-widget w-full"
-            data-url="https://calendly.com/isaac-longoria9136/30min?hide_gdpr_banner=1&primary_color=46C1E3"
-            style={{ width: "100%", height: "60vh", minWidth: "320px" }}
+        <div className="flex flex-col w-full py-4 rounded-lg max-w-screen md:max-w-[700px] lg:max-w-[1000px] mx-auto">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/Lfpb6Nj3LGlg36C3Y0yu"
+            style={{ width: "100%", border: "none", overflow: "hidden" }}
+            scrolling="no"
+            id="Lfpb6Nj3LGlg36C3Y0yu_1773330295777"
+          ></iframe>
+          <Script
+            src="https://link.msgsndr.com/js/form_embed.js"
+            type="text/javascript"
+            strategy="afterInteractive"
           />
         </div>
       </div>
