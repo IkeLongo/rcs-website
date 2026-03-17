@@ -24,10 +24,20 @@ export function ContactFormGridWithDetails() {
     })();
   }
 
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    e.stopPropagation(); // Prevent event bubbling
+    console.log("Form submitted - preventDefault called");
+    console.log("Event defaultPrevented:", e.defaultPrevented);
+    console.log("Message value before sending:", message);
+    console.log("Message length:", message?.length);
     setStatus("");
     setSubmitted(false);
+    
+    const formData = { name, email, company, message };
+    console.log("Sending contact form data...", formData);
+    console.log("Stringified data:", JSON.stringify(formData));
+    
     try {
       // Send admin notification
       const contactRes = await fetch("/api/contact", {
@@ -35,13 +45,20 @@ export function ContactFormGridWithDetails() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, company, message }),
       });
+      
+      console.log("Contact API response:", contactRes.status, contactRes.ok);
+      
       // Send client confirmation and store contact
       const leadRes = await fetch("/api/contact/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company }),
+        body: JSON.stringify({ name, email, company, message }),
       });
+      
+      console.log("Lead API response:", leadRes.status, leadRes.ok);
+      
       if (contactRes.ok && leadRes.ok) {
+        console.log("Both requests successful - showing success message");
         setStatus("success");
         setSubmitted(true);
         setName("");
@@ -50,11 +67,15 @@ export function ContactFormGridWithDetails() {
         setMessage("");
         fireConfetti(2000);
       } else {
+        console.error("One or both requests failed");
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Error submitting form:", error);
       setStatus("error");
     }
+    
+    return false; // Extra safeguard against form submission
   };
 
   return (
@@ -108,7 +129,7 @@ export function ContactFormGridWithDetails() {
       </div>
       <div className="relative mx-auto flex w-full max-w-2xl flex-col items-start gap-4 overflow-hidden rounded-3xl bg-gradient-to-b from-blue-100 to-alice-blue-500 p-4 sm:p-10">
         <Grid size={20} />
-        <form className="w-full" onSubmit={handleSubmit}>
+        <form className="w-full" onSubmit={handleSubmit} action="javascript:void(0);">
           <div className="relative z-20 mb-4 w-full">
             <label
               className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
