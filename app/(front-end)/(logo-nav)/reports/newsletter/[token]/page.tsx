@@ -48,14 +48,16 @@ export default async function NewsletterReportPage({ params }: { params: { token
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
             Website Revenue Checklist Report
           </h1>
-          <p className="mt-3 text-sm md:text-base !text-gray-975 max-w-2xl mx-auto">
-            Here is your personalized Website Revenue Checklist for:
-            <span className="block font-semibold text-navy-700 mt-1">{lead.first_name}</span>
+          <p className="mt-10 text-sm md:text-base !text-gray-975 max-w-3xl mx-auto !text-left">
+            <span className="font-gentium-book-plus font-extrabold text-navy-700 text-xl md:text-xl mr-2">
+              {lead.first_name},
+            </span>
+            here is your Website Revenue Checklist.
           </p>
         </div>
 
         {/* Checklist Items */}
-        <div className="mt-10 bg-white rounded-2xl shadow p-6 max-w-2xl mx-auto">
+        {/* <div className="mt-10 bg-white rounded-2xl shadow p-6 max-w-2xl mx-auto">
           <h2 className="text-xl font-bold mb-4 text-navy-700">Your Checklist</h2>
           {Array.isArray(checklist) && checklist.length > 0 ? (
             <ul className="list-disc pl-6 space-y-2">
@@ -68,12 +70,12 @@ export default async function NewsletterReportPage({ params }: { params: { token
           ) : (
             <div className="text-gray-600">No checklist items found.</div>
           )}
-        </div>
+        </div> */}
 
         {/* Actions */}
-        <div className="mt-8 flex flex-wrap gap-3 justify-center">
+        <div className="mt-2 flex flex-wrap gap-3 justify-start max-w-3xl mx-auto">
           <a
-            className="rounded-2xl border px-5 py-3 font-semibold bg-white hover:bg-[#bfee3c] transition-colors"
+            className="rounded-2xl border px-5 py-3 font-semibold bg-white hover:bg-gray-100 transition-colors"
             href={`/api/newsletter/report.pdf?token=${token}`}
           >
             Download My Checklist PDF
@@ -84,7 +86,7 @@ export default async function NewsletterReportPage({ params }: { params: { token
       {/* About RiverCity Creatives */}
       <section className="mx-auto max-w-6xl px-6 py-12">
         <div className="max-w-3xl mx-auto text-left">
-          <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight !text-navy-500">
+          <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight !text-navy-500 !text-left">
             Turn This Checklist <br />Into Real Revenue
           </h2>
 
