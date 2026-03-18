@@ -19,8 +19,9 @@ function safeJson(v: any, fallback: any) {
   return fallback;
 }
 
-export default async function NewsletterReportPage({ params }: { params: { token: string } }) {
-  const { token } = params;
+// Correct type for Next.js page params
+export default async function NewsletterReportPage({ params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params;
 
   // Fetch the checklist lead info from DB (adjust table/fields as needed)
   const [rows] = await ovhPool.execute(
