@@ -1,7 +1,7 @@
 // /ui/components/input/NewsLetterSignUp.tsx
 "use client";
 
-import { useCallback, useState } from "react";
+import { SubmitEventHandler, useCallback, useState } from "react";
 import { TrackedCTA } from "@/app/components/analytics/tracked-cta";
 import confetti from "canvas-confetti";
 import { NewsLetterModal } from "@/app/components/layouts/newsletter/NewsLetterModal";
@@ -26,11 +26,11 @@ export function NewsLetterSignUp() {
   // Optional: keep this only if you want a success banner *outside* the modal too
   const [submitted, setSubmitted] = useState(false);
 
-  const openModal = useCallback((e: React.FormEvent) => {
+  const openModal: SubmitEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     setSubmitted(false);
     setModalOpen(true);
-  }, []);
+  };
 
   const closeModal = useCallback(() => {
     setModalOpen(false);

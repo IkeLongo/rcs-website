@@ -281,7 +281,7 @@ export async function POST(req: Request) {
     }
 
     const reportUrl = reportToken
-      ? `https://rivercitycreatives.com/reports/${reportToken}`
+      ? `https://rivercitycreatives.com/reports/seo/${reportToken}`
       : `https://rivercitycreatives.com/contact`;
 
     // 2) Generate PDF report

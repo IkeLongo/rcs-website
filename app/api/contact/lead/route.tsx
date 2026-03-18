@@ -1,21 +1,21 @@
-import nodemailer from "nodemailer";
+// import nodemailer from "nodemailer";
 import { NextResponse } from 'next/server';
 import { ovhPool } from '@/lib/db/mysql';
-import { render } from "@react-email/render";
-import { ContactFormConfirmationEmail } from '@/lib/email/contact/contact-form-confirmation';
-import { addGhlTag, upsertGhlContact } from "@/lib/gohighlevel/website-contact-form";
+// import { render } from "@react-email/render";
+// import { ContactFormConfirmationEmail } from '@/lib/email/contact/contact-form-confirmation';
+// import { addGhlTag, upsertGhlContact } from "@/lib/gohighlevel/website-contact-form";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
 	try {
 		const body = await request.json();
-		console.log("[LEAD API] Received request body:", body);
+		// console.log("[LEAD API] Received request body:", body);
 		
 		const { name, email, company, message, source, status } = body;
-		console.log("[LEAD API] Destructured message:", message);
-		console.log("[LEAD API] Message type:", typeof message);
-		console.log("[LEAD API] Message length:", message?.length);
+		// console.log("[LEAD API] Destructured message:", message);
+		// console.log("[LEAD API] Message type:", typeof message);
+		// console.log("[LEAD API] Message length:", message?.length);
 
 		// 1) Save to DB
 		await ovhPool.execute(
@@ -57,12 +57,12 @@ export async function POST(request: Request) {
         email,
         company: company || "",
         message: message || "",
-        source: source || "rivercitycreatives.com/contact",
+        source: "Website Contact Form",
         status: status || "new",
       };
-      console.log("[LEAD API] Sending to GHL webhook:", webhookPayload);
+      // console.log("[LEAD API] Sending to GHL webhook:", webhookPayload);
       
-      const webhookRes = await fetch(process.env.GHL_WEBHOOK_URL!, {
+      const webhookRes = await fetch(process.env.GHL_WEBHOOK_URL_CONTACT_FORM!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

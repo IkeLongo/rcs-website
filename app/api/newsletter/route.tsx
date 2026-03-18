@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import nodemailer from "nodemailer";
+import crypto from "crypto";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { WebsiteRevenueChecklistPdf } from "@/lib/pdfs/website-revenue-checklist-pdf";
 import { WebsiteRevenueChecklistEmail } from "@/lib/email/leads/get website-revenue-checklist-html";
@@ -162,6 +163,7 @@ export async function POST(req: Request) {
     // 5) Store contact id if returned (create endpoint often returns it)
     const brevoId = brevoData?.id != null ? String(brevoData.id) : null;
 
+
     await ovhPool.execute(
       `
       UPDATE newsletter_signups
@@ -174,17 +176,22 @@ export async function POST(req: Request) {
       [brevoId, email]
     );
 
-    // 6) Send checklist email + attach PDF (after Brevo success)
+    // Generate a unique report token and set expiration (14 days)
+    const reportToken = crypto.randomBytes(32).toString("hex");
+    const expiresAt = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000); // 14 days
+    await ovhPool.execute(
+      `UPDATE newsletter_signups SET report_token=?, report_expires_at=? WHERE email=?`,
+      [reportToken, expiresAt, email]
+    );
+
+
+    // 6b) Send data to GoHighLevel webhook (after Brevo success)
     try {
       const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://rivercitycreatives.com";
-
-      // If you don’t collect websiteUrl yet, you can use pageUrl or default to your domain.
-      // Strong recommendation: add `websiteUrl` to the body later (but you said don’t alter current code).
       const websiteUrl = pageUrl || SITE;
-
-      // Create a hosted URL to the checklist (optional) AND attach the PDF
-      const checklistUrl = `${SITE}/founder-website-revenue-checklist`; // or wherever you host it
+      const reportUrl = `https://rivercitycreatives.com/reports/newsletter/${reportToken}`;
       const bookingUrl = `${SITE}/booking`;
+      const webhookUrl = process.env.GHL_WEBHOOK_URL_WEB_REV_CHK;
 
       // Build assets as data URIs (safe for react-pdf render on server)
       const logoDataUri = await publicFileToDataUri(
@@ -203,56 +210,100 @@ export async function POST(req: Request) {
         />
       );
 
-      // Create transporter (same config as SEO route)
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST!,
-        port: Number(process.env.SMTP_PORT || 587),
-        secure: Number(process.env.SMTP_PORT) === 465,
-        auth: {
-          user: process.env.SMTP_USER!,
-          pass: process.env.SMTP_PASS!,
+    //   // Create transporter (same config as SEO route)
+    //   const transporter = nodemailer.createTransport({
+    //     host: process.env.SMTP_HOST!,
+    //     port: Number(process.env.SMTP_PORT || 587),
+    //     secure: Number(process.env.SMTP_PORT) === 465,
+    //     auth: {
+    //       user: process.env.SMTP_USER!,
+    //       pass: process.env.SMTP_PASS!,
+    //     },
+    //     logger: true,
+    //     debug: true,
+    //     connectionTimeout: 20_000,
+    //     greetingTimeout: 20_000,
+    //     socketTimeout: 20_000,
+    //   });
+
+    //   await transporter.verify();
+
+    //   const emailHtml = await render (
+    //     <WebsiteRevenueChecklistEmail
+    //       websiteUrl={websiteUrl}
+    //       checklistUrl={checklistUrl}
+    //       bookingUrl={bookingUrl}
+    //       firstName={firstName || undefined}
+    //     />
+    //   );
+
+    //   await transporter.sendMail({
+    //     from: process.env.SMTP_FROM!,
+    //     to: email,
+    //     subject: "Your Founder Website Revenue Checklist (PDF)",
+    //     text: `Here’s your Website Revenue Checklist for ${websiteUrl}. (PDF attached)`,
+    //     html: emailHtml,
+    //     attachments: [
+    //       {
+    //         filename: "founder-website-revenue-checklist.pdf",
+    //         content: pdfBuffer,
+    //         contentType: "application/pdf",
+    //       },
+    //     ],
+    //   });
+    // Begin building new code here (without altering above):
+    
+      // const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://rivercitycreatives.com";
+      // const websiteUrl = pageUrl || SITE;
+      // const checklistUrl = `${SITE}/newsletter`;
+      // const bookingUrl = `${SITE}/booking`;
+      // const webhookUrl = process.env.GHL_WEBHOOK_URL_WEB_REV_CHK;
+
+      if (!webhookUrl) {
+        throw new Error("GHL webhook URL not configured");
+      }
+
+      // Prepare payload with all relevant data
+      const webhookPayload = {
+        email,
+        firstName,
+        bookingUrl,
+        pageUrl,
+        reportUrl,
+        source: "Website Newsletter Signup - Revenue Checklist",
+        // Add any other fields needed by GHL here
+      };
+
+      const webhookRes = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        logger: true,
-        debug: true,
-        connectionTimeout: 20_000,
-        greetingTimeout: 20_000,
-        socketTimeout: 20_000,
+        body: JSON.stringify(webhookPayload),
+        cache: "no-store",
       });
 
-      await transporter.verify();
-
-      const emailHtml = await render (
-        <WebsiteRevenueChecklistEmail
-          websiteUrl={websiteUrl}
-          checklistUrl={checklistUrl}
-          bookingUrl={bookingUrl}
-          firstName={firstName || undefined}
-        />
-      );
-
-      await transporter.sendMail({
-        from: process.env.SMTP_FROM!,
-        to: email,
-        subject: "Your Founder Website Revenue Checklist (PDF)",
-        text: `Here’s your Website Revenue Checklist for ${websiteUrl}. (PDF attached)`,
-        html: emailHtml,
-        attachments: [
-          {
-            filename: "founder-website-revenue-checklist.pdf",
-            content: pdfBuffer,
-            contentType: "application/pdf",
-          },
-        ],
-      });
-    } catch (mailErr: any) {
-      console.error("Checklist email send error:", mailErr);
-
-      // Optional: store delivery failure (does NOT block signup)
+      if (!webhookRes.ok) {
+        const text = await webhookRes.text();
+        throw new Error(`GHL Webhook failed: ${webhookRes.status} ${text}`);
+      }
+    } catch (webhookErr: any) {
+      console.error("GHL Webhook Error:", webhookErr);
+      // Store delivery failure (does NOT block signup)
       await ovhPool.execute(
         `UPDATE newsletter_signups SET last_checklist_error=?, updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
-        [mailErr?.message || "Checklist email failed", email]
+        [webhookErr?.message || "Checklist webhook failed", email]
       );
     }
+    // } catch (mailErr: any) {
+    //   console.error("Checklist email send error:", mailErr);
+
+    //   // Optional: store delivery failure (does NOT block signup)
+    //   await ovhPool.execute(
+    //     `UPDATE newsletter_signups SET last_checklist_error=?, updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
+    //     [mailErr?.message || "Checklist email send failed", email]
+    //   );
+    // }
 
     return NextResponse.json({ success: true, resubscribed: wasUnsubscribed }, { status: 200 });
   } catch (err) {

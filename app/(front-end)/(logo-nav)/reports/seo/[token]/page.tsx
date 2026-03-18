@@ -1,4 +1,4 @@
-// app/reports/[token]/page.tsx
+// app/(front-end)/(logo-nav)/reports/seo/[token]/page.tsx
 import { notFound } from "next/navigation";
 import { ovhPool } from "@/lib/db/mysql";
 

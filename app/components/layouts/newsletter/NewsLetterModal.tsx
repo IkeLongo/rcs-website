@@ -166,7 +166,7 @@ export function NewsLetterModal({ open, onClose, initialEmail, onSubmit }: {
 											checked={consentChecked}
 											onChange={e => {
 												setConsentChecked(e.target.checked);
-												console.log('Consent checkbox changed:', e.target.checked);
+												// console.log('Consent checkbox changed:', e.target.checked);
 												if (e.target.checked) setShowConsentError(false);
 											}}
 											className="mt-1 mr-2 accent-lime-500"

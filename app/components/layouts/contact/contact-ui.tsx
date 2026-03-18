@@ -27,16 +27,16 @@ export function ContactFormGridWithDetails() {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     e.stopPropagation(); // Prevent event bubbling
-    console.log("Form submitted - preventDefault called");
-    console.log("Event defaultPrevented:", e.defaultPrevented);
-    console.log("Message value before sending:", message);
-    console.log("Message length:", message?.length);
+    // console.log("Form submitted - preventDefault called");
+    // console.log("Event defaultPrevented:", e.defaultPrevented);
+    // console.log("Message value before sending:", message);
+    // console.log("Message length:", message?.length);
     setStatus("");
     setSubmitted(false);
     
     const formData = { name, email, company, message };
-    console.log("Sending contact form data...", formData);
-    console.log("Stringified data:", JSON.stringify(formData));
+    // console.log("Sending contact form data...", formData);
+    // console.log("Stringified data:", JSON.stringify(formData));
     
     try {
       // Send admin notification
@@ -46,7 +46,7 @@ export function ContactFormGridWithDetails() {
         body: JSON.stringify({ name, email, company, message }),
       });
       
-      console.log("Contact API response:", contactRes.status, contactRes.ok);
+      // console.log("Contact API response:", contactRes.status, contactRes.ok);
       
       // Send client confirmation and store contact
       const leadRes = await fetch("/api/contact/lead", {
@@ -55,10 +55,10 @@ export function ContactFormGridWithDetails() {
         body: JSON.stringify({ name, email, company, message }),
       });
       
-      console.log("Lead API response:", leadRes.status, leadRes.ok);
+      // console.log("Lead API response:", leadRes.status, leadRes.ok);
       
       if (contactRes.ok && leadRes.ok) {
-        console.log("Both requests successful - showing success message");
+        // console.log("Both requests successful - showing success message");
         setStatus("success");
         setSubmitted(true);
         setName("");
@@ -67,11 +67,11 @@ export function ContactFormGridWithDetails() {
         setMessage("");
         fireConfetti(2000);
       } else {
-        console.error("One or both requests failed");
+        // console.error("One or both requests failed");
         setStatus("error");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      // console.error("Error submitting form:", error);
       setStatus("error");
     }
     
