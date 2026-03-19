@@ -280,88 +280,160 @@ export async function POST(req: Request) {
       // Continue anyway - email is more important than storage
     }
 
-    const reportUrl = reportToken
-      ? `https://rivercitycreatives.com/reports/seo/${reportToken}`
-      : `https://rivercitycreatives.com/contact`;
+    // const reportUrl = reportToken
+    //   ? `https://rivercitycreatives.com/reports/seo/${reportToken}`
+    //   : `https://rivercitycreatives.com/contact`;
 
     // 2) Generate PDF report
     console.log("[SEO Lead] Generating PDF report");
-    const enrichedScan = { ...scan, issues: enrichIssues(scan.issues) };
-
-    const logoDataUri = await publicFileToDataUri("logo-rivercity-creatives-horizontal-green-blue.png");
-    const portraitDataUri = await publicFileToDataUri("isaac-headshot-avatar.png");
-
-    const pdfBuffer = await renderToBuffer(
-      <SeoReportPdf
-        scan={enrichedScan}
-        logoSrc={logoDataUri}
-        portraitSrc={portraitDataUri}
-        callUrl={"https://rivercitycreatives.com/booking"}
-      />
-    );
-    console.log("[SEO Lead] PDF generated successfully");
-
-    // 3) Send email with PDF attachment
-    console.log("[SEO Lead] Sending email");
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST!,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: Number(process.env.SMTP_PORT) === 465, // ✅ important
-      auth: {
-        user: process.env.SMTP_USER!,
-        pass: process.env.SMTP_PASS!,
-      },
-      logger: true,
-      debug: true,
-      connectionTimeout: 20_000,
-      greetingTimeout: 20_000,
-      socketTimeout: 20_000,
-    });
-
-    await transporter.verify();
-    console.log("[SEO Lead] SMTP verified OK");
-
+    // const enrichedScan = { ...scan, issues: enrichIssues(scan.issues) };
+    // const logoDataUri = await publicFileToDataUri("logo-rivercity-creatives-horizontal-green-blue.png");
+    // const portraitDataUri = await publicFileToDataUri("isaac-headshot-avatar.png");
+    // const pdfBuffer = await renderToBuffer(
+    //   <SeoReportPdf
+    //     scan={enrichedScan}
+    //     logoSrc={logoDataUri}
+    //     portraitSrc={portraitDataUri}
+    //     callUrl={"https://rivercitycreatives.com/booking"}
+    //   />
+    // );
     const seoBorder = scoreBorder(scan.scores?.seo ?? null);
     const seoBg = scoreBg(scan.scores?.seo ?? null);
-
     const perfBorder = scoreBorder(scan.scores?.performance ?? null);
     const perfBg = scoreBg(scan.scores?.performance ?? null);
-
     const bpBorder = scoreBorder(scan.scores?.bestPractices ?? null);
     const bpBg = scoreBg(scan.scores?.bestPractices ?? null);
-
     const a11yBorder = scoreBorder(scan.scores?.accessibility ?? null);
     const a11yBg = scoreBg(scan.scores?.accessibility ?? null);
+    console.log("[SEO Lead] PDF generated successfully");
 
-    const emailHtml = await render (
-      <SeoReportEmail
-        scan={enrichedScan}
-        reportUrl={reportUrl}
-        seoBorder={seoBorder}
-        seoBg={seoBg}
-        perfBorder={perfBorder}
-        perfBg={perfBg}
-        bpBorder={bpBorder}
-        bpBg={bpBg}
-        a11yBorder={a11yBorder}
-        a11yBg={a11yBg}
-      />
-    )
+    try {
+      const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://rivercitycreatives.com";
+      const enrichedScan = { ...scan, issues: enrichIssues(scan.issues) };
+      const logoDataUri = await publicFileToDataUri(
+        "logo-rivercity-creatives-horizontal-green-blue.png"
+      );
+      const portraitDataUri = await publicFileToDataUri("isaac-headshot-avatar.png");
+      const bookingUrl = `${SITE}/booking`;
+      const reportUrl = reportToken
+      ? `https://rivercitycreatives.com/reports/seo/${reportToken}`
+      : `https://rivercitycreatives.com/contact`;
+      const webhookUrl = process.env.GHL_WEBHOOK_URL_SEO_WEB_CHK;
+      // Build assets as data URIs (safe for react-pdf render on server)
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM!,
-      to: trimmedEmail,
-      subject: `Your SEO Audit Results Are In — Here’s What to Fix First`,
-      text: `Here's your SEO fix report for ${scan.url}. Your site scored: ${scan.grade}. See the attached PDF for detailed fixes.`,
-      html: emailHtml,
-      attachments: [
-        {
-          filename: "seo-fix-report.pdf",
-          content: pdfBuffer,
-          contentType: "application/pdf",
+      // Generate PDF buffer
+      const pdfBuffer = await renderToBuffer(
+        <SeoReportPdf
+          scan={enrichedScan}
+          logoSrc={logoDataUri}
+          portraitSrc={portraitDataUri}
+          callUrl={bookingUrl}
+        />
+      );
+
+      if (!webhookUrl) {
+        throw new Error("GHL webhook URL not configured");
+      }
+
+      // Prepare payload with all relevant data
+      const webhookPayload = {
+        email,
+        firstName,
+        bookingUrl,
+        pageUrl,
+        reportUrl,
+        source: "Website SEO Scan",
+        scan: {
+          url: scan.url,
+          grade: scan.grade,
+          scores: {
+            seo: scan.scores?.seo ?? null,
+            performance: scan.scores?.performance ?? null,
+            bestPractices: scan.scores?.bestPractices ?? null,
+            accessibility: scan.scores?.accessibility ?? null,
+          },
         },
-      ],
-    });
+        seoBorder,
+        seoBg,
+        perfBorder,
+        perfBg,
+        bpBorder,
+        bpBg,
+        a11yBorder,
+        a11yBg,
+      };
+
+      const webhookRes = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(webhookPayload),
+        cache: "no-store",
+      });
+
+      if (!webhookRes.ok) {
+        const text = await webhookRes.text();
+        throw new Error(`GHL Webhook failed: ${webhookRes.status} ${text}`);
+      }
+    } catch (webhookErr: any) {
+      console.error("GHL Webhook Error:", webhookErr);
+      // Store delivery failure (does NOT block signup)
+      // await ovhPool.execute(
+      //   `UPDATE newsletter_signups SET last_checklist_error=?, updated_at=CURRENT_TIMESTAMP() WHERE email=?`,
+      //   [webhookErr?.message || "Checklist webhook failed", email]
+      // );
+    }
+
+    // 3) Send email with PDF attachment
+    // console.log("[SEO Lead] Sending email");
+    // const transporter = nodemailer.createTransport({
+    //   host: process.env.SMTP_HOST!,
+    //   port: Number(process.env.SMTP_PORT || 587),
+    //   secure: Number(process.env.SMTP_PORT) === 465, // ✅ important
+    //   auth: {
+    //     user: process.env.SMTP_USER!,
+    //     pass: process.env.SMTP_PASS!,
+    //   },
+    //   logger: true,
+    //   debug: true,
+    //   connectionTimeout: 20_000,
+    //   greetingTimeout: 20_000,
+    //   socketTimeout: 20_000,
+    // });
+
+    // await transporter.verify();
+    // console.log("[SEO Lead] SMTP verified OK");
+
+    // const emailHtml = await render (
+    //   <SeoReportEmail
+    //     scan={enrichedScan}
+    //     reportUrl={reportUrl}
+    //     seoBorder={seoBorder}
+    //     seoBg={seoBg}
+    //     perfBorder={perfBorder}
+    //     perfBg={perfBg}
+    //     bpBorder={bpBorder}
+    //     bpBg={bpBg}
+    //     a11yBorder={a11yBorder}
+    //     a11yBg={a11yBg}
+    //   />
+    // )
+
+    // await transporter.sendMail({
+    //   from: process.env.SMTP_FROM!,
+    //   to: trimmedEmail,
+    //   subject: `Your SEO Audit Results Are In — Here’s What to Fix First`,
+    //   text: `Here's your SEO fix report for ${scan.url}. Your site scored: ${scan.grade}. See the attached PDF for detailed fixes.`,
+    //   html: emailHtml,
+    //   attachments: [
+    //     {
+    //       filename: "seo-fix-report.pdf",
+    //       content: pdfBuffer,
+    //       contentType: "application/pdf",
+    //     },
+    //   ],
+    // });
 
     console.log("[SEO Lead] Email sent successfully to:", trimmedEmail);
     return NextResponse.json({ ok: true });

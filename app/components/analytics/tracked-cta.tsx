@@ -7,7 +7,7 @@ import { trackCtaClick } from "@/lib/analytics/events";
 import React from "react";
 
 type TrackedCTAProps = {
-  href: string;
+  href?: string;
   cta_id: string;
   location: string;
   label?: string;
@@ -17,7 +17,7 @@ type TrackedCTAProps = {
 };
 
 export function TrackedCTA({
-  href,
+  href = "#",
   cta_id,
   location,
   label,
@@ -32,6 +32,10 @@ export function TrackedCTA({
   };
 
   const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    // Prevent hash-only hrefs from scrolling/changing the URL
+    if (href === '#' || href.startsWith('#')) {
+      e.preventDefault();
+    }
     // Allow parent click logic (close menus, etc.)
     onClick?.(e);
   };
