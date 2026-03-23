@@ -13,6 +13,8 @@ export function ContactFormGridWithDetails() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState("");
+  const [consentChecked, setConsentChecked] = useState(false);
+  const [showConsentError, setShowConsentError] = useState(false);
 
   function fireConfetti(durationMs = 1200) {
     const end = Date.now() + durationMs;
@@ -33,6 +35,13 @@ export function ContactFormGridWithDetails() {
     // console.log("Message length:", message?.length);
     setStatus("");
     setSubmitted(false);
+
+    if (!consentChecked) {
+      setShowConsentError(true);
+      return;
+    }
+
+    setShowConsentError(false);
     
     const formData = { name, email, company, message };
     // console.log("Sending contact form data...", formData);
@@ -65,6 +74,9 @@ export function ContactFormGridWithDetails() {
         setEmail("");
         setCompany("");
         setMessage("");
+        setConsentChecked(false);
+        setShowConsentError(false);
+
         fireConfetti(2000);
       } else {
         // console.error("One or both requests failed");
@@ -197,6 +209,28 @@ export function ContactFormGridWithDetails() {
           <button type="submit" className="relative z-10 flex items-center justify-center rounded-md border border-transparent bg-navy-800 px-4 py-2 text-sm font-medium text-white shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200 hover:bg-navy-900 md:text-sm">
             Submit
           </button>
+          <div className="flex items-start w-full font-avenir pt-4">
+            <input
+              id="report-consent"
+              type="checkbox"
+              checked={consentChecked}
+              onChange={(e) => {
+                setConsentChecked(e.target.checked);
+                if (e.target.checked) setShowConsentError(false);
+              }}
+              className="mt-1 mr-2 accent-navy-500"
+              required
+            />
+            <label htmlFor="report-consent" className="text-sm text-gray-700 leading-tight">
+              By submitting this form, you agree to receive SMS text messages from RiverCity Creatives 
+              regarding your inquiry, project updates, and occasional service-related communications. 
+              Message frequency may vary. Message & data rates may apply. Reply STOP to opt out at any 
+              time, or HELP for assistance.  By submitting, you agree to our{" "}
+              <a href="/privacy" className="underline hover:text-navy-700">Privacy Policy</a>{" "}
+              and{" "}
+              <a href="/terms" className="underline hover:text-navy-700">Terms of Service</a>.
+            </label>
+          </div>
         </form>
         {submitted && status === "success" && (
           <div className="mt-4 w-full rounded-xl border border-green-200 bg-green-50 p-4">
@@ -212,6 +246,11 @@ export function ContactFormGridWithDetails() {
             <div className="text-red-700/90 mt-1">
               Please try again or email us directly.
             </div>
+          </div>
+        )}
+        {showConsentError && (
+          <div className="text-xs text-red-600 mt-2 w-full text-left">
+            Please check the box to submit messages.
           </div>
         )}
       </div>
