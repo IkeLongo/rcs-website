@@ -1,0 +1,14 @@
+/* Custom scrollbar for chat textarea */
+.chat-scrollbar::-webkit-scrollbar {
+	width: 10px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+	background: #d1d5db;
+	border-radius: 8px;
+	border: 2px solid #fff;
+	padding-right: 4px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+	padding-right: 4px;
+}

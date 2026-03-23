@@ -1,5 +1,6 @@
 // app/(site)/layout.tsx
 
+import { ChatWidget } from "@/app/components/chat/ChatWidget";
 import Navbar from "@/app/components/layouts/navbar/navbar";
 
 export default function MainNavLayout({ children }: { children: React.ReactNode }) {
@@ -9,7 +10,10 @@ export default function MainNavLayout({ children }: { children: React.ReactNode 
         <Navbar />
       </div>
 
-      <div>{children}</div>
+      <div>
+        {children}
+        <ChatWidget />
+      </div>
     </>
   );
 }
