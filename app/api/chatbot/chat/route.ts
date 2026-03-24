@@ -34,7 +34,7 @@ ${businessContext}
     console.log("=== END PREVIEW ===\n");
 
     const result = streamText({
-      model: openai("gpt-4.1-mini"),
+      model: openai("gpt-4o-mini"),
       system: fullSystemPrompt,
       messages: await convertToModelMessages(messages),
     });
