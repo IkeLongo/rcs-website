@@ -1,14 +1,35 @@
 
 "use client";
 
+import React from "react";
 import { User, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 import type { UIMessage } from "ai";
+import { ContactCollectionForm, type ContactFormData } from "./ContactCollectionForm";
+import { ChatBookingWidget } from "./ChatBookingWidget";
 
 type ChatMessageListProps = {
   messages: UIMessage[];
+  onContactSubmit: (toolCallId: string, data: ContactFormData) => Promise<void>;
+  onBookingConfirm: (toolCallId: string) => Promise<void>;
+  disabled?: boolean;
 };
+
+// Render inline **bold** markdown as <strong> without showing the asterisks
+function renderInlineBold(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  if (parts.length === 1) return text;
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith("**") && part.endsWith("**")
+          ? <strong key={i}>{part.slice(2, -2)}</strong>
+          : part
+      )}
+    </>
+  );
+}
 
 // Parse markdown links [text](url) and extract them separately
 function extractLinks(text: string): { cleanText: string; links: Array<{ text: string; url: string }> } {
@@ -30,7 +51,10 @@ function extractLinks(text: string): { cleanText: string; links: Array<{ text: s
   return { cleanText, links };
 }
 
-export function ChatMessageList({ messages }: ChatMessageListProps) {
+export function ChatMessageList({ messages, onContactSubmit, onBookingConfirm, disabled }: ChatMessageListProps) {
+  // Collect any standalone forms (from tool invocations) to render outside bubbles
+  const toolForms: React.ReactNode[] = [];
+  console.log("[ChatMessageList] messages:", messages.length, messages.map(m => ({ role: m.role, parts: m.parts.map(p => ({ type: p.type, ...(p as any) })) })));
   if (!messages.length) {
     return (
       <div className="flex">
@@ -100,15 +124,15 @@ export function ChatMessageList({ messages }: ChatMessageListProps) {
                                         const [service, ...rest] = line.slice(2).split(":");
                                         return (
                                           <>
-                                            <strong>{service.trim()}</strong>
-                                            {":" + rest.join(":")}
+                                            <strong>{service.trim().replace(/\*\*/g, "")}</strong>
+                                            {renderInlineBold(":" + rest.join(":"))}
                                           </>
                                         );
                                       })()}
                                     </p>
                                   ) : line.trim() ? (
                                     <p className="leading-6 break-words whitespace-pre-line">
-                                      {line}
+                                      {renderInlineBold(line)}
                                     </p>
                                   ) : null}
                                 </div>
@@ -167,6 +191,38 @@ export function ChatMessageList({ messages }: ChatMessageListProps) {
                   </div>
                   <div className="space-y-2">
                     {message.parts.map((part, index) => {
+                      // Tool calls: type is "tool-{toolName}" (e.g. "tool-collectContactInfo")
+                      if ((part.type as string).startsWith("tool-")) {
+                        const inv = part as any;
+                        // Tool name is encoded in the type after the "tool-" prefix
+                        const toolName: string = inv.toolName ?? (part.type as string).slice(5);
+                        console.log("[ChatMessageList] tool part:", { type: part.type, toolName, toolCallId: inv.toolCallId, state: inv.state, hasOutput: !!inv.output });
+                        // Show form when state is "input-available" (unresolved) — output is injected by addToolOutput
+                        if (!inv.output) {
+                          const id: string = inv.toolCallId ?? String(index);
+                          console.log("[ChatMessageList] pushing form for:", toolName, "id:", id);
+                          if (toolName === "collectContactInfo") {
+                            toolForms.push(
+                              <ContactCollectionForm
+                                key={`tool-${id}`}
+                                onSubmit={(data) => onContactSubmit(id, data)}
+                                disabled={disabled}
+                              />
+                            );
+                          }
+                          if (toolName === "scheduleCall") {
+                            toolForms.push(
+                              <ChatBookingWidget
+                                key={`tool-${id}`}
+                                onConfirm={() => onBookingConfirm(id)}
+                                disabled={disabled}
+                              />
+                            );
+                          }
+                        }
+                        return null;
+                      }
+
                       if (part.type === "text") {
                         // Extract all links from the text
                         const lines = part.text.split("\n");
@@ -191,17 +247,19 @@ export function ChatMessageList({ messages }: ChatMessageListProps) {
                                       {"- "}
                                       {(() => {
                                         const [service, ...rest] = line.slice(2).split(":");
+                                        // Strip ** markers from service name — bold is applied via <strong>
+                                        const cleanService = service.trim().replace(/\*\*/g, "");
                                         return (
                                           <>
-                                            <strong>{service.trim()}</strong>
-                                            {":" + rest.join(":")}
+                                            <strong>{cleanService}</strong>
+                                            {renderInlineBold(":" + rest.join(":"))}
                                           </>
                                         );
                                       })()}
                                     </p>
                                   ) : line.trim() ? (
                                     <p className="leading-6 whitespace-pre-line">
-                                      {line}
+                                      {renderInlineBold(line)}
                                     </p>
                                   ) : null}
                                 </div>
@@ -237,6 +295,8 @@ export function ChatMessageList({ messages }: ChatMessageListProps) {
           </div>
         );
       })}
+      {/* Forms rendered outside message bubbles, full width */}
+      {toolForms}
     </div>
   );
 }

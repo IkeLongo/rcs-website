@@ -6,7 +6,8 @@ import { DefaultChatTransport } from "ai";
 import { QuickActions } from "./QuickActions";
 import { ChatMessageList } from "./ChatMessageList";
 import { ChatInput } from "./ChatInput";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import type { ContactFormData } from "./ContactCollectionForm";
 
 const CHAT_STORAGE_KEY = "rivercity-chat-messages";
 
@@ -19,10 +20,28 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
   const [quickActionsVisible, setQuickActionsVisible] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  const { messages, setMessages, sendMessage, status, error } = useChat({
+  const { messages, setMessages, sendMessage, addToolOutput, status, error } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/chatbot/chat",
     }),
+    // Re-submit to AI after addToolOutput resolves a tool call,
+    // but ONLY if the AI hasn't already responded with text (prevents infinite loop)
+    sendAutomaticallyWhen: ({ messages: msgs }) => {
+      const last = msgs[msgs.length - 1];
+      if (!last || last.role !== "assistant") {
+        console.log("[sendAutomaticallyWhen] skipping — last message role:", last?.role);
+        return false;
+      }
+      console.log("[sendAutomaticallyWhen] evaluating last assistant message parts:", JSON.stringify(last.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, outputValue: p.output, state: p.state, textPreview: p.text?.slice?.(0, 50) })), null, 2));
+      const hasResolvedTool = last.parts.some(
+        (p: any) => (p.type as string)?.startsWith("tool-") && p.output
+      );
+      const hasTextResponse = last.parts.some(
+        (p: any) => p.type === "text" && (p as any).text?.trim()
+      );
+      console.log("[sendAutomaticallyWhen] hasResolvedTool:", hasResolvedTool, "hasTextResponse:", hasTextResponse, "→ will send:", hasResolvedTool && !hasTextResponse);
+      return hasResolvedTool && !hasTextResponse;
+    },
   });
 
   // Load initial messages from sessionStorage on mount
@@ -62,6 +81,11 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
 
   const isBusy = status === "submitted" || status === "streaming";
 
+  // Debug: log status changes
+  useEffect(() => {
+    console.log("[ChatWindow] status changed:", status);
+  }, [status]);
+
   // Hide quick actions if user has sent a message
   const hasUserSentMessage = messages.some((m) => m.role === "user");
 
@@ -78,6 +102,46 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
         },
       }
     );
+  };
+
+  const handleContactSubmit = async (toolCallId: string, data: ContactFormData) => {
+    console.log("[ChatWindow] handleContactSubmit called, toolCallId:", toolCallId, "data:", data);
+    // Fire webhook in background - don't block the UI
+    fetch("/api/chatbot/chat-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "contact", ...data }),
+    }).catch((err) => console.error("chat-lead webhook error:", err));
+
+    // Resolve the tool call so the AI can respond
+    console.log("[ChatWindow] calling addToolOutput for collectContactInfo, toolCallId:", toolCallId);
+    await addToolOutput({
+      toolCallId,
+      tool: "collectContactInfo",
+      output: {
+        submitted: true,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        message: data.message,
+      },
+    });
+    console.log("[ChatWindow] addToolOutput resolved. status:", status);
+    console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
+  };
+
+  const handleBookingConfirm = async (toolCallId: string) => {
+    console.log("[ChatWindow] handleBookingConfirm called, toolCallId:", toolCallId);
+    // GHL handles the actual booking — just resolve the tool so the AI can respond
+    console.log("[ChatWindow] calling addToolOutput for scheduleCall, toolCallId:", toolCallId);
+    await addToolOutput({
+      toolCallId,
+      tool: "scheduleCall",
+      output: { confirmed: true },
+    });
+    console.log("[ChatWindow] addToolOutput resolved. status:", status);
+    console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
   };
 
   return (
@@ -103,7 +167,12 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-4">
-        <ChatMessageList messages={messages} />
+        <ChatMessageList
+          messages={messages}
+          onContactSubmit={handleContactSubmit}
+          onBookingConfirm={handleBookingConfirm}
+          disabled={isBusy}
+        />
       </div>
 
       {showQuickActions && (

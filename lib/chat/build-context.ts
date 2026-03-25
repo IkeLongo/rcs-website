@@ -108,6 +108,12 @@ export async function buildBusinessContext(userMessage: string) {
   lines.push("ALL ACTIVE SERVICES:");
   for (const service of allServices) {
     lines.push(`- ${service.name}: ${service.short_description}`);
+    if (service.starting_price !== null) {
+      lines.push(`  Starting price: $${Number(service.starting_price).toFixed(2)}`);
+    }
+    if (service.pricing_notes) {
+      lines.push(`  Pricing notes: ${service.pricing_notes}`);
+    }
   }
 
   const finalContext = lines.join("\n");

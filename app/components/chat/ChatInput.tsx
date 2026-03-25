@@ -28,6 +28,16 @@ export function ChatInput({
     }
   }, [input]);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      const trimmed = input.trim();
+      if (!trimmed || disabled) return;
+      onSubmit(trimmed);
+      setInput("");
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -46,6 +56,7 @@ export function ChatInput({
           ref={textareaRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="Tell me about your project..."
           disabled={disabled}
           rows={1}
