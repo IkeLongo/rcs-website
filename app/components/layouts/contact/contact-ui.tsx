@@ -261,9 +261,9 @@ export function ContactFormGridWithDetails() {
             />
             <label htmlFor="report-consent" className="text-sm text-gray-700 leading-tight">
               By submitting this form, you agree to receive SMS text messages from RiverCity Creatives 
-              regarding your inquiry, project updates, and occasional service-related communications. 
-              Message frequency may vary. Message & data rates may apply. Reply STOP to opt out at any 
-              time, or HELP for assistance.  By submitting, you agree to our{" "}
+              regarding your inquiry. Message frequency may vary. Message & data rates may apply. 
+              Reply STOP to opt out at any time, or HELP for assistance.  By submitting, you agree 
+              to our{" "}
               <a href="/privacy" className="underline hover:text-navy-700">Privacy Policy</a>{" "}
               and{" "}
               <a href="/terms" className="underline hover:text-navy-700">Terms of Service</a>.
