@@ -6,15 +6,15 @@ import { render } from "@react-email/render";
 export async function POST(req: Request) {
 	try {
 		const body = await req.json();
-		console.log("[CONTACT API] Received request body:", body);
+		// console.log("[CONTACT API] Received request body:", body);
 		
-		const { name, email, company, message } = body;
-		console.log("[CONTACT API] Destructured message:", message);
-		console.log("[CONTACT API] Message type:", typeof message);
-		console.log("[CONTACT API] Message length:", message?.length);
+		const { name, email, phone, company, message } = body;
+		// console.log("[CONTACT API] Destructured message:", message);
+		// console.log("[CONTACT API] Message type:", typeof message);
+		// console.log("[CONTACT API] Message length:", message?.length);
 		
-		if (!name || !email || !message) {
-			console.log("[CONTACT API] Missing required fields - name:", !!name, "email:", !!email, "message:", !!message);
+		if (!name || !email || !phone || !company || !message) {
+			// console.log("[CONTACT API] Missing required fields - name:", !!name, "email:", !!email, "phone:", !!phone, "company:", !!company, "message:", !!message);
 			return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
 		}
 
@@ -34,6 +34,7 @@ export async function POST(req: Request) {
 			<ContactFormSubmissionEmail
 				name={name}
 				email={email}
+				phone={phone}
 				company={company}
 				message={message}
 				submittedAt={new Date().toLocaleString()}

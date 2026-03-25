@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { formatPhoneNumber, isValidPhoneNumber, isValidEmail } from "@/lib/utils/validation";
 import { IconMailFilled } from "@tabler/icons-react";
 import { useId } from "react";
 import { cn } from "@/lib/utils";
@@ -9,12 +10,15 @@ import confetti from "canvas-confetti";
 export function ContactFormGridWithDetails() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState("");
   const [consentChecked, setConsentChecked] = useState(false);
   const [showConsentError, setShowConsentError] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   function fireConfetti(durationMs = 1200) {
     const end = Date.now() + durationMs;
@@ -35,59 +39,59 @@ export function ContactFormGridWithDetails() {
     // console.log("Message length:", message?.length);
     setStatus("");
     setSubmitted(false);
+    setPhoneError("");
+    setEmailError("");
 
     if (!consentChecked) {
       setShowConsentError(true);
       return;
     }
-
     setShowConsentError(false);
-    
-    const formData = { name, email, company, message };
-    // console.log("Sending contact form data...", formData);
-    // console.log("Stringified data:", JSON.stringify(formData));
-    
+
+    // Validate phone
+    if (!isValidPhoneNumber(phone)) {
+      setPhoneError("Phone number must be 10 digits");
+      return;
+    }
+
+    // Validate email
+    if (!isValidEmail(email)) {
+      setEmailError("Invalid email address");
+      return;
+    }
+
+    const formData = { name, email, phone, company, message };
     try {
       // Send admin notification
       const contactRes = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company, message }),
+        body: JSON.stringify({ name, email, phone, company, message }),
       });
-      
-      // console.log("Contact API response:", contactRes.status, contactRes.ok);
-      
       // Send client confirmation and store contact
       const leadRes = await fetch("/api/contact/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company, message }),
+        body: JSON.stringify({ name, email, phone, company, message }),
       });
-      
-      // console.log("Lead API response:", leadRes.status, leadRes.ok);
-      
       if (contactRes.ok && leadRes.ok) {
-        // console.log("Both requests successful - showing success message");
         setStatus("success");
         setSubmitted(true);
         setName("");
         setEmail("");
+        setPhone("");
         setCompany("");
         setMessage("");
         setConsentChecked(false);
         setShowConsentError(false);
-
         fireConfetti(2000);
       } else {
-        // console.error("One or both requests failed");
         setStatus("error");
       }
     } catch (error) {
-      // console.error("Error submitting form:", error);
       setStatus("error");
     }
-    
-    return false; // Extra safeguard against form submission
+    return false;
   };
 
   return (
@@ -171,8 +175,42 @@ export function ContactFormGridWithDetails() {
               placeholder="contact@rivercitycreatives.com"
               className="shadow-input h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 outline-none focus:ring-2 focus:ring-neutral-800 focus:outline-none active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError("");
+              }}
             />
+            {emailError && (
+              <div className="text-xs text-red-600 mt-1">{emailError}</div>
+            )}
+          </div>
+          <div className="relative z-20 mb-4 w-full">
+            <label
+              className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+              htmlFor="phone"
+            >
+              Phone Number
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              inputMode="numeric"
+              placeholder="(123) 456-7890"
+              className="shadow-input h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 outline-none focus:ring-2 focus:ring-neutral-800 focus:outline-none active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+              value={formatPhoneNumber(phone)}
+              maxLength={14}
+              onChange={(e) => {
+                // Only allow numbers, format as (XXX) XXX-XXXX
+                const raw = e.target.value.replace(/\D/g, "");
+                if (raw.length <= 10) {
+                  setPhone(raw);
+                  setPhoneError("");
+                }
+              }}
+            />
+            {phoneError && (
+              <div className="text-xs text-red-600 mt-1">{phoneError}</div>
+            )}
           </div>
           <div className="relative z-20 mb-4 w-full">
             <label

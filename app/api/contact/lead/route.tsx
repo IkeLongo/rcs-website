@@ -12,16 +12,24 @@ export async function POST(request: Request) {
 		const body = await request.json();
 		// console.log("[LEAD API] Received request body:", body);
 		
-		const { name, email, company, message, source, status } = body;
+		const { name, email, phone, company, message, source, status } = body;
 		// console.log("[LEAD API] Destructured message:", message);
 		// console.log("[LEAD API] Message type:", typeof message);
 		// console.log("[LEAD API] Message length:", message?.length);
 
-		// 1) Save to DB
-		await ovhPool.execute(
-			`INSERT INTO contacts (name, email, company, source, status) VALUES (?, ?, ?, ?, ?)`,
-			[name, email, company || '', source || '', status || 'new']
-		);
+    // 1) Upsert to DB: if email exists, update; else insert new
+    // Assumes 'email' is a UNIQUE key in the contacts table
+    await ovhPool.execute(
+      `INSERT INTO contacts (name, email, phone, company, source, status)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON DUPLICATE KEY UPDATE
+        name = VALUES(name),
+        phone = VALUES(phone),
+        company = VALUES(company),
+        source = VALUES(source),
+        status = VALUES(status)`,
+      [name, email, phone || '', company || '', source || '', status || 'new']
+    );
 
     // // Create transporter
     // const transporter = nodemailer.createTransport({
@@ -55,6 +63,7 @@ export async function POST(request: Request) {
       const webhookPayload = {
         name,
         email,
+        phone: phone || "",
         company: company || "",
         message: message || "",
         source: "Website Contact Form",

@@ -3,12 +3,14 @@ import React from "react";
 export function ContactFormSubmissionEmail({
 	name,
 	email,
+	phone,
 	company,
 	message,
 	submittedAt,
 }: {
 	name: string;
 	email: string;
+	phone: string;
 	company?: string;
 	message: string;
 	submittedAt?: string;
@@ -49,6 +51,9 @@ export function ContactFormSubmissionEmail({
 																</div>
 																<div style={{ fontFamily: 'Source Sans 3, Arial, sans-serif', fontSize: 15, color: '#111827', marginBottom: 6 }}>
 																	<strong>Email:</strong> <a href={`mailto:${email}`} style={{ color: '#0c2244', textDecoration: 'underline' }}>{email}</a>
+																</div>
+																<div style={{ fontFamily: 'Source Sans 3, Arial, sans-serif', fontSize: 15, color: '#111827', marginBottom: 6 }}>
+																	<strong>Phone:</strong> <a href={`tel:${phone}`} style={{ color: '#0c2244', textDecoration: 'underline' }}>{phone}</a>
 																</div>
 																{company && (
 																	<div style={{ fontFamily: 'Source Sans 3, Arial, sans-serif', fontSize: 15, color: '#111827', marginBottom: 6 }}>
