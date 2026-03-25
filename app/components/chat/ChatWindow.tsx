@@ -29,17 +29,17 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
     sendAutomaticallyWhen: ({ messages: msgs }) => {
       const last = msgs[msgs.length - 1];
       if (!last || last.role !== "assistant") {
-        console.log("[sendAutomaticallyWhen] skipping — last message role:", last?.role);
+        // console.log("[sendAutomaticallyWhen] skipping — last message role:", last?.role);
         return false;
       }
-      console.log("[sendAutomaticallyWhen] evaluating last assistant message parts:", JSON.stringify(last.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, outputValue: p.output, state: p.state, textPreview: p.text?.slice?.(0, 50) })), null, 2));
+      // console.log("[sendAutomaticallyWhen] evaluating last assistant message parts:", JSON.stringify(last.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, outputValue: p.output, state: p.state, textPreview: p.text?.slice?.(0, 50) })), null, 2));
       const hasResolvedTool = last.parts.some(
         (p: any) => (p.type as string)?.startsWith("tool-") && p.output
       );
       const hasTextResponse = last.parts.some(
         (p: any) => p.type === "text" && (p as any).text?.trim()
       );
-      console.log("[sendAutomaticallyWhen] hasResolvedTool:", hasResolvedTool, "hasTextResponse:", hasTextResponse, "→ will send:", hasResolvedTool && !hasTextResponse);
+      // console.log("[sendAutomaticallyWhen] hasResolvedTool:", hasResolvedTool, "hasTextResponse:", hasTextResponse, "→ will send:", hasResolvedTool && !hasTextResponse);
       return hasResolvedTool && !hasTextResponse;
     },
   });
@@ -82,9 +82,9 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
   const isBusy = status === "submitted" || status === "streaming";
 
   // Debug: log status changes
-  useEffect(() => {
-    console.log("[ChatWindow] status changed:", status);
-  }, [status]);
+  // useEffect(() => {
+  //   console.log("[ChatWindow] status changed:", status);
+  // }, [status]);
 
   // Hide quick actions if user has sent a message
   const hasUserSentMessage = messages.some((m) => m.role === "user");
@@ -105,7 +105,7 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
   };
 
   const handleContactSubmit = async (toolCallId: string, data: ContactFormData) => {
-    console.log("[ChatWindow] handleContactSubmit called, toolCallId:", toolCallId, "data:", data);
+    // console.log("[ChatWindow] handleContactSubmit called, toolCallId:", toolCallId, "data:", data);
     // Fire webhook in background - don't block the UI
     fetch("/api/chatbot/chat-lead", {
       method: "POST",
@@ -114,7 +114,7 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
     }).catch((err) => console.error("chat-lead webhook error:", err));
 
     // Resolve the tool call so the AI can respond
-    console.log("[ChatWindow] calling addToolOutput for collectContactInfo, toolCallId:", toolCallId);
+    // console.log("[ChatWindow] calling addToolOutput for collectContactInfo, toolCallId:", toolCallId);
     await addToolOutput({
       toolCallId,
       tool: "collectContactInfo",
@@ -127,21 +127,21 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
         message: data.message,
       },
     });
-    console.log("[ChatWindow] addToolOutput resolved. status:", status);
-    console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
+    // console.log("[ChatWindow] addToolOutput resolved. status:", status);
+    // console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
   };
 
   const handleBookingConfirm = async (toolCallId: string) => {
-    console.log("[ChatWindow] handleBookingConfirm called, toolCallId:", toolCallId);
+    // console.log("[ChatWindow] handleBookingConfirm called, toolCallId:", toolCallId);
     // GHL handles the actual booking — just resolve the tool so the AI can respond
-    console.log("[ChatWindow] calling addToolOutput for scheduleCall, toolCallId:", toolCallId);
+    // console.log("[ChatWindow] calling addToolOutput for scheduleCall, toolCallId:", toolCallId);
     await addToolOutput({
       toolCallId,
       tool: "scheduleCall",
       output: { confirmed: true },
     });
-    console.log("[ChatWindow] addToolOutput resolved. status:", status);
-    console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
+    // console.log("[ChatWindow] addToolOutput resolved. status:", status);
+    // console.log("[ChatWindow] messages after addToolOutput:", JSON.stringify(messages.map(m => ({ role: m.role, parts: m.parts.map((p: any) => ({ type: p.type, hasOutput: !!p.output, state: p.state, text: p.text?.slice?.(0, 40) })) })), null, 2));
   };
 
   return (

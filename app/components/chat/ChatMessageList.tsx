@@ -54,7 +54,7 @@ function extractLinks(text: string): { cleanText: string; links: Array<{ text: s
 export function ChatMessageList({ messages, onContactSubmit, onBookingConfirm, disabled }: ChatMessageListProps) {
   // Collect any standalone forms (from tool invocations) to render outside bubbles
   const toolForms: React.ReactNode[] = [];
-  console.log("[ChatMessageList] messages:", messages.length, messages.map(m => ({ role: m.role, parts: m.parts.map(p => ({ type: p.type, ...(p as any) })) })));
+  // console.log("[ChatMessageList] messages:", messages.length, messages.map(m => ({ role: m.role, parts: m.parts.map(p => ({ type: p.type, ...(p as any) })) })));
   if (!messages.length) {
     return (
       <div className="flex">
@@ -196,11 +196,11 @@ export function ChatMessageList({ messages, onContactSubmit, onBookingConfirm, d
                         const inv = part as any;
                         // Tool name is encoded in the type after the "tool-" prefix
                         const toolName: string = inv.toolName ?? (part.type as string).slice(5);
-                        console.log("[ChatMessageList] tool part:", { type: part.type, toolName, toolCallId: inv.toolCallId, state: inv.state, hasOutput: !!inv.output });
+                        // console.log("[ChatMessageList] tool part:", { type: part.type, toolName, toolCallId: inv.toolCallId, state: inv.state, hasOutput: !!inv.output });
                         // Show form when state is "input-available" (unresolved) — output is injected by addToolOutput
                         if (!inv.output) {
                           const id: string = inv.toolCallId ?? String(index);
-                          console.log("[ChatMessageList] pushing form for:", toolName, "id:", id);
+                          // console.log("[ChatMessageList] pushing form for:", toolName, "id:", id);
                           if (toolName === "collectContactInfo") {
                             toolForms.push(
                               <ContactCollectionForm

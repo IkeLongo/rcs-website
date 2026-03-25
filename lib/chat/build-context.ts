@@ -18,24 +18,24 @@ export async function buildBusinessContext(userMessage: string) {
   ]);
 
   // Debug logging
-  console.log("\n=== CHAT CONTEXT DEBUG ===");
-  console.log("User message:", userMessage);
-  console.log("Matched recommendations:", recommendations.length);
-  console.log("Matched services:", services.length);
-  if (services.length > 0) {
-    console.log("Service details:", services.map(s => ({
-      name: s.name,
-      starting_price: s.starting_price,
-      pricing_notes: s.pricing_notes
-    })));
-  }
-  if (recommendations.length > 0) {
-    console.log("Recommendation details:", recommendations.map(r => ({
-      service_name: r.service_name,
-      starting_price: r.starting_price,
-      pricing_notes: r.pricing_notes
-    })));
-  }
+  // console.log("\n=== CHAT CONTEXT DEBUG ===");
+  // console.log("User message:", userMessage);
+  // console.log("Matched recommendations:", recommendations.length);
+  // console.log("Matched services:", services.length);
+  // if (services.length > 0) {
+  //   console.log("Service details:", services.map(s => ({
+  //     name: s.name,
+  //     starting_price: s.starting_price,
+  //     pricing_notes: s.pricing_notes
+  //   })));
+  // }
+  // if (recommendations.length > 0) {
+  //   console.log("Recommendation details:", recommendations.map(r => ({
+  //     service_name: r.service_name,
+  //     starting_price: r.starting_price,
+  //     pricing_notes: r.pricing_notes
+  //   })));
+  // }
 
   const lines: string[] = [];
 
@@ -117,8 +117,8 @@ export async function buildBusinessContext(userMessage: string) {
   }
 
   const finalContext = lines.join("\n");
-  console.log("\nFinal context length:", finalContext.length, "characters");
-  console.log("=== END CHAT CONTEXT DEBUG ===\n");
+  // console.log("\nFinal context length:", finalContext.length, "characters");
+  // console.log("=== END CHAT CONTEXT DEBUG ===\n");
   
   return finalContext;
 }
