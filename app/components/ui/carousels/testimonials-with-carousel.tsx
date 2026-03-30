@@ -137,87 +137,87 @@ interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    name: "Manu Arora",
+    name: "Mario Gonzalez",
     quote:
-      "What a fantastic AI Proactiv AI is, I just love it. It has completely transformed how I approach problems.",
+      "Rivercity Creatives completely transformed our online presence. Within two months of launching our new site, we saw a 40% increase in leads. They didn't just build a website — they built us a sales tool.",
     src: "https://assets.aceternity.com/avatars/1.webp",
-    designation: "Tech Innovator & Entrepreneur",
+    designation: "Owner, Gonzalez Family Law",
   },
   {
-    name: "Tyler Durden",
+    name: "Denise Tran",
     quote:
-      "I made a soap with the help of AI, it was so easy to use. Highly recommend it to anyone looking to create.",
+      "Our old website was embarrassing to share. The team at Rivercity gave us a brand identity that finally matches the quality of our work. Now I'm proud to hand out my business card.",
     src: "https://assets.aceternity.com/avatars/2.webp",
-    designation: "Creative Director & Business Owner",
+    designation: "Founder, Tran Construction Co.",
   },
   {
-    name: "Alice Johnson",
+    name: "Samuel Reyes",
     quote:
-      "This AI has transformed the way I work! It's like having a brilliant assistant who knows what I need.",
+      "I came to them with just a logo and a vision. They turned it into a full brand — colors, fonts, website, the whole package. My boutique looks and feels legit now. Customers comment on it all the time.",
     src: "https://assets.aceternity.com/avatars/3.webp",
-    designation: "Senior Software Engineer",
+    designation: "Owner, Solis Boutique",
   },
   {
-    name: "Bob Smith",
+    name: "James Whitfield",
     quote:
-      "Absolutely revolutionary, a game-changer for our industry. It has exceeded all of our expectations so far.",
+      "They redesigned our site and handled our SEO. We went from page 5 on Google to page 1 in under 90 days. The ROI has been incredible and the team was easy to work with throughout.",
     src: "https://assets.aceternity.com/avatars/4.webp",
-    designation: "Industry Analyst",
+    designation: "CEO, Whitfield Roofing",
   },
   {
-    name: "Cathy Lee",
+    name: "Priya Nair",
     quote:
-      "I can't imagine going back to how things were before this AI. It's become essential to our daily workflow.",
-    src: "https://assets.aceternity.com/avatars/5.webp",
-    designation: "Product Manager",
-  },
-  {
-    name: "David Wright",
-    quote:
-      "It's like having a superpower! This AI tool has given us abilities we never thought were possible before.",
+      "As a photographer, my website is everything. Rivercity understood that immediately. The design they created showcases my portfolio beautifully and the site loads fast on every device.",
     src: "https://assets.aceternity.com/avatars/6.webp",
-    designation: "Research Scientist",
+    designation: "Founder, Nair Photography",
   },
   {
-    name: "Eva Green",
+    name: "Carlos Mendoza",
     quote:
-      "The efficiency it brings is unmatched. It's a vital tool that has helped us cut costs significantly.",
+      "We run three locations and needed a site that could handle bookings, reviews, and local SEO for each one. Rivercity nailed it. Our phone hasn't stopped ringing since the launch.",
+    src: "https://assets.aceternity.com/avatars/5.webp",
+    designation: "Owner, Mendoza Auto & Tire",
+  },
+  {
+    name: "Angela Brooks",
+    quote:
+      "The branding work they did for our nonprofit was exceptional — and they were incredibly mindful of our budget. Our donors have noticed the professionalism and our online donations doubled.",
     src: "https://assets.aceternity.com/avatars/7.webp",
-    designation: "Operations Director",
+    designation: "Executive Director, Brooks Foundation",
   },
   {
-    name: "Frank Moore",
+    name: "Tania Okafor",
     quote:
-      "A robust solution that fits perfectly into our workflow. It has enhanced our team's capabilities greatly.",
+      "I was skeptical about hiring an agency, but Rivercity earned my trust quickly. They explained every decision, hit every deadline, and the final product blew me away. Worth every penny.",
     src: "https://assets.aceternity.com/avatars/8.webp",
-    designation: "Project Manager",
+    designation: "Founder, Okafor Fitness Studio",
   },
   {
-    name: "Grace Hall",
+    name: "Lisa Harmon",
     quote:
-      "It's incredibly intuitive and easy to use. Even non-technical users can leverage its power effectively.",
+      "From the initial discovery call to launch day, the communication was top-notch. They really listened. The website they designed for my spa feels luxurious — exactly what I wanted.",
     src: "https://assets.aceternity.com/avatars/9.webp",
-    designation: "Marketing Specialist",
+    designation: "Owner, Serenity Med Spa",
   },
   {
-    name: "Henry Ford",
+    name: "Rebecca Vega",
     quote:
-      "It has saved us countless hours. Highly recommended for anyone looking to enhance their productivity.",
+      "Our e-commerce sales jumped 60% in the first quarter after our redesign. Rivercity understood conversion-focused design and it shows. Hands down the best investment we've made.",
     src: "https://assets.aceternity.com/avatars/10.webp",
-    designation: "Operations Analyst",
+    designation: "Owner, Vega Outdoor Gear",
   },
   {
-    name: "Ivy Wilson",
+    name: "Natalie Chu",
     quote:
-      "A must-have tool for any professional. It's revolutionized how we approach problem-solving every day.",
+      "I've worked with two other agencies before and the difference is night and day. Rivercity actually cares about results, not just deliverables. They feel like a true partner in our growth.",
     src: "https://assets.aceternity.com/avatars/11.webp",
-    designation: "Business Consultant",
+    designation: "Marketing Director, Pinnacle Realty Group",
   },
   {
-    name: "Jack Brown",
+    name: "Madeline Ellison",
     quote:
-      "The results are always impressive. This AI has helped us not only meet but exceed our targets.",
+      "They took our outdated, clunky website and turned it into something modern and fast. Our bounce rate dropped dramatically and patients are booking appointments directly online now. Game changer.",
     src: "https://assets.aceternity.com/avatars/12.webp",
-    designation: "Performance Manager",
+    designation: "Practice Manager, Ellison Dental",
   },
 ];

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FooterProps } from '@/types/components';
 import FooterLottie from '../../ui/animations/footer-lottie';
 import { TrackedCTA } from '../../analytics/tracked-cta';
+import { ListChecks } from 'lucide-react';
 
 const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
@@ -180,16 +181,17 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             </div>
           </div>
           <div className="md:hidden lg:flex lg:flex-col justify-center md:justify-start lg:self-start lg:items-start">
-            <p className="!text-left font-bold my-1 !text-white pb-[10px]">
-              🚀 Free SEO Scan{" "}
+            <p className="!text-left font-bold my-1 !text-white pb-[10px] flex items-center gap-2">
+              <ListChecks className="w-5 h-5 text-white shrink-0" />
+              Free Website Revenue Checklist{" "}
               <span className="font-roboto font-medium !text-sm !lg:text-[14px] !text-white">
-                — Get a free audit of your website's speed, SEO, and visibility.
+                — Discover quick wins to turn your website into a revenue machine.
               </span>
             </p>
             <TrackedCTA
-              href="/free-seo-scan"
-              cta_id="seo-scan-footer"
-              location="desktop-footer-seo-scan-button"
+              href="/newsletter"
+              cta_id="revenue-checklist-footer"
+              location="desktop-footer-revenue-checklist-button"
               className={[
                 "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
                 "bg-lime-500 text-navy-800 shadow-sm",
@@ -197,7 +199,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                 "flex items-center justify-center"
               ].join(" ")}
             >
-              Scan My Site
+              Get Free Checklist
             </TrackedCTA>
           </div>
         </div>
@@ -228,25 +230,26 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
       </div>
       <div>
         <div className="hidden lg:hidden md:flex md:flex-col justify-center pb-10 gap-[10px] md:justify-start lg:self-start lg:items-start lg:gap-[10px]">
-          <p className="!text-left font-bold my-1 !text-white">
-            🚀 Free SEO Scan{" "}
+          <p className="!text-left font-bold my-1 !text-white flex items-center gap-2">
+            <ListChecks className="w-5 h-5 text-white shrink-0" />
+            Free Website Revenue Checklist{" "}
             <span className="font-roboto font-medium !text-sm !lg:text-[14px] !text-white">
-              — Get a free audit of your website's speed, SEO, and visibility.
+              — Discover quick wins to turn your website into a revenue machine.
             </span>
           </p>
           <TrackedCTA
-            href="/free-seo-scan"
-            cta_id="seo-scan-footer"
-            location="mobile-footer-seo-scan-button"
+            href="/newsletter"
+            cta_id="revenue-checklist-footer"
+            location="tablet-footer-revenue-checklist-button"
             className={[
               "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
               "bg-lime-500 text-navy-800 shadow-sm",
               "hover:bg-light-green-500 hover:text-navy-800",
               "flex items-center justify-center",
-              "max-w-[200px]"
+              "max-w-[220px]"
             ].join(" ")}
           >
-            Scan My Site
+            Get Free Checklist
           </TrackedCTA>
         </div>
       </div>

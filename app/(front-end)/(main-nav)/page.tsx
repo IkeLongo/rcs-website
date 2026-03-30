@@ -10,6 +10,7 @@ import Portfolio from '@/app/components/layouts/home/portfolio';
 import PricingClient from '@/app/components/layouts/home/client/pricing-client';
 import Footer from '@/app/components/layouts/footer/footer';
 import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
+import { TestimonialsWithCarousel } from '@/app/components/ui/carousels/testimonials-with-carousel';
 
 export default function Home() {
 
@@ -19,6 +20,9 @@ export default function Home() {
         <HomeHero />
         <Suspense fallback={null}>
           <HomeSeoScanTeaser />
+        </Suspense>
+        <Suspense fallback={null}>
+          <TestimonialsWithCarousel />
         </Suspense>
         <Suspense fallback={null}>
           <HomeWhy />
