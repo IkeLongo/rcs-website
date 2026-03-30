@@ -41,12 +41,12 @@ export const components: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-outside ml-6 mb-4 space-y-2 text-neutral-200">
+      <ul className="list-disc list-outside ml-6 mb-4 space-y-2 text-neutral-700">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-outside ml-6 mb-4 space-y-2 text-neutral-200">
+      <ol className="list-decimal list-outside ml-6 mb-4 space-y-2 text-neutral-700">
         {children}
       </ol>
     ),
@@ -59,7 +59,7 @@ export const components: PortableTextComponents = {
     strong: ({ children }) => <strong className="font-bold">{children}</strong>,
     em: ({ children }) => <em className="italic">{children}</em>,
     code: ({ children }) => (
-      <code className="bg-neutral-100 text-neutral-900 px-2 py-0.5 rounded text-sm font-mono">
+      <code className="!bg-neutral-900 text-neutral-100 px-2 py-0.5 rounded text-[0.9em] font-mono">
         {children}
       </code>
     ),
