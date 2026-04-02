@@ -16,7 +16,6 @@ export function ContactFormGridWithDetails() {
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState("");
   const [consentChecked, setConsentChecked] = useState(false);
-  const [showConsentError, setShowConsentError] = useState(false);
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
 
@@ -42,12 +41,6 @@ export function ContactFormGridWithDetails() {
     setPhoneError("");
     setEmailError("");
 
-    if (!consentChecked) {
-      setShowConsentError(true);
-      return;
-    }
-    setShowConsentError(false);
-
     // Validate phone
     if (!isValidPhoneNumber(phone)) {
       setPhoneError("Phone number must be 10 digits");
@@ -72,7 +65,7 @@ export function ContactFormGridWithDetails() {
       const leadRes = await fetch("/api/contact/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, company, message }),
+        body: JSON.stringify({ name, email, phone, company, message, smsConsent: consentChecked }),
       });
       if (contactRes.ok && leadRes.ok) {
         setStatus("success");
@@ -83,7 +76,6 @@ export function ContactFormGridWithDetails() {
         setCompany("");
         setMessage("");
         setConsentChecked(false);
-        setShowConsentError(false);
         fireConfetti(2000);
       } else {
         setStatus("error");
@@ -252,18 +244,15 @@ export function ContactFormGridWithDetails() {
               id="report-consent"
               type="checkbox"
               checked={consentChecked}
-              onChange={(e) => {
-                setConsentChecked(e.target.checked);
-                if (e.target.checked) setShowConsentError(false);
-              }}
+              onChange={(e) => setConsentChecked(e.target.checked)}
               className="mt-1 mr-2 accent-navy-500"
-              required
             />
             <label htmlFor="report-consent" className="text-sm text-gray-700 leading-tight">
-              By submitting this form, you agree to receive SMS text messages from RiverCity Creatives 
-              (operated by Inventive Collective LLC) regarding your inquiry. Message frequency may vary. 
-              Message & data rates may apply. Reply STOP to opt out at any time, or HELP for assistance.  
-              By submitting, you agree to our{" "}
+              I agree to receive conversational and transactional SMS messages from RiverCity 
+              Creatives (operated by Inventive Collective LLC) related to my inquiry, including 
+              follow-up, appointment confirmation, and scheduling messages. Message frequency may 
+              vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance. 
+              View our{" "}
               <a href="/privacy" className="underline hover:text-navy-700">Privacy Policy</a>{" "}
               and{" "}
               <a href="/terms" className="underline hover:text-navy-700">Terms of Service</a>.
@@ -286,11 +275,7 @@ export function ContactFormGridWithDetails() {
             </div>
           </div>
         )}
-        {showConsentError && (
-          <div className="text-xs text-red-600 mt-2 w-full text-left">
-            Please check the box to submit messages.
-          </div>
-        )}
+
       </div>
     </div>
   );

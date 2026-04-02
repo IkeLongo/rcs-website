@@ -12,7 +12,8 @@ export async function POST(request: Request) {
 		const body = await request.json();
 		// console.log("[LEAD API] Received request body:", body);
 		
-		const { name, email, phone, company, message, source, status, tags } = body;
+		const { name, email, phone, company, message, source, status, smsConsent } = body;
+		const tags = smsConsent ? ["website-contact-form-inquiry", "sms-consent-given"] : ["website-contact-form-inquiry"];
 		// console.log("[LEAD API] Destructured message:", message);
 		// console.log("[LEAD API] Message type:", typeof message);
 		// console.log("[LEAD API] Message length:", message?.length);
@@ -68,7 +69,8 @@ export async function POST(request: Request) {
         message: message || "",
         source: "Website Contact Form - Inquiry",
         status: status || "new",
-        tags: tags ?? ["website-contact-form-inquiry"],
+        smsConsent: !!smsConsent,
+        tags,
       };
       // console.log("[LEAD API] Sending to GHL webhook:", webhookPayload);
       

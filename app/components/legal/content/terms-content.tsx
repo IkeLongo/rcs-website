@@ -112,6 +112,29 @@ export default function TermsContent({
         through the Site’s cookie settings.
       </p>
 
+      <h2 id="sms-terms">SMS Terms &amp; Conditions</h2>
+      <p>
+        By opting in to receive SMS messages from RiverCity Creatives (operated by Inventive Collective LLC), you agree to receive conversational and transactional messages related to your inquiry, including follow-ups, appointment confirmations, and scheduling coordination.
+      </p>
+      <p>
+        To stop receiving messages, reply <strong>STOP</strong> to any text message.
+      </p>
+      <p>
+        For assistance, reply <strong>HELP</strong> or contact us directly through our website.
+      </p>
+      <p>
+        Message frequency may vary depending on your interaction with us.
+      </p>
+      <p>
+        Message and data rates may apply. Check with your carrier for details.
+      </p>
+      <p>
+        Carriers are not liable for delayed or undelivered messages.
+      </p>
+      <p>
+        You must be 18 years of age or older to use this SMS service.
+      </p>
+
       <h2 id="disclaimer-of-warranties">Disclaimer of Warranties</h2>
       <p>
         The Site is provided on an “as is” and “as available” basis.

@@ -119,6 +119,34 @@ export default function PrivacyContent() {
 
       <hr />
 
+      <h2 id="sms-communications">SMS Communications</h2>
+      <p>
+        If you choose to opt in to receive SMS messages from RiverCity Creatives (operated by Inventive Collective LLC),
+        you may receive conversational and transactional messages related to your inquiry, including follow-ups,
+        appointment confirmations, and scheduling coordination.
+      </p>
+
+      <p>
+        You opt in to receive SMS messages by submitting a contact form on our website and checking the consent
+        checkbox to receive messages.
+      </p>
+
+      <p>
+        Message frequency may vary depending on your interaction with us. Message and data rates may apply.
+      </p>
+
+      <p>
+        You can opt out of receiving SMS messages at any time by replying <strong>STOP</strong>. For assistance,
+        reply <strong>HELP</strong>.
+      </p>
+
+      <p>
+        No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+        Information sharing to subcontractors in support services, such as customer service, is permitted.
+      </p>
+
+      <hr />
+
       <h2 id="sharing-information">When we share information</h2>
       <p>
         <strong>In Short:</strong>{" "}
