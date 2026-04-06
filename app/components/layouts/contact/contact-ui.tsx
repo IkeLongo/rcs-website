@@ -256,7 +256,7 @@ export function ContactFormGridWithDetails() {
               <a href="/privacy" className="underline hover:text-navy-700">Privacy Policy</a>{" "}
               and{" "}
               <a href="/terms" className="underline hover:text-navy-700">Terms of Service</a>.
-              Consent is not a condition of form submission.
+              Consent is not mandatory for form submission.
             </label>
           </div>
         </form>
