@@ -34,7 +34,7 @@ export type NavItem = {
 //   },
 
 export const navItems: NavItem[] = [
-  { name: 'Pricing',   link: '/#pricing'   },
+  { name: 'Pricing',   link: '/pricing'   },
   { 
     name: 'Services',  link: '/services',
     children: [

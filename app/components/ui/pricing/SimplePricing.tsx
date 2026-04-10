@@ -1,71 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { PricingCards, type PlanData } from "./pricing-cards";
-
-const plans: PlanData[] = [
-  {
-    id: "launch",
-    name: "Launch",
-    audience: "For small businesses getting started online",
-    setupFee: 1000,
-    monthlyPrice: 97,
-    currency: "$",
-    description:
-      "Build a professional online presence that helps your business look credible and capture new leads.",
-    features: [
-      "Custom website design",
-      "Mobile-friendly layout",
-      "Contact form integration",
-      "Basic on-page SEO",
-      "SMS and Email Automations",
-      "Hosting and maintenance",
-      "1 website update per month",
-    ],
-    buttonText: "Choose Launch",
-  },
-  {
-    id: "grow",
-    name: "Grow",
-    audience: "For businesses ready to generate and manage more leads",
-    setupFee: 1500,
-    monthlyPrice: 297,
-    currency: "$",
-    featured: true,
-    description:
-      "Turn more visitors into opportunities with stronger lead capture, automation, and search visibility.",
-    additionalFeatures: ["Everything in Launch"],
-    features: [
-      "Booking or quote request system",
-      "CRM integration",
-      "Chat Widget setup",
-      "Google review automation tools",
-      "Expanded SEO setup",
-      "3 website updates per month",
-    ],
-    buttonText: "Choose Grow",
-  },
-  {
-    id: "scale",
-    name: "Scale",
-    audience: "For established businesses focused on growth and efficiency",
-    setupFee: 2500,
-    monthlyPrice: 597,
-    currency: "$",
-    description:
-      "Scale your online presence with deeper automation, stronger visibility, and more customized support.",
-    additionalFeatures: ["Everything in Launch", "Everything in Grow"],
-    features: [
-      "Advanced website customization",
-      "Landing page creation",
-      "Ongoing SEO support",
-      "AI chatbot setup",
-      "Advanced workflow automations",
-      "Reporting insights",
-      "5 website updates per month",
-    ],
-    buttonText: "Choose Scale",
-  },
-];
+import { PricingCards } from "./pricing-cards";
+import { plans } from "@/app/data/pricing";
 
 export function SimplePricingWithThreeTiers() {
   return (
@@ -91,6 +28,14 @@ export function SimplePricingWithThreeTiers() {
           </p>
         </>
         <PricingCards plans={plans} />
+        <div className="mt-8 text-center">
+          <Link
+            href="/pricing"
+            className="font-roboto text-sm font-medium text-navy-500/70 hover:text-navy-500 transition-colors underline underline-offset-4"
+          >
+            View full pricing & FAQs →
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -275,6 +275,14 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             ))}
             <li>
               <Link
+                href="/pricing"
+                className="font-roboto text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/services"
                 className="font-roboto text-sm text-lime-400 hover:text-lime-300 transition-colors"
               >

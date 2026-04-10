@@ -5,6 +5,7 @@ import Link from "next/link";
 import { IconArrowRight, IconMapPin } from "@tabler/icons-react";
 import { locations } from "@/app/data/locations";
 import { TrackedCTA } from "@/app/components/analytics/tracked-cta";
+import Footer from "@/app/components/layouts/footer/footer";
 
 export const metadata: Metadata = {
   title: "Service Areas | RiverCity Creatives",
@@ -149,6 +150,7 @@ export default function ServiceAreasPage() {
           </div>
         </div>
       </section>
+      <Footer bgGradientClass="bg-footer-bg-gradient" />
     </>
   );
 }
