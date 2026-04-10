@@ -52,27 +52,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${SITE}/pricing`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${SITE}/services`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "yearly",
       priority: 0.6,
     },
     {
       url: `${SITE}/services/web-design-development`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "yearly",
       priority: 0.6,
     },
     {
       url: `${SITE}/services/branding-visual-identity`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "yearly",
       priority: 0.6,
     },
     {
       url: `${SITE}/services/lead-capture-growth-systems`,
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: "yearly",
       priority: 0.6,
     },
     {
