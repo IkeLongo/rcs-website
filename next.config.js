@@ -56,6 +56,22 @@ const nextConfig = {
     return config;
   },
 
+  async redirects() {
+    return [
+      // Old service-prefix location routes → new clean /service-areas/[slug] routes
+      {
+        source: "/web-design-boerne-tx",
+        destination: "/service-areas/boerne",
+        permanent: true,
+      },
+      {
+        source: "/web-design-leon-springs-tx",
+        destination: "/service-areas/leon-springs",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       // Cache immutable Next static assets for 1 year

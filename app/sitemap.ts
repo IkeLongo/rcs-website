@@ -1,30 +1,13 @@
 // app/sitemap.ts
 
 import { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
 import { client } from "../sanity-studio/lib/client";
+import { locations } from "@/app/data/locations";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rivercitycreatives.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-
-  // Path to the (locations) folder
-  const locationsDir = path.join(process.cwd(), "app", "(front-end)", "(main-nav)", "(locations)");
-  let locationRoutes: string[] = [];
-  try {
-    locationRoutes = fs
-      .readdirSync(locationsDir, { withFileTypes: true })
-      .filter(
-        (dirent) =>
-          dirent.isDirectory() && dirent.name !== "_locations"
-      )
-      .map((dirent) => dirent.name);
-  } catch (e) {
-    // Fallback: no locations found
-    locationRoutes = [];
-  }
 
   // Fetch all published blog post slugs from Sanity
   let blogSlugs: string[] = [];
@@ -93,6 +76,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     },
     {
+      url: `${SITE}/service-areas`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${SITE}/team`,
       lastModified,
       changeFrequency: "yearly",
@@ -106,12 +95,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Add location routes
-  const locationSitemapEntries = locationRoutes.map((loc) => ({
-    url: `${SITE}/${loc}`,
+  // Add service area location routes derived from centralized data
+  const locationSitemapEntries = locations.map((loc) => ({
+    url: `${SITE}/service-areas/${loc.slug}`,
     lastModified,
     changeFrequency: "monthly" as const,
-    priority: 0.5,
+    priority: 0.6,
   }));
 
   // Add blog post routes

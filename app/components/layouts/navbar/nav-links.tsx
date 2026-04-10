@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { IconChevronDown } from '@tabler/icons-react';
+import { locations } from '@/app/data/locations';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -45,11 +46,10 @@ export const navItems: NavItem[] = [
   {
     name: "Service Areas",
     link: "/service-areas",
-    children: [
-      { name: "San Antonio", link: "/service-areas/san-antonio" },
-      { name: "Boerne", link: "/service-areas/boerne" },
-      { name: "New Braunfels", link: "/service-areas/new-braunfels" },
-    ],
+    children: locations.map((loc) => ({
+      name: loc.name,
+      link: `/service-areas/${loc.slug}`,
+    })),
   },
   {
     name: "About",

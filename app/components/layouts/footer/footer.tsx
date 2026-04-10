@@ -7,6 +7,8 @@ import { FooterProps } from '@/types/components';
 import FooterLottie from '../../ui/animations/footer-lottie';
 import { TrackedCTA } from '../../analytics/tracked-cta';
 import { ListChecks } from 'lucide-react';
+import { services } from '@/app/data/services';
+import { locations } from '@/app/data/locations';
 
 const BUSINESS_EMAIL = process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com";
 
@@ -16,6 +18,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
 
   return (
     (<div className="relative w-full h-auto shrink-0 px-8 pb-1 md:py-10 md:pb-14 z-0 lg:pt-10 bg-navy-500">
+      <div className="mx-auto max-w-5xl w-full">
       <div className="flex w-full inline-flex justify-between items-center md:justify-center">
         <Link href="/" passHref>
           <Image
@@ -255,8 +258,57 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
           </TrackedCTA>
         </div>
       </div>
-      <div className="hidden md:block md:flex md:flex-col md:gap-4">
-        <div className="flex gap-[10px] self-center justify-between w-[535px] font-roboto text-[12px] items-end">
+      {/* ── Services & Service Areas nav links ─────────────────────────── */}
+      <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 border-t border-white/10 pt-6 pb-20">
+        <div>
+          <p className="font-bold text-white mb-3">Services</p>
+          <ul className="flex flex-col gap-2">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="font-roboto text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  {s.title}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/services"
+                className="font-roboto text-sm text-lime-400 hover:text-lime-300 transition-colors"
+              >
+                View all services →
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-bold text-white mb-3">Service Areas</p>
+          <ul className="flex flex-col gap-2">
+            {locations.slice(0, 5).map((loc) => (
+              <li key={loc.slug}>
+                <Link
+                  href={`/service-areas/${loc.slug}`}
+                  className="font-roboto text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  {loc.name}, {loc.state}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/service-areas"
+                className="font-roboto text-sm text-lime-400 hover:text-lime-300 transition-colors"
+              >
+                View all areas →
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="hidden md:block md:flex md:flex-col md:gap-4 md:pt-6 md:pb-4">
+        <div className="flex gap-[10px] justify-between w-full font-roboto text-[12px] items-end">
           <Link href="/privacy" className="block text-white">
             Cookie & Privacy Policy
           </Link>
@@ -280,6 +332,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
         </div>
       </div>
       {/* <ScrollToTopButton /> */}
+      </div>
     </div>)
   );
 }
