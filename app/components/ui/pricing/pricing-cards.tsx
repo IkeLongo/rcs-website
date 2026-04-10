@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { IconCheck, IconPlus } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
@@ -101,17 +102,19 @@ const Card = ({ plan, onClick }: { plan: PlanData; onClick: () => void }) => {
           <p className={cn("mt-4 text-center text-sm leading-relaxed !text-navy-500", plan.featured && "!text-white/90")}>
             {plan.description}
           </p>
-          <button
+          <Link
+            href="/contact"
             className={cn(
-              "mt-10 mb-4 w-full rounded-lg px-2 py-2 font-medium md:w-full",
+              "mt-10 mb-4 block w-full rounded-lg px-2 py-2 font-medium text-center md:w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
               plan.featured
                 ? "bg-gradient-to-b from-neutral-100 to-neutral-200 text-navy-500"
                 : "bg-gradient-to-b from-blue-800 to-blue-900 text-white"
             )}
-            onClick={onClick}
+            tabIndex={0}
+            aria-label={plan.buttonText + ' (go to contact page)'}
           >
             {plan.buttonText}
-          </button>
+          </Link>
         </div>
         <div className="mt-1 p-4">
           {plan.features.map((feature, idx) => (

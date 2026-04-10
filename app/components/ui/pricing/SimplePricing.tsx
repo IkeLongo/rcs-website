@@ -69,7 +69,7 @@ const plans: PlanData[] = [
 
 export function SimplePricingWithThreeTiers() {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div id='pricing' className="relative w-full overflow-hidden">
       <Image
         src="/home-pricing-bg.webp"
         alt=""
@@ -82,12 +82,12 @@ export function SimplePricingWithThreeTiers() {
           aria-hidden="true"
         ></div>
         <>
-          <h2 className="pt-4 text-center text-lg font-bold !text-navy-500 md:text-4xl">
-            Simple Pricing for Advanced People
+          <h2 className="pt-4 text-center !text-2xl font-bold !text-navy-500 md:text-4xl">
+            Clear Pricing for Exceptional People
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-center text-base !text-navy-500/80">
-            Our pricing is designed for advanced people who need more features and
-            more flexibility.
+          <p className="mx-auto mt-4 max-w-md text-center !text-base !text-navy-500/80">
+            Not just websites — complete systems built to help you generate leads, 
+            follow up faster, and grow consistently.
           </p>
         </>
         <PricingCards plans={plans} />
