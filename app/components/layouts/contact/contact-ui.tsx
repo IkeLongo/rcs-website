@@ -115,7 +115,7 @@ export function ContactFormGridWithDetails() {
 
           <div className="h-1 w-1 rounded-full bg-neutral-500" />
           <p className="text-sm text-neutral-500">
-            +1 (210) 730-6232
+            +1 (210) 972-1530
           </p>
           {/* <div className="h-1 w-1 rounded-full bg-neutral-500" /> */}
 

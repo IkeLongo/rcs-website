@@ -19,7 +19,7 @@ export function EmailFooter() {
               </a>
             </div>
             <div>
-              📞 (210) 730-6232
+              📞 (210) 972-1530
             </div>
           </div>
           <div style={{ marginTop: 16 }}>

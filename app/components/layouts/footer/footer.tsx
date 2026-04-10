@@ -67,7 +67,7 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
                     height: "auto"
                   }} />
                 <p className="font-roboto !text-sm !lg:text-[14px] !text-white">
-                  (210) 730-6232
+                  (210) 972-1530
                 </p>
               </div>
               <div className="flex items-center gap-3 lg:gap-2">

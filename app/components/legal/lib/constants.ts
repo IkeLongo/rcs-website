@@ -2,7 +2,7 @@ export const LEGAL = {
   companyLegalName: process.env.NEXT_PUBLIC_LEGAL_COMPANY_NAME ?? "Inventive Collective LLC",
   dbaName: process.env.NEXT_PUBLIC_DBA_NAME ?? "RiverCity Creatives",
   businessEmail: process.env.NEXT_PUBLIC_BUSINESS_EMAIL ?? "contact@rivercitycreatives.com",
-  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "210-730-6232",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE ?? "210-972-1530",
 
   address: {
     line1: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS_LINE1 ?? "1203 W Blanco Road",

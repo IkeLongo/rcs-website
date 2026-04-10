@@ -98,9 +98,9 @@ export default function MobileMenu() {
             if (typeof window !== 'undefined') {
               const result = window.confirm('Would you like to call or text?\nPress OK to call, Cancel to text.');
               if (result) {
-                window.location.href = 'tel:2107306232';
+                window.location.href = 'tel:2109721530';
               } else {
-                window.location.href = 'sms:2107306232';
+                window.location.href = 'sms:2109721530';
               }
             }
           }}
