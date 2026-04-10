@@ -63,7 +63,7 @@ const Card = ({ plan, onClick }: { plan: PlanData; onClick: () => void }) => {
         >
           {/* Header row: title left, badge right */}
           <div className="flex items-center justify-between">
-            <p className={cn("text-lg font-medium !text-navy-500", plan.featured && "!text-white")}>
+            <p className={cn("!text-lg font-bold !text-navy-500", plan.featured && "!text-white")}>
               {plan.name}
             </p>
             {plan.featured && (
@@ -85,7 +85,7 @@ const Card = ({ plan, onClick }: { plan: PlanData; onClick: () => void }) => {
               <span className={cn("text-lg font-bold !text-navy-500", plan.featured && "!text-white")}>
                 {plan.currency}
               </span>
-              <span className={cn("text-3xl font-bold !text-navy-500 md:text-7xl", plan.featured && "!text-white")}>
+              <span className={cn("!text-6xl !font-bold !text-navy-500 md:text-7xl", plan.featured && "!text-white")}>
                 {plan.monthlyPrice}
               </span>
               <span className={cn("mb-1 text-base font-normal text-navy-500 md:mb-2", plan.featured && "text-white/80")}>
