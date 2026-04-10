@@ -11,9 +11,9 @@ const nextConfig = {
   // Next serves compressed responses when the platform supports it
   compress: true,
 
-  experimental: {
-    serverComponentsExternalPackages: ['react-dom/server'],
-  },
+  serverExternalPackages: ['react-dom/server'],
+
+  turbopack: {},
 
   // If you’re using styled-components/emotion/etc. leave this alone
   compiler: {

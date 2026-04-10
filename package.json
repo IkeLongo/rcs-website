@@ -64,7 +64,7 @@
     "motion": "^12.24.7",
     "mysql2": "^3.18.1",
     "net": "^1.0.2",
-    "next": "15.2.8",
+    "next": "16.2.3",
     "next-auth": "5.0.0-beta.25",
     "next-sanity": "11",
     "next-video": "^2.1.0",

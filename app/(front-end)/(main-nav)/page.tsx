@@ -11,6 +11,7 @@ import PricingClient from '@/app/components/layouts/home/client/pricing-client';
 import Footer from '@/app/components/layouts/footer/footer';
 import StickyBottomButton from '@/app/components/ui/buttons/sticky-button-bottom';
 import { TestimonialsWithCarousel } from '@/app/components/ui/carousels/testimonials-with-carousel';
+import { SimplePricingWithThreeTiers } from '@/app/components/ui/pricing/SimplePricing';
 
 export default function Home() {
 
@@ -37,8 +38,11 @@ export default function Home() {
           <ForgetFittingInContainer />
         </Suspense>
         <Suspense fallback={null}>
-          <PricingClient />
+          <SimplePricingWithThreeTiers />
         </Suspense>
+        {/* <Suspense fallback={null}>
+          <PricingClient />
+        </Suspense> */}
         <Suspense fallback={null}>
           <Footer bgGradientClass="bg-footer-bg-gradient" />
         </Suspense>
