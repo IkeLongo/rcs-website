@@ -12,7 +12,9 @@ export async function Hero() {
           src="/service-hero-bg-blob.webp"
           alt=""
           fill
-          className="object-contain object-bottom object-right"
+          sizes="(min-width: 1024px) 500px, 300px"
+          className="object-contain"
+          priority
         />
       </div>
       <div className="hidden lg:block lg:absolute lg:-top-0 lg:w-full lg:h-full lg:flex lg:self-end lg:mr-32 xl:mr-60 2xl:mr-96">

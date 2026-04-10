@@ -27,7 +27,8 @@ export default function HeroImages() {
         priority
         loading="eager"
         fill
-        sizes="100vw" />
+        sizes="(min-width: 1280px) 632px, (min-width: 768px) 50vw, 100vw"
+      />
     </div>
   </>);
 }

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { BlockProps } from '@/types/components';
 
-export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, title, imageSrc, blockId, onClick, top }: BlockProps) {
+export default function LightBlueBlock({ icon: Icon, iconRoute, iconDescription, iconWidth, title, imageSrc, blockId, onClick, top }: BlockProps) {
   const [isHalfway, setIsHalfway] = useState(false);
   const [isLg, setIsLg] = useState(false);
 
@@ -52,17 +52,12 @@ export default function LightBlueBlock({ iconRoute, iconDescription, iconWidth, 
           isHalfway && !isLg ? 'bg-lightblueoverlay' : 'bg-light-blue-radial-gradient'
         } ${isLg ? 'hover:bg-lightblueoverlay' : ''}`}
       >
-        <Image
-          src={iconRoute}
-          alt={iconDescription}
-          width={Number(iconWidth)}
-          // Adjust the height as needed to maintain aspect ratio
-          height={51}
-          className={`object-contain absolute left-1/2 transform -translate-x-1/2 ${top}`}
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} />
+        {Icon && (
+          <Icon
+            aria-hidden="true"
+            className={`absolute left-1/2 transform -translate-x-1/2 ${top} w-16 h-16 text-navy-500`}
+          />
+        )}
         <h4
           className={`!font-maven-pro !font-bold ease-in-out duration-500 md:pt-10 ${
             isHalfway && !isLg ? '!text-[28px] !md:text-[18px]' : '!text-[24px] !md:text-[16px]'

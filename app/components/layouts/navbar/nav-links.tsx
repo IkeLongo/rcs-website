@@ -38,9 +38,9 @@ export const navItems: NavItem[] = [
   { 
     name: 'Services',  link: '/services',
     children: [
-      { name: 'Web Design & Development', link: '/services/web-design' },
-      { name: 'Branding & Visual Identity', link: '/services/branding' },
-      { name: 'Lead Capture & Growth Systems', link: '/services/lead-capture' },
+      { name: 'Web Design & Development', link: '/services/web-design-development' },
+      { name: 'Branding & Visual Identity', link: '/services/branding-visual-identity' },
+      { name: 'Lead Capture & Growth Systems', link: '/services/lead-capture-growth-systems' },
     ],
   },
   { name: 'Team',      link: '/team'       },

@@ -1,3 +1,5 @@
+import type { ComponentType } from 'react';
+
 export interface DoProps {
   animation: object;
   title: string;
@@ -34,9 +36,10 @@ export interface FooterProps {
 }
 
 export interface BlockProps {
-  iconRoute: string;
-  iconDescription: string;
-  iconWidth: string;
+  icon?: ComponentType<{ className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>;
+  iconRoute?: string;
+  iconDescription?: string;
+  iconWidth?: string;
   title: string;
   imageSrc: string;
   blockId: string;

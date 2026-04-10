@@ -181,9 +181,11 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             </div>
           </div>
           <div className="md:hidden lg:flex lg:flex-col justify-center md:justify-start lg:self-start lg:items-start">
-            <p className="!text-left font-bold my-1 !text-white pb-[10px] flex items-center gap-2">
-              <ListChecks className="w-5 h-5 text-white shrink-0" />
-              Free Website Revenue Checklist{" "}
+            <p className="!text-left font-bold my-1 !text-white pb-[10px] flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-2">
+              <span className="flex items-center gap-2">
+                <ListChecks className="w-5 h-5 text-white shrink-0" />
+                Free Website Revenue Checklist
+              </span>
               <span className="font-roboto font-medium !text-sm !lg:text-[14px] !text-white">
                 — Discover quick wins to turn your website into a revenue machine.
               </span>
