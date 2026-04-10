@@ -6,7 +6,7 @@ import { Button } from "@nextui-org/button";
 import Link from 'next/link';
 import { AccordionItemProps } from '@/types/components';
 import AnimatedLottie from "../../ui/animations/lottie-animation-template";
-import '/app/styles.css';
+import "../../../styles.css";
 
 export default function AccordionItem({ animation, iconDescription, title, description, className }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);

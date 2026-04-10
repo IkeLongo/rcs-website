@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "@heroui/styles"; 
+/* @import "@heroui/styles";  */
 
 :root {
   --background: #0c2244;
