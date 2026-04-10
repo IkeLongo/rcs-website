@@ -4,13 +4,13 @@ import { useState } from 'react';
 import Image from "next/image";
 import {Button } from "@heroui/button";
 import Link from 'next/link';
-import NavLinks from './nav-links';
+import { DesktopNavLinks } from './nav-links';
 import MobileMenu from './mobile-menu';
 import { TrackedCTA } from '@/app/components/analytics/tracked-cta';
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [currentHref, setCurrentHref] = useState('/');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
     setCurrentHref('/');
@@ -33,9 +33,7 @@ export default function Navbar() {
                   fetchPriority="high"
                 />
               </Link>
-              <NavLinks 
-                onClick={() => setMenuOpen(false)} // Close the menu when a link is clicked
-              />
+              <DesktopNavLinks />
               <TrackedCTA
                 href="/contact"
                 cta_id="desktop-navbar-contact"

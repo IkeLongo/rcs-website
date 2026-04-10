@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import menuAnimationData from "public/Menu.json";
 import { useEffect, useRef, useState } from "react";
-import NavLinks from "./nav-links";
+import { MobileNavLinks } from "./nav-links";
 import { TrackedCTA } from "@/app/components/analytics/tracked-cta";
 import type { AnimationItem } from "lottie-web";
 
@@ -81,11 +81,11 @@ export default function MobileMenu() {
       </div>
 
       <div
-        className={`absolute top-[20px] w-full h-[300px] flex flex-col justify-between px-6 py-6 bg-navy-500 border-[1px] border-t-0 border-blue-800 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-500 ease-in-out z-10 ${
-          menuOpen ? "translate-y-8" : "-translate-y-[240px]"
+        className={`absolute top-[20px] w-full min-h-[300px] flex flex-col justify-between px-6 py-6 bg-navy-500 border-[1px] border-t-0 border-blue-800 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-500 ease-in-out z-10 ${
+          menuOpen ? "translate-y-8" : "-translate-y-[290px]"
         }`}
       >
-        <NavLinks onClick={toggleMenu} />
+        <MobileNavLinks onClick={toggleMenu} menuOpen={menuOpen} />
 
         <TrackedCTA
           href="#"
