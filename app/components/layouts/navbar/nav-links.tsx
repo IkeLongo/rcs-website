@@ -33,7 +33,6 @@ export type NavItem = {
 //   },
 
 export const navItems: NavItem[] = [
-  { name: 'Portfolio', link: '/#portfolio' },
   { name: 'Pricing',   link: '/#pricing'   },
   { 
     name: 'Services',  link: '/services',
@@ -43,8 +42,24 @@ export const navItems: NavItem[] = [
       { name: 'Lead Capture & Growth Systems', link: '/services/lead-capture-growth-systems' },
     ],
   },
-  { name: 'Team',      link: '/team'       },
-  { name: 'Learn',     link: '/learn'      },
+  {
+    name: "Service Areas",
+    link: "/service-areas",
+    children: [
+      { name: "San Antonio", link: "/service-areas/san-antonio" },
+      { name: "Boerne", link: "/service-areas/boerne" },
+      { name: "New Braunfels", link: "/service-areas/new-braunfels" },
+    ],
+  },
+  {
+    name: "About",
+    link: "/about",
+    children: [
+      { name: "Portfolio", link: "/#portfolio" },
+      { name: "Team", link: "/team" },
+      { name: "Learn", link: "/learn" },
+    ],
+  },
 ];
 
 // ─── Desktop dropdown ─────────────────────────────────────────────────────────

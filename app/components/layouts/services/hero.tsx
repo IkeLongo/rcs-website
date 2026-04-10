@@ -8,13 +8,11 @@ export async function Hero() {
   return (
     <div className="relative flex flex-col w-full h-[725px] overflow-x-hidden md:overflow-hidden md:-top-0 bg-white">
       <div className="absolute w-full h-full flex self-end overflow-x-hidden md:overflow-hidden -mr-1 md:scale-125 md:-top-0 md:right-0 lg:hidden">
-        <Image
+        <Image 
           src="/service-hero-bg-blob.webp"
           alt=""
           fill
-          sizes="(min-width: 1024px) 500px, 300px"
-          className="object-contain"
-          priority
+          className="object-contain object-bottom object-right"
         />
       </div>
       <div className="hidden lg:block lg:absolute lg:-top-0 lg:w-full lg:h-full lg:flex lg:self-end lg:mr-32 xl:mr-60 2xl:mr-96">

@@ -82,7 +82,7 @@ export default function MobileMenu() {
 
       <div
         className={`absolute top-[20px] w-full min-h-[300px] flex flex-col justify-between px-6 py-6 bg-navy-500 border-[1px] border-t-0 border-blue-800 rounded-b-[13px] drop-shadow-[0_14px_16.2px_rgba(0,0,0,0.25)] backdrop-blur-[7px] transition-transform duration-500 ease-in-out z-10 ${
-          menuOpen ? "translate-y-8" : "-translate-y-[290px]"
+          menuOpen ? "translate-y-8" : "-translate-y-[240px]"
         }`}
       >
         <MobileNavLinks onClick={toggleMenu} menuOpen={menuOpen} />
