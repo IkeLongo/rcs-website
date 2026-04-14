@@ -53,7 +53,6 @@ export const navItems: NavItem[] = [
   },
   {
     name: "About",
-    link: "/about",
     children: [
       { name: "Portfolio", link: "/#portfolio" },
       { name: "Team", link: "/team" },
