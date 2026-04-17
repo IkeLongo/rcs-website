@@ -36,6 +36,8 @@ export const plans: PlanData[] = [
       "Booking or quote request system",
       "CRM integration",
       "Chat Widget setup",
+      "Socail Media Planner",
+      "Calendar integration",
       "Google review automation tools",
       "Expanded SEO setup",
       "3 website updates per month",
