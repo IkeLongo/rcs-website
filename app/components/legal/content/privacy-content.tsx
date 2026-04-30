@@ -2,7 +2,9 @@ import React from "react";
 import {
   BusinessAddressBlock,
   BusinessEmailLink,
-  BusinessPhone
+  BusinessPhone,
+  LegalCompanyName,
+  DBAName,
 } from "../components/LegalTokens";
 import CookiePreferencesLink from "../../cookies/components/CookiePreferencesLink";
 
@@ -120,15 +122,16 @@ export default function PrivacyContent() {
       <hr />
 
       <h2 id="sms-communications">SMS Communications</h2>
+
       <p>
-        If you choose to opt in to receive SMS messages from RiverCity Creatives (operated by Inventive Collective LLC),
+        If you choose to opt in to receive SMS messages from <strong><DBAName /></strong> (operated by <strong><LegalCompanyName /></strong>),
         you may receive conversational and transactional messages related to your inquiry, including follow-ups,
-        appointment confirmations, and scheduling coordination.
+        appointment confirmations, reminders, and scheduling coordination.
       </p>
 
       <p>
-        You opt in to receive SMS messages by submitting a contact form on our website and checking the consent
-        checkbox to receive messages.
+        You opt in to receive SMS messages by submitting a contact form on our website and explicitly checking the consent
+        checkbox to receive SMS communications.
       </p>
 
       <p>
@@ -141,8 +144,20 @@ export default function PrivacyContent() {
       </p>
 
       <p>
-        No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+        We do not sell, rent, or share your personal information, including your mobile number, with third parties
+        or affiliates for marketing or promotional purposes.
+      </p>
+
+      <p>
+        No mobile information will be shared with third parties or affiliates for marketing/promotional purposes.
         Information sharing to subcontractors in support services, such as customer service, is permitted.
+        All other use case categories exclude text messaging originator opt-in data and consent; this information
+        will not be shared with any third parties.
+      </p>
+
+      <p>
+        Text messaging originator opt-in data and consent will not be shared with any third parties, except for
+        aggregators and providers of the Text Message services necessary to deliver the SMS functionality.
       </p>
 
       <hr />

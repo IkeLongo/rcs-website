@@ -1,4 +1,5 @@
 const { heroui } = require("@heroui/react");
+const { testimonials } = require("./app/components/ui/carousels/testimonials-with-carousel");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -172,6 +173,7 @@ module.exports = {
         sm: '14px', // Override `text-sm` to be 14px
         base: '16px', // Override `text-base` to be 16px
         md: '18px', // Override `text-md` to be 18px
+        testimonials: '20px', // Custom size for testimonials
         md2: '24px',
         lg: '32px', // Override `text-lg` to be 32px
         xl: '36px',

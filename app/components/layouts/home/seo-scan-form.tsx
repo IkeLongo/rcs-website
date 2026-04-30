@@ -65,7 +65,7 @@ export default function SeoScanForm() {
                 Please enter a valid website URL (example.com).
               </p>
             ) : (
-              <p className="mt-3 text-xs text-grey-500 !text-left">
+              <p className="mt-3 !text-md text-grey-500 !text-left">
                 Next: we’ll run the scan and show your scores + top issues.
               </p>
             )}
@@ -77,7 +77,7 @@ export default function SeoScanForm() {
               cta_id="seo-scan-form-submit"
               location="home-seo-scan-form"
               className={[
-                "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold",
+                "h-[48px] md:h-[52px] px-6 rounded-xl font-semibold !text-md",
                 "bg-lime-500 text-navy-800 shadow-sm",
                 "hover:bg-light-green-500 hover:text-navy-800",
                 "disabled:opacity-60 disabled:cursor-not-allowed",

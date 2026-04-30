@@ -113,26 +113,48 @@ export default function TermsContent({
       </p>
 
       <h2 id="sms-terms">SMS Terms &amp; Conditions</h2>
+
       <p>
-        By opting in to receive SMS messages from RiverCity Creatives (operated by Inventive Collective LLC), you agree to receive conversational and transactional messages related to your inquiry, including follow-ups, appointment confirmations, and scheduling coordination.
+        <strong><DBAName /></strong> (operated by <strong><LegalCompanyName /></strong>) provides web design, development,
+        and digital systems to help businesses manage inquiries, scheduling, and customer communication.
+        By opting in to receive SMS messages from us, you agree to receive conversational and transactional
+        messages related to your inquiry, including follow-ups, appointment confirmations, reminders,
+        and scheduling coordination.
       </p>
+
       <p>
-        To stop receiving messages, reply <strong>STOP</strong> to any text message.
+        You can cancel the SMS service at any time. Just text <strong>STOP</strong> to <strong><BusinessPhone /></strong>.
+        After you send the SMS message "STOP" to us, we will send you a confirmation SMS to confirm that you
+        have been unsubscribed. After this, you will no longer receive SMS messages from us.
+        If you want to join again, simply opt in again through our website forms.
       </p>
+
       <p>
-        For assistance, reply <strong>HELP</strong> or contact us directly through our website.
+        If you are experiencing issues with the messaging program, you can reply with the keyword
+        <strong>HELP</strong> for more assistance, or you can contact us directly at
+        <strong><BusinessEmailLink /></strong>.
       </p>
+
       <p>
         Message frequency may vary depending on your interaction with us.
       </p>
+
       <p>
-        Message and data rates may apply. Check with your carrier for details.
+        As always, message and data rates may apply for any messages sent to you from us and to us from you.
+        If you have any questions about your text plan or data plan, it is best to contact your wireless provider.
       </p>
+
       <p>
         Carriers are not liable for delayed or undelivered messages.
       </p>
+
       <p>
         You must be 18 years of age or older to use this SMS service.
+      </p>
+
+      <p>
+        For more information on how your data is handled, please review our Privacy Policy:
+        <a href="/privacy-policy">Privacy Policy</a>.
       </p>
 
       <h2 id="disclaimer-of-warranties">Disclaimer of Warranties</h2>

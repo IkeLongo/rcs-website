@@ -22,7 +22,7 @@ export function TestimonialsWithCarousel() {
   };
 
   return (
-    <section className="bg-white">
+    <section className="bg-[#E4E7ED]">
       <div className="base mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-20">
         <div className="mt-4 flex items-center justify-between gap-4">
           <h2 className="!text-lg !text-left font-medium tracking-tight !text-navy-500 md:!text-4xl lg:text-5xl dark:text-white">
@@ -33,7 +33,7 @@ export function TestimonialsWithCarousel() {
               type="button"
               aria-label="Previous testimonials"
               onClick={handlePrevious}
-              className="flex size-10 items-center justify-center rounded-full border border-black/15 text-black transition duration-200 hover:bg-black/5 active:scale-98 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
+              className="flex size-10 items-center justify-center rounded-full border border-black/15 text-black transition duration-200 hover:bg-black/5 active:scale-98"
             >
               <svg
                 aria-hidden
@@ -53,7 +53,7 @@ export function TestimonialsWithCarousel() {
               type="button"
               aria-label="Next testimonials"
               onClick={handleNext}
-              className="flex size-10 items-center justify-center rounded-full border border-black/15 text-black transition duration-200 hover:bg-black/5 active:scale-98 dark:border-white/20 dark:text-white dark:hover:bg-white/10"
+              className="flex size-10 items-center justify-center rounded-full border border-black/15 text-black transition duration-200 hover:bg-black/5 active:scale-98"
             >
               <svg
                 aria-hidden
@@ -97,7 +97,7 @@ export function TestimonialsWithCarousel() {
                 key={testimonial.name}
                 className="flex h-full flex-col justify-between rounded-lg bg-alice-blue-200 p-4 shadow-sm ring-1 shadow-black/10 ring-black/10 md:p-6 dark:bg-neutral-900 dark:shadow-white/10 dark:ring-white/5"
               >
-                <p className="!text-gray-950 !text-md !text-left">
+                <p className="!text-gray-950 !text-[20px] !text-left">
                   {testimonial.quote}
                 </p>
                 <div className="mt-14 flex items-center gap-3">
