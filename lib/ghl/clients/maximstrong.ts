@@ -19,11 +19,22 @@ export const maximstrongConfig = {
   },
   products: {
     punchCard15: {
-      productName:      "15 Session Punch Card",
-      sessionsToAdd:    15,
-      membershipType:   "Punch Card",
-      membershipStatus: "Active",
-      expirationDays:   90,
+      productName:    "15 Session Punch Card",
+      accessType:     "credits" as const,
+      sessionsToSet:  15,
+      expirationDays: 365,
+    },
+    dailyPass: {
+      productName:    "Daily Pass",
+      accessType:     "credits" as const,
+      sessionsToSet:  1,
+      expirationDays: 365,
+    },
+    unlimitedMonthly: {
+      productName:    "Unlimited Monthly",
+      accessType:     "unlimited" as const,
+      sessionsToSet:  99,
+      expirationDays: 30,
     },
   },
 };

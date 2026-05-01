@@ -17,9 +17,8 @@ export interface GHLClientConfig {
     string,
     {
       productName: string;
-      sessionsToAdd: number;
-      membershipType: string;
-      membershipStatus: string;
+      accessType: "credits" | "unlimited";
+      sessionsToSet: number;
       expirationDays: number;
     }
   >;
@@ -40,9 +39,8 @@ type RawClientEntry = {
     string,
     {
       productName: string;
-      sessionsToAdd: number;
-      membershipType: string;
-      membershipStatus: string;
+      accessType: "credits" | "unlimited";
+      sessionsToSet: number;
       expirationDays: number;
     }
   >;

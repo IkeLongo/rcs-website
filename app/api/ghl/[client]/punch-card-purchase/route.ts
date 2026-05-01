@@ -23,8 +23,14 @@ interface GHLContact {
 }
 
 interface WebhookBody {
-  contactId: string;
-  productName: string;
+  contactId?: string;
+  contact_id?: string;
+  productName?: string;
+  customData?: {
+    contactId?: string;
+    productName?: string;
+    [key: string]: unknown;
+  };
   [key: string]: unknown;
 }
 
@@ -102,6 +108,67 @@ function formatDate(date: Date): string {
 }
 
 // ---------------------------------------------------------------------------
+// Membership update logic
+// ---------------------------------------------------------------------------
+
+interface MembershipUpdateInput {
+  purchasedProduct: {
+    accessType: "credits" | "unlimited";
+    sessionsToSet: number;
+  };
+  previousMembershipType: string;
+  previousBalance: number;
+}
+
+interface MembershipUpdateResult {
+  newBalance: number;
+  membershipType: string;
+}
+
+/**
+ * Determines the new session balance and membership type after a purchase.
+ * Generic — driven entirely by the product config, not client-specific values.
+ */
+function determineMembershipUpdate({
+  purchasedProduct,
+  previousMembershipType,
+  previousBalance,
+}: MembershipUpdateInput): MembershipUpdateResult {
+  const { accessType, sessionsToSet } = purchasedProduct;
+
+  // Unlimited purchase — always override to fixed value
+  if (accessType === "unlimited") {
+    return { newBalance: sessionsToSet, membershipType: "Unlimited Monthly" };
+  }
+
+  const isOnCreditPlan =
+    previousMembershipType === "Punch Card" ||
+    previousMembershipType === "Daily Pass";
+
+  // Daily Pass purchase (sessionsToSet === 1)
+  if (sessionsToSet === 1) {
+    if (previousMembershipType === "Daily Pass") {
+      // Daily Pass on top of existing Daily Pass — accumulate
+      return { newBalance: previousBalance + 1, membershipType: "Daily Pass" };
+    }
+    if (previousMembershipType === "Punch Card" && previousBalance > 0) {
+      // Adding a day to an active punch card — keep Punch Card type
+      return { newBalance: previousBalance + 1, membershipType: "Punch Card" };
+    }
+    // Unlimited Monthly, expired punch card (0 balance), or invalid/missing
+    return { newBalance: 1, membershipType: "Daily Pass" };
+  }
+
+  // Punch Card purchase (sessionsToSet > 1) — always becomes Punch Card
+  return {
+    newBalance: isOnCreditPlan
+      ? previousBalance + sessionsToSet
+      : sessionsToSet,
+    membershipType: "Punch Card",
+  };
+}
+
+// ---------------------------------------------------------------------------
 // POST /api/ghl/[client]/punch-card-purchase
 // ---------------------------------------------------------------------------
 
@@ -173,22 +240,33 @@ export async function POST(
     });
   }
 
-  const { contactId, productName } = body;
+  // -- Extract fields from possible payload locations -----------------------
+  const contactId =
+    body.customData?.contactId ||
+    body.contactId ||
+    body.contact_id;
+
+  const productName =
+    body.customData?.productName ||
+    body.productName;
+
+  console.log(`[GHL punch-card][${clientSlug}] Extracted contactId:`, contactId);
+  console.log(`[GHL punch-card][${clientSlug}] Extracted productName:`, productName);
 
   if (!contactId || typeof contactId !== "string") {
     return NextResponse.json(
-      { success: false, error: "Missing or invalid field: contactId" },
+      { success: false, error: "Missing or invalid field: contactId (checked customData.contactId, contactId, contact_id)" },
       { status: 400 }
     );
   }
   if (!productName || typeof productName !== "string") {
     return NextResponse.json(
-      { success: false, error: "Missing or invalid field: productName" },
+      { success: false, error: "Missing or invalid field: productName (checked customData.productName, productName)" },
       { status: 400 }
     );
   }
 
-  // -- Match product rule (do NOT trust sessionsToAdd from webhook) -----------
+  // -- Match product rule (do NOT trust session values from webhook) ---------
   const productRule = Object.values(config.products).find(
     (p) => p.productName.toLowerCase() === productName.toLowerCase()
   );
@@ -206,36 +284,50 @@ export async function POST(
     );
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { sessionsToAdd, membershipType, membershipStatus, expirationDays } =
-    productRule!;
+  console.log(`[GHL punch-card][${clientSlug}] Matched product:`, productRule.productName);
 
+  const { accessType, sessionsToSet, expirationDays } = productRule;
   const { apiToken, customFields: cf } = config;
 
   try {
     // -- Fetch current GHL contact --------------------------------------------
     const contact = await getGHLContact(contactId, apiToken);
 
-    // -- Read current field values --------------------------------------------
+    // -- Read previous values (balance, total, membershipType) ---------------
     const rawBalance = getCustomFieldValue(contact, cf.sessionsRemaining);
     const previousBalance = rawBalance !== null ? Number(rawBalance) : 0;
 
     const rawTotal = getCustomFieldValue(contact, cf.totalSessionsPurchased);
     const previousTotalPurchased = rawTotal !== null ? Number(rawTotal) : 0;
 
-    // -- Calculate new values -------------------------------------------------
-    const newBalance = previousBalance + sessionsToAdd;
-    const newTotalPurchased = previousTotalPurchased + sessionsToAdd;
+    const rawMembershipType = getCustomFieldValue(contact, cf.membershipType);
+    const previousMembershipType =
+      typeof rawMembershipType === "string" ? rawMembershipType : "";
+
+    console.log(`[GHL punch-card][${clientSlug}] previousMembershipType:`, previousMembershipType);
+    console.log(`[GHL punch-card][${clientSlug}] previousBalance:`, previousBalance);
+
+    // -- Determine new balance and membership type ----------------------------
+    const { newBalance, membershipType } = determineMembershipUpdate({
+      purchasedProduct: { accessType, sessionsToSet },
+      previousMembershipType,
+      previousBalance,
+    });
+
+    const newTotalPurchased = previousTotalPurchased + sessionsToSet;
     const today = new Date();
     const membershipEndDate = formatDate(addDays(today, expirationDays));
     const lastPurchaseDate = formatDate(today);
+
+    console.log(`[GHL punch-card][${clientSlug}] productName:`, productName);
+    console.log(`[GHL punch-card][${clientSlug}] newBalance:`, newBalance, "membershipType:", membershipType);
 
     // -- Build and send update ------------------------------------------------
     const fieldsToUpdate: { id: string; field_value: string | number }[] = [
       { id: cf.sessionsRemaining,      field_value: newBalance },
       { id: cf.totalSessionsPurchased, field_value: newTotalPurchased },
       { id: cf.membershipType,         field_value: membershipType },
-      { id: cf.membershipStatus,       field_value: membershipStatus },
+      { id: cf.membershipStatus,       field_value: "Active" },
       { id: cf.lastPurchaseDate,       field_value: lastPurchaseDate },
       { id: cf.lastProductPurchased,   field_value: productName },
       { id: cf.membershipEndDate,      field_value: membershipEndDate },
@@ -245,7 +337,7 @@ export async function POST(
 
     console.log(
       `[GHL punch-card][${clientSlug}] Updated contact ${contactId}: ` +
-        `${previousBalance} + ${sessionsToAdd} = ${newBalance} sessions`
+        `balance set to ${newBalance}, type="${membershipType}", expires ${membershipEndDate}`
     );
 
     return NextResponse.json({
@@ -253,14 +345,17 @@ export async function POST(
       client: config.slug,
       contactId,
       productName,
+      previousMembershipType,
       previousBalance,
-      sessionsAdded: sessionsToAdd,
       newBalance,
+      previousTotalPurchased,
       newTotalPurchased,
+      membershipType,
+      membershipStatus: "Active",
       membershipEndDate,
     });
   } catch (err) {
-    const message = err instanceof Error ? (err as Error).message : "Unexpected error.";
+    const message = err instanceof Error ? err.message : "Unexpected error.";
     console.error(`[GHL punch-card][${clientSlug}] Error:`, message);
     return NextResponse.json(
       { success: false, error: message },
