@@ -1,5 +1,4 @@
 const { heroui } = require("@heroui/react");
-const { testimonials } = require("./app/components/ui/carousels/testimonials-with-carousel");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
