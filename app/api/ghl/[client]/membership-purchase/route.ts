@@ -128,6 +128,9 @@ interface MembershipUpdateResult {
 /**
  * Determines the new session balance and membership type after a purchase.
  * Generic — driven entirely by the product config, not client-specific values.
+ *
+ * Key rule: credit purchases NEVER stack on top of an Unlimited Monthly balance.
+ * Unlimited Monthly always resets to the purchased credit amount.
  */
 function determineMembershipUpdate({
   purchasedProduct,
@@ -136,34 +139,42 @@ function determineMembershipUpdate({
 }: MembershipUpdateInput): MembershipUpdateResult {
   const { accessType, sessionsToSet } = purchasedProduct;
 
-  // Unlimited purchase — always override to fixed value
+  // Unlimited purchase — always override, regardless of previous state
   if (accessType === "unlimited") {
     return { newBalance: sessionsToSet, membershipType: "Unlimited Monthly" };
   }
 
-  const isOnCreditPlan =
-    previousMembershipType === "Punch Card" ||
-    previousMembershipType === "Daily Pass";
+  // Credit purchase — classify previous state explicitly
+  const isUnlimited = previousMembershipType === "Unlimited Monthly";
+  const isPunchCard = previousMembershipType === "Punch Card";
+  const isDailyPass = previousMembershipType === "Daily Pass";
 
-  // Daily Pass purchase (sessionsToSet === 1)
+  // -- Daily Pass purchase (sessionsToSet === 1) ------------------------------
   if (sessionsToSet === 1) {
-    if (previousMembershipType === "Daily Pass") {
-      // Daily Pass on top of existing Daily Pass — accumulate
-      return { newBalance: previousBalance + 1, membershipType: "Daily Pass" };
+    if (isUnlimited) {
+      // Switching from unlimited to credits — reset, do NOT add to 99
+      return { newBalance: sessionsToSet, membershipType: "Daily Pass" };
     }
-    if (previousMembershipType === "Punch Card" && previousBalance > 0) {
-      // Adding a day to an active punch card — keep Punch Card type
-      return { newBalance: previousBalance + 1, membershipType: "Punch Card" };
+    if (isDailyPass) {
+      // Stacking daily passes
+      return { newBalance: previousBalance + sessionsToSet, membershipType: "Daily Pass" };
     }
-    // Unlimited Monthly, expired punch card (0 balance), or invalid/missing
-    return { newBalance: 1, membershipType: "Daily Pass" };
+    if (isPunchCard && previousBalance > 0) {
+      // Adding one day to an active punch card balance — keep Punch Card type
+      return { newBalance: previousBalance + sessionsToSet, membershipType: "Punch Card" };
+    }
+    // Punch Card with 0 balance, missing/invalid type, or anything else
+    return { newBalance: sessionsToSet, membershipType: "Daily Pass" };
   }
 
-  // Punch Card purchase (sessionsToSet > 1) — always becomes Punch Card
+  // -- Punch Card purchase (sessionsToSet > 1) --------------------------------
+  if (isUnlimited) {
+    // Switching from unlimited to credits — reset, do NOT add to 99
+    return { newBalance: sessionsToSet, membershipType: "Punch Card" };
+  }
+  const isOnCreditPlan = isPunchCard || isDailyPass;
   return {
-    newBalance: isOnCreditPlan
-      ? previousBalance + sessionsToSet
-      : sessionsToSet,
+    newBalance: isOnCreditPlan ? previousBalance + sessionsToSet : sessionsToSet,
     membershipType: "Punch Card",
   };
 }
@@ -304,8 +315,10 @@ export async function POST(
     const previousMembershipType =
       typeof rawMembershipType === "string" ? rawMembershipType : "";
 
-    console.log(`[GHL punch-card][${clientSlug}] previousMembershipType:`, previousMembershipType);
-    console.log(`[GHL punch-card][${clientSlug}] previousBalance:`, previousBalance);
+    console.log(`[GHL purchase][${clientSlug}] previousMembershipType:`, previousMembershipType);
+    console.log(`[GHL purchase][${clientSlug}] previousBalance:`, previousBalance);
+    console.log(`[GHL purchase][${clientSlug}] productName:`, productName);
+    console.log(`[GHL purchase][${clientSlug}] accessType:`, accessType);
 
     // -- Determine new balance and membership type ----------------------------
     const { newBalance, membershipType } = determineMembershipUpdate({
@@ -319,8 +332,7 @@ export async function POST(
     const membershipEndDate = formatDate(addDays(today, expirationDays));
     const lastPurchaseDate = formatDate(today);
 
-    console.log(`[GHL punch-card][${clientSlug}] productName:`, productName);
-    console.log(`[GHL punch-card][${clientSlug}] newBalance:`, newBalance, "membershipType:", membershipType);
+    console.log(`[GHL purchase][${clientSlug}] newBalance:`, newBalance, "membershipType:", membershipType);
 
     // -- Build and send update ------------------------------------------------
     const fieldsToUpdate: { id: string; field_value: string | number }[] = [
