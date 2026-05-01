@@ -157,8 +157,20 @@ export async function POST(
     );
   }
 
-  if (process.env.NODE_ENV === "development") {
-    console.log(`[GHL punch-card][${clientSlug}] Incoming payload:`, body);
+  console.log("✅ Punch card webhook received");
+  console.log("📦 Body keys:", Object.keys(body));
+  console.log("📦 Body:", JSON.stringify(body, null, 2));
+
+  // ⚠️ TEMPORARY DEBUG — remove before going live
+  const isDebug = new URL(request.url).searchParams.get("debug") === "true";
+  if (isDebug) {
+    return NextResponse.json({
+      success: true,
+      debug: true,
+      client: clientSlug,
+      receivedBody: body,
+      bodyKeys: Object.keys(body),
+    });
   }
 
   const { contactId, productName } = body;
@@ -194,8 +206,9 @@ export async function POST(
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const { sessionsToAdd, membershipType, membershipStatus, expirationDays } =
-    productRule;
+    productRule!;
 
   const { apiToken, customFields: cf } = config;
 
@@ -247,7 +260,7 @@ export async function POST(
       membershipEndDate,
     });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Unexpected error.";
+    const message = err instanceof Error ? (err as Error).message : "Unexpected error.";
     console.error(`[GHL punch-card][${clientSlug}] Error:`, message);
     return NextResponse.json(
       { success: false, error: message },
