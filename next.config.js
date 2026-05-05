@@ -98,4 +98,8 @@ const nextConfig = {
   },
 };
 
+nextConfig.allowedDevOrigins = [
+  'dreamt-decimal-boastful.ngrok-free.dev',
+];
+
 module.exports = withBundleAnalyzer(nextConfig);
