@@ -1,20 +1,66 @@
-// app/gym/check-in/page.tsx
+// app/gym/[client]/check-in/page.tsx
+//
+// Route: /gym/[client]/check-in
+// Example: https://rivercitycreatives.com/gym/maximstrong/check-in
 
-import { headers } from "next/headers";
-import { resolveClientFromHost } from "@/lib/ghl/resolve-client";
+import { notFound } from "next/navigation";
 import CheckInForm from "./CheckInForm";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { getGHLClientConfig, ClientNotFoundError } from "@/lib/ghl/clients";
 
-export const metadata: Metadata = {
-  title: "Member Check-In | MaximStrong",
-  description: "Check in to your MaximStrong session.",
-  robots: { index: false, follow: false },
-};
+// ---------------------------------------------------------------------------
+// Metadata
+// ---------------------------------------------------------------------------
 
-export default async function GymCheckInPage() {
-  const host = (await headers()).get("host") ?? "";
-  const clientSlug = resolveClientFromHost(host) ?? "maximstrong";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ client: string }>;
+}): Promise<Metadata> {
+  const { client } = await params;
+  let name = "Gym";
+  try {
+    const config = getGHLClientConfig(client);
+    name = config.name;
+  } catch {
+    // Unknown or misconfigured client — notFound() will fire in the page body
+  }
+  return {
+    title: `Member Check-In | ${name}`,
+    description: `Check in to your ${name} session.`,
+    robots: { index: false, follow: false },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Page
+// ---------------------------------------------------------------------------
+
+export default async function GymCheckInPage({
+  params,
+}: {
+  params: Promise<{ client: string }>;
+}) {
+  const { client } = await params;
+
+  // In development, fall back to "maximstrong" if the slug is somehow absent.
+  // With a dynamic route param this won't normally happen, but it keeps local
+  // testing forgiving if the URL is mis-typed.
+  const clientSlug =
+    !client && process.env.NODE_ENV === "development" ? "maximstrong" : client;
+
+  // Validate against the client registry.
+  // ClientNotFoundError  → 404
+  // ClientConfigError    → 500 (missing env vars — let it bubble)
+  try {
+    getGHLClientConfig(clientSlug);
+  } catch (err) {
+    if (err instanceof ClientNotFoundError) {
+      notFound();
+    }
+    throw err;
+  }
 
   return (
     <main className="relative min-h-dvh flex flex-col items-center justify-start overflow-hidden">
@@ -64,7 +110,7 @@ export default async function GymCheckInPage() {
                 Member Check-In
               </h1>
               <p className="mt-1.5 text-sm text-zinc-400">
-                Enter your info to log today's session.
+                Enter your info to log today&apos;s session.
               </p>
             </div>
 
