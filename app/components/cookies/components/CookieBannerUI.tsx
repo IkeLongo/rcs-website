@@ -1,19 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Drawer } from "../ui/drawer";
 import { Button } from "../ui/button";
 import CookiePreferences from "./CookiePreferences";
 import { DEFAULT_PREFS, readPrefs, writePrefs } from "../lib/consent";
 
 export default function CookieBannerUI() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Hide on embedded gym admin pages (GHL iframe) or when ?embed=true
+  const isEmbedded =
+    searchParams.get("embed") === "true" ||
+    (pathname.includes("/gym/") && pathname.includes("/admin/"));
+
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
+    if (isEmbedded) return;
     const existing = readPrefs();
     if (!existing) setShowBanner(true);
-  }, []);
+  }, [isEmbedded]);
 
   const acceptAllCookies = () => {
     writePrefs({ preferences: true, analytics: true });
