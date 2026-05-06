@@ -8,6 +8,7 @@ export const maximstrongConfig = {
   webhookSecret: process.env.MAXIMSTRONG_GHL_WEBHOOK_SECRET,
   customFields: {
     lastCheckinDate:        "fTxcTPVTb40E30twhcdL",
+    lastPaymentMethod:      "AcLMLOe76yUdtexgjWUV", // GHL: Last Payment Method
     lastProductPurchased:   "PyPA1opgxj2Gdt9qpq5H",
     lastPurchaseDate:       "dtQXS8laogRJkulZQvvI",
     membershipEndDate:      "X335r50pLgt3jQfFeMZN",

@@ -22,13 +22,39 @@ interface GHLContact {
   [key: string]: unknown;
 }
 
+interface WebhookOrder {
+  source?: string;
+  sub_source?: string;
+  payment_method?: string;
+  paymentMethod?: string;
+  payment_gateway?: string;
+  paymentGateway?: string;
+  total_price?: number;
+  line_items?: unknown[];
+  [key: string]: unknown;
+}
+
+interface WebhookPayment {
+  method?: string;
+  gateway?: string;
+  card?: {
+    brand?: string;
+    last4?: string;
+  };
+  [key: string]: unknown;
+}
+
 interface WebhookBody {
   contactId?: string;
   contact_id?: string;
   productName?: string;
+  paymentMethod?: string;
+  order?: WebhookOrder;
+  payment?: WebhookPayment;
   customData?: {
     contactId?: string;
     productName?: string;
+    paymentMethod?: string;
     [key: string]: unknown;
   };
   [key: string]: unknown;
@@ -103,8 +129,64 @@ function addDays(date: Date, days: number): Date {
   return result;
 }
 
-function formatDate(date: Date): string {
-  return date.toISOString().split("T")[0]; // YYYY-MM-DD
+/**
+ * Formats a Date as YYYY-MM-DD using local time (NOT UTC).
+ * GHL date-picker fields store dates as UTC midnight; using toISOString()
+ * on a server in any UTC+ timezone (or near UTC midnight) shifts the
+ * calendar date back by one day.  Local time methods avoid that shift.
+ */
+function formatDateOnlyForGhl(date: Date): string {
+  const year  = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day   = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+// ---------------------------------------------------------------------------
+// Payment method resolution
+// ---------------------------------------------------------------------------
+
+/**
+ * Resolves the payment method from the GHL webhook body.
+ *
+ * Priority order:
+ *   1. body.payment.method  — primary source ("cash" | "gateway")
+ *   2. body.payment.gateway — gateway name (e.g. "stripe")
+ *   3. body.payment.card    — card details present → Card
+ *   4. body.order / body.customData / body.paymentMethod — legacy fallbacks
+ *
+ * Returns one of: "Card" | "Cash" | "Other"
+ */
+function resolvePaymentMethod(body: WebhookBody): string {
+  const method    = body.payment?.method?.trim().toLowerCase();
+  const gateway   = body.payment?.gateway?.trim().toLowerCase();
+  const cardBrand = body.payment?.card?.brand;
+  const cardLast4 = body.payment?.card?.last4;
+
+  if (method === "cash")    return "Cash";
+  if (method === "gateway") return "Card";
+  if (gateway === "stripe") return "Card";
+  if (cardBrand || cardLast4) return "Card";
+
+  // Legacy fallbacks (older payloads without a payment object)
+  const legacy = (
+    body.paymentMethod ||
+    body.customData?.paymentMethod ||
+    body.order?.payment_gateway ||
+    body.order?.paymentGateway ||
+    body.order?.source ||
+    ""
+  ).trim().toLowerCase();
+
+  if (!legacy)                    return "Other";
+  if (legacy.includes("stripe"))  return "Card";
+  if (legacy.includes("card"))    return "Card";
+  if (legacy.includes("cash"))    return "Cash";
+  if (legacy.includes("manual"))  return "Cash";
+  if (legacy.includes("zelle"))   return "Other";
+  if (legacy.includes("venmo"))   return "Other";
+  if (legacy.includes("paypal"))  return "Other";
+  return "Other";
 }
 
 // ---------------------------------------------------------------------------
@@ -261,6 +343,16 @@ export async function POST(
     body.customData?.productName ||
     body.productName;
 
+  const resolvedPaymentMethod = resolvePaymentMethod(body);
+
+  console.log("[membership-purchase] payment method debug", {
+    paymentMethodRaw: body.payment?.method,
+    gatewayRaw:       body.payment?.gateway,
+    cardBrand:        body.payment?.card?.brand,
+    cardLast4:        body.payment?.card?.last4,
+    resolvedPaymentMethod,
+  });
+
   console.log(`[GHL punch-card][${clientSlug}] Extracted contactId:`, contactId);
   console.log(`[GHL punch-card][${clientSlug}] Extracted productName:`, productName);
 
@@ -329,8 +421,19 @@ export async function POST(
 
     const newTotalPurchased = previousTotalPurchased + sessionsToSet;
     const today = new Date();
-    const membershipEndDate = formatDate(addDays(today, expirationDays));
-    const lastPurchaseDate = formatDate(today);
+    const membershipEndDateObj = addDays(today, expirationDays);
+    const membershipEndDate = formatDateOnlyForGhl(membershipEndDateObj);
+    const lastPurchaseDate  = formatDateOnlyForGhl(today);
+
+    console.log("[membership-purchase] date debug", {
+      nowRaw:                today,
+      nowIso:                today.toISOString(),
+      lastPurchaseDateForGhl: lastPurchaseDate,
+      membershipEndDateRaw:  membershipEndDateObj,
+      membershipEndDateIso:  membershipEndDateObj.toISOString(),
+      membershipEndDateForGhl: membershipEndDate,
+      expirationDays,
+    });
 
     console.log(`[GHL purchase][${clientSlug}] newBalance:`, newBalance, "membershipType:", membershipType);
 
@@ -343,6 +446,7 @@ export async function POST(
       { id: cf.lastPurchaseDate,       field_value: lastPurchaseDate },
       { id: cf.lastProductPurchased,   field_value: productName },
       { id: cf.membershipEndDate,      field_value: membershipEndDate },
+      { id: cf.lastPaymentMethod,      field_value: resolvedPaymentMethod },
     ];
 
     await updateGHLContact(contactId, apiToken, fieldsToUpdate);
@@ -357,6 +461,7 @@ export async function POST(
       client: config.slug,
       contactId,
       productName,
+      paymentMethod: resolvedPaymentMethod,
       previousMembershipType,
       previousBalance,
       newBalance,
