@@ -27,14 +27,37 @@ function statusPriority(m: MemberRecord): number {
   return 7;
 }
 
-function fmtDate(iso: string | null): string {
-  if (!iso) return "—";
+function fmtDate(value: string | null): string {
+  if (!value) return "—";
+
+  const trimmed = value.trim();
+  if (!trimmed) return "—";
+
+  let dateKey: string | null = null;
+
+  if (/^\d+$/.test(trimmed)) {
+    // Unix timestamp in ms
+    dateKey = new Date(Number(trimmed)).toISOString().slice(0, 10);
+  } else if (/^\d{4}-\d{2}-\d{2}/.test(trimmed)) {
+    // ISO date string — take the date portion as-is, no timezone conversion
+    dateKey = trimmed.slice(0, 10);
+  } else {
+    const parsed = new Date(trimmed);
+    if (!Number.isNaN(parsed.getTime())) {
+      dateKey = parsed.toISOString().slice(0, 10);
+    }
+  }
+
+  if (!dateKey) return "—";
+
+  const [year, month, day] = dateKey.split("-").map(Number);
+
+  // Construct with year/month/day so no UTC→local offset is applied
   return new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Chicago",
     month: "short",
     day: "numeric",
     year: "numeric",
-  }).format(new Date(iso));
+  }).format(new Date(year, month - 1, day));
 }
 
 function rowAccent(m: MemberRecord): string {
