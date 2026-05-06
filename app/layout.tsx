@@ -2,7 +2,7 @@
 
 import AnalyticsGA4 from "@/app/components/analytics/analytics-ga4";
 import ClarityScript from "@/app/components/analytics/microsoft-clarity";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { AnalyticsProvider } from "@/app/components/analytics/analytics-provider";
 import CookieBanner from "@/app/components/cookies/components/CookieBannerUI";
 import { Maven_Pro, Source_Sans_3 } from "next/font/google";
@@ -61,7 +61,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${mavenPro.className} ${sourceSans3.className} antialiased overflow-x-hidden bg-navy-500`}
       >
         <AnalyticsGA4 />
-        <CookieBanner />
+        <Suspense fallback={null}>
+          <CookieBanner />
+        </Suspense>
         <AnalyticsProvider>
           {children}
         </AnalyticsProvider>
