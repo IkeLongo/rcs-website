@@ -94,6 +94,25 @@ const nextConfig = {
           },
         ],
       },
+      // Allow GoHighLevel / LeadConnector to embed the gym admin members page in an iframe.
+      // Scoped to this route only — does not weaken any other page.
+      {
+        source: "/gym/:client/admin/members",
+        headers: [
+          {
+            // CSP frame-ancestors takes precedence over X-Frame-Options in modern browsers.
+            key: "Content-Security-Policy",
+            value:
+              "frame-ancestors 'self' https://*.gohighlevel.com https://*.leadconnectorhq.com https://*.msgsndr.com;",
+          },
+          {
+            // Some older browsers still honour X-Frame-Options; ALLOWALL opts out of
+            // same-origin restriction for this route without affecting the rest of the site.
+            key: "X-Frame-Options",
+            value: "ALLOWALL",
+          },
+        ],
+      },
     ];
   },
 };
