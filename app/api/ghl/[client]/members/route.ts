@@ -37,6 +37,7 @@ export interface MemberRecord {
   email?: string;
   membershipType?: string;
   membershipStatus?: string;
+  lastPaymentMethod: string | null;
   sessionsRemaining: number;
   totalSessionsUsed: number;
   lastCheckInDate: string | null;
@@ -91,6 +92,7 @@ function normalizeContact(
   const rawLastCheckinDate      = getFieldValue(contact, cf.lastCheckinDate);
   const rawMembershipEndDate    = getFieldValue(contact, cf.membershipEndDate);
   const rawLastProductPurchased = getFieldValue(contact, cf.lastProductPurchased);
+  const rawLastPaymentMethod    = getFieldValue(contact, cf.lastPaymentMethod);
 
   const lastCheckinDateObj   = parseGhlDateValue(rawLastCheckinDate);
   const membershipEndDateObj = parseGhlDateValue(rawMembershipEndDate);
@@ -100,6 +102,11 @@ function normalizeContact(
   const lastProductPurchased =
     rawLastProductPurchased !== null && rawLastProductPurchased !== ""
       ? String(rawLastProductPurchased)
+      : null;
+
+  const lastPaymentMethod =
+    rawLastPaymentMethod !== null && rawLastPaymentMethod !== ""
+      ? String(rawLastPaymentMethod)
       : null;
 
   // isNeedsSetup: contact is missing all meaningful membership data
@@ -145,6 +152,7 @@ function normalizeContact(
     email:      typeof contact.email === "string" && contact.email ? contact.email : undefined,
     membershipType,
     membershipStatus,
+    lastPaymentMethod,
     sessionsRemaining,
     totalSessionsUsed,
     lastCheckInDate,

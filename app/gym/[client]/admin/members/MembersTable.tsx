@@ -142,7 +142,7 @@ function CopyButton({ value, copyKey }: { value: string; copyKey: string }) {
 }
 
 const COLUMN_HEADERS = [
-  "Name", "Status", "Type",
+  "Name", "Status", "Type", "Payment",
   "Sessions", "Total Used", "End Date", "Last Check-In",
   "Phone", "Email",
 ];
@@ -203,7 +203,8 @@ export default function MembersTable({ members }: { members: MemberRecord[] }) {
         (m.phone ?? "").toLowerCase().includes(q) ||
         (m.email ?? "").toLowerCase().includes(q) ||
         (m.membershipType ?? "").toLowerCase().includes(q) ||
-        (m.membershipStatus ?? "").toLowerCase().includes(q)
+        (m.membershipStatus ?? "").toLowerCase().includes(q) ||
+        (m.lastPaymentMethod ?? "").toLowerCase().includes(q)
       );
     });
 
@@ -313,6 +314,11 @@ export default function MembersTable({ members }: { members: MemberRecord[] }) {
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap"><StatusBadge m={m} /></td>
                 <td className="px-4 py-3 text-zinc-300 whitespace-nowrap">{m.membershipType ?? "—"}</td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  {m.lastPaymentMethod
+                    ? <span className="text-zinc-300">{m.lastPaymentMethod}</span>
+                    : <span className="text-zinc-600">Unknown</span>}
+                </td>
                 <td className="px-4 py-3 text-center whitespace-nowrap"><SessionsCell m={m} /></td>
                 <td className="px-4 py-3 text-center text-zinc-400 whitespace-nowrap">
                   {m.isNeedsSetup ? <span className="text-zinc-600">—</span> : m.totalSessionsUsed}
@@ -342,7 +348,7 @@ export default function MembersTable({ members }: { members: MemberRecord[] }) {
           })}
           {sorted.length === 0 && (
             <tr>
-              <td colSpan={9} className="px-4 py-10 text-center text-zinc-600 text-sm">
+              <td colSpan={10} className="px-4 py-10 text-center text-zinc-600 text-sm">
                 No members found.
               </td>
             </tr>
