@@ -110,7 +110,7 @@ const portfolioItems: PortfolioItem[] = [
   {
     image: "/portfolio-oblate-academy-image.webp",
     name: "Oblate Academy",
-    link: "https://oblateacademy.com",
+    link: "https://oblateacademy.org",
     description: "Catholic education platform designed for children, teachers and families.",
     icon: <IconCross className="h-4 w-4 text-neutral-500" />,
     badgeColor: "gray",
