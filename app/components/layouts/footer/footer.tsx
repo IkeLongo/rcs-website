@@ -229,7 +229,20 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               © {year} All Rights Reserved
             </p>
           </div>
-          <div className="flex items-center justify-center pb-12">
+          <div className="flex items-center justify-start pb-12">
+            <Link
+              href="https://www.bbb.org/us/tx/san-antonio/profile/web-design/rivercity-creatives-0825-1000257747/#sealclick"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
+              <Image
+                src="https://seal-austin.bbb.org/seals/blue-seal-125-145-bbb-1000257747.png"
+                alt="RiverCity Creatives BBB Business Review"
+                width={125}
+                height={145}
+                className="w-[80px] h-auto"
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -336,7 +349,20 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
             © {year} All Rights Reserved
           </p>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center pt-4">
+          <Link
+            href="https://www.bbb.org/us/tx/san-antonio/profile/web-design/rivercity-creatives-0825-1000257747/#sealclick"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            <Image
+              src="https://seal-austin.bbb.org/seals/blue-seal-125-145-bbb-1000257747.png"
+              alt="RiverCity Creatives BBB Business Review"
+              width={125}
+              height={145}
+              className="w-[80px] h-auto"
+            />
+          </Link>
         </div>
       </div>
       {/* <ScrollToTopButton /> */}

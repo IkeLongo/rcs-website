@@ -32,6 +32,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.sanity.io",
       },
+      {
+        protocol: "https",
+        hostname: "seal-austin.bbb.org",
+      },
     ],
 
     // Helps prevent Next from generating huge variants
