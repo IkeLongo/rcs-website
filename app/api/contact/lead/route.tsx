@@ -12,7 +12,13 @@ export async function POST(request: Request) {
 		const body = await request.json();
 		// console.log("[LEAD API] Received request body:", body);
 		
-		const { name, email, phone, company, message, source, status, smsConsent } = body;
+		const { name, email, phone, company, message, source, status, smsConsent, _hp, _t } = body;
+
+		// Silently accept spam so bots don't know they're blocked
+		if (_hp || !_t || Date.now() - Number(_t) < 3000) {
+			return NextResponse.json({ message: 'Contact received and confirmation email sent.' });
+		}
+		
 		const tags = smsConsent ? ["website-contact-form-inquiry", "sms-consent-given"] : ["website-contact-form-inquiry"];
 		// console.log("[LEAD API] Destructured message:", message);
 		// console.log("[LEAD API] Message type:", typeof message);

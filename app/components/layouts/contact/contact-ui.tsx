@@ -18,6 +18,12 @@ export function ContactFormGridWithDetails() {
   const [consentChecked, setConsentChecked] = useState(false);
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot
+  const loadTimeRef = React.useRef<number>(0);
+
+  React.useEffect(() => {
+    loadTimeRef.current = Date.now();
+  }, []);
 
   function fireConfetti(durationMs = 1200) {
     const end = Date.now() + durationMs;
@@ -41,6 +47,20 @@ export function ContactFormGridWithDetails() {
     setPhoneError("");
     setEmailError("");
 
+    // Honeypot: silently fake success so bots don't know they're blocked
+    if (website) {
+      setStatus("success");
+      setSubmitted(true);
+      fireConfetti(2000);
+      return;
+    }
+
+    // Timing check: bots submit in milliseconds
+    if (Date.now() - loadTimeRef.current < 3000) {
+      setStatus("error");
+      return;
+    }
+
     // Validate phone
     if (!isValidPhoneNumber(phone)) {
       setPhoneError("Phone number must be 10 digits");
@@ -56,16 +76,17 @@ export function ContactFormGridWithDetails() {
     const formData = { name, email, phone, company, message };
     try {
       // Send admin notification
+      const spamPayload = { _hp: website, _t: loadTimeRef.current };
       const contactRes = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, company, message }),
+        body: JSON.stringify({ name, email, phone, company, message, ...spamPayload }),
       });
       // Send client confirmation and store contact
       const leadRes = await fetch("/api/contact/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, company, message, smsConsent: consentChecked }),
+        body: JSON.stringify({ name, email, phone, company, message, smsConsent: consentChecked, ...spamPayload }),
       });
       if (contactRes.ok && leadRes.ok) {
         setStatus("success");
@@ -138,6 +159,19 @@ export function ContactFormGridWithDetails() {
       <div className="relative mx-auto flex w-full max-w-2xl flex-col items-start gap-4 overflow-hidden rounded-3xl bg-gradient-to-b from-blue-100 to-alice-blue-500 p-4 sm:p-10">
         <Grid size={20} />
         <form className="w-full" onSubmit={handleSubmit} action="javascript:void(0);">
+          {/* Honeypot — hidden from humans, bots will fill it */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}>
+            <label htmlFor="website">Website</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </div>
           <div className="relative z-20 mb-4 w-full">
             <label
               className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"

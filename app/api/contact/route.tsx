@@ -8,7 +8,12 @@ export async function POST(req: Request) {
 		const body = await req.json();
 		// console.log("[CONTACT API] Received request body:", body);
 		
-		const { name, email, phone, company, message } = body;
+		const { name, email, phone, company, message, _hp, _t } = body;
+
+		// Silently accept spam so bots don't know they're blocked
+		if (_hp || !_t || Date.now() - Number(_t) < 3000) {
+			return NextResponse.json({ success: true });
+		}
 		// console.log("[CONTACT API] Destructured message:", message);
 		// console.log("[CONTACT API] Message type:", typeof message);
 		// console.log("[CONTACT API] Message length:", message?.length);
