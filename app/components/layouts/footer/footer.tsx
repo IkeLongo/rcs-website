@@ -235,7 +235,8 @@ export default function Footer( {bgGradientClass}: FooterProps ) {
               target="_blank"
               rel="nofollow noopener noreferrer"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="https://seal-austin.bbb.org/seals/blue-seal-125-145-bbb-1000257747.png"
                 alt="RiverCity Creatives BBB Business Review"
                 width={125}
